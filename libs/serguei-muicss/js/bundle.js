@@ -1234,7 +1234,29 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		};
 		toggleSidedrawerVisibility();
 
-		var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
+		var handleSidedrawerCategories = function (evt) {
+			evt.stopPropagation();
+			evt.preventDefault();
+			var _this = this;
+			if (_this.nextElementSibling.style.display === "none") {
+				_this.nextElementSibling.style.display = "block";
+			} else {
+				_this.nextElementSibling.style.display = "none";
+			}
+		};
+		var toggleSidedrawerCategories = function () {
+			var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
+			if (sidedrawerCategories) {
+				for (var i = 0, l = sidedrawerCategories[_length]; i < l; i += 1) {
+					if (!sidedrawerCategories[i].classList.contains(isBindedClass) && sidedrawerCategories[i].nextElementSibling.nodeName.toLowerCase() === "ul" && sidedrawerCategories[i].nextElementSibling.nodeType === 1) {
+						sidedrawerCategories[i].nextElementSibling.style.display = "none";
+						sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategories);
+						sidedrawerCategories[i].classList.contains(isBindedClass);
+					}
+				}
+			}
+		};
+		toggleSidedrawerCategories();
 
 		var handleSidedrawerCategories = function (evt) {
 			evt.stopPropagation();
@@ -1247,12 +1269,19 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			}
 		};
 		var toggleSidedrawerCategories = function () {
-			if (sidedrawerCategories) {
-				for (var i = 0, l = sidedrawerCategories[_length]; i < l; i += 1) {
-					if (!sidedrawerCategories[i].classList.contains(isBindedClass) && sidedrawerCategories[i].nextElementSibling.nodeName.toLowerCase() === "ul" && sidedrawerCategories[i].nextElementSibling.nodeType === 1) {
-						sidedrawerCategories[i].nextElementSibling.style.display = "none";
-						sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategories);
-						sidedrawerCategories[i].classList.contains(isBindedClass);
+			var links = document[getElementsByTagName]("a") || "";
+			var dropdownButtons = [];
+			for (var j = 0, m = links[_length]; j < m; j += 1) {
+				if (links[j].dataset.muiToggle) {
+					dropdownButtons.push(links[j]);
+				}
+			}
+			if (dropdownButtons) {
+				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
+					if (!dropdownButtons[i].classList.contains(isBindedClass) && dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" && dropdownButtons[i].nextElementSibling.nodeType === 1) {
+						dropdownButtons[i].nextElementSibling.style.display = "none";
+						dropdownButtons[i][_addEventListener]("click", handleSidedrawerCategories);
+						dropdownButtons[i].classList.contains(isBindedClass);
 					}
 				}
 			}
@@ -1261,11 +1290,13 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	};
 
 	/* var scripts = [
+ 	"../../fonts/material-design-icons/3.0.1/css/material-icons.css",
  	"../../fonts/MaterialDesign-Webfont/2.2.43/css/materialdesignicons.css",
  	"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
  	"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
- 	"../../cdn/surface/1.02/css/surface_styles.css",
- 	"../../cdn/highlight.js/9.12.0/css/hljs.css"
+ 	"./node_modules/normalize.css/normalize.css",
+ 	"../../cdn/highlight.js/9.12.0/css/hljs.css",
+ 	"./bower_components/mui/src/sass/mui.css"
  ]; */
 
 	var scripts = [
@@ -1297,6 +1328,8 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	}
 
 	/* var scripts = [
+ 	"./node_modules/jquery/dist/jquery.js",
+ 	"./bower_components/mui/packages/cdn/js/mui.js",
  	"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
  	"../../cdn/verge/1.9.1/js/verge.fixed.js"
  ]; */

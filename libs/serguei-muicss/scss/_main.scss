@@ -19,14 +19,13 @@ html {
 }
 
 body {
-
-	/* font-family: "Roboto", $font-family-local-sans-regular;
+	font-family: "Roboto", $font-family-local-sans-regular;
 	font-weight: 400;
-	font-size: 1.000rem;
-	line-height: 1.333rem;
+	/* font-size: 1.000rem;
+	line-height: 1.333rem; */
 	width: 100%;
 	color: $color-hex-body-text;
-	background-color: $color-hex-page-bg; */
+	background-color: $color-hex-page-bg;
 	background-color: #F2F2F2;
 	text-size-adjust: none;
 	text-rendering: optimizeLegibility;
@@ -114,6 +113,10 @@ button {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+h1 {
+	font-family: "Roboto Mono", $font-family-local-sans-regular;
 }
 
 /*!
@@ -219,9 +222,10 @@ button {
 }
 
 .mui-dropdown__menu li a {
-	height: 50px;
+	/* height: 50px;
 	line-height: 50px;
-	padding: 0 15px;
+	padding: 0 15px; */
+	padding: 15px 22px;
 }
 
 #sidedrawer,
@@ -301,24 +305,34 @@ button {
 	padding-top: 0;
 }
 
-#sidedrawer strong {
+#sidedrawer li a,
+#sidedrawer li > strong {
 	display: block;
 	padding: 15px 22px;
 	cursor: pointer;
-}
-
-#sidedrawer strong:hover {
-	background-color: #E0E0E0;
-}
-
-#sidedrawer strong + ul > li {
-	padding: 6px 0px;
-}
-
-#sidedrawer strong + ul > li a:focus,
-#sidedrawer strong + ul > li a:hover,
-#sidedrawer strong + ul > li a:active {
 	text-decoration: none;
+}
+
+#sidedrawer li a:focus,
+#sidedrawer li a:hover,
+#sidedrawer li a:active,
+#sidedrawer li > strong:focus,
+#sidedrawer li > strong:hover,
+#sidedrawer li > strong:active {
+	text-decoration: none;
+	background-color: #EEEEEE;
+}
+
+#sidedrawer li strong + ul > li a {
+	padding: 6px 0px;
+	background-color: transparent;
+}
+
+#sidedrawer li strong + ul > li a:focus,
+#sidedrawer li strong + ul > li a:hover,
+#sidedrawer li strong + ul > li a:active {
+	text-decoration: none;
+	background-color: transparent;
 }
 
 #sidedrawer.active {

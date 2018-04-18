@@ -424,6 +424,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	var docImplem = document.implementation || "";
 	var docBody = document.body || "";
 
+	var classList = "classList";
 	var createElement = "createElement";
 	var createElementNS = "createElementNS";
 	var defineProperty = "defineProperty";
@@ -453,6 +454,8 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 	progressBar.increase(20);
 
+	docBody[classList].add("hide-sidedrawer");
+
 	var getHTTP = function(force) {
 		var any = force || "";
 		var locationProtocol = root.location.protocol || "";
@@ -464,7 +467,6 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	var run = function() {
 
 		var appendChild = "appendChild";
-		var classList = "classList";
 		var cloneNode = "cloneNode";
 		var createContextualFragment = "createContextualFragment";
 		var createDocumentFragment = "createDocumentFragment";
@@ -1145,32 +1147,6 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		};
 		initRouting();
 
-		var handleNavLink = function (e, checkbox) {
-			checkbox.checked = false;
-			e[classList].add(isBindedClass);
-		};
-		var hideNavOnNavigating = function () {
-			var nav = document[getElementsByClassName]("nav--super-vertical")[0] || "";
-			var checkbox = document[getElementById]("nav--super-vertical-responsive") || "";
-			var links;
-			if (nav) {
-				links = nav[getElementsByTagName]("a") || "";
-				if (links && checkbox) {
-					for (var i = 0, l = links[_length]; i < l; i += 1) {
-						if (!links[i][classList].contains(isBindedClass)) {
-							links[i][_addEventListener]("click", handleNavLink.bind(null, links[i], checkbox));
-						}
-					}
-				}
-			}
-			if (appContentParent) {
-				if (!appContentParent[classList].contains(isBindedClass)) {
-					appContentParent[_addEventListener]("click", handleNavLink.bind(null, appContentParent, checkbox));
-				}
-			}
-		};
-		hideNavOnNavigating();
-
 		/* jQuery(function ($) {
 			var $bodyEl = $('body'),
 			$sidedrawerEl = $('#sidedrawer');
@@ -1213,18 +1189,22 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
+		var sidedrawerActiveClass = "active";
+		var hideSidedrawerClass = "hide-sidedrawer";
+
 		var handleMenuButton = function (evt) {
 			evt.stopPropagation();
 			evt.preventDefault();
-			var hideSidedrawerClass = "hide-sidedrawer";
-			var activeClass = "active";
 			if (sidedrawer) {
-				if (!docBody.classList.contains(hideSidedrawerClass)) {
-					docBody.classList.add(hideSidedrawerClass);
-					sidedrawer.classList.add(activeClass);
+				if (!docBody[classList].contains(hideSidedrawerClass)) {
+					docBody[classList].add(hideSidedrawerClass);
 				} else {
-					docBody.classList.remove(hideSidedrawerClass);
-					sidedrawer.classList.remove(activeClass);
+					docBody[classList].remove(hideSidedrawerClass);
+				}
+				if (!sidedrawer[classList].contains(sidedrawerActiveClass)) {
+					sidedrawer[classList].add(sidedrawerActiveClass);
+				} else {
+					sidedrawer[classList].remove(sidedrawerActiveClass);
 				}
 			}
 		};
@@ -1241,9 +1221,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		};
 		toggleSidedrawerVisibility();
 
-		var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
-
-		var handleSidedrawerCategories = function (evt) {
+		var handleSidedrawerCategoryLink = function (evt) {
 			evt.stopPropagation();
 			evt.preventDefault();
 			var _this = this;
@@ -1253,7 +1231,8 @@ loadJsCss, Timers, ToProgress, require, verge*/
 				_this.nextElementSibling.style.display = "none";
 			}
 		};
-		var toggleSidedrawerCategories = function () {
+		var toggleSidedrawerCategoryItemsVisibility = function () {
+			var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
 			if (sidedrawerCategories) {
 				for (var i = 0, l = sidedrawerCategories[_length]; i < l; i += 1) {
 					if (!sidedrawerCategories[i].classList.contains(isBindedClass) &&
@@ -1261,21 +1240,80 @@ loadJsCss, Timers, ToProgress, require, verge*/
 						sidedrawerCategories[i].nextElementSibling.nodeType === 1
 						) {
 							sidedrawerCategories[i].nextElementSibling.style.display = "none";
-							sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategories);
+							sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategoryLink);
 							sidedrawerCategories[i].classList.contains(isBindedClass);
 					}
 				}
 			}
 		};
-		toggleSidedrawerCategories();
+		toggleSidedrawerCategoryItemsVisibility();
+
+		var handleSidedrawerCategorySubLink = function () {
+			docBody[classList].add(hideSidedrawerClass);
+			sidedrawer[classList].remove(sidedrawerActiveClass);
+		};
+		var hideSidedrawerOnNavigating = function () {
+			var links;
+			if (sidedrawer) {
+				links = sidedrawer[getElementsByTagName]("a") || "";
+				if (links) {
+					for (var i = 0, l = links[_length]; i < l; i += 1) {
+						if (!links[i][classList].contains(isBindedClass)) {
+							links[i][_addEventListener]("click", handleSidedrawerCategorySubLink);
+						}
+					}
+				}
+			}
+			if (appContentParent) {
+				if (!appContentParent[classList].contains(isBindedClass)) {
+					appContentParent[_addEventListener]("click", handleSidedrawerCategorySubLink);
+				}
+			}
+		};
+		hideSidedrawerOnNavigating();
+
+		var handleDropdownButton = function (evt) {
+			evt.stopPropagation();
+			evt.preventDefault();
+			var _this = this;
+			if (_this.nextElementSibling.style.display === "none") {
+				_this.nextElementSibling.style.display = "block";
+			} else {
+				_this.nextElementSibling.style.display = "none";
+			}
+		};
+		var toggleDropdownsVisibility = function () {
+			var links = document[getElementsByTagName]("a") || "";
+			var dropdownButtons = [];
+			for (var j = 0, m = links[_length]; j < m; j += 1) {
+				if (links[j].dataset.muiToggle) {
+					dropdownButtons.push(links[j]);
+				}
+			}
+			if (dropdownButtons) {
+				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
+					if (!dropdownButtons[i].classList.contains(isBindedClass) &&
+						dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" &&
+						dropdownButtons[i].nextElementSibling.nodeType === 1
+						) {
+							dropdownButtons[i].nextElementSibling.style.display = "none";
+							dropdownButtons[i][_addEventListener]("click", handleDropdownButton);
+							dropdownButtons[i].classList.contains(isBindedClass);
+					}
+				}
+			}
+		};
+		toggleDropdownsVisibility();
 	};
 
 	/* var scripts = [
+		"../../fonts/material-design-icons/3.0.1/css/material-icons.css",
 		"../../fonts/MaterialDesign-Webfont/2.2.43/css/materialdesignicons.css",
 		"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
 		"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
-		"../../cdn/surface/1.02/css/surface_styles.css",
-		"../../cdn/highlight.js/9.12.0/css/hljs.css"
+		"./node_modules/normalize.css/normalize.css",
+		"../../cdn/highlight.js/9.12.0/css/hljs.css",
+		"./bower_components/mui/src/sass/mui.css"
 	]; */
 
 	var scripts = [
@@ -1328,6 +1366,8 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	}
 
 	/* var scripts = [
+		"./node_modules/jquery/dist/jquery.js",
+		"./bower_components/mui/packages/cdn/js/mui.js",
 		"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
 		"../../cdn/verge/1.9.1/js/verge.fixed.js"
 	]; */

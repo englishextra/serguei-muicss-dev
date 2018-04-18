@@ -6,7 +6,7 @@ module.exports = {
 		"js/vendors": {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
-				"./bower_components/mui/packages/cdn/js/mui.js",
+				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js"
 			],
@@ -24,7 +24,7 @@ module.exports = {
 		"js/vendors.min": {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
-				"./bower_components/mui/packages/cdn/js/mui.js",
+				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js"
 			],
