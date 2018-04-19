@@ -1119,9 +1119,9 @@ loadJsCss, Timers, ToProgress, require, verge*/
 							}
 						}
 						if (false === isNotfound) {
-							var targetObject = locationHash ? isValidId(locationHash, true) ? document[getElementById](locationHash.replace(/^#/, "")) || "" : "" : "";
-							if (targetObject) {
-								scroll2Top(findPos(targetObject).top, 10000);
+							var targetObj = locationHash ? isValidId(locationHash, true) ? document[getElementById](locationHash.replace(/^#/, "")) || "" : "" : "";
+							if (targetObj) {
+								scroll2Top(findPos(targetObj).top, 10000);
 							} else {
 								var notfoundUrl = routesJsonObj.notfound.url;
 								var notfoundTitle = routesJsonObj.notfound[title];

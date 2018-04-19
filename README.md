@@ -1,2 +1,2 @@
 # serguei-muicss-dev
-Developing personal website with https://github.com/mildrenben/surface. Material Design, CSS only framework.
+Developing personal website with https://github.com/muicss/mui. Lightweight CSS framework https://www.muicss.com.
