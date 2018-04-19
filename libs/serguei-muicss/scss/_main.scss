@@ -256,7 +256,8 @@ h1 {
 	left: -200px;
 	overflow: auto;
 	z-index: 2;
-	background-color: #fff;
+	color: #FAFAFA;
+	background-color: #212121;
 	transition: transform 0.2s;
 }
 
@@ -320,7 +321,7 @@ h1 {
 #sidedrawer li > strong:hover,
 #sidedrawer li > strong:active {
 	text-decoration: none;
-	background-color: #EEEEEE;
+	background-color: #424242;
 }
 
 #sidedrawer li strong + ul > li a {

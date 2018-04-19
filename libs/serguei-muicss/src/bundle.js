@@ -1304,6 +1304,25 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			}
 		};
 		toggleDropdownsVisibility();
+
+		var hideAllDropdowns = function () {
+			var dropdowns = document[getElementsByClassName]("mui-dropdown__menu") || "";
+			if (dropdowns) {
+				for (var i = 0, l = dropdowns[_length]; i < l; i += 1) {
+					if (dropdowns[i].style.display !== "none") {
+						dropdowns[i].style.display = "none";
+					}
+				}
+			}
+		};
+		var hideAllDropdownsOnNavigating = function () {
+			if (appContentParent) {
+				if (!appContentParent[classList].contains(isBindedClass)) {
+					root[_addEventListener]("click", hideAllDropdowns);
+				}
+			}
+		};
+		hideAllDropdownsOnNavigating();
 	};
 
 	/* var scripts = [
