@@ -117,6 +117,7 @@ button {
 
 h1 {
 	font-family: "Roboto Mono", $font-family-local-sans-regular;
+	color: #616161;
 }
 
 /*!
@@ -131,14 +132,14 @@ h1 {
  * mui-appbar
  */
 .mui-appbar {
-	color: #FFFFFF;
+	color: #616161;
+	background-color: #E8E8E8;
 }
 
 .mui-appbar__ui-button {
 	display: block;
 	width: 56px;
 	height: 56px;
-	color: #FFFFFF;
 	cursor: pointer;
 	/*! @see {@link https://www.w3.org/Style/Examples/007/center.en.html} */
 	margin: 0;
@@ -148,7 +149,6 @@ h1 {
 }
 
 .mui-appbar__ui-button:hover {
-	color: #FFFFFF;
 	text-decoration: none;
 }
 
@@ -170,9 +170,14 @@ h1 {
 }
 
 .mui-appbar__ui-button--menu {
-	float: left;
+	/* float: left;
 	position: absolute;
+	left: 0; */
+	position: absolute;
+	top: 0;
 	left: 0;
+	transform: translate(0);
+	margin: 0;
 }
 
 .mui-appbar__ui-button--vk {
@@ -244,21 +249,30 @@ h1 {
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 2;
-	transition: left 0.2s;
+	/* z-index: 2; */
+	transition: left 0.2s, top 0.4s ease-out;
 }
 
-#sidedrawer {
-	position: fixed;
+#header.is-fixed {
+	/* position: fixed; */
 	top: 0;
-	bottom: 0;
-	width: 200px;
-	left: -200px;
-	overflow: auto;
-	z-index: 2;
-	color: #FAFAFA;
-	background-color: #212121;
-	transition: transform 0.2s;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#header.is-hidden {
+	top: -56px;
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+	#header.is-hidden {
+		top: -48px;
+	}
+}
+
+@media (min-width: 480px) {
+	#header.is-hidden {
+		top: -64px;
+	}
 }
 
 #content-wrapper {
@@ -273,21 +287,36 @@ h1 {
 
 #footer {
 	height: 160px;
-	background-color: #0288D1;
-	color: #fff;
+	color: #616161;
+	background-color: #E8E8E8;
 	box-sizing: border-box;
 	margin-left: 0px;
 	transition: margin-left 0.2s;
 }
 
 #footer a {
-	color: #fff;
 	text-decoration: underline;
 }
 
 /*!
  * sidedrawer
  */
+#sidedrawer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 200px;
+	left: -200px;
+	overflow: auto;
+	z-index: 2;
+	color: #616161;
+	background-color: #FFFFFF;
+	transition: transform 0.2s;
+	-webkit-transform:translateZ(0);
+	-webkit-backface-visibility:hidden;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 #sidedrawer-brand {
 	padding-left: 20px;
 }
@@ -321,11 +350,15 @@ h1 {
 #sidedrawer li > strong:hover,
 #sidedrawer li > strong:active {
 	text-decoration: none;
-	background-color: #424242;
+	background-color: #EEEEEE;
 }
 
 #sidedrawer li strong + ul > li a {
-	padding: 6px 0px;
+	padding-left: 0px;
+}
+
+#sidedrawer li strong + ul > li a {
+	/* padding: 6px 0px; */
 	background-color: transparent;
 }
 
@@ -340,22 +373,28 @@ h1 {
 	transform: translate(200px);
 }
 
+#sidedrawer .mui-appbar__ui-button--menu {
+	position: relative;
+	float: right;
+	color: inherit;
+}
+
 @media (min-width:768px) {
-	#header {
+	/* #header {
 		left: 200px;
-	}
+	} */
 
 	#sidedrawer {
 		transform: translate(200px);
 	}
 
-	#content-wrapper {
+	/* #content-wrapper {
 		margin-left: 200px;
-	}
+	} */
 
-	#footer {
+	/* #footer {
 		margin-left: 200px;
-	}
+	} */
 
 	body.hide-sidedrawer #header {
 		left: 0;

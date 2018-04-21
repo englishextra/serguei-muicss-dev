@@ -89,9 +89,18 @@
 					<title>more</title>
 					<path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
 				</symbol>
+				<symbol id="ui-icon-close" viewBox="0 0 24 24">
+					<title>more</title>
+					<path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+				</symbol>
 			</defs>
 		</svg>
 		<nav id="sidedrawer" class="mui--no-user-select">
+			<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--menu sidedrawer-toggle">
+				<svg class="ui-icon">
+					<use xlink:href="#ui-icon-close"></use>
+				</svg>
+			</a>
 			<div id="sidedrawer-brand" class="mui--appbar-line-height">
 				<span class="mui--text-title">Brand.io</span>
 			</div>
@@ -113,16 +122,35 @@
 						<li><a href="#/about">About</a></li>
 					</ul>
 				</li>
+				<li>
+					<strong>Category 1</strong>
+					<ul>
+						<li><a href="#/home">Home</a></li>
+						<li><a href="#/about">About</a></li>
+					</ul>
+				</li>
+				<li>
+					<strong>Category 2</strong>
+					<ul>
+						<li><a href="#/home">Home</a></li>
+						<li><a href="#/about">About</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 		<header id="header">
 			<nav id="appbar" class="mui-appbar mui-container-fluid mui--appbar-line-height">
-				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--menu js-show-sidedrawer sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block mui-appbar__ui-button--menu">
+				<!-- <a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--menu js-show-sidedrawer sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block mui-appbar__ui-button--menu">
 					<svg class="ui-icon">
 						<use xlink:href="#ui-icon-menu"></use>
 					</svg>
 				</a>
 				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--menu js-hide-sidedrawer sidedrawer-toggle mui--hidden-xs mui--hidden-sm">
+					<svg class="ui-icon">
+						<use xlink:href="#ui-icon-menu"></use>
+					</svg>
+				</a> -->
+				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--menu sidedrawer-toggle">
 					<svg class="ui-icon">
 						<use xlink:href="#ui-icon-menu"></use>
 					</svg>

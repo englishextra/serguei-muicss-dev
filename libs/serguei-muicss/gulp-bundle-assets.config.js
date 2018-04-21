@@ -8,7 +8,9 @@ module.exports = {
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
-				"../../cdn/verge/1.9.1/js/verge.fixed.js"
+				"../../cdn/verge/1.9.1/js/verge.fixed.js",
+				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
+				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
 			],
 			"options": {
 				rev: false,
@@ -26,7 +28,9 @@ module.exports = {
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
-				"../../cdn/verge/1.9.1/js/verge.fixed.js"
+				"../../cdn/verge/1.9.1/js/verge.fixed.js",
+				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
+				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
 			],
 			"options": {
 				rev: false,

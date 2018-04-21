@@ -434,6 +434,8 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	var _addEventListener = "addEventListener";
 	var _length = "length";
 
+	docBody[classList].add("hide-sidedrawer");
+
 	var progressBar = new ToProgress({
 			id: "top-progress-bar",
 			color: "#FF5722",
@@ -454,7 +456,9 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 	progressBar.increase(20);
 
-	docBody[classList].add("hide-sidedrawer");
+	var hasTouch = "ontouchstart" in docElem || "";
+
+	var hasWheel = "onwheel" in document[createElement]("div") || void 0 !== document.onmousewheel || "";
 
 	var getHTTP = function(force) {
 		var any = force || "";
@@ -467,6 +471,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	var run = function() {
 
 		var appendChild = "appendChild";
+		var body = "body";
 		var cloneNode = "cloneNode";
 		var createContextualFragment = "createContextualFragment";
 		var createDocumentFragment = "createDocumentFragment";
@@ -481,11 +486,14 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		var parentNode = "parentNode";
 		var replaceChild = "replaceChild";
 		var setAttribute = "setAttribute";
+		var style = "style";
 		var title = "title";
 		var _removeEventListener = "removeEventListener";
 
 		var isActiveClass = "is-active";
 		var isBindedClass = "is-binded";
+		var isFixedClass = "is-fixed";
+		var isHiddenClass = "is-hidden";
 
 		progressBar.increase(20);
 
@@ -1189,20 +1197,21 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
-		var sidedrawerActiveClass = "active";
+		var activeClass = "active";
 		var hideSidedrawerClass = "hide-sidedrawer";
 
 		var handleMenuButton = function () {
+			/* var _this = this; */
 			if (sidedrawer) {
 				if (!docBody[classList].contains(hideSidedrawerClass)) {
 					docBody[classList].add(hideSidedrawerClass);
 				} else {
 					docBody[classList].remove(hideSidedrawerClass);
 				}
-				if (!sidedrawer[classList].contains(sidedrawerActiveClass)) {
-					sidedrawer[classList].add(sidedrawerActiveClass);
+				if (!sidedrawer[classList].contains(activeClass)) {
+					sidedrawer[classList].add(activeClass);
 				} else {
-					sidedrawer[classList].remove(sidedrawerActiveClass);
+					sidedrawer[classList].remove(activeClass);
 				}
 			}
 		};
@@ -1210,9 +1219,9 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			var menuButtons = document[getElementsByClassName]("sidedrawer-toggle") || "";
 			if (menuButtons) {
 				for (var i = 0, l = menuButtons[_length]; i < l; i += 1) {
-					if (!menuButtons[i].classList.contains(isBindedClass)) {
+					if (!menuButtons[i][classList].contains(isBindedClass)) {
 						menuButtons[i][_addEventListener]("click", handleMenuButton);
-						menuButtons[i].classList.contains(isBindedClass);
+						menuButtons[i][classList].contains(isBindedClass);
 					}
 				}
 			}
@@ -1223,23 +1232,23 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			evt.stopPropagation();
 			evt.preventDefault();
 			var _this = this;
-			if (_this.nextElementSibling.style.display === "none") {
-				_this.nextElementSibling.style.display = "block";
+			if (_this.nextElementSibling[style].display === "none") {
+				_this.nextElementSibling[style].display = "block";
 			} else {
-				_this.nextElementSibling.style.display = "none";
+				_this.nextElementSibling[style].display = "none";
 			}
 		};
 		var toggleSidedrawerCategoryItemsVisibility = function () {
 			var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
 			if (sidedrawerCategories) {
 				for (var i = 0, l = sidedrawerCategories[_length]; i < l; i += 1) {
-					if (!sidedrawerCategories[i].classList.contains(isBindedClass) &&
+					if (!sidedrawerCategories[i][classList].contains(isBindedClass) &&
 						sidedrawerCategories[i].nextElementSibling.nodeName.toLowerCase() === "ul" &&
 						sidedrawerCategories[i].nextElementSibling.nodeType === 1
 						) {
-							sidedrawerCategories[i].nextElementSibling.style.display = "none";
+							sidedrawerCategories[i].nextElementSibling[style].display = "none";
 							sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategoryLink);
-							sidedrawerCategories[i].classList.contains(isBindedClass);
+							sidedrawerCategories[i][classList].contains(isBindedClass);
 					}
 				}
 			}
@@ -1248,7 +1257,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 		var handleSidedrawerCategorySubLink = function () {
 			docBody[classList].add(hideSidedrawerClass);
-			sidedrawer[classList].remove(sidedrawerActiveClass);
+			sidedrawer[classList].remove(activeClass);
 		};
 		var hideSidedrawerOnNavigating = function () {
 			var links;
@@ -1274,29 +1283,29 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			evt.stopPropagation();
 			evt.preventDefault();
 			var _this = this;
-			if (_this.nextElementSibling.style.display === "none") {
-				_this.nextElementSibling.style.display = "block";
+			if (_this.nextElementSibling[style].display === "none") {
+				_this.nextElementSibling[style].display = "block";
 			} else {
-				_this.nextElementSibling.style.display = "none";
+				_this.nextElementSibling[style].display = "none";
 			}
 		};
 		var toggleDropdownsVisibility = function () {
 			var links = document[getElementsByTagName]("a") || "";
 			var dropdownButtons = [];
 			for (var j = 0, m = links[_length]; j < m; j += 1) {
-				if (links[j].dataset.muiToggle) {
+				if (links[j][dataset].muiToggle) {
 					dropdownButtons.push(links[j]);
 				}
 			}
 			if (dropdownButtons) {
 				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
-					if (!dropdownButtons[i].classList.contains(isBindedClass) &&
+					if (!dropdownButtons[i][classList].contains(isBindedClass) &&
 						dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" &&
 						dropdownButtons[i].nextElementSibling.nodeType === 1
 						) {
-							dropdownButtons[i].nextElementSibling.style.display = "none";
+							dropdownButtons[i].nextElementSibling[style].display = "none";
 							dropdownButtons[i][_addEventListener]("click", handleDropdownButton);
-							dropdownButtons[i].classList.contains(isBindedClass);
+							dropdownButtons[i][classList].contains(isBindedClass);
 					}
 				}
 			}
@@ -1321,6 +1330,71 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			}
 		};
 		hideAllDropdownsOnNavigating();
+
+		var appBar = document[getElementsByTagName]("header")[0] || "";
+		var appBarHeight = appBar.offsetHeight || 0;
+
+		var hideAppBar = function () {
+			var logic = function () {
+				appBar[classList].remove(isFixedClass);
+				if ((document[body].scrollTop || docElem.scrollTop || 0) > appBarHeight) {
+					appBar[classList].add(isHiddenClass);
+				} else {
+					appBar[classList].remove(isHiddenClass);
+				}
+			};
+			var throttleLogic = throttle(logic, 100);
+			throttleLogic();
+		};
+		var revealAppBar = function () {
+			var logic = function () {
+				appBar[classList].remove(isHiddenClass);
+				if ((document[body].scrollTop || docElem.scrollTop || 0) > appBarHeight) {
+					appBar[classList].add(isFixedClass);
+				} else {
+					appBar[classList].remove(isFixedClass);
+				}
+			};
+			var throttleLogic = throttle(logic, 100);
+			throttleLogic();
+		};
+		var resetAppBar = function () {
+			var logic = function () {
+				if ((document[body].scrollTop || docElem.scrollTop || 0) < appBarHeight) {
+					appBar[classList].remove(isHiddenClass);
+					appBar[classList].remove(isFixedClass);
+				}
+			};
+			var throttleLogic = throttle(logic, 100);
+			throttleLogic();
+		};
+		if (appBar) {
+			root[_addEventListener]("scroll", resetAppBar, {passive: true});
+			if (hasTouch) {
+				if (root.tocca) {
+					root[_addEventListener]("swipeup", hideAppBar, {passive: true});
+					root[_addEventListener]("swipedown", revealAppBar, {passive: true});
+				}
+			} else {
+				if (hasWheel) {
+					if (root.WheelIndicator) {
+						var indicator;
+						indicator = new WheelIndicator({
+								elem: root,
+								callback: function (e) {
+									if ("down" === e.direction) {
+										hideAppBar();
+									}
+									if ("up" === e.direction) {
+										revealAppBar();
+									}
+								},
+								preventMouse: false
+							});
+					}
+				}
+			}
+		}
 	};
 
 	/* var scripts = [
@@ -1386,7 +1460,9 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		"./node_modules/jquery/dist/jquery.js",
 		"./bower_components/mui/packages/cdn/js/mui.js",
 		"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
-		"../../cdn/verge/1.9.1/js/verge.fixed.js"
+		"../../cdn/verge/1.9.1/js/verge.fixed.js",
+		"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
+		"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
 	]; */
 
 	scripts.push("./libs/serguei-muicss/js/vendors.min.js");
