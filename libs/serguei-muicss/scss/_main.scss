@@ -35,10 +35,12 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	outline: none;
 	overflow-x: hidden;
-	user-select: none;
+	/* user-select: none; */
 	margin: 0;
 	padding: 0;
 }
+
+
 
 /*!
  * englishextra specific rules
@@ -117,9 +119,11 @@ button {
 }
 
 h1 {
-	font-family: "Roboto Mono", $font-family-local-monospace;
+	/* font-family: "Roboto Mono", $font-family-local-monospace; */
 	color: $clr-grey-700;
 }
+
+
 
 /*!
  * app-content
@@ -154,7 +158,7 @@ h1 {
 }
 
 .app-content .soundcloud-wrapper iframe {
-	display:block;
+	display: block;
 	width: 100%;
 	height: 166px;
 }
@@ -169,6 +173,8 @@ h1 {
 	text-decoration: underline;
 }
 
+
+
 /*!
  * mui-appbar
  */
@@ -181,6 +187,7 @@ h1 {
 
 .mui-appbar__ui-button {
 	display: block;
+	/* 56x56 */
 	width: 3.500rem;
 	height: 3.500rem;
 	cursor: pointer;
@@ -197,6 +204,7 @@ h1 {
 
 .mui-appbar__ui-button .ui-icon {
 	display: block;
+	/* 24x24 */
 	width: 1.500rem;
 	height: 1.500rem;
 	/*! @see {@link https://www.w3.org/Style/Examples/007/center.en.html#hv3} */
@@ -213,10 +221,6 @@ h1 {
 }
 
 .mui-appbar__ui-button--menu {
-
-	/* float: left;
-	position: absolute;
-	left: 0; */
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -238,6 +242,8 @@ h1 {
 
 @media (orientation:landscape) and (max-height:480px) {
 	.mui-appbar__ui-button {
+
+		/* 48x48 */
 		width: 3.000rem;
 		height: 3.000rem;
 	}
@@ -249,6 +255,8 @@ h1 {
 
 @media (min-width:480px) {
 	.mui-appbar__ui-button {
+
+		/* 64x64 */
 		width: 4.000rem;
 		height: 4.000rem;
 	}
@@ -270,6 +278,7 @@ h1 {
 	position: absolute;
 	top: 0;
 	left: 3.500rem;
+	-webkit-transform: translate(0);
 	transform: translate(0);
 	/* background-color: yellow; */
 	margin: 0;
@@ -279,7 +288,8 @@ h1 {
 	background-image: url(../img/site-logo-136x64.png);
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	background-size: 100% 100%;
+	/* 119x56 */
+	background-size: 7.438rem 3.500rem;
 }
 
 .site-logo .site-logo-icon {
@@ -293,6 +303,7 @@ h1 {
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -302,6 +313,11 @@ h1 {
 		/* 102x48 */
 		width: 6.375rem;
 		height: 3.000rem;
+	}
+
+	.no-svg .site-logo {
+		/* 102x48 */
+		background-size: 6.375rem 3.000rem;
 	}
 
 	.site-logo .site-logo-icon {
@@ -317,6 +333,11 @@ h1 {
 		/* 136x64 */
 		width: 8.500rem;
 		height: 4.000rem;
+	}
+
+	.no-svg .site-logo {
+		/* 136x64 */
+		background-size: 8.500rem 4.000rem;
 	}
 
 	.site-logo .site-logo-icon {
@@ -336,6 +357,7 @@ h1 {
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 10px 0 rgba(0, 0, 0, 0.12);
 	padding: 0;
 	margin: 0;
+	user-select: none;
 }
 
 .mui-dropdown__menu>li>a {
@@ -352,6 +374,8 @@ h1 {
 	background-color: $clr-light-blue-200;
 }
 
+
+
 /*!
  * mui-panel
  */
@@ -360,14 +384,21 @@ h1 {
 	border: none;
 }
 
+
+
 /*!
  * hljs
  */
 
-.hljs {
-	font-family: "Roboto Mono";
-	font-size: 87.5%;
-	background: $clr-grey-200;
+.app-content pre {
+	padding: 0;
+	margin: 0;
+}
+
+.app-content pre code {
+	font-family: "Roboto Mono", $font-family-local-monospace;
+	font-size: 0.813rem;
+	padding: 0.938rem 1.375rem;
 }
 
 #sidedrawer,
@@ -377,6 +408,8 @@ h1 {
 	opacity: 1;
 	transition: visibility 0s, opacity 0.2s ease;
 }
+
+
 
 /*!
  * sections
@@ -389,6 +422,7 @@ h1 {
 	left: 0;
 	z-index: 1;
 	transition: top 0.4s ease-out;
+	user-select: none;
 }
 
 #header.is-fixed {
@@ -436,12 +470,15 @@ h1 {
 	transition: margin-left 0.2s;
 	padding: 0.938rem 1.375rem;
 	margin-left: 0;
+	user-select: none;
 }
 
 #footer a {
 	color: inherit;
 	text-decoration: underline;
 }
+
+
 
 /*!
  * sidedrawer
@@ -461,23 +498,27 @@ h1 {
 	-webkit-transform: translateZ(0);
 	-webkit-backface-visibility: hidden;
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 10px 0 rgba(0, 0, 0, 0.12);
+	user-select: none;
 }
 
 #sidedrawer-brand {
+
 	/* 119x56 */
 	height: 3.500rem;
 	padding-left: 1.375rem;
 }
 
-@media (orientation: landscape) and (max-height: 480px) {
+@media (orientation:landscape) and (max-height:480px) {
 	#sidedrawer-brand {
+
 		/* 102x48 */
 		height: 3.000rem;
 	}
 }
 
-@media (min-width: 480px) {
+@media (min-width:480px) {
 	#sidedrawer-brand {
+
 		/* 136x64 */
 		height: 4.000rem;
 	}

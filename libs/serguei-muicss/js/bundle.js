@@ -441,7 +441,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 
 	docBody[classList].add("hide-sidedrawer");
 
-	var loadingSpinner = document[getElementsByClassName]("half-circle-spinner")[0] || "";
+	var loadingSpinner = document[getElementsByClassName]("half-circle-spinner")[0] || document[getElementsByClassName]("hollow-dots-spinner")[0] || "";
 
 	/* var progressBar = new ToProgress({
  		id: "top-progress-bar",
@@ -929,7 +929,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 		var manageExternalLinkAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var linkTag = "a";
-			var links = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
+			var linkAll = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
 			var arrange = function (e) {
 				if (!e[classList].contains(isBindedClass)) {
 					var url = e[getAttribute]("href") || "";
@@ -945,11 +945,11 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 					}
 				}
 			};
-			if (links) {
-				for (var i = 0, l = links[_length]; i < l; i += 1) {
-					arrange(links[i]);
+			if (linkAll) {
+				for (var i = 0, l = linkAll[_length]; i < l; i += 1) {
+					arrange(linkAll[i]);
 				}
-				/* forEach(links, arrange, false); */
+				/* forEach(linkAll, arrange, false); */
 			}
 		};
 		manageExternalLinkAll();
@@ -957,7 +957,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 		var handleDataSrcImageAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var dataSrcImgClass = "data-src-img";
-			var imgs = ctx ? ctx[getElementsByClassName](dataSrcImgClass) || "" : document[getElementsByClassName](dataSrcImgClass) || "";
+			var imgAll = ctx ? ctx[getElementsByClassName](dataSrcImgClass) || "" : document[getElementsByClassName](dataSrcImgClass) || "";
 			var arrange = function (e) {
 				/*!
      * true if elem is in same y-axis as the viewport or within 100px of it
@@ -982,11 +982,11 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 						}
 					}
 			};
-			if (imgs) {
-				for (var i = 0, l = imgs[_length]; i < l; i += 1) {
-					arrange(imgs[i]);
+			if (imgAll) {
+				for (var i = 0, l = imgAll[_length]; i < l; i += 1) {
+					arrange(imgAll[i]);
 				}
-				/* forEach(imgs, arrange, false); */
+				/* forEach(imgAll, arrange, false); */
 			}
 		};
 		var handleDataSrcImageAllWindow = function () {
@@ -1010,7 +1010,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 		var handleDataSrcIframeAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var dataSrcIframeClass = "data-src-iframe";
-			var iframes = ctx ? ctx[getElementsByClassName](dataSrcIframeClass) || "" : document[getElementsByClassName](dataSrcIframeClass) || "";
+			var iframeAll = ctx ? ctx[getElementsByClassName](dataSrcIframeClass) || "" : document[getElementsByClassName](dataSrcIframeClass) || "";
 			var arrange = function (e) {
 				/*!
      * true if elem is in same y-axis as the viewport or within 100px of it
@@ -1037,11 +1037,11 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 						}
 					}
 			};
-			if (iframes) {
-				for (var i = 0, l = iframes[_length]; i < l; i += 1) {
-					arrange(iframes[i]);
+			if (iframeAll) {
+				for (var i = 0, l = iframeAll[_length]; i < l; i += 1) {
+					arrange(iframeAll[i]);
 				}
-				/* forEach(iframes, arrange, false); */
+				/* forEach(iframeAll, arrange, false); */
 			}
 		};
 		var handleDataSrcIframeAllWindow = function () {
@@ -1062,75 +1062,89 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 		};
 		manageDataSrcIframeAll();
 
+		var hideCurrentDropdownMenu = function (e) {
+			if (e) {
+				if (e[style].display !== "none") {
+					e[style].display = "none";
+				}
+			}
+		};
 		var handleDropdownButton = function (evt) {
 			evt.stopPropagation();
 			evt.preventDefault();
 			var _this = this;
-			var wrapperRect = _this.nextElementSibling.getBoundingClientRect();
-			var toggleRect = _this.getBoundingClientRect();
-			var top = toggleRect.top + toggleRect.height;
-			var left = toggleRect.left;
-			_this.nextElementSibling[style].top = top + "px";
-			if (!_this.nextElementSibling[classList].contains("mui-dropdown__menu--right")) {
-				_this.nextElementSibling[style].left = left + "px";
-			}
-			if (_this.nextElementSibling[style].display === "none") {
-				_this.nextElementSibling[style].display = "block";
-			} else {
-				_this.nextElementSibling[style].display = "none";
+			var dropdownMenu = _this.nextElementSibling;
+			var dropdownButtonRect = _this.getBoundingClientRect();
+			var top = dropdownButtonRect.top + dropdownButtonRect.height;
+			var left = dropdownButtonRect.left;
+			if (dropdownMenu) {
+				dropdownMenu[style].top = top + "px";
+				if (!dropdownMenu[classList].contains("mui-dropdown__menu--right")) {
+					dropdownMenu[style].left = left + "px";
+				}
+				if (dropdownMenu[style].display === "none") {
+					dropdownMenu[style].display = "block";
+				} else {
+					dropdownMenu[style].display = "none";
+				}
+				var linkAll = dropdownMenu[getElementsByTagName]("a") || "";
+				if (linkAll) {
+					for (var i = 0, l = linkAll[_length]; i < l; i += 1) {
+						if (!linkAll[i][classList].contains(isBindedClass)) {
+							linkAll[i][_addEventListener]("click", hideCurrentDropdownMenu.bind(null, dropdownMenu));
+						}
+					}
+				}
 			}
 		};
-		var toggleDropdownsVisibility = function (scope) {
+		var manageDropdownButtonAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var linkTag = "a";
-			var links = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
-			var dropdownButtons = [];
-			for (var j = 0, m = links[_length]; j < m; j += 1) {
-				if (links[j][dataset].muiToggle) {
-					dropdownButtons.push(links[j]);
+			var linkAll = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
+			var dropdownButtonAll = [];
+			for (var j = 0, m = linkAll[_length]; j < m; j += 1) {
+				if (linkAll[j][dataset].muiToggle) {
+					dropdownButtonAll.push(linkAll[j]);
 				}
 			}
-			if (dropdownButtons) {
-				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
-					if (!dropdownButtons[i][classList].contains(isBindedClass) && dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" && dropdownButtons[i].nextElementSibling.nodeType === 1) {
-						dropdownButtons[i].nextElementSibling[style].display = "none";
-						dropdownButtons[i][_addEventListener]("click", handleDropdownButton);
-						dropdownButtons[i][classList].contains(isBindedClass);
+			if (dropdownButtonAll) {
+				for (var i = 0, l = dropdownButtonAll[_length]; i < l; i += 1) {
+					if (!dropdownButtonAll[i][classList].contains(isBindedClass) && dropdownButtonAll[i].nextElementSibling.nodeName.toLowerCase() === "ul" && dropdownButtonAll[i].nextElementSibling.nodeType === 1) {
+						dropdownButtonAll[i].nextElementSibling[style].display = "none";
+						dropdownButtonAll[i][_addEventListener]("click", handleDropdownButton);
+						dropdownButtonAll[i][classList].contains(isBindedClass);
 					}
 				}
 			}
 		};
-		toggleDropdownsVisibility();
+		manageDropdownButtonAll();
 
-		var hideAllDropdowns = function () {
-			var dropdowns = document[getElementsByClassName]("mui-dropdown__menu") || "";
-			if (dropdowns) {
-				for (var i = 0, l = dropdowns[_length]; i < l; i += 1) {
-					if (dropdowns[i].style.display !== "none") {
-						dropdowns[i].style.display = "none";
+		var hideAllDropdownMenus = function () {
+			var dropdownMenus = document[getElementsByClassName]("mui-dropdown__menu") || "";
+			if (dropdownMenus) {
+				for (var i = 0, l = dropdownMenus[_length]; i < l; i += 1) {
+					if (dropdownMenus[i][style].display !== "none") {
+						dropdownMenus[i][style].display = "none";
 					}
 				}
 			}
 		};
-		var hideAllDropdownsOnNavigating = function () {
+		var hideAllDropdownMenusOnNavigating = function () {
 			if (appContentParent) {
-				/* if (!appContentParent[classList].contains(isBindedClass)) { */
-				appContentParent[_addEventListener]("click", hideAllDropdowns);
-				/* appContentParent[classList].add(isBindedClass); */
-				/* } */
+				appContentParent[_addEventListener]("click", hideAllDropdownMenus);
 			}
 		};
-		hideAllDropdownsOnNavigating();
+		hideAllDropdownMenusOnNavigating();
 
-		var enableHljs = function (scope) {
+		var manageHljsCodeAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var codeTag = "code";
-			var codes = ctx ? ctx[getElementsByTagName](codeTag) || "" : document[getElementsByTagName](codeTag) || "";
+			var codeAll = ctx ? ctx[getElementsByTagName](codeTag) || "" : document[getElementsByTagName](codeTag) || "";
 			if (root.hljs) {
-				for (var i = 0, l = codes[_length]; i < l; i += 1) {
-					if (codes[i][classList].contains("hljs") && !codes[i][classList].contains(isBindedClass)) {
-						hljs.highlightBlock(codes[i]);
-						codes[i][classList].add(isBindedClass);
+				for (var i = 0, l = codeAll[_length]; i < l; i += 1) {
+					if (codeAll[i][classList].contains("hljs") && !codeAll[i][classList].contains(isBindedClass)) {
+						hljs.highlightBlock(codeAll[i]);
+						codeAll[i][classList].add(isBindedClass);
 					}
 				}
 			}
@@ -1163,7 +1177,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
       */
 					if (appContentParent) {
 						manageExternalLinkAll(appContentParent);
-						toggleDropdownsVisibility(appContentParent);
+						manageDropdownButtonAll(appContentParent);
 						var timers2 = new Timers();
 						timers2.timeout(function () {
 							timers2.clear();
@@ -1176,7 +1190,7 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 							timers = null;
 							handleDataSrcImageAll(appContentParent);
 						}, 500);
-						enableHljs(appContentParent);
+						manageHljsCodeAll(appContentParent);
 					}
 					/* hideProgressBar(); */
 					if (loadingSpinner) {
@@ -1242,7 +1256,6 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 		var hideSidedrawerClass = "hide-sidedrawer";
 
 		var handleMenuButton = function () {
-			/* var _this = this; */
 			if (sidedrawer) {
 				if (!docBody[classList].contains(hideSidedrawerClass)) {
 					docBody[classList].add(hideSidedrawerClass);
@@ -1256,64 +1269,64 @@ loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 				}
 			}
 		};
-		var toggleSidedrawerVisibility = function () {
-			var menuButtons = document[getElementsByClassName]("sidedrawer-toggle") || "";
-			if (menuButtons) {
-				for (var i = 0, l = menuButtons[_length]; i < l; i += 1) {
-					if (!menuButtons[i][classList].contains(isBindedClass)) {
-						menuButtons[i][_addEventListener]("click", handleMenuButton);
-						menuButtons[i][classList].contains(isBindedClass);
+		var manageSidedrawer = function () {
+			var menuButtonAll = document[getElementsByClassName]("sidedrawer-toggle") || "";
+			if (menuButtonAll) {
+				for (var i = 0, l = menuButtonAll[_length]; i < l; i += 1) {
+					if (!menuButtonAll[i][classList].contains(isBindedClass)) {
+						menuButtonAll[i][_addEventListener]("click", handleMenuButton);
+						menuButtonAll[i][classList].contains(isBindedClass);
 					}
 				}
 			}
 		};
-		toggleSidedrawerVisibility();
+		manageSidedrawer();
 
-		var handleSidedrawerCategoryLink = function (evt) {
+		var handleSidedrawerCategory = function (evt) {
 			evt.stopPropagation();
 			evt.preventDefault();
 			var _this = this;
-			if (_this.nextElementSibling[style].display === "none") {
-				_this.nextElementSibling[style].display = "block";
-			} else {
-				_this.nextElementSibling[style].display = "none";
+			var categoryItem = _this.nextElementSibling;
+			if (categoryItem) {
+				if (categoryItem[style].display === "none") {
+					categoryItem[style].display = "block";
+				} else {
+					categoryItem[style].display = "none";
+				}
 			}
 		};
-		var toggleSidedrawerCategoryItemsVisibility = function () {
-			var sidedrawerCategories = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
-			if (sidedrawerCategories) {
-				for (var i = 0, l = sidedrawerCategories[_length]; i < l; i += 1) {
-					if (!sidedrawerCategories[i][classList].contains(isBindedClass) && sidedrawerCategories[i].nextElementSibling.nodeName.toLowerCase() === "ul" && sidedrawerCategories[i].nextElementSibling.nodeType === 1) {
-						sidedrawerCategories[i].nextElementSibling[style].display = "none";
-						sidedrawerCategories[i][_addEventListener]("click", handleSidedrawerCategoryLink);
-						sidedrawerCategories[i][classList].contains(isBindedClass);
+		var manageSidedrawerCategoryAll = function () {
+			var sidedrawerCategoryAll = sidedrawer ? sidedrawer[getElementsByTagName]("strong") || "" : "";
+			if (sidedrawerCategoryAll) {
+				for (var i = 0, l = sidedrawerCategoryAll[_length]; i < l; i += 1) {
+					if (!sidedrawerCategoryAll[i][classList].contains(isBindedClass) && sidedrawerCategoryAll[i].nextElementSibling.nodeName.toLowerCase() === "ul" && sidedrawerCategoryAll[i].nextElementSibling.nodeType === 1) {
+						sidedrawerCategoryAll[i].nextElementSibling[style].display = "none";
+						sidedrawerCategoryAll[i][_addEventListener]("click", handleSidedrawerCategory);
+						sidedrawerCategoryAll[i][classList].contains(isBindedClass);
 					}
 				}
 			}
 		};
-		toggleSidedrawerCategoryItemsVisibility();
+		manageSidedrawerCategoryAll();
 
-		var handleSidedrawerCategorySubLink = function () {
+		var handleSidedrawerLinkAll = function () {
 			docBody[classList].add(hideSidedrawerClass);
 			sidedrawer[classList].remove(activeClass);
 		};
 		var hideSidedrawerOnNavigating = function () {
-			var links;
+			var linkAll;
 			if (sidedrawer) {
-				links = sidedrawer[getElementsByTagName]("a") || "";
-				if (links) {
-					for (var i = 0, l = links[_length]; i < l; i += 1) {
-						if (!links[i][classList].contains(isBindedClass)) {
-							links[i][_addEventListener]("click", handleSidedrawerCategorySubLink);
+				linkAll = sidedrawer[getElementsByTagName]("a") || "";
+				if (linkAll) {
+					for (var i = 0, l = linkAll[_length]; i < l; i += 1) {
+						if (!linkAll[i][classList].contains(isBindedClass)) {
+							linkAll[i][_addEventListener]("click", handleSidedrawerLinkAll);
 						}
 					}
 				}
 			}
 			if (appContentParent) {
-				/* if (!appContentParent[classList].contains(isBindedClass)) { */
-				appContentParent[_addEventListener]("click", handleSidedrawerCategorySubLink);
-				/* appContentParent[classList].add(isBindedClass); */
-				/* } */
+				appContentParent[_addEventListener]("click", handleSidedrawerLinkAll);
 			}
 		};
 		hideSidedrawerOnNavigating();
