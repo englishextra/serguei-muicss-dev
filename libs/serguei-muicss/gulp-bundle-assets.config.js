@@ -7,7 +7,7 @@ module.exports = {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
-				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
+				"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
 				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
 				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
@@ -27,7 +27,7 @@ module.exports = {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
-				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
+				"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
 				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
 				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
@@ -50,7 +50,7 @@ module.exports = {
 				"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
 				"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
 				//"./node_modules/normalize.css/normalize.css",
-				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
+				"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {
@@ -72,7 +72,7 @@ module.exports = {
 				"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
 				"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
 				//"./node_modules/normalize.css/normalize.css",
-				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
+				"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {

@@ -1,5 +1,5 @@
 /*global ActiveXObject, console, doesFontExist, hljs, imagePromise, loadCSS,
-loadJsCss, Timers, ToProgress, require, verge*/
+loadJsCss, Timers, ToProgress, require, verge, WheelIndicator */
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -432,6 +432,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 	var createElement = "createElement";
 	var createElementNS = "createElementNS";
 	var defineProperty = "defineProperty";
+	var getElementsByClassName = "getElementsByClassName";
 	var getOwnPropertyDescriptor = "getOwnPropertyDescriptor";
 	var querySelector = "querySelector";
 	var querySelectorAll = "querySelectorAll";
@@ -440,25 +441,25 @@ loadJsCss, Timers, ToProgress, require, verge*/
 
 	docBody[classList].add("hide-sidedrawer");
 
-	var progressBar = new ToProgress({
-		id: "top-progress-bar",
-		color: "#FF5722",
-		height: "0.188rem",
-		duration: 0.2,
-		zIndex: 999
-	});
+	var loadingSpinner = document[getElementsByClassName]("half-circle-spinner")[0] || "";
 
-	var hideProgressBar = function () {
-		progressBar.finish();
-		progressBar.hide();
-	};
-
-	/* progressBar.complete = function () {
+	/* var progressBar = new ToProgress({
+ 		id: "top-progress-bar",
+ 		color: "#FF2C40",
+ 		height: "0.188rem",
+ 		duration: 0.2,
+ 		zIndex: 999
+ 	});
+ 	var hideProgressBar = function () {
+ 	progressBar.finish();
+ 	progressBar.hide();
+ };
+ 	progressBar.complete = function () {
  	return this.finish(),
  	this.hide();
  }; */
 
-	progressBar.increase(20);
+	/* progressBar.increase(20); */
 
 	var hasTouch = "ontouchstart" in docElem || "";
 
@@ -483,7 +484,6 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		var dataset = "dataset";
 		var getAttribute = "getAttribute";
 		var getElementById = "getElementById";
-		var getElementsByClassName = "getElementsByClassName";
 		var getElementsByTagName = "getElementsByTagName";
 		var href = "href";
 		var innerHTML = "innerHTML";
@@ -499,7 +499,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		var isFixedClass = "is-fixed";
 		var isHiddenClass = "is-hidden";
 
-		progressBar.increase(20);
+		/* progressBar.increase(20); */
 
 		if (docElem && docElem[classList]) {
 			docElem[classList].remove("no-js");
@@ -929,7 +929,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		var manageExternalLinkAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var linkTag = "a";
-			var link = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
+			var links = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
 			var arrange = function (e) {
 				if (!e[classList].contains(isBindedClass)) {
 					var url = e[getAttribute]("href") || "";
@@ -945,17 +945,19 @@ loadJsCss, Timers, ToProgress, require, verge*/
 					}
 				}
 			};
-			if (link) {
-				for (var i = 0, l = link[_length]; i < l; i += 1) {
-					arrange(link[i]);
+			if (links) {
+				for (var i = 0, l = links[_length]; i < l; i += 1) {
+					arrange(links[i]);
 				}
-				/* forEach(link, arrange, false); */
+				/* forEach(links, arrange, false); */
 			}
 		};
 		manageExternalLinkAll();
 
-		var handleDataSrcImageAll = function () {
-			var img = document[getElementsByClassName]("data-src-img") || "";
+		var handleDataSrcImageAll = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			var dataSrcImgClass = "data-src-img";
+			var imgs = ctx ? ctx[getElementsByClassName](dataSrcImgClass) || "" : document[getElementsByClassName](dataSrcImgClass) || "";
 			var arrange = function (e) {
 				/*!
      * true if elem is in same y-axis as the viewport or within 100px of it
@@ -980,11 +982,11 @@ loadJsCss, Timers, ToProgress, require, verge*/
 						}
 					}
 			};
-			if (img) {
-				for (var i = 0, l = img[_length]; i < l; i += 1) {
-					arrange(img[i]);
+			if (imgs) {
+				for (var i = 0, l = imgs[_length]; i < l; i += 1) {
+					arrange(imgs[i]);
 				}
-				/* forEach(img, arrange, false); */
+				/* forEach(imgs, arrange, false); */
 			}
 		};
 		var handleDataSrcImageAllWindow = function () {
@@ -1005,8 +1007,10 @@ loadJsCss, Timers, ToProgress, require, verge*/
 		};
 		manageDataSrcImageAll();
 
-		var handleDataSrcIframeAll = function () {
-			var iframe = document[getElementsByClassName]("data-src-iframe") || "";
+		var handleDataSrcIframeAll = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			var dataSrcIframeClass = "data-src-iframe";
+			var iframes = ctx ? ctx[getElementsByClassName](dataSrcIframeClass) || "" : document[getElementsByClassName](dataSrcIframeClass) || "";
 			var arrange = function (e) {
 				/*!
      * true if elem is in same y-axis as the viewport or within 100px of it
@@ -1033,11 +1037,11 @@ loadJsCss, Timers, ToProgress, require, verge*/
 						}
 					}
 			};
-			if (iframe) {
-				for (var i = 0, l = iframe[_length]; i < l; i += 1) {
-					arrange(iframe[i]);
+			if (iframes) {
+				for (var i = 0, l = iframes[_length]; i < l; i += 1) {
+					arrange(iframes[i]);
 				}
-				/* forEach(iframe, arrange, false); */
+				/* forEach(iframes, arrange, false); */
 			}
 		};
 		var handleDataSrcIframeAllWindow = function () {
@@ -1057,6 +1061,80 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			}, 500);
 		};
 		manageDataSrcIframeAll();
+
+		var handleDropdownButton = function (evt) {
+			evt.stopPropagation();
+			evt.preventDefault();
+			var _this = this;
+			var wrapperRect = _this.nextElementSibling.getBoundingClientRect();
+			var toggleRect = _this.getBoundingClientRect();
+			var top = toggleRect.top + toggleRect.height;
+			var left = toggleRect.left;
+			_this.nextElementSibling[style].top = top + "px";
+			if (!_this.nextElementSibling[classList].contains("mui-dropdown__menu--right")) {
+				_this.nextElementSibling[style].left = left + "px";
+			}
+			if (_this.nextElementSibling[style].display === "none") {
+				_this.nextElementSibling[style].display = "block";
+			} else {
+				_this.nextElementSibling[style].display = "none";
+			}
+		};
+		var toggleDropdownsVisibility = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			var linkTag = "a";
+			var links = ctx ? ctx[getElementsByTagName](linkTag) || "" : document[getElementsByTagName](linkTag) || "";
+			var dropdownButtons = [];
+			for (var j = 0, m = links[_length]; j < m; j += 1) {
+				if (links[j][dataset].muiToggle) {
+					dropdownButtons.push(links[j]);
+				}
+			}
+			if (dropdownButtons) {
+				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
+					if (!dropdownButtons[i][classList].contains(isBindedClass) && dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" && dropdownButtons[i].nextElementSibling.nodeType === 1) {
+						dropdownButtons[i].nextElementSibling[style].display = "none";
+						dropdownButtons[i][_addEventListener]("click", handleDropdownButton);
+						dropdownButtons[i][classList].contains(isBindedClass);
+					}
+				}
+			}
+		};
+		toggleDropdownsVisibility();
+
+		var hideAllDropdowns = function () {
+			var dropdowns = document[getElementsByClassName]("mui-dropdown__menu") || "";
+			if (dropdowns) {
+				for (var i = 0, l = dropdowns[_length]; i < l; i += 1) {
+					if (dropdowns[i].style.display !== "none") {
+						dropdowns[i].style.display = "none";
+					}
+				}
+			}
+		};
+		var hideAllDropdownsOnNavigating = function () {
+			if (appContentParent) {
+				/* if (!appContentParent[classList].contains(isBindedClass)) { */
+				appContentParent[_addEventListener]("click", hideAllDropdowns);
+				/* appContentParent[classList].add(isBindedClass); */
+				/* } */
+			}
+		};
+		hideAllDropdownsOnNavigating();
+
+		var enableHljs = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			var codeTag = "code";
+			var codes = ctx ? ctx[getElementsByTagName](codeTag) || "" : document[getElementsByTagName](codeTag) || "";
+			if (root.hljs) {
+				for (var i = 0, l = codes[_length]; i < l; i += 1) {
+					if (codes[i][classList].contains("hljs") && !codes[i][classList].contains(isBindedClass)) {
+						hljs.highlightBlock(codes[i]);
+						codes[i][classList].add(isBindedClass);
+					}
+				}
+			}
+		};
 
 		var initRouting = function () {
 			var routesJsonUrl = "./libs/serguei-muicss/json/routes.json";
@@ -1085,33 +1163,25 @@ loadJsCss, Timers, ToProgress, require, verge*/
       */
 					if (appContentParent) {
 						manageExternalLinkAll(appContentParent);
-						/* manageImgLightboxLinks(appContentParent);
-      manageIframeLightboxLinks(appContentParent);
-      manageChaptersSelect(appContentParent);
-      manageExpandingLayers(appContentParent); */
+						toggleDropdownsVisibility(appContentParent);
 						var timers2 = new Timers();
 						timers2.timeout(function () {
 							timers2.clear();
 							timers2 = null;
-							handleDataSrcIframeAll();
+							handleDataSrcIframeAll(appContentParent);
 						}, 500);
 						var timers = new Timers();
 						timers.timeout(function () {
 							timers.clear();
 							timers = null;
-							handleDataSrcImageAll();
+							handleDataSrcImageAll(appContentParent);
 						}, 500);
-						if (root.hljs) {
-							var code = document[getElementsByTagName]("code") || "";
-							for (var i = 0, l = code[_length]; i < l; i += 1) {
-								if (code[i][classList].contains("hljs") && !code[i][classList].contains(isBindedClass)) {
-									hljs.highlightBlock(code[i]);
-									code[i][classList].add(isBindedClass);
-								}
-							}
-						}
+						enableHljs(appContentParent);
 					}
-					hideProgressBar();
+					/* hideProgressBar(); */
+					if (loadingSpinner) {
+						loadingSpinner[style].display = "none";
+					}
 					scroll2Top(0, 20000);
 				};
 				var handleRoutesWindow = function () {
@@ -1121,7 +1191,10 @@ loadJsCss, Timers, ToProgress, require, verge*/
 						for (var i = 0, l = routesJsonObj.hashes[_length]; i < l; i += 1) {
 							if (locationHash === routesJsonObj.hashes[i][href]) {
 								isNotfound = true;
-								progressBar.increase(40);
+								/* progressBar.increase(40); */
+								if (loadingSpinner) {
+									loadingSpinner[style].display = "block";
+								}
 								insertExternalHTML(appContentId, routesJsonObj.hashes[i].url, triggerOnContentInserted.bind(null, routesJsonObj.hashes[i][title]));
 								break;
 							}
@@ -1134,7 +1207,10 @@ loadJsCss, Timers, ToProgress, require, verge*/
 								var notfoundUrl = routesJsonObj.notfound.url;
 								var notfoundTitle = routesJsonObj.notfound[title];
 								if (notfoundUrl /* && notfoundTitle */) {
-										progressBar.increase(40);
+										if (loadingSpinner) {
+											loadingSpinner[style].display = "block";
+										}
+										/* progressBar.increase(40); */
 										insertExternalHTML(appContentId, notfoundUrl, triggerOnContentInserted.bind(null, notfoundTitle));
 									}
 							}
@@ -1143,7 +1219,10 @@ loadJsCss, Timers, ToProgress, require, verge*/
 						var homeUrl = routesJsonObj.home.url;
 						var homeTitle = routesJsonObj.home[title];
 						if (homeUrl /* && homeTitle */) {
-								progressBar.increase(40);
+								if (loadingSpinner) {
+									loadingSpinner[style].display = "block";
+								}
+								/* progressBar.increase(40); */
 								insertExternalHTML(appContentId, homeUrl, triggerOnContentInserted.bind(null, homeTitle));
 							}
 					}
@@ -1156,37 +1235,6 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			}
 		};
 		initRouting();
-
-		/* jQuery(function ($) {
-  	var $bodyEl = $('body'),
-  	$sidedrawerEl = $('#sidedrawer');
-  		function showSidedrawer() {
-  			var options = {
-  			onclose: function () {
-  				$sidedrawerEl
-  				.removeClass('active')
-  				.appendTo(document.body);
-  			}
-  		};
-  			var $overlayEl = $(mui.overlay('on', options));
-  			$sidedrawerEl.appendTo($overlayEl);
-  		setTimeout(function () {
-  			$sidedrawerEl.addClass('active');
-  		}, 20);
-  	}
-  		function hideSidedrawer() {
-  		$bodyEl.toggleClass('hide-sidedrawer');
-  	}
-  		$('.js-show-sidedrawer').on('click', showSidedrawer);
-  	$('.js-hide-sidedrawer').on('click', hideSidedrawer);
-  		var $titleEls = $('strong', $sidedrawerEl);
-  		$titleEls
-  	.next()
-  	.hide();
-  		$titleEls.on('click', function () {
-  		$(this).next().slideToggle(200);
-  	});
-  }); */
 
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
@@ -1262,61 +1310,13 @@ loadJsCss, Timers, ToProgress, require, verge*/
 				}
 			}
 			if (appContentParent) {
-				if (!appContentParent[classList].contains(isBindedClass)) {
-					appContentParent[_addEventListener]("click", handleSidedrawerCategorySubLink);
-				}
+				/* if (!appContentParent[classList].contains(isBindedClass)) { */
+				appContentParent[_addEventListener]("click", handleSidedrawerCategorySubLink);
+				/* appContentParent[classList].add(isBindedClass); */
+				/* } */
 			}
 		};
 		hideSidedrawerOnNavigating();
-
-		var handleDropdownButton = function (evt) {
-			evt.stopPropagation();
-			evt.preventDefault();
-			var _this = this;
-			if (_this.nextElementSibling[style].display === "none") {
-				_this.nextElementSibling[style].display = "block";
-			} else {
-				_this.nextElementSibling[style].display = "none";
-			}
-		};
-		var toggleDropdownsVisibility = function () {
-			var links = document[getElementsByTagName]("a") || "";
-			var dropdownButtons = [];
-			for (var j = 0, m = links[_length]; j < m; j += 1) {
-				if (links[j][dataset].muiToggle) {
-					dropdownButtons.push(links[j]);
-				}
-			}
-			if (dropdownButtons) {
-				for (var i = 0, l = dropdownButtons[_length]; i < l; i += 1) {
-					if (!dropdownButtons[i][classList].contains(isBindedClass) && dropdownButtons[i].nextElementSibling.nodeName.toLowerCase() === "ul" && dropdownButtons[i].nextElementSibling.nodeType === 1) {
-						dropdownButtons[i].nextElementSibling[style].display = "none";
-						dropdownButtons[i][_addEventListener]("click", handleDropdownButton);
-						dropdownButtons[i][classList].contains(isBindedClass);
-					}
-				}
-			}
-		};
-		toggleDropdownsVisibility();
-
-		var hideAllDropdowns = function () {
-			var dropdowns = document[getElementsByClassName]("mui-dropdown__menu") || "";
-			if (dropdowns) {
-				for (var i = 0, l = dropdowns[_length]; i < l; i += 1) {
-					if (dropdowns[i].style.display !== "none") {
-						dropdowns[i].style.display = "none";
-					}
-				}
-			}
-		};
-		var hideAllDropdownsOnNavigating = function () {
-			if (appContentParent) {
-				if (!appContentParent[classList].contains(isBindedClass)) {
-					root[_addEventListener]("click", hideAllDropdowns);
-				}
-			}
-		};
-		hideAllDropdownsOnNavigating();
 
 		var appBar = document[getElementsByTagName]("header")[0] || "";
 		var appBarHeight = appBar.offsetHeight || 0;
@@ -1449,7 +1449,7 @@ loadJsCss, Timers, ToProgress, require, verge*/
 			clearInterval(slot);
 			slot = null;
 
-			progressBar.increase(20);
+			/* progressBar.increase(20); */
 
 			var load;
 			load = new loadJsCss(scripts, run);
