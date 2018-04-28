@@ -1,0 +1,26 @@
+{
+  "name": "iframe-lightbox",
+  "version": "0.1.6",
+  "main": "iframe-lightbox.js",
+  "author": "englishextra",
+  "ignore": [
+    ".html",
+    ".md",
+    "update.json",
+    "bower.json",
+    "gruntfile.js",
+    "component.json",
+    "package.json"
+  ],
+  "homepage": "https://github.com/englishextra/iframe-lightbox",
+  "_release": "0.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.6",
+    "commit": "6c820cd0634b4b01778f1ef26a6d368cea635ce7"
+  },
+  "_source": "https://github.com/englishextra/iframe-lightbox.git",
+  "_target": "^0.1.6",
+  "_originalSource": "iframe-lightbox",
+  "_direct": true
+}

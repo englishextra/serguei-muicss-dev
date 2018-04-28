@@ -10,116 +10,36 @@
 	"hashes": [{
 		"href": "#/home",
 		"url": "./includes/home.html",
-		"title": "Home"
+		"title": "Начало"
 	},
 	{
-		"href": "#/getting-started",
-		"url": "./includes/getting-started.html",
-		"title": "Getting Started"
+		"href": "#/map",
+		"url": "./includes/map.html",
+		"title": "Карта"
 	},
 	{
-		"href": "#/alerts",
-		"url": "./includes/alerts.html",
-		"title": "Alerts"
+		"href": "#/schedule",
+		"url": "./includes/schedule.html",
+		"title": "Расписание"
 	},
 	{
-		"href": "#/animations",
-		"url": "./includes/animations.html",
-		"title": "Animations"
+		"href": "#/books",
+		"url": "./includes/books.html",
+		"title": "Пособия"
 	},
 	{
-		"href": "#/buttons",
-		"url": "./includes/buttons.html",
-		"title": "Buttons"
+		"href": "#/contacts",
+		"url": "./includes/contacts.html",
+		"title": "Контакты"
 	},
 	{
-		"href": "#/cards-tiles",
-		"url": "./includes/cards-tiles.html",
-		"title": "Cards & Tiles"
+		"href": "#/tests_languagelink_online_test",
+		"url": "./includes/tests_languagelink_online_test.html",
+		"title": "Уровневый тест"
 	},
 	{
-		"href": "#/collapsibles",
-		"url": "./includes/collapsibles.html",
-		"title": "Collapsibles"
-	},
-	{
-		"href": "#/colors",
-		"url": "./includes/colors.html",
-		"title": "Colors"
-	},
-	{
-		"href": "#/footer",
-		"url": "./includes/footer.html",
-		"title": "Footer"
-	},
-	{
-		"href": "#/forms",
-		"url": "./includes/forms.html",
-		"title": "Forms"
-	},
-	{
-		"href": "#/grid",
-		"url": "./includes/grid.html",
-		"title": "Grid"
-	},
-	{
-		"href": "#/header",
-		"url": "./includes/header.html",
-		"title": "Header"
-	},
-	{
-		"href": "#/lightbox",
-		"url": "./includes/lightbox.html",
-		"title": "Lightbox"
-	},
-	{
-		"href": "#/links",
-		"url": "./includes/links.html",
-		"title": "Links"
-	},
-	{
-		"href": "#/media",
-		"url": "./includes/media.html",
-		"title": "Media"
-	},
-	{
-		"href": "#/modals",
-		"url": "./includes/modals.html",
-		"title": "Modals"
-	},
-	{
-		"href": "#/navigation",
-		"url": "./includes/navigation.html",
-		"title": "Navigation"
-	},
-	{
-		"href": "#/tables",
-		"url": "./includes/tables.html",
-		"title": "Tables"
-	},
-	{
-		"href": "#/tabs",
-		"url": "./includes/tabs.html",
-		"title": "Tabs"
-	},
-	{
-		"href": "#/tooltips",
-		"url": "./includes/tooltips.html",
-		"title": "Tooltips"
-	},
-	{
-		"href": "#/typography",
-		"url": "./includes/typography.html",
-		"title": "Typography"
-	},
-	{
-		"href": "#/utility",
-		"url": "./includes/utility.html",
-		"title": "Utility"
-	},
-	{
-		"href": "#/about",
-		"url": "./includes/about.html",
-		"title": "About"
+		"href": "#/tests_gia_ege_get_ready_for_a_run",
+		"url": "./includes/tests_gia_ege_get_ready_for_a_run.html",
+		"title": "Демо ОГЭ / ЕГЭ"
 	}]
 }

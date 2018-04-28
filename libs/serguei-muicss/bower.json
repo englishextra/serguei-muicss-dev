@@ -20,7 +20,8 @@
 	"bower_components",
 	"test",
 	"tests"],
-	"dependencies": {
+	"devDependencies": {
+		"iframe-lightbox": "^0.1.6",
 		"mui": "^0.9.38"
 	}
 }
