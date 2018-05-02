@@ -672,6 +672,7 @@ WheelIndicator*/
 		var parentNode = "parentNode";
 		var replaceChild = "replaceChild";
 		var setAttribute = "setAttribute";
+		var setAttributeNS = "setAttributeNS";
 		var style = "style";
 		var title = "title";
 		var _removeEventListener = "removeEventListener";
@@ -1754,6 +1755,56 @@ WheelIndicator*/
 				}
 			}
 		}
+
+		var initUiTotop = function () {
+			var btnClass = "ui-totop";
+			var btnTitle = "Наверх";
+			var anchor = document[createElement]("a");
+			var insertUpSvg = function (targetObj) {
+				var svg = document[createElementNS]("http://www.w3.org/2000/svg", "svg");
+				var use = document[createElementNS]("http://www.w3.org/2000/svg", "use");
+				svg[setAttribute]("class", "ui-icon");
+				use[setAttributeNS]("http://www.w3.org/1999/xlink", "xlink:href", "#ui-icon-arrow-up");
+				svg[appendChild](use);
+				targetObj[appendChild](svg);
+			};
+			var handleUiTotopAnchor = function (ev) {
+				ev.stopPropagation();
+				ev.preventDefault();
+				scroll2Top(0, 20000);
+			};
+			var handleUiTotopWindow = function (_this) {
+				var logicHandleUiTotopWindow = function () {
+					var btn = document[getElementsByClassName](btnClass)[0] || "";
+					var scrollPosition = _this.pageYOffset || docElem.scrollTop || docBody.scrollTop || "";
+					var windowHeight = _this.innerHeight || docElem.clientHeight || docBody.clientHeight || "";
+					if (scrollPosition && windowHeight && btn) {
+						if (scrollPosition > windowHeight) {
+							btn[classList].add(isActiveClass);
+						} else {
+							btn[classList].remove(isActiveClass);
+						}
+					}
+				};
+				var throttleLogicHandleUiTotopWindow = throttle(logicHandleUiTotopWindow, 100);
+				throttleLogicHandleUiTotopWindow();
+			};
+			anchor[classList].add(btnClass, "mui-btn");
+			anchor[classList].add(btnClass, "mui-btn--fab");
+			anchor[classList].add(btnClass, "mui-btn--accent");
+			anchor[classList].add(btnClass, "ripple");
+			/* jshint -W107 */
+			anchor.href = "javascript:void(0);";
+			/* jshint +W107 */
+			anchor.title = btnTitle;
+			insertUpSvg(anchor);
+			docBody[appendChild](anchor);
+			if (docBody) {
+				anchor[_addEventListener]("click", handleUiTotopAnchor);
+				root[_addEventListener]("scroll", handleUiTotopWindow, { passive: true });
+			}
+		};
+		initUiTotop();
 	};
 
 	/* var scripts = [
@@ -1798,7 +1849,7 @@ WheelIndicator*/
 	/* var scripts = [
  	"./node_modules/jquery/dist/jquery.js",
  	"./bower_components/mui/packages/cdn/js/mui.js",
- 	"../../cdn/highlight.js/9.12.0/js/highlight.pack.js",
+ 	"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
  	"./bower_components/iframe-lightbox/iframe-lightbox.js",
  	"../../cdn/verge/1.9.1/js/verge.fixed.js",
  	"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",

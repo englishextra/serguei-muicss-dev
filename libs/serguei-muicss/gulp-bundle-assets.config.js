@@ -9,10 +9,10 @@ module.exports = {
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
-				//"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
+				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
-				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
-				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
+				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
+				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
 			],
 			"options": {
 				rev: false,
@@ -31,10 +31,10 @@ module.exports = {
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
-				//"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
+				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
-				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
-				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
+				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
+				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
 			],
 			"options": {
 				rev: false,
