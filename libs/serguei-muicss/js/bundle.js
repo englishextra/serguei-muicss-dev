@@ -1,5 +1,5 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imagePromise, loadCSS, loadJsCss, Timers, require, ripple, verge,
+imgLightbox, imagePromise, loadCSS, loadJsCss, Timers, require, ripple, verge,
 WheelIndicator*/
 /*property console, join, split */
 /*!
@@ -31,350 +31,6 @@ WheelIndicator*/
 	}
 	prop = method = dummy = properties = methods = null;
 })("undefined" !== typeof window ? window : this);
-/*!
- * modified ToProgress v0.1.1
- * arguments.callee changed to TP, a local wrapper function,
- * so that public function name is now customizable;
- * wrapped in curly brackets:
- * else{document.body.appendChild(this.progressBar);};
- * removed module check
- * @see {@link http://github.com/djyde/ToProgress}
- * @see {@link https://github.com/djyde/ToProgress/blob/master/ToProgress.js}
- * @see {@link https://gist.github.com/englishextra/6a8c79c9efbf1f2f50523d46a918b785}
- * @see {@link https://jsfiddle.net/englishextra/z5xhjde8/}
- * passes jshint
- */
-(function (root, document, undefined) {
-	"use strict";
-
-	var ToProgress = function () {
-		var TP = function () {
-			var _addEventListener = "addEventListener";
-			var appendChild = "appendChild";
-			var createElement = "createElement";
-			var firstChild = "firstChild";
-			var getElementById = "getElementById";
-			var getElementsByClassName = "getElementsByClassName";
-			var hasOwnProperty = "hasOwnProperty";
-			var opacity = "opacity";
-			var prototype = "prototype";
-			var _removeEventListener = "removeEventListener";
-			var style = "style";
-			function whichTransitionEvent() {
-				var t,
-				    el = document[createElement]("fakeelement");
-				var transitions = {
-					"transition": "transitionend",
-					"OTransition": "oTransitionEnd",
-					"MozTransition": "transitionend",
-					"WebkitTransition": "webkitTransitionEnd"
-				};
-				for (t in transitions) {
-					if (transitions[hasOwnProperty](t)) {
-						if (el[style][t] !== undefined) {
-							return transitions[t];
-						}
-					}
-				}
-			}
-			var transitionEvent = whichTransitionEvent();
-			function ToProgress(opt, selector) {
-				this.progress = 0;
-				this.options = {
-					id: "top-progress-bar",
-					color: "#F44336",
-					height: "2px",
-					duration: 0.2,
-					zIndex: "auto"
-				};
-				if (opt && typeof opt === "object") {
-					for (var key in opt) {
-						if (opt[hasOwnProperty](key)) {
-							this.options[key] = opt[key];
-						}
-					}
-				}
-				this.options.opacityDuration = this.options.duration * 3;
-				this.progressBar = document[createElement]("div");
-				this.progressBar.id = this.options.id;
-				this.progressBar.setCSS = function (style) {
-					for (var property in style) {
-						if (style[hasOwnProperty](property)) {
-							this.style[property] = style[property];
-						}
-					}
-				};
-				this.progressBar.setCSS({
-					"position": selector ? "relative" : "fixed",
-					"top": "0",
-					"left": "0",
-					"right": "0",
-					"background-color": this.options.color,
-					"height": this.options.height,
-					"width": "0%",
-					"transition": "width " + this.options.duration + "s" + ", opacity " + this.options.opacityDuration + "s",
-					"-moz-transition": "width " + this.options.duration + "s" + ", opacity " + this.options.opacityDuration + "s",
-					"-webkit-transition": "width " + this.options.duration + "s" + ", opacity " + this.options.opacityDuration + "s",
-					"z-index": this.options.zIndex
-				});
-				if (selector) {
-					var el;
-					if (selector.indexOf("#", 0) !== -1) {
-						el = document[getElementById](selector) || "";
-					} else {
-						if (selector.indexOf(".", 0) !== -1) {
-							el = document[getElementsByClassName](selector)[0] || "";
-						}
-					}
-					if (el) {
-						if (el.hasChildNodes()) {
-							el.insertBefore(this.progressBar, el[firstChild]);
-						} else {
-							el[appendChild](this.progressBar);
-						}
-					}
-				} else {
-					document.body[appendChild](this.progressBar);
-				}
-			}
-			ToProgress[prototype].transit = function () {
-				this.progressBar[style].width = this.progress + "%";
-			};
-			ToProgress[prototype].getProgress = function () {
-				return this.progress;
-			};
-			ToProgress[prototype].setProgress = function (progress, callback) {
-				this.show();
-				if (progress > 100) {
-					this.progress = 100;
-				} else if (progress < 0) {
-					this.progress = 0;
-				} else {
-					this.progress = progress;
-				}
-				this.transit();
-				if (callback) {
-					callback();
-				}
-			};
-			ToProgress[prototype].increase = function (toBeIncreasedProgress, callback) {
-				this.show();
-				this.setProgress(this.progress + toBeIncreasedProgress, callback);
-			};
-			ToProgress[prototype].decrease = function (toBeDecreasedProgress, callback) {
-				this.show();
-				this.setProgress(this.progress - toBeDecreasedProgress, callback);
-			};
-			ToProgress[prototype].finish = function (callback) {
-				var that = this;
-				this.setProgress(100, callback);
-				this.hide();
-				if (transitionEvent) {
-					this.progressBar[_addEventListener](transitionEvent, function (e) {
-						that.reset();
-						that.progressBar[_removeEventListener](e.type, TP);
-					});
-				}
-			};
-			ToProgress[prototype].reset = function (callback) {
-				this.progress = 0;
-				this.transit();
-				if (callback) {
-					callback();
-				}
-			};
-			ToProgress[prototype].hide = function () {
-				this.progressBar[style][opacity] = "0";
-			};
-			ToProgress[prototype].show = function () {
-				this.progressBar[style][opacity] = "1";
-			};
-			return ToProgress;
-		};
-		return TP();
-	}();
-	root.ToProgress = ToProgress;
-})("undefined" !== typeof window ? window : this, document);
-/*!
- * A small javascript library for ripples
- * /Written by Aaron Längert
- * @see {@link https://github.com/SirBaaron/ripple-js}
- * replaced eval with workaround
- * moved functions away from for loop
- * == to ===
- * added is binded ripple class to avoid multiple assignments
- * moved some functions higher
- * passes jshint
- */
-(function (root, document) {
-	"use strict";
-
-	var ripple = function () {
-		function getRippleContainer(el) {
-			var childs = el.childNodes;
-			for (var ii = 0; ii < childs.length; ii++) {
-				try {
-					/* if (childs[ii].className.indexOf("rippleContainer") > -1) { */
-					if (childs[ii].classList.contains("rippleContainer")) {
-						return childs[ii];
-					}
-				} catch (err) {}
-			}
-			return el;
-		}
-		function rippleStart(e) {
-			var rippleContainer = getRippleContainer(e.target);
-			/* if ((rippleContainer.getAttribute("animating") === "0" || !rippleContainer.hasAttribute("animating")) && e.target.className.indexOf("ripple") > -1) { */
-			if ((rippleContainer.getAttribute("animating") === "0" || !rippleContainer.hasAttribute("animating")) && e.target.classList.contains("ripple")) {
-				rippleContainer.setAttribute("animating", "1");
-				var offsetX = typeof e.offsetX === "number" ? e.offsetX : e.touches[0].clientX - e.target.getBoundingClientRect().left;
-				var offsetY = typeof e.offsetY === "number" ? e.offsetY : e.touches[0].clientY - e.target.getBoundingClientRect().top;
-				var fullCoverRadius = Math.max(Math.sqrt(Math.pow(offsetX, 2) + Math.pow(offsetY, 2)), Math.sqrt(Math.pow(e.target.clientWidth - offsetX, 2) + Math.pow(e.target.clientHeight - offsetY, 2)), Math.sqrt(Math.pow(offsetX, 2) + Math.pow(e.target.clientHeight - offsetY, 2)), Math.sqrt(Math.pow(offsetY, 2) + Math.pow(e.target.clientWidth - offsetX, 2)));
-				var expandTime = e.target.getAttribute("ripple-press-expand-time") || 3;
-				rippleContainer.style.transition = "transform " + expandTime + "s ease-out, box-shadow 0.1s linear";
-				rippleContainer.style.background = e.target.getAttribute("ripple-color") || "white";
-				rippleContainer.style.opacity = e.target.getAttribute("ripple-opacity") || "0.6";
-				rippleContainer.style.boxShadow = e.target.getAttribute("ripple-shadow") || "none";
-				rippleContainer.style.top = offsetY + "px";
-				rippleContainer.style.left = offsetX + "px";
-				rippleContainer.style.transform = "translate(-50%, -50%) scale(" + fullCoverRadius / 100 + ")";
-			}
-		}
-		function rippleEnd(e) {
-			var rippleContainer = getRippleContainer(e.target);
-			if (rippleContainer.getAttribute("animating") === "1") {
-				rippleContainer.setAttribute("animating", "2");
-				var background = root.getComputedStyle(rippleContainer, null).getPropertyValue("background");
-				var destinationRadius = e.target.clientWidth + e.target.clientHeight;
-				rippleContainer.style.transition = "none";
-				var expandTime = e.target.getAttribute("ripple-release-expand-time") || 0.4;
-				rippleContainer.style.transition = "transform " + expandTime + "s linear, background " + expandTime + "s linear, opacity " + expandTime + "s ease-in-out";
-				rippleContainer.style.transform = "translate(-50%, -50%) scale(" + destinationRadius / 100 + ")";
-				rippleContainer.style.background = "radial-gradient(transparent 10%, " + background + " 40%)";
-				rippleContainer.style.opacity = "0";
-				e.target.dispatchEvent(new CustomEvent("ripple-button-click", {
-					target: e.target
-				}));
-				var Fn = Function;
-				new Fn("" + e.target.getAttribute("onrippleclick")).call(root);
-			}
-		}
-		function rippleRetrieve(e) {
-			var rippleContainer = getRippleContainer(e.target);
-			if (rippleContainer.style.transform === "translate(-50%, -50%) scale(0)") {
-				rippleContainer.setAttribute("animating", "0");
-			}
-			if (rippleContainer.getAttribute("animating") === "1") {
-				rippleContainer.setAttribute("animating", "3");
-				var collapseTime = e.target.getAttribute("ripple-leave-collapse-time") || 0.4;
-				rippleContainer.style.transition = "transform " + collapseTime + "s linear, box-shadow " + collapseTime + "s linear";
-				rippleContainer.style.boxShadow = "none";
-				rippleContainer.style.transform = "translate(-50%, -50%) scale(0)";
-			}
-		}
-		var ripple = {
-			registerRipples: function () {
-				var rippleButtons = document.getElementsByClassName("ripple");
-				var i;
-				var fn1 = function () {
-					rippleButtons[i].addEventListener("touchstart", function (e) {
-						rippleStart(e);
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("touchmove", function (e) {
-						if (e.target.hasAttribute("ripple-cancel-on-move")) {
-							rippleRetrieve(e);
-							return;
-						}
-						var overEl;
-						try {
-							/* overEl = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY).className.indexOf("ripple") >= 0; */
-							overEl = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY).classList.contains("ripple");
-						} catch (err) {
-							overEl = false;
-						}
-						if (!overEl) {
-							rippleRetrieve(e);
-						}
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("touchend", function (e) {
-						rippleEnd(e);
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("mousedown", function (e) {
-						rippleStart(e);
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("mouseup", function (e) {
-						rippleEnd(e);
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("mousemove", function (e) {
-						if (e.target.hasAttribute("ripple-cancel-on-move") && (e.movementX !== 0 || e.movementY !== 0)) {
-							rippleRetrieve(e);
-						}
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("mouseleave", function (e) {
-						rippleRetrieve(e);
-					}, {
-						passive: true
-					});
-					rippleButtons[i].addEventListener("transitionend", function (e) {
-						if (e.target.getAttribute("animating") === "2" || e.target.getAttribute("animating") === "3") {
-							e.target.style.transition = "none";
-							e.target.style.transform = "translate(-50%, -50%) scale(0)";
-							e.target.style.boxShadow = "none";
-							e.target.setAttribute("animating", "0");
-						}
-					}, {
-						passive: true
-					});
-					if (getRippleContainer(rippleButtons[i]) === rippleButtons[i]) {
-						rippleButtons[i].innerHTML += '<div class="rippleContainer"></div>';
-					}
-				};
-				for (i = 0; i < rippleButtons.length; i++) {
-					var isBindedRippleClass = "is-binded-ripple";
-					if (!rippleButtons[i].classList.contains(isBindedRippleClass)) {
-						rippleButtons[i].classList.add(isBindedRippleClass);
-						fn1();
-					}
-				}
-			},
-			ripple: function (el) {
-				/* if (el.className.indexOf("ripple") < 0) { */
-				if (!el.classList.contains("ripple")) {
-					return;
-				}
-				var rect = el.getBoundingClientRect();
-				var e = {
-					target: el,
-					offsetX: rect.width / 2,
-					offsetY: rect.height / 2
-				};
-				rippleStart(e);
-				rippleEnd(e);
-			}
-		};
-		root.addEventListener("load", function () {
-			var css = document.createElement("style");
-			css.type = "text/css";
-			css.innerHTML = ".ripple { overflow: hidden !important; position: relative; } .ripple .rippleContainer { display: block; height: 200px !important; width: 200px !important; padding: 0px 0px 0px 0px; border-radius: 50%; position: absolute !important; top: 0px; left: 0px; transform: translate(-50%, -50%) scale(0); -webkit-transform: translate(-50%, -50%) scale(0); -ms-transform: translate(-50%, -50%) scale(0); background-color: transparent; }  .ripple * {pointer-events: none !important;}";
-			document.head.appendChild(css);
-			ripple.registerRipples();
-		});
-		return ripple;
-	}();
-	root.ripple = ripple;
-})("undefined" !== typeof window ? window : this, document);
 /*!
  * return image is loaded promise
  * @see {@link https://jsfiddle.net/englishextra/56pavv7d/}
@@ -622,8 +278,6 @@ WheelIndicator*/
 
 	docBody[classList].add("hide-sidedrawer");
 
-	var loadingSpinner = document[getElementsByClassName]("half-circle-spinner")[0] || document[getElementsByClassName]("hollow-dots-spinner")[0] || "";
-
 	/* var progressBar = new ToProgress({
  		id: "top-progress-bar",
  		color: "#FF2C40",
@@ -681,7 +335,8 @@ WheelIndicator*/
 		var isBindedClass = "is-binded";
 		var isFixedClass = "is-fixed";
 		var isHiddenClass = "is-hidden";
-		var isBindedIframeLightboxClass = "is-binded-iframe-lightbox";
+		var isBindedIframeLightboxLinkClass = "is-binded-iframe-lightbox-link";
+		var isBindedImgLightboxLinkClass = "is-binded-img-lightbox-link";
 
 		/* progressBar.increase(20); */
 
@@ -945,6 +600,41 @@ WheelIndicator*/
 				parent[appendChild](df);
 			}
 		};
+
+		var LoadingSpinner = function () {
+			var spinner = document[getElementsByClassName]("half-circle-spinner")[0] || "";
+			if (!spinner) {
+				spinner = document[createElement]('div');
+				var spinnerInner = document[createElement]("div");
+				spinnerInner[setAttribute]("class", "half-circle-spinner");
+				spinnerInner[setAttribute]("aria-hidden", "true");
+				var spinnerCircle1 = document[createElement]("div");
+				spinnerCircle1[setAttribute]("class", "circle circle-1");
+				spinnerInner[appendChild](spinnerCircle1);
+				var spinnerCircle2 = document[createElement]("div");
+				spinnerCircle2[setAttribute]("class", "circle circle-2");
+				spinnerInner[appendChild](spinnerCircle2);
+				spinner[appendChild](spinnerInner);
+				appendFragment(spinner, docBody);
+			}
+			return {
+				show: function () {
+					return spinner[style].display = "block";
+				},
+				hide: function (callback, timeout) {
+					var delay = timeout || 500;
+					var timers = new Timers();
+					return timers.timeout(function () {
+						timers.clear();
+						timers = null;
+						spinner[style].display = "none";
+						if (callback && "function" === typeof callback) {
+							callback();
+						}
+					}, delay);
+				}
+			};
+		}();
 
 		var insertExternalHTML = function (id, url, callback, onerror) {
 			var container = document[getElementById](id.replace(/^#/, "")) || "";
@@ -1258,148 +948,49 @@ WheelIndicator*/
 		};
 		manageDataSrcIframeAll();
 
-		var revealLoadingSpinner = function () {
-			if (loadingSpinner) {
-				/* loadingSpinner[classList].remove("animated");
-    loadingSpinner[classList].remove("bounceOut"); */
-				loadingSpinner[style].display = "block";
-			}
-		};
-		var concealLoadingSpinner = function () {
-			if (loadingSpinner) {
-				/* loadingSpinner[classList].add("animated");
-    loadingSpinner[classList].add("bounceOut"); */
-				var timers = new Timers();
-				timers.timeout(function () {
-					timers.clear();
-					timers = null;
-					loadingSpinner[style].display = "none";
-					/* loadingSpinner[classList].remove("animated");
-     loadingSpinner[classList].remove("bounceOut"); */
-				}, 1000);
-			}
-		};
-
-		var hideImgLightbox = function () {
-			var container = document[getElementsByClassName]("img-lightbox-container")[0] || "";
-			var img = container ? container[getElementsByTagName]("img")[0] || "" : "";
-			var animatedClass = "animated";
-			var fadeInClass = "fadeIn";
-			var fadeInUpClass = "fadeInUp";
-			var fadeOutClass = "fadeOut";
-			var fadeOutDownClass = "fadeOutDown";
-			var dummySrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-			var hideContainer = function () {
-				container[classList].remove(fadeInClass);
-				container[classList].add(fadeOutClass);
-				var hideImg = function () {
-					container[classList].remove(animatedClass);
-					container[classList].remove(fadeOutClass);
-					img[classList].remove(animatedClass);
-					img[classList].remove(fadeOutDownClass);
-					img.src = dummySrc;
-					container[style].display = "none";
-				};
-				var timers = new Timers();
-				timers.timeout(function () {
-					timers.clear();
-					timers = null;
-					hideImg();
-				}, 400);
-			};
-			if (container && img) {
-				img[classList].remove(fadeInUpClass);
-				img[classList].add(fadeOutDownClass);
-				var timers = new Timers();
-				timers.timeout(function () {
-					timers.clear();
-					timers = null;
-					hideContainer();
-				}, 400);
-			}
-		};
-		var handleImgLightboxContainer = function () {
-			var container = document[getElementsByClassName]("img-lightbox-container")[0] || "";
-			if (container) {
-				container[_removeEventListener]("click", handleImgLightboxContainer);
-				hideImgLightbox();
-			}
-		};
-		var handleImgLightboxWindow = function (ev) {
-			var _removeEventListener = "removeEventListener";
-			root[_removeEventListener]("keyup", handleImgLightboxWindow);
-			if (27 === (ev.which || ev.keyCode)) {
-				hideImgLightbox();
-			}
-		};
-		var manageImgLightboxLinks = function (scope) {
+		var manageIframeLightboxLinks = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
-			var linkClass = "img-lightbox-link";
+			var linkClass = "iframe-lightbox-link";
 			var link = ctx ? ctx[getElementsByClassName](linkClass) || "" : document[getElementsByClassName](linkClass) || "";
-			var containerClass = "img-lightbox-container";
-			var container = document[getElementsByClassName](containerClass)[0] || "";
-			var img = container ? container[getElementsByTagName]("img")[0] || "" : "";
-			var animatedClass = "animated";
-			var fadeInClass = "fadeIn";
-			var fadeInUpClass = "fadeInUp";
-			var dummySrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-			if (!container) {
-				container = document[createElement]("div");
-				img = document[createElement]("img");
-				img.src = dummySrc;
-				img.alt = "";
-				container[appendChild](img);
-				container[classList].add(containerClass);
-				appendFragment(container, docBody);
-			}
 			var arrange = function (e) {
-				var handleImgLightboxLink = function (ev) {
-					ev.stopPropagation();
-					ev.preventDefault();
-					var _this = this;
-					var logicHandleImgLightboxLink = function () {
-						var hrefString = _this[getAttribute]("href") || "";
-						if (container && img && hrefString) {
-							/* LoadingSpinner.show(); */
-							revealLoadingSpinner();
-							container[classList].add(animatedClass);
-							container[classList].add(fadeInClass);
-							img[classList].add(animatedClass);
-							img[classList].add(fadeInUpClass);
-							if (parseLink(hrefString).isAbsolute && !parseLink(hrefString).hasHTTP) {
-								hrefString = hrefString.replace(/^/, forcedHTTP + ":");
-							}
-							imagePromise(hrefString).then(function () {
-								img.src = hrefString;
-							}).catch(function (err) {
-								console.log("cannot load image with imagePromise:", hrefString, err);
-							});
-							root[_addEventListener]("keyup", handleImgLightboxWindow);
-							container[_addEventListener]("click", handleImgLightboxContainer);
-							container[style].display = "block";
-							/* LoadingSpinner.hide(); */
-							concealLoadingSpinner();
+				if (!e[classList].contains(isBindedIframeLightboxLinkClass)) {
+					e.lightbox = new IframeLightbox(e, {
+						onLoaded: function () {
+							LoadingSpinner.hide();
+						},
+						onClosed: function () {
+							LoadingSpinner.hide();
+						},
+						onOpened: function () {
+							LoadingSpinner.show();
 						}
-					};
-					var debounceLogicHandleImgLightboxLink = debounce(logicHandleImgLightboxLink, 200);
-					debounceLogicHandleImgLightboxLink();
-				};
-				if (!e[classList].contains(isBindedClass)) {
-					var hrefString = e[getAttribute]("href") || "";
-					if (hrefString) {
-						if (parseLink(hrefString).isAbsolute && !parseLink(hrefString).hasHTTP) {
-							e.setAttribute("href", hrefString.replace(/^/, forcedHTTP + ":"));
-						}
-						e[_addEventListener]("click", handleImgLightboxLink);
-						e[classList].add(isBindedClass);
-					}
+					});
+					e[classList].add(isBindedIframeLightboxLinkClass);
 				}
 			};
 			if (link) {
-				for (var j = 0, l = link[_length]; j < l; j += 1) {
-					arrange(link[j]);
+				for (var i = 0, l = link[_length]; i < l; i += 1) {
+					arrange(link[i]);
 				}
 				/* forEach(link, arrange, false); */
+			}
+		};
+		manageIframeLightboxLinks();
+
+		var manageImgLightboxLinks = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			if (root.imgLightbox) {
+				imgLightbox(ctx, {
+					onCreated: function () {
+						LoadingSpinner.show();
+					},
+					onLoaded: function () {
+						LoadingSpinner.hide();
+					},
+					onError: function () {
+						LoadingSpinner.hide();
+					}
+				});
 			}
 		};
 
@@ -1489,25 +1080,6 @@ WheelIndicator*/
 			}
 		};
 
-		var manageIframeLightboxLinks = function (scope) {
-			var ctx = scope && scope.nodeName ? scope : "";
-			var linkClass = "iframe-lightbox-link";
-			var link = ctx ? ctx[getElementsByClassName](linkClass) || "" : document[getElementsByClassName](linkClass) || "";
-			var arrange = function (e) {
-				if (!e[classList].contains(isBindedIframeLightboxClass)) {
-					e.lightbox = new IframeLightbox(e);
-					e[classList].add(isBindedIframeLightboxClass);
-				}
-			};
-			if (link) {
-				for (var i = 0, l = link[_length]; i < l; i += 1) {
-					arrange(link[i]);
-				}
-				/* forEach(link, arrange, false); */
-			}
-		};
-		manageIframeLightboxLinks();
-
 		var addRippleEffect = function () {
 			if (root.ripple) {
 				ripple.registerRipples();
@@ -1561,7 +1133,7 @@ WheelIndicator*/
 						manageHljsCodeAll(appContentParent);
 					}
 					/* hideProgressBar(); */
-					concealLoadingSpinner();
+					LoadingSpinner.hide();
 					scroll2Top(0, 20000);
 				};
 				var handleRoutesWindow = function () {
@@ -1572,7 +1144,7 @@ WheelIndicator*/
 							if (locationHash === routesJsonObj.hashes[i][href]) {
 								isNotfound = true;
 								/* progressBar.increase(40); */
-								revealLoadingSpinner();
+								LoadingSpinner.show();
 								insertExternalHTML(appContentId, routesJsonObj.hashes[i].url, triggerOnContentInserted.bind(null, routesJsonObj.hashes[i][title]));
 								break;
 							}
@@ -1585,7 +1157,7 @@ WheelIndicator*/
 								var notfoundUrl = routesJsonObj.notfound.url;
 								var notfoundTitle = routesJsonObj.notfound[title];
 								if (notfoundUrl /* && notfoundTitle */) {
-										revealLoadingSpinner();
+										LoadingSpinner.show();
 										/* progressBar.increase(40); */
 										insertExternalHTML(appContentId, notfoundUrl, triggerOnContentInserted.bind(null, notfoundTitle));
 									}
@@ -1595,7 +1167,7 @@ WheelIndicator*/
 						var homeUrl = routesJsonObj.home.url;
 						var homeTitle = routesJsonObj.home[title];
 						if (homeUrl /* && homeTitle */) {
-								revealLoadingSpinner();
+								LoadingSpinner.show();
 								/* progressBar.increase(40); */
 								insertExternalHTML(appContentId, homeUrl, triggerOnContentInserted.bind(null, homeTitle));
 							}
@@ -1791,8 +1363,10 @@ WheelIndicator*/
 			};
 			anchor[classList].add(btnClass, "mui-btn");
 			anchor[classList].add(btnClass, "mui-btn--fab");
-			anchor[classList].add(btnClass, "mui-btn--accent");
+			anchor[classList].add(btnClass, "mui-btn--primary");
 			anchor[classList].add(btnClass, "ripple");
+			/* anchor[setAttribute]("ripple-color", "rgba(0, 0, 0, 0.15)"); */
+			anchor[setAttribute]("aria-label", "Навигация");
 			/* jshint -W107 */
 			anchor.href = "javascript:void(0);";
 			/* jshint +W107 */
@@ -1852,8 +1426,8 @@ WheelIndicator*/
  	"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
  	"./bower_components/iframe-lightbox/iframe-lightbox.js",
  	"../../cdn/verge/1.9.1/js/verge.fixed.js",
- 	"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.min.js",
- 	"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.min.js"
+ 	"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
+ 	"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
  ]; */
 
 	scripts.push("./libs/serguei-muicss/js/vendors.min.js");

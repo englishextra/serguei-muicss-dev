@@ -9,6 +9,7 @@ module.exports = {
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
+				"../../cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
 				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
 				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
@@ -31,6 +32,7 @@ module.exports = {
 				//"./bower_components/mui/packages/cdn/js/mui.js",
 				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
+				"../../cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
 				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
 				"../../cdn/verge/1.9.1/js/verge.fixed.js",
 				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
@@ -56,6 +58,7 @@ module.exports = {
 				//"./node_modules/normalize.css/normalize.css",
 				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/iframe-lightbox/iframe-lightbox.css",
+				"../../cdn/img-lightbox/0.1.0/css/img-lightbox.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {
@@ -79,6 +82,7 @@ module.exports = {
 				//"./node_modules/normalize.css/normalize.css",
 				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/iframe-lightbox/iframe-lightbox.css",
+				"../../cdn/img-lightbox/0.1.0/css/img-lightbox.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {

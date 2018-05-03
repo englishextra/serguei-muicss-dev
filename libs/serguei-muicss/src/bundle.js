@@ -1,5 +1,5 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imagePromise, loadCSS, loadJsCss, Timers, require, ripple, verge,
+imgLightbox, imagePromise, loadCSS, loadJsCss, Timers, require, ripple, verge,
 WheelIndicator*/
 /*property console, join, split */
 /*!
@@ -334,7 +334,8 @@ WheelIndicator*/
 		var isBindedClass = "is-binded";
 		var isFixedClass = "is-fixed";
 		var isHiddenClass = "is-hidden";
-		var isBindedIframeLightboxClass = "is-binded-iframe-lightbox";
+		var isBindedIframeLightboxLinkClass = "is-binded-iframe-lightbox-link";
+		var isBindedImgLightboxLinkClass = "is-binded-img-lightbox-link";
 
 		/* progressBar.increase(20); */
 
@@ -948,126 +949,49 @@ WheelIndicator*/
 		};
 		manageDataSrcIframeAll();
 
-		var hideImgLightbox = function () {
-			var container = document[getElementsByClassName]("img-lightbox-container")[0] || "";
-			var img = container ? container[getElementsByTagName]("img")[0] || "" : "";
-			var animatedClass = "animated";
-			var fadeInClass = "fadeIn";
-			var fadeInUpClass = "fadeInUp";
-			var fadeOutClass = "fadeOut";
-			var fadeOutDownClass = "fadeOutDown";
-			var dummySrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-			var hideContainer = function () {
-				container[classList].remove(fadeInClass);
-				container[classList].add(fadeOutClass);
-				var hideImg = function () {
-					container[classList].remove(animatedClass);
-					container[classList].remove(fadeOutClass);
-					img[classList].remove(animatedClass);
-					img[classList].remove(fadeOutDownClass);
-					img.src = dummySrc;
-					container[style].display = "none";
-				};
-				var timers = new Timers();
-				timers.timeout(function () {
-					timers.clear();
-					timers = null;
-					hideImg();
-				}, 400);
-			};
-			if (container && img) {
-				img[classList].remove(fadeInUpClass);
-				img[classList].add(fadeOutDownClass);
-				var timers = new Timers();
-				timers.timeout(function () {
-					timers.clear();
-					timers = null;
-					hideContainer();
-				}, 400);
-			}
-		};
-		var handleImgLightboxContainer = function () {
-			var container = document[getElementsByClassName]("img-lightbox-container")[0] || "";
-			if (container) {
-				container[_removeEventListener]("click", handleImgLightboxContainer);
-				hideImgLightbox();
-			}
-		};
-		var handleImgLightboxWindow = function (ev) {
-			var _removeEventListener = "removeEventListener";
-			root[_removeEventListener]("keyup", handleImgLightboxWindow);
-			if (27 === (ev.which || ev.keyCode)) {
-				hideImgLightbox();
-			}
-		};
-		var manageImgLightboxLinks = function (scope) {
+		var manageIframeLightboxLinks = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
-			var linkClass = "img-lightbox-link";
+			var linkClass = "iframe-lightbox-link";
 			var link = ctx ? ctx[getElementsByClassName](linkClass) || "" : document[getElementsByClassName](linkClass) || "";
-			var containerClass = "img-lightbox-container";
-			var container = document[getElementsByClassName](containerClass)[0] || "";
-			var img = container ? container[getElementsByTagName]("img")[0] || "" : "";
-			var animatedClass = "animated";
-			var fadeInClass = "fadeIn";
-			var fadeInUpClass = "fadeInUp";
-			var dummySrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-			if (!container) {
-				container = document[createElement]("div");
-				img = document[createElement]("img");
-				img.src = dummySrc;
-				img.alt = "";
-				container[appendChild](img);
-				container[classList].add(containerClass);
-				appendFragment(container, docBody);
-			}
 			var arrange = function (e) {
-				var handleImgLightboxLink = function (ev) {
-					ev.stopPropagation();
-					ev.preventDefault();
-					var _this = this;
-					var logicHandleImgLightboxLink = function () {
-						var hrefString = _this[getAttribute]("href") || "";
-						if (container && img && hrefString) {
-							/* LoadingSpinner.show(); */
-							LoadingSpinner.show();
-							container[classList].add(animatedClass);
-							container[classList].add(fadeInClass);
-							img[classList].add(animatedClass);
-							img[classList].add(fadeInUpClass);
-							if (parseLink(hrefString).isAbsolute && !parseLink(hrefString).hasHTTP) {
-								hrefString = hrefString.replace(/^/, forcedHTTP + ":");
-							}
-							imagePromise(hrefString).then(function () {
-								img.src = hrefString;
-							}).catch (function (err) {
-								console.log("cannot load image with imagePromise:", hrefString, err);
-							});
-							root[_addEventListener]("keyup", handleImgLightboxWindow);
-							container[_addEventListener]("click", handleImgLightboxContainer);
-							container[style].display = "block";
-							/* LoadingSpinner.hide(); */
+				if (!e[classList].contains(isBindedIframeLightboxLinkClass)) {
+					e.lightbox = new IframeLightbox(e, {
+						onLoaded: function() {
 							LoadingSpinner.hide();
+						},
+						onClosed: function() {
+							LoadingSpinner.hide();
+						},
+						onOpened: function() {
+							LoadingSpinner.show();
 						}
-					};
-					var debounceLogicHandleImgLightboxLink = debounce(logicHandleImgLightboxLink, 200);
-					debounceLogicHandleImgLightboxLink();
-				};
-				if (!e[classList].contains(isBindedClass)) {
-					var hrefString = e[getAttribute]("href") || "";
-					if (hrefString) {
-						if (parseLink(hrefString).isAbsolute && !parseLink(hrefString).hasHTTP) {
-							e.setAttribute("href", hrefString.replace(/^/, forcedHTTP + ":"));
-						}
-						e[_addEventListener]("click", handleImgLightboxLink);
-						e[classList].add(isBindedClass);
-					}
+					});
+					e[classList].add(isBindedIframeLightboxLinkClass);
 				}
 			};
 			if (link) {
-				for (var j = 0, l = link[_length]; j < l; j += 1) {
-					arrange(link[j]);
+				for (var i = 0, l = link[_length]; i < l; i += 1) {
+					arrange(link[i]);
 				}
 				/* forEach(link, arrange, false); */
+			}
+		};
+		manageIframeLightboxLinks();
+
+		var manageImgLightboxLinks = function (scope) {
+			var ctx = scope && scope.nodeName ? scope : "";
+			if (root.imgLightbox) {
+				imgLightbox(ctx, {
+					onCreated: function () {
+						LoadingSpinner.show();
+					},
+					onLoaded: function () {
+						LoadingSpinner.hide();
+					},
+					onError: function () {
+						LoadingSpinner.hide();
+					},
+				});
 			}
 		};
 
@@ -1159,35 +1083,6 @@ WheelIndicator*/
 				}
 			}
 		};
-
-		var manageIframeLightboxLinks = function (scope) {
-			var ctx = scope && scope.nodeName ? scope : "";
-			var linkClass = "iframe-lightbox-link";
-			var link = ctx ? ctx[getElementsByClassName](linkClass) || "" : document[getElementsByClassName](linkClass) || "";
-			var arrange = function (e) {
-				if (!e[classList].contains(isBindedIframeLightboxClass)) {
-					e.lightbox = new IframeLightbox(e, {
-						onLoaded: function() {
-							LoadingSpinner.hide();
-						},
-						onClosed: function() {
-							LoadingSpinner.hide();
-						},
-						onOpened: function() {
-							LoadingSpinner.show();
-						}
-					});
-					e[classList].add(isBindedIframeLightboxClass);
-				}
-			};
-			if (link) {
-				for (var i = 0, l = link[_length]; i < l; i += 1) {
-					arrange(link[i]);
-				}
-				/* forEach(link, arrange, false); */
-			}
-		};
-		manageIframeLightboxLinks();
 
 		var addRippleEffect = function () {
 			if (root.ripple) {
@@ -1501,6 +1396,7 @@ WheelIndicator*/
 		"./node_modules/normalize.css/normalize.css",
 		"../../cdn/highlight.js/9.12.0/css/hljs.css",
 		"./bower_components/iframe-lightbox/iframe-lightbox.css",
+		"../../cdn/img-lightbox/0.1.0/css/img-lightbox.css",
 		"./bower_components/mui/src/sass/mui.css"
 	]; */
 
@@ -1558,6 +1454,7 @@ WheelIndicator*/
 		"./bower_components/mui/packages/cdn/js/mui.js",
 		"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 		"./bower_components/iframe-lightbox/iframe-lightbox.js",
+		"../../cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
 		"../../cdn/verge/1.9.1/js/verge.fixed.js",
 		"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
 		"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
