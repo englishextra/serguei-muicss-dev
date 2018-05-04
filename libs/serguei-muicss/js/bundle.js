@@ -1,6 +1,6 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imgLightbox, imagePromise, loadCSS, loadJsCss, Timers, require, ripple, verge,
-WheelIndicator*/
+imgLightbox, imagePromise, loadCSS, loadJsCss, Timers, QRCode, require,
+ripple, unescape, verge, WheelIndicator*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -336,7 +336,6 @@ WheelIndicator*/
 		var isFixedClass = "is-fixed";
 		var isHiddenClass = "is-hidden";
 		var isBindedIframeLightboxLinkClass = "is-binded-iframe-lightbox-link";
-		var isBindedImgLightboxLinkClass = "is-binded-img-lightbox-link";
 
 		/* progressBar.increase(20); */
 
@@ -635,6 +634,14 @@ WheelIndicator*/
 				}
 			};
 		}();
+
+		var removeChildren = function (e) {
+			if (e && e.firstChild) {
+				for (; e.firstChild;) {
+					e.removeChild(e.firstChild);
+				}
+			}
+		};
 
 		var insertExternalHTML = function (id, url, callback, onerror) {
 			var container = document[getElementById](id.replace(/^#/, "")) || "";
@@ -993,6 +1000,80 @@ WheelIndicator*/
 				});
 			}
 		};
+
+		var manageLocationQrCodeImage = function () {
+			var btn = document[getElementsByClassName]("mui-appbar__ui-button--qrcode")[0] || "";
+			var holder = document[getElementsByClassName]("holder-location-qr-code")[0] || "";
+			var locationHref = root.location.href || "";
+			var hideLocationQrCodeImage = function () {
+				holder[classList].remove(isActiveClass);
+			};
+			var handleLocationQrCodeButton = function (ev) {
+				ev.stopPropagation();
+				ev.preventDefault();
+				var logicHandleLocationQrCodeButton = function () {
+					holder[classList].toggle(isActiveClass);
+					var locationHref = root.location.href || "";
+					var newImg = document[createElement]("img");
+					var newTitle = document[title] ? "Ссылка на страницу «" + document[title].replace(/\[[^\]]*?\]/g, "").trim() + "»" : "";
+					var newSrc = forcedHTTP + "://chart.googleapis.com/chart?cht=qr&chld=M%7C4&choe=UTF-8&chs=512x512&chl=" + encodeURIComponent(locationHref);
+					newImg.alt = newTitle;
+					var initScript = function () {
+						if (root.QRCode) {
+							if ("undefined" !== typeof earlySvgSupport && "svg" === earlySvgSupport) {
+								newSrc = QRCode.generateSVG(locationHref, {
+									ecclevel: "M",
+									fillcolor: "#FFFFFF",
+									textcolor: "#191919",
+									margin: 4,
+									modulesize: 8
+								});
+								var XMLS = new XMLSerializer();
+								newSrc = XMLS.serializeToString(newSrc);
+								newSrc = "data:image/svg+xml;base64," + root.btoa(unescape(encodeURIComponent(newSrc)));
+								newImg.src = newSrc;
+							} else {
+								newSrc = QRCode.generatePNG(locationHref, {
+									ecclevel: "M",
+									format: "html",
+									fillcolor: "#FFFFFF",
+									textcolor: "#191919",
+									margin: 4,
+									modulesize: 8
+								});
+								newImg.src = newSrc;
+							}
+						} else {
+							newImg.src = newSrc;
+						}
+						newImg[classList].add("qr-code-img");
+						newImg.title = newTitle;
+						removeChildren(holder);
+						appendFragment(newImg, holder);
+					};
+					/* var jsUrl = "./cdn/qrjs2/0.1.6/js/qrjs2.fixed.min.js";
+     if (!scriptIsLoaded(jsUrl)) {
+     	var load;
+     	load = new loadJsCss([jsUrl], initScript);
+     } else {
+     	initScript();
+     } */
+					initScript();
+				};
+				var debounceLogicHandleLocationQrCodeButton = debounce(logicHandleLocationQrCodeButton, 200);
+				debounceLogicHandleLocationQrCodeButton();
+			};
+			if (btn && holder && locationHref) {
+				if ("undefined" !== typeof getHTTP && getHTTP()) {
+					btn[_addEventListener]("click", handleLocationQrCodeButton);
+					if (appContentParent) {
+						appContentParent[_addEventListener]("click", hideLocationQrCodeImage);
+					}
+					root[_addEventListener]("hashchange", hideLocationQrCodeImage);
+				}
+			}
+		};
+		manageLocationQrCodeImage();
 
 		var hideCurrentDropdownMenu = function (e) {
 			if (e) {
@@ -1389,6 +1470,7 @@ WheelIndicator*/
  	"./node_modules/normalize.css/normalize.css",
  	"../../cdn/highlight.js/9.12.0/css/hljs.css",
  	"./bower_components/iframe-lightbox/iframe-lightbox.css",
+ 	"./bower_components/img-lightbox/img-lightbox.css",
  	"./bower_components/mui/src/sass/mui.css"
  ]; */
 
@@ -1423,8 +1505,10 @@ WheelIndicator*/
 	/* var scripts = [
  	"./node_modules/jquery/dist/jquery.js",
  	"./bower_components/mui/packages/cdn/js/mui.js",
- 	"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
  	"./bower_components/iframe-lightbox/iframe-lightbox.js",
+ 	"./bower_components/img-lightbox/img-lightbox.js",
+ 	"./bower_components/qrjs2/qrjs2.js",
+ 	"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
  	"../../cdn/verge/1.9.1/js/verge.fixed.js",
  	"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
  	"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"

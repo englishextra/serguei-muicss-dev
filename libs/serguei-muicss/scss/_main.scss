@@ -136,7 +136,6 @@ button {
 	position: absolute;
 	top: 0;
 	left: 3.500rem;
-	-webkit-transform: translate(0);
 	transform: translate(0);
 	/* background-color: yellow; */
 	margin: 0;
@@ -167,7 +166,6 @@ button {
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
-	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -426,7 +424,8 @@ button {
 }
 
 .mui-appbar__ui-button--vk,
-.mui-appbar__ui-button--map-maker {
+.mui-appbar__ui-button--map-maker,
+.mui-appbar__ui-button--qrcode {
 	float: right;
 	position: absolute;
 	right: 3.500rem;
@@ -481,12 +480,21 @@ button {
  */
 
 .mui-dropdown__menu {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
 	border: 0.063rem solid $clr-grey-300;
 	border-radius: 0;
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 10px 0 rgba(0, 0, 0, 0.12);
 	padding: 0;
 	margin: 0;
 	user-select: none;
+	transition: visibility 0s, opacity 0.2s ease;
+}
+
+.mui-dropdown__menu.is-active {
+	visibility: visible;
+	opacity: 1;
 }
 
 .mui-dropdown__menu>li>a {
@@ -701,6 +709,58 @@ a.mui-btn:active {
 .img-lightbox-container img.animated {
 	animation-duration: 0.4s;
 	animation-fill-mode: both;
+}
+
+/*!
+ * qrjs2
+ */
+
+.holder-location-qr-code {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+	width: 9.000rem;
+	height: 9.000rem;
+	position: fixed;
+	/* 56x56 */
+	top: 3.500rem;
+	right: 0.875rem;
+	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 10px 0 rgba(0, 0, 0, 0.12);
+	transition: visibility 0s, opacity 0.2s ease;
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+	.holder-location-qr-code {
+		/* 48x48 */
+		top: 3.000rem;
+		right: 0.750rem;
+	}
+}
+
+@media (min-width: 480px) {
+	.holder-location-qr-code {
+		/* 64x64 */
+		top: 4.000rem;
+		right: 1.000rem;
+	}
+}
+
+.holder-location-qr-code.is-active {
+	visibility: visible;
+	opacity: 1;
+}
+
+.holder-location-qr-code .qr-code-img,
+.holder-location-qr-code img {
+	display: block;
+	width: 9.000rem;
+	height: 9.000rem;
+	background-color: transparent;
+	background-size: 9.000rem 9.000rem;
+	border: 0;
+	vertical-align: bottom;
+	padding: 0;
+	margin: 0;
 }
 
 #sidedrawer,

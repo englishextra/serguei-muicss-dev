@@ -7,13 +7,17 @@ module.exports = {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
-				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
-				"../../cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
-				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
-				"../../cdn/verge/1.9.1/js/verge.fixed.js",
-				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
-				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
+				"./bower_components/img-lightbox/img-lightbox.js",
+				"./bower_components/qrjs2/qrjs2.js",
+				"./bower_components/wheel-indicator/lib/wheel-indicator.js",
+				"./bower_components/verge/verge.js",
+				"./bower_components/Tocca.js/Tocca.js",
+				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js"
+				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
+				//"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
+				//"../../cdn/verge/1.9.1/js/verge.fixed.js",
+				//"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js"
 			],
 			"options": {
 				rev: false,
@@ -30,13 +34,17 @@ module.exports = {
 			scripts: [
 				//"./node_modules/jquery/dist/jquery.js",
 				//"./bower_components/mui/packages/cdn/js/mui.js",
-				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 				"./bower_components/iframe-lightbox/iframe-lightbox.js",
-				"../../cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
-				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
-				"../../cdn/verge/1.9.1/js/verge.fixed.js",
-				"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
-				"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
+				"./bower_components/img-lightbox/img-lightbox.js",
+				"./bower_components/qrjs2/qrjs2.js",
+				"./bower_components/wheel-indicator/lib/wheel-indicator.js",
+				"./bower_components/verge/verge.js",
+				"./bower_components/Tocca.js/Tocca.js",
+				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js"
+				//"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
+				//"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
+				//"../../cdn/verge/1.9.1/js/verge.fixed.js",
+				//"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js"
 			],
 			"options": {
 				rev: false,
@@ -58,7 +66,7 @@ module.exports = {
 				//"./node_modules/normalize.css/normalize.css",
 				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/iframe-lightbox/iframe-lightbox.css",
-				"../../cdn/img-lightbox/0.1.0/css/img-lightbox.css",
+				"./bower_components/img-lightbox/img-lightbox.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {
@@ -82,7 +90,7 @@ module.exports = {
 				//"./node_modules/normalize.css/normalize.css",
 				//"../../cdn/highlight.js/9.12.0/css/hljs.css",
 				"./bower_components/iframe-lightbox/iframe-lightbox.css",
-				"../../cdn/img-lightbox/0.1.0/css/img-lightbox.css",
+				"./bower_components/img-lightbox/img-lightbox.css",
 				"./bower_components/mui/src/sass/mui.css"
 			],
 			"options": {

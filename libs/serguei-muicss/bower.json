@@ -22,6 +22,11 @@
 	"tests"],
 	"devDependencies": {
 		"iframe-lightbox": "^0.1.6",
-		"mui": "^0.9.38"
+		"img-lightbox": "^0.1.1",
+		"mui": "^0.9.38",
+		"qrjs2": "^0.1.6",
+		"Tocca.js": "^2.0.3",
+		"verge": "ryanve/verge#^1.10.2",
+		"wheel-indicator": "^1.1.4"
 	}
 }

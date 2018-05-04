@@ -462,6 +462,1299 @@
 })("undefined" !== typeof window ? window : this, document);
 
 /*!
+ * modified qr.js -- QR code generator in Javascript (revision 2011-01-19)
+ * Written by Kang Seonghoon <public+qrjs@mearie.org>.
+ * v0.0.20110119
+ * This source code is in the public domain; if your jurisdiction does not
+ * recognize the public domain the terms of Creative Commons CC0 license
+ * apply. In the other words, you can always do what you want.
+ * added options properties: fillcolor and textcolor
+ * svg now works in Edge 13 and IE 11
+ * @see {@link https://gist.github.com/englishextra/b46969e3382ef737c611bb59d837220b}
+ * @see {@link https://github.com/lifthrasiir/qr.js/blob/v0.0.20110119/qr.js}
+ * passes jshint with suppressing comments
+ */
+/*jshint bitwise: false */
+/*jshint shadow: true */
+/*jshint sub:true */
+/*jshint -W041 */
+(function (root, name, definition) {
+	root[name] = definition();
+}("undefined" !== typeof window ? window : this, "QRCode", function () {
+	var VERSIONS = [null, [[10, 7, 17, 13], [1, 1, 1, 1], []], [[16, 10, 28, 22], [1, 1, 1, 1], [4, 16]], [[26, 15, 22, 18], [1, 1, 2, 2], [4, 20]], [[18, 20, 16, 26], [2, 1, 4, 2], [4, 24]], [[24, 26, 22, 18], [2, 1, 4, 4], [4, 28]], [[16, 18, 28, 24], [4, 2, 4, 4], [4, 32]], [[18, 20, 26, 18], [4, 2, 5, 6], [4, 20, 36]], [[22, 24, 26, 22], [4, 2, 6, 6], [4, 22, 40]], [[22, 30, 24, 20], [5, 2, 8, 8], [4, 24, 44]], [[26, 18, 28, 24], [5, 4, 8, 8], [4, 26, 48]], [[30, 20, 24, 28], [5, 4, 11, 8], [4, 28, 52]], [[22, 24, 28, 26], [8, 4, 11, 10], [4, 30, 56]], [[22, 26, 22, 24], [9, 4, 16, 12], [4, 32, 60]], [[24, 30, 24, 20], [9, 4, 16, 16], [4, 24, 44, 64]], [[24, 22, 24, 30], [10, 6, 18, 12], [4, 24, 46, 68]], [[28, 24, 30, 24], [10, 6, 16, 17], [4, 24, 48, 72]], [[28, 28, 28, 28], [11, 6, 19, 16], [4, 28, 52, 76]], [[26, 30, 28, 28], [13, 6, 21, 18], [4, 28, 54, 80]], [[26, 28, 26, 26], [14, 7, 25, 21], [4, 28, 56, 84]], [[26, 28, 28, 30], [16, 8, 25, 20], [4, 32, 60, 88]], [[26, 28, 30, 28], [17, 8, 25, 23], [4, 26, 48, 70, 92]], [[28, 28, 24, 30], [17, 9, 34, 23], [4, 24, 48, 72, 96]], [[28, 30, 30, 30], [18, 9, 30, 25], [4, 28, 52, 76, 100]], [[28, 30, 30, 30], [20, 10, 32, 27], [4, 26, 52, 78, 104]], [[28, 26, 30, 30], [21, 12, 35, 29], [4, 30, 56, 82, 108]], [[28, 28, 30, 28], [23, 12, 37, 34], [4, 28, 56, 84, 112]], [[28, 30, 30, 30], [25, 12, 40, 34], [4, 32, 60, 88, 116]], [[28, 30, 30, 30], [26, 13, 42, 35], [4, 24, 48, 72, 96, 120]], [[28, 30, 30, 30], [28, 14, 45, 38], [4, 28, 52, 76, 100, 124]], [[28, 30, 30, 30], [29, 15, 48, 40], [4, 24, 50, 76, 102, 128]], [[28, 30, 30, 30], [31, 16, 51, 43], [4, 28, 54, 80, 106, 132]], [[28, 30, 30, 30], [33, 17, 54, 45], [4, 32, 58, 84, 110, 136]], [[28, 30, 30, 30], [35, 18, 57, 48], [4, 28, 56, 84, 112, 140]], [[28, 30, 30, 30], [37, 19, 60, 51], [4, 32, 60, 88, 116, 144]], [[28, 30, 30, 30], [38, 19, 63, 53], [4, 28, 52, 76, 100, 124, 148]], [[28, 30, 30, 30], [40, 20, 66, 56], [4, 22, 48, 74, 100, 126, 152]], [[28, 30, 30, 30], [43, 21, 70, 59], [4, 26, 52, 78, 104, 130, 156]], [[28, 30, 30, 30], [45, 22, 74, 62], [4, 30, 56, 82, 108, 134, 160]], [[28, 30, 30, 30], [47, 24, 77, 65], [4, 24, 52, 80, 108, 136, 164]], [[28, 30, 30, 30], [49, 25, 81, 68], [4, 28, 56, 84, 112, 140, 168]]];
+	var MODE_TERMINATOR = 0;
+	var MODE_NUMERIC = 1,
+	MODE_ALPHANUMERIC = 2,
+	MODE_OCTET = 4,
+	MODE_KANJI = 8;
+	var NUMERIC_REGEXP = /^\d*$/;
+	var ALPHANUMERIC_REGEXP = /^[A-Za-z0-9 $%*+\-./:]*$/;
+	var ALPHANUMERIC_OUT_REGEXP = /^[A-Z0-9 $%*+\-./:]*$/;
+	var ECCLEVEL_L = 1,
+	ECCLEVEL_M = 0,
+	ECCLEVEL_Q = 3,
+	ECCLEVEL_H = 2;
+	var GF256_MAP = [],
+	GF256_INVMAP = [-1];
+	for (var i = 0, v = 1; i < 255; ++i) {
+		GF256_MAP.push(v);
+		GF256_INVMAP[v] = i;
+		v = (v * 2) ^ (v >= 128 ? 0x11d : 0);
+	}
+	var GF256_GENPOLY = [[]];
+	for (var i = 0; i < 30; ++i) {
+		var prevpoly = GF256_GENPOLY[i],
+		poly = [];
+		for (var j = 0; j <= i; ++j) {
+			var a = (j < i ? GF256_MAP[prevpoly[j]] : 0);
+			var b = GF256_MAP[(i + (prevpoly[j - 1] || 0)) % 255];
+			poly.push(GF256_INVMAP[a ^ b]);
+		}
+		GF256_GENPOLY.push(poly);
+	}
+	var ALPHANUMERIC_MAP = {};
+	for (var i = 0; i < 45; ++i) {
+		ALPHANUMERIC_MAP["0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".charAt(i)] = i;
+	}
+	var MASKFUNCS = [function (i, j) {
+			return (i + j) % 2 === 0;
+		}, function (i, j) {
+			return i % 2 === 0;
+		}, function (i, j) {
+			return j % 3 === 0;
+		}, function (i, j) {
+			return (i + j) % 3 === 0;
+		}, function (i, j) {
+			return (((i / 2) | 0) + ((j / 3) | 0)) % 2 === 0;
+		}, function (i, j) {
+			return (i * j) % 2 + (i * j) % 3 === 0;
+		}, function (i, j) {
+			return ((i * j) % 2 + (i * j) % 3) % 2 === 0;
+		}, function (i, j) {
+			return ((i + j) % 2 + (i * j) % 3) % 2 === 0;
+		}
+	];
+	var needsverinfo = function (ver) {
+		return ver > 6;
+	};
+	var getsizebyver = function (ver) {
+		return 4 * ver + 17;
+	};
+	var nfullbits = function (ver) {
+		var v = VERSIONS[ver];
+		var nbits = 16 * ver * ver + 128 * ver + 64;
+		if (needsverinfo(ver)) {
+			nbits -= 36;
+		}
+		if (v[2].length) {
+			nbits -= 25 * v[2].length * v[2].length - 10 * v[2].length - 55;
+		}
+		return nbits;
+	};
+	var ndatabits = function (ver, ecclevel) {
+		var nbits = nfullbits(ver) & ~7;
+		var v = VERSIONS[ver];
+		nbits -= 8 * v[0][ecclevel] * v[1][ecclevel];
+		return nbits;
+	};
+	var ndatalenbits = function (ver, mode) {
+		switch (mode) {
+		case MODE_NUMERIC:
+			return (ver < 10 ? 10 : ver < 27 ? 12 : 14);
+		case MODE_ALPHANUMERIC:
+			return (ver < 10 ? 9 : ver < 27 ? 11 : 13);
+		case MODE_OCTET:
+			return (ver < 10 ? 8 : 16);
+		case MODE_KANJI:
+			return (ver < 10 ? 8 : ver < 27 ? 10 : 12);
+		}
+	};
+	var getmaxdatalen = function (ver, mode, ecclevel) {
+		var nbits = ndatabits(ver, ecclevel) - 4 - ndatalenbits(ver, mode);
+		switch (mode) {
+		case MODE_NUMERIC:
+			return ((nbits / 10) | 0) * 3 + (nbits % 10 < 4 ? 0 : nbits % 10 < 7 ? 1 : 2);
+		case MODE_ALPHANUMERIC:
+			return ((nbits / 11) | 0) * 2 + (nbits % 11 < 6 ? 0 : 1);
+		case MODE_OCTET:
+			return (nbits / 8) | 0;
+		case MODE_KANJI:
+			return (nbits / 13) | 0;
+		}
+	};
+	var validatedata = function (mode, data) {
+		switch (mode) {
+		case MODE_NUMERIC:
+			if (!data.match(NUMERIC_REGEXP)) {
+				return null;
+			}
+			return data;
+		case MODE_ALPHANUMERIC:
+			if (!data.match(ALPHANUMERIC_REGEXP)) {
+				return null;
+			}
+			return data.toUpperCase();
+		case MODE_OCTET:
+			if (typeof data === "string") {
+				var newdata = [];
+				for (var i = 0; i < data.length; ++i) {
+					var ch = data.charCodeAt(i);
+					if (ch < 0x80) {
+						newdata.push(ch);
+					} else if (ch < 0x800) {
+						newdata.push(0xc0 | (ch >> 6), 0x80 | (ch & 0x3f));
+					} else if (ch < 0x10000) {
+						newdata.push(0xe0 | (ch >> 12), 0x80 | ((ch >> 6) & 0x3f), 0x80 | (ch & 0x3f));
+					} else {
+						newdata.push(0xf0 | (ch >> 18), 0x80 | ((ch >> 12) & 0x3f), 0x80 | ((ch >> 6) & 0x3f), 0x80 | (ch & 0x3f));
+					}
+				}
+				return newdata;
+			} else {
+				return data;
+			}
+		}
+	};
+	var encode = function (ver, mode, data, maxbuflen) {
+		var buf = [];
+		var bits = 0,
+		remaining = 8;
+		var datalen = data.length;
+		var pack = function (x, n) {
+			if (n >= remaining) {
+				buf.push(bits | (x >> (n -= remaining)));
+				while (n >= 8) {
+					buf.push((x >> (n -= 8)) & 255);
+				}
+				bits = 0;
+				remaining = 8;
+			}
+			if (n > 0) {
+				bits |= (x & ((1 << n) - 1)) << (remaining -= n);
+			}
+		};
+		var nlenbits = ndatalenbits(ver, mode);
+		pack(mode, 4);
+		pack(datalen, nlenbits);
+		switch (mode) {
+		case MODE_NUMERIC:
+			for (var i = 2; i < datalen; i += 3) {
+				pack(parseInt(data.substring(i - 2, i + 1), 10), 10);
+			}
+			pack(parseInt(data.substring(i - 2), 10), [0, 4, 7][datalen % 3]);
+			break;
+		case MODE_ALPHANUMERIC:
+			for (var i = 1; i < datalen; i += 2) {
+				pack(ALPHANUMERIC_MAP[data.charAt(i - 1)] * 45 +
+					ALPHANUMERIC_MAP[data.charAt(i)], 11);
+			}
+			if (datalen % 2 === 1) {
+				pack(ALPHANUMERIC_MAP[data.charAt(i - 1)], 6);
+			}
+			break;
+		case MODE_OCTET:
+			for (var i = 0; i < datalen; ++i) {
+				pack(data[i], 8);
+			}
+			break;
+		}
+		pack(MODE_TERMINATOR, 4);
+		if (remaining < 8) {
+			buf.push(bits);
+		}
+		while (buf.length + 1 < maxbuflen) {
+			buf.push(0xec, 0x11);
+		}
+		if (buf.length < maxbuflen) {
+			buf.push(0xec);
+		}
+		return buf;
+	};
+	var calculateecc = function (poly, genpoly) {
+		var modulus = poly.slice(0);
+		var polylen = poly.length,
+		genpolylen = genpoly.length;
+		for (var k = 0; k < genpolylen; ++k) {
+			modulus.push(0);
+		}
+		for (var i = 0; i < polylen; ) {
+			var quotient = GF256_INVMAP[modulus[i++]];
+			if (quotient >= 0) {
+				for (var j = 0; j < genpolylen; ++j) {
+					modulus[i + j] ^= GF256_MAP[(quotient + genpoly[j]) % 255];
+				}
+			}
+		}
+		return modulus.slice(polylen);
+	};
+	var augumenteccs = function (poly, nblocks, genpoly) {
+		var subsizes = [];
+		var subsize = (poly.length / nblocks) | 0,
+		subsize0 = 0;
+		var pivot = nblocks - poly.length % nblocks;
+		for (var i = 0; i < pivot; ++i) {
+			subsizes.push(subsize0);
+			subsize0 += subsize;
+		}
+		for (var i = pivot; i < nblocks; ++i) {
+			subsizes.push(subsize0);
+			subsize0 += subsize + 1;
+		}
+		subsizes.push(subsize0);
+		var eccs = [];
+		for (var i = 0; i < nblocks; ++i) {
+			eccs.push(calculateecc(poly.slice(subsizes[i], subsizes[i + 1]), genpoly));
+		}
+		var result = [];
+		var nitemsperblock = (poly.length / nblocks) | 0;
+		for (var i = 0; i < nitemsperblock; ++i) {
+			for (var j = 0; j < nblocks; ++j) {
+				result.push(poly[subsizes[j] + i]);
+			}
+		}
+		for (var j = pivot; j < nblocks; ++j) {
+			result.push(poly[subsizes[j + 1] - 1]);
+		}
+		for (var i = 0; i < genpoly.length; ++i) {
+			for (var j = 0; j < nblocks; ++j) {
+				result.push(eccs[j][i]);
+			}
+		}
+		return result;
+	};
+	var augumentbch = function (poly, p, genpoly, q) {
+		var modulus = poly << q;
+		for (var i = p - 1; i >= 0; --i) {
+			if ((modulus >> (q + i)) & 1) {
+				modulus ^= genpoly << i;
+			}
+		}
+		return (poly << q) | modulus;
+	};
+	var makebasematrix = function (ver) {
+		var v = VERSIONS[ver],
+		n = getsizebyver(ver);
+		var matrix = [],
+		reserved = [];
+		for (var i = 0; i < n; ++i) {
+			matrix.push([]);
+			reserved.push([]);
+		}
+		var blit = function (y, x, h, w, bits) {
+			for (var i = 0; i < h; ++i) {
+				for (var j = 0; j < w; ++j) {
+					matrix[y + i][x + j] = (bits[i] >> j) & 1;
+					reserved[y + i][x + j] = 1;
+				}
+			}
+		};
+		blit(0, 0, 9, 9, [0x7f, 0x41, 0x5d, 0x5d, 0x5d, 0x41, 0x17f, 0x00, 0x40]);
+		blit(n - 8, 0, 8, 9, [0x100, 0x7f, 0x41, 0x5d, 0x5d, 0x5d, 0x41, 0x7f]);
+		blit(0, n - 8, 9, 8, [0xfe, 0x82, 0xba, 0xba, 0xba, 0x82, 0xfe, 0x00, 0x00]);
+		for (var i = 9; i < n - 8; ++i) {
+			matrix[6][i] = matrix[i][6] = ~i & 1;
+			reserved[6][i] = reserved[i][6] = 1;
+		}
+		var aligns = v[2],
+		m = aligns.length;
+		for (var i = 0; i < m; ++i) {
+			var minj = (i === 0 || i === m - 1 ? 1 : 0),
+			maxj = (i === 0 ? m - 1 : m);
+			for (var j = minj; j < maxj; ++j) {
+				blit(aligns[i], aligns[j], 5, 5, [0x1f, 0x11, 0x15, 0x11, 0x1f]);
+			}
+		}
+		if (needsverinfo(ver)) {
+			var code = augumentbch(ver, 6, 0x1f25, 12);
+			var k = 0;
+			for (var i = 0; i < 6; ++i) {
+				for (var j = 0; j < 3; ++j) {
+					matrix[i][(n - 11) + j] = matrix[(n - 11) + j][i] = (code >> k++) & 1;
+					reserved[i][(n - 11) + j] = reserved[(n - 11) + j][i] = 1;
+				}
+			}
+		}
+		return {
+			matrix: matrix,
+			reserved: reserved
+		};
+	};
+	var putdata = function (matrix, reserved, buf) {
+		var n = matrix.length;
+		var k = 0,
+		dir = -1;
+		for (var i = n - 1; i >= 0; i -= 2) {
+			if (i === 6) {
+				--i;
+			}
+			var jj = (dir < 0 ? n - 1 : 0);
+			for (var j = 0; j < n; ++j) {
+				for (var ii = i; ii > i - 2; --ii) {
+					if (!reserved[jj][ii]) {
+						matrix[jj][ii] = (buf[k >> 3] >> (~k & 7)) & 1;
+						++k;
+					}
+				}
+				jj += dir;
+			}
+			dir = -dir;
+		}
+		return matrix;
+	};
+	var maskdata = function (matrix, reserved, mask) {
+		var maskf = MASKFUNCS[mask];
+		var n = matrix.length;
+		for (var i = 0; i < n; ++i) {
+			for (var j = 0; j < n; ++j) {
+				if (!reserved[i][j]) {
+					matrix[i][j] ^= maskf(i, j);
+				}
+			}
+		}
+		return matrix;
+	};
+	var putformatinfo = function (matrix, reserved, ecclevel, mask) {
+		var n = matrix.length;
+		var code = augumentbch((ecclevel << 3) | mask, 5, 0x537, 10) ^ 0x5412;
+		for (var i = 0; i < 15; ++i) {
+			var r = [0, 1, 2, 3, 4, 5, 7, 8, n - 7, n - 6, n - 5, n - 4, n - 3, n - 2, n - 1][i];
+			var c = [n - 1, n - 2, n - 3, n - 4, n - 5, n - 6, n - 7, n - 8, 7, 5, 4, 3, 2, 1, 0][i];
+			matrix[r][8] = matrix[8][c] = (code >> i) & 1;
+		}
+		return matrix;
+	};
+	var evaluatematrix = function (matrix) {
+		var PENALTY_CONSECUTIVE = 3;
+		var PENALTY_TWOBYTWO = 3;
+		var PENALTY_FINDERLIKE = 40;
+		var PENALTY_DENSITY = 10;
+		var evaluategroup = function (groups) {
+			var score = 0;
+			for (var i = 0; i < groups.length; ++i) {
+				if (groups[i] >= 5) {
+					score += PENALTY_CONSECUTIVE + (groups[i] - 5);
+				}
+			}
+			for (var i = 5; i < groups.length; i += 2) {
+				var p = groups[i];
+				if (groups[i - 1] === p && groups[i - 2] === 3 * p && groups[i - 3] === p && groups[i - 4] === p && (groups[i - 5] >= 4 * p || groups[i + 1] >= 4 * p)) {
+					score += PENALTY_FINDERLIKE;
+				}
+			}
+			return score;
+		};
+		var n = matrix.length;
+		var score = 0,
+		nblacks = 0;
+		for (var i = 0; i < n; ++i) {
+			var row = matrix[i];
+			var groups;
+			groups = [0];
+			for (var j = 0; j < n; ) {
+				var k;
+				for (k = 0; j < n && row[j]; ++k) {
+					++j;
+				}
+				groups.push(k);
+				for (k = 0; j < n && !row[j]; ++k) {
+					++j;
+				}
+				groups.push(k);
+			}
+			score += evaluategroup(groups);
+			groups = [0];
+			for (var j = 0; j < n; ) {
+				var k;
+				for (k = 0; j < n && matrix[j][i]; ++k) {
+					++j;
+				}
+				groups.push(k);
+				for (k = 0; j < n && !matrix[j][i]; ++k) {
+					++j;
+				}
+				groups.push(k);
+			}
+			score += evaluategroup(groups);
+			var nextrow = matrix[i + 1] || [];
+			nblacks += row[0];
+			for (var j = 1; j < n; ++j) {
+				var p = row[j];
+				nblacks += p;
+				if (row[j - 1] === p && nextrow[j] === p && nextrow[j - 1] === p) {
+					score += PENALTY_TWOBYTWO;
+				}
+			}
+		}
+		score += PENALTY_DENSITY * ((Math.abs(nblacks / n / n - 0.5) / 0.05) | 0);
+		return score;
+	};
+	var generate = function (data, ver, mode, ecclevel, mask) {
+		var v = VERSIONS[ver];
+		var buf = encode(ver, mode, data, ndatabits(ver, ecclevel) >> 3);
+		buf = augumenteccs(buf, v[1][ecclevel], GF256_GENPOLY[v[0][ecclevel]]);
+		var result = makebasematrix(ver);
+		var matrix = result.matrix,
+		reserved = result.reserved;
+		putdata(matrix, reserved, buf);
+		if (mask < 0) {
+			maskdata(matrix, reserved, 0);
+			putformatinfo(matrix, reserved, ecclevel, 0);
+			var bestmask = 0,
+			bestscore = evaluatematrix(matrix);
+			maskdata(matrix, reserved, 0);
+			for (mask = 1; mask < 8; ++mask) {
+				maskdata(matrix, reserved, mask);
+				putformatinfo(matrix, reserved, ecclevel, mask);
+				var score = evaluatematrix(matrix);
+				if (bestscore > score) {
+					bestscore = score;
+					bestmask = mask;
+				}
+				maskdata(matrix, reserved, mask);
+			}
+			mask = bestmask;
+		}
+		maskdata(matrix, reserved, mask);
+		putformatinfo(matrix, reserved, ecclevel, mask);
+		return matrix;
+	};
+	var QRCode = {
+		"generate": function (data, options) {
+			var MODES = {
+				"numeric": MODE_NUMERIC,
+				"alphanumeric": MODE_ALPHANUMERIC,
+				"octet": MODE_OCTET
+			};
+			var ECCLEVELS = {
+				"L": ECCLEVEL_L,
+				"M": ECCLEVEL_M,
+				"Q": ECCLEVEL_Q,
+				"H": ECCLEVEL_H
+			};
+			options = options || {};
+			var ver = options.version || -1;
+			var ecclevel = ECCLEVELS[(options.ecclevel || "L").toUpperCase()];
+			var mode = options.mode ? MODES[options.mode.toLowerCase()] : -1;
+			var mask = "mask" in options ? options.mask : -1;
+			if (mode < 0) {
+				if (typeof data === "string") {
+					if (data.match(NUMERIC_REGEXP)) {
+						mode = MODE_NUMERIC;
+					} else if (data.match(ALPHANUMERIC_OUT_REGEXP)) {
+						mode = MODE_ALPHANUMERIC;
+					} else {
+						mode = MODE_OCTET;
+					}
+				} else {
+					mode = MODE_OCTET;
+				}
+			} else if (!(mode ===  MODE_NUMERIC || mode ===  MODE_ALPHANUMERIC || mode ===  MODE_OCTET)) {
+				throw "invalid or unsupported mode";
+			}
+			data = validatedata(mode, data);
+			if (data === null) {
+				throw "invalid data format";
+			}
+			if (ecclevel < 0 || ecclevel > 3) {
+				throw "invalid ECC level";
+			}
+			if (ver < 0) {
+				for (ver = 1; ver <= 40; ++ver) {
+					if (data.length <= getmaxdatalen(ver, mode, ecclevel)) {
+						break;
+					}
+				}
+				if (ver > 40) {
+					throw "too large data";
+				}
+			} else if (ver < 1 || ver > 40) {
+				throw "invalid version";
+			}
+			if (mask !== -1 && (mask < 0 || mask > 8)) {
+				throw "invalid mask";
+			}
+			return generate(data, ver, mode, ecclevel, mask);
+		},
+		"generateHTML": function (data, options) {
+			options = options || {};
+			var fillcolor = options.fillcolor ? options.fillcolor : "#FFFFFF";
+			var textcolor = options.textcolor ? options.textcolor : "#000000";
+			var matrix = QRCode["generate"](data, options);
+			var modsize = Math.max(options.modulesize || 5, 0.5);
+			var margin = Math.max(options.margin !== null ? options.margin : 4, 0.0);
+			var e = document.createElement("div");
+			var n = matrix.length;
+			var html = ['<table border="0" cellspacing="0" cellpadding="0" style="border:' +
+				modsize * margin + 'px solid ' + fillcolor + ';background:' + fillcolor + '">'];
+			for (var i = 0; i < n; ++i) {
+				html.push("<tr>");
+				for (var j = 0; j < n; ++j) {
+					html.push('<td style="width:' + modsize + 'px;height:' + modsize + 'px' +
+						(matrix[i][j] ? ';background:' + textcolor : '') + '"></td>');
+				}
+				html.push("</tr>");
+			}
+			e.className = "qrcode";
+			/* e.innerHTML = html.join("") + "</table>"; */
+			var range = document.createRange();
+			range.selectNodeContents(e);
+			var frag = range.createContextualFragment(html.join("") + "</table>");
+			e.appendChild(frag);
+			return e;
+		},
+		"generateSVG": function (data, options) {
+			options = options || {};
+			var fillcolor = options.fillcolor ? options.fillcolor : "#FFFFFF";
+			var textcolor = options.textcolor ? options.textcolor : "#000000";
+			var matrix = QRCode["generate"](data, options);
+			var n = matrix.length;
+			var modsize = Math.max(options.modulesize || 5, 0.5);
+			var margin = Math.max(options.margin ? options.margin : 4, 0.0);
+			var size = modsize * (n + 2 * margin);
+			/* var common = ' class= "fg"' + ' width="' + modsize + '" height="' + modsize + '"/>'; */
+			var e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			e.setAttribute("viewBox", "0 0 " + size + " " + size);
+			e.setAttribute("style", "shape-rendering:crispEdges");
+			var qrcodeId = "qrcode" + Date.now();
+			e.setAttribute("id", qrcodeId);
+			var frag = document.createDocumentFragment();
+			/* var svg = ['<style scoped>.bg{fill:' + fillcolor + '}.fg{fill:' + textcolor + '}</style>', '<rect class="bg" x="0" y="0"', 'width="' + size + '" height="' + size + '"/>', ]; */
+			var style = document.createElementNS("http://www.w3.org/2000/svg", "style");
+			style.appendChild(document.createTextNode("#" + qrcodeId + " .bg{fill:" + fillcolor + "}#" + qrcodeId + " .fg{fill:" + textcolor + "}"));
+			/* style.setAttribute("scoped", "scoped"); */
+			frag.appendChild(style);
+			var createRect = function (c, f, x, y, s) {
+				var fg = document.createElementNS("http://www.w3.org/2000/svg", "rect") || "";
+				fg.setAttributeNS(null, "class", c);
+				fg.setAttributeNS(null, "fill", f);
+				fg.setAttributeNS(null, "x", x);
+				fg.setAttributeNS(null, "y", y);
+				fg.setAttributeNS(null, "width", s);
+				fg.setAttributeNS(null, "height", s);
+				return fg;
+			};
+			frag.appendChild(createRect("bg", "none", 0, 0, size));
+			var yo = margin * modsize;
+			for (var y = 0; y < n; ++y) {
+				var xo = margin * modsize;
+				for (var x = 0; x < n; ++x) {
+					if (matrix[y][x]) {
+						/* svg.push('<rect x="' + xo + '" y="' + yo + '"', common); */
+						frag.appendChild(createRect("fg", "none", xo, yo, modsize));
+					}
+					xo += modsize;
+				}
+				yo += modsize;
+			}
+			/* e.innerHTML = svg.join(""); */
+			e.appendChild(frag);
+			return e;
+		},
+		"generatePNG": function (data, options) {
+			options = options || {};
+			var fillcolor = options.fillcolor ? options.fillcolor : "#FFFFFF";
+			var textcolor = options.textcolor ? options.textcolor : "#000000";
+			var matrix = QRCode["generate"](data, options);
+			var modsize = Math.max(options.modulesize || 5, 0.5);
+			var margin = Math.max((options.margin !== null && options.margin !== undefined) ? options.margin : 4, 0.0);
+			var n = matrix.length;
+			var size = modsize * (n + 2 * margin);
+			var canvas = document.createElement("canvas"),
+			context;
+			canvas.width = canvas.height = size;
+			context = canvas.getContext("2d");
+			if (!context) {
+				throw "canvas support is needed for PNG output";
+			}
+			context.fillStyle = fillcolor;
+			context.fillRect(0, 0, size, size);
+			context.fillStyle = textcolor;
+			for (var i = 0; i < n; ++i) {
+				for (var j = 0; j < n; ++j) {
+					if (matrix[i][j]) {
+						context.fillRect(modsize * (margin + j), modsize * (margin + i), modsize, modsize);
+					}
+				}
+			}
+			return canvas.toDataURL();
+		}
+	};
+	return QRCode;
+}));
+/*jshint bitwise: true */
+/*jshint shadow: false */
+/*jshint sub: false */
+/*jshint +W041 */
+
+/**
+ * Generates event when user makes new movement (like a swipe on a touchscreen).
+ * @version 1.1.4
+ * @link https://github.com/Promo/wheel-indicator
+ * @license MIT
+ */
+
+/* global module, window, document */
+
+var WheelIndicator = (function(win, doc) {
+    var eventWheel = 'onwheel' in doc ? 'wheel' : 'mousewheel',
+
+        DEFAULTS = {
+            callback: function(){},
+            elem: doc,
+            preventMouse: true
+        };
+
+    function Module(options){
+        this._options = extend(DEFAULTS, options);
+        this._deltaArray = [ 0, 0, 0 ];
+        this._isAcceleration = false;
+        this._isStopped = true;
+        this._direction = '';
+        this._timer = '';
+        this._isWorking = true;
+
+        var self = this;
+        this._wheelHandler = function(event) {
+            if (self._isWorking) {
+                processDelta.call(self, event);
+
+                if (self._options.preventMouse) {
+                  preventDefault(event);
+                }
+            }
+        };
+
+        addEvent(this._options.elem, eventWheel, this._wheelHandler);
+    }
+
+    Module.prototype = {
+        constructor: Module,
+
+        turnOn: function(){
+            this._isWorking = true;
+
+            return this;
+        },
+
+        turnOff: function(){
+            this._isWorking = false;
+
+            return this;
+        },
+
+        setOptions: function(options){
+            this._options = extend(this._options, options);
+
+            return this;
+        },
+
+        getOption: function(option){
+            var neededOption = this._options[option];
+
+            if (neededOption !== undefined) {
+              return neededOption;
+            }
+
+            throw new Error('Unknown option');
+        },
+
+        destroy: function(){
+            removeEvent(this._options.elem, eventWheel, this._wheelHandler);
+
+            return this;
+        }
+    };
+
+    function triggerEvent(event){
+        event.direction = this._direction;
+
+        this._options.callback.call(this, event);
+    }
+
+    var getDeltaY = function(event){
+
+        if(event.wheelDelta && !event.deltaY) {
+            getDeltaY = function(event) {
+                return event.wheelDelta * -1;
+            };
+        } else {
+            getDeltaY = function(event) {
+                return event.deltaY;
+            };
+        }
+
+        return getDeltaY(event);
+    };
+
+    function preventDefault(event){
+        event = event || win.event;
+
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    }
+
+    function processDelta(event) {
+        var
+            self = this,
+            delta = getDeltaY(event);
+
+        if (delta === 0) return;
+
+        var direction = delta > 0 ? 'down' : 'up',
+            arrayLength = self._deltaArray.length,
+            changedDirection = false,
+            repeatDirection = 0,
+            sustainableDirection, i;
+
+        clearTimeout(self._timer);
+
+        self._timer = setTimeout(function() {
+            self._deltaArray = [ 0, 0, 0 ];
+            self._isStopped = true;
+            self._direction = direction;
+        }, 150);
+
+        //check how many of last three deltas correspond to certain direction
+        for(i = 0; i < arrayLength; i++) {
+            if(self._deltaArray[i] !== 0) {
+                self._deltaArray[i] > 0 ? ++repeatDirection : --repeatDirection;
+            }
+        }
+
+        //if all of last three deltas is greater than 0 or lesser than 0 then direction is switched
+        if(Math.abs(repeatDirection) === arrayLength) {
+            //determine type of sustainable direction
+            //(three positive or negative deltas in a row)
+            sustainableDirection = repeatDirection > 0 ? 'down' : 'up';
+
+            if(sustainableDirection !== self._direction) {
+                //direction is switched
+                changedDirection = true;
+                self._direction = direction;
+            }
+        }
+
+        //if wheel`s moving and current event is not the first in array
+        if(!self._isStopped){
+            if(changedDirection) {
+                self._isAcceleration = true;
+
+                triggerEvent.call(this, event);
+            } else {
+                //check only if movement direction is sustainable
+                if(Math.abs(repeatDirection) === arrayLength) {
+                    //must take deltas to don`t get a bug
+                    //[-116, -109, -103]
+                    //[-109, -103, 1] - new impulse
+
+                    analyzeArray.call(this, event);
+                }
+            }
+        }
+
+        //if wheel is stopped and current delta value is the first in array
+        if(self._isStopped) {
+            self._isStopped = false;
+            self._isAcceleration = true;
+            self._direction = direction;
+
+            triggerEvent.call(this, event);
+        }
+
+        self._deltaArray.shift();
+        self._deltaArray.push(delta);
+    }
+
+    function analyzeArray(event) {
+        var
+            deltaArray0Abs  = Math.abs(this._deltaArray[0]),
+            deltaArray1Abs  = Math.abs(this._deltaArray[1]),
+            deltaArray2Abs  = Math.abs(this._deltaArray[2]),
+            deltaAbs        = Math.abs(getDeltaY(event));
+
+        if((deltaAbs       > deltaArray2Abs) &&
+            (deltaArray2Abs > deltaArray1Abs) &&
+            (deltaArray1Abs > deltaArray0Abs)) {
+
+            if(!this._isAcceleration) {
+                triggerEvent.call(this, event);
+                this._isAcceleration = true;
+            }
+        }
+
+        if((deltaAbs < deltaArray2Abs) &&
+            (deltaArray2Abs <= deltaArray1Abs)) {
+            this._isAcceleration = false;
+        }
+    }
+
+    function addEvent(elem, type, handler){
+        if(elem.addEventListener) {
+            elem.addEventListener(type, handler, false);
+        } else if (elem.attachEvent) {
+            elem.attachEvent('on' + type, handler);
+        }
+    }
+
+    function removeEvent(elem, type, handler) {
+        if (elem.removeEventListener) {
+            elem.removeEventListener(type, handler, false);
+        } else if (elem.detachEvent) {
+            elem.detachEvent('on'+ type, handler);
+        }
+    }
+
+    function extend(defaults, options) {
+        var extended = {},
+            prop;
+
+        for (prop in defaults) {
+            if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+                extended[prop] = defaults[prop];
+            }
+        }
+
+        for (prop in options) {
+            if (Object.prototype.hasOwnProperty.call(options, prop)) {
+                extended[prop] = options[prop];
+            }
+        }
+
+        return extended;
+    }
+
+    return Module;
+}(window, document));
+
+if (typeof exports === 'object') {
+    module.exports = WheelIndicator;
+}
+
+/*!
+ * verge 1.10.2+201705300050
+ * http://npm.im/verge
+ * MIT Ryan Van Etten
+ */
+
+!function(root, name, make) {
+  if (typeof module != 'undefined' && module['exports']) module['exports'] = make();
+  else root[name] = make();
+}(this, 'verge', function() {
+
+  var xports = {}
+    , win = typeof window != 'undefined' && window
+    , doc = typeof document != 'undefined' && document
+    , docElem = doc && doc.documentElement
+    , matchMedia = win['matchMedia'] || win['msMatchMedia']
+    , mq = matchMedia ? function(q) {
+        return !!matchMedia.call(win, q).matches;
+      } : function() {
+        return false;
+      }
+    , viewportW = xports['viewportW'] = function() {
+        var a = docElem['clientWidth'], b = win['innerWidth'];
+        return a < b ? b : a;
+      }
+    , viewportH = xports['viewportH'] = function() {
+        var a = docElem['clientHeight'], b = win['innerHeight'];
+        return a < b ? b : a;
+      };
+
+  /**
+   * Test if a media query is active. Like Modernizr.mq
+   * @since 1.6.0
+   * @return {boolean}
+   */
+  xports['mq'] = mq;
+
+  /**
+   * Normalized matchMedia
+   * @since 1.6.0
+   * @return {MediaQueryList|Object}
+   */
+  xports['matchMedia'] = matchMedia ? function() {
+    // matchMedia must be binded to window
+    return matchMedia.apply(win, arguments);
+  } : function() {
+    // Gracefully degrade to plain object
+    return {};
+  };
+
+  /**
+   * @since 1.8.0
+   * @return {{width:number, height:number}}
+   */
+  function viewport() {
+    return {'width':viewportW(), 'height':viewportH()};
+  }
+  xports['viewport'] = viewport;
+
+  /**
+   * Cross-browser window.scrollX
+   * @since 1.0.0
+   * @return {number}
+   */
+  xports['scrollX'] = function() {
+    return win.pageXOffset || docElem.scrollLeft;
+  };
+
+  /**
+   * Cross-browser window.scrollY
+   * @since 1.0.0
+   * @return {number}
+   */
+  xports['scrollY'] = function() {
+    return win.pageYOffset || docElem.scrollTop;
+  };
+
+  /**
+   * @param {{top:number, right:number, bottom:number, left:number}} coords
+   * @param {number=} cushion adjustment
+   * @return {Object}
+   */
+  function calibrate(coords, cushion) {
+    var o = {};
+    cushion = +cushion || 0;
+    o['width'] = (o['right'] = coords['right'] + cushion) - (o['left'] = coords['left'] - cushion);
+    o['height'] = (o['bottom'] = coords['bottom'] + cushion) - (o['top'] = coords['top'] - cushion);
+    return o;
+  }
+
+  /**
+   * Cross-browser element.getBoundingClientRect plus optional cushion.
+   * Coords are relative to the top-left corner of the viewport.
+   * @since 1.0.0
+   * @param {Element|Object} el element or stack (uses first item)
+   * @param {number=} cushion +/- pixel adjustment amount
+   * @return {Object|boolean}
+   */
+  function rectangle(el, cushion) {
+    el = el && !el.nodeType ? el[0] : el;
+    if (!el || 1 !== el.nodeType) return false;
+    return calibrate(el.getBoundingClientRect(), cushion);
+  }
+  xports['rectangle'] = rectangle;
+
+  /**
+   * Get the viewport aspect ratio (or the aspect ratio of an object or element)
+   * @since 1.7.0
+   * @param {(Element|Object)=} o optional object with width/height props or methods
+   * @return {number}
+   * @link http://w3.org/TR/css3-mediaqueries/#orientation
+   */
+  function aspect(o) {
+    o = null == o ? viewport() : 1 === o.nodeType ? rectangle(o) : o;
+    var h = o['height'], w = o['width'];
+    h = typeof h == 'function' ? h.call(o) : h;
+    w = typeof w == 'function' ? w.call(o) : w;
+    return w/h;
+  }
+  xports['aspect'] = aspect;
+
+  /**
+   * Test if an element is in the same x-axis section as the viewport.
+   * @since 1.0.0
+   * @param {Element|Object} el
+   * @param {number=} cushion
+   * @return {boolean}
+   */
+  xports['inX'] = function(el, cushion) {
+    var r = rectangle(el, cushion);
+    return !!r && r.right >= 0 && r.left <= viewportW();
+  };
+
+  /**
+   * Test if an element is in the same y-axis section as the viewport.
+   * @since 1.0.0
+   * @param {Element|Object} el
+   * @param {number=} cushion
+   * @return {boolean}
+   */
+  xports['inY'] = function(el, cushion) {
+    var r = rectangle(el, cushion);
+    return !!r && r.bottom >= 0 && r.top <= viewportH();
+  };
+
+  /**
+   * Test if an element is in the viewport.
+   * @since 1.0.0
+   * @param {Element|Object} el
+   * @param {number=} cushion
+   * @return {boolean}
+   */
+  xports['inViewport'] = function(el, cushion) {
+    // Equiv to `inX(el, cushion) && inY(el, cushion)` but just manually do both
+    // to avoid calling rectangle() twice. It gzips just as small like this.
+    var r = rectangle(el, cushion);
+    return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW();
+  };
+
+  return xports;
+});
+
+/**
+ *
+ * Version: 2.0.1
+ * Author: Gianluca Guarini
+ * Contact: gianluca.guarini@gmail.com
+ * Website: http://www.gianlucaguarini.com/
+ * Twitter: @gianlucaguarini
+ *
+ * Copyright (c) Gianluca Guarini
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ **/
+/* global jQuery */
+(function(doc, win) {
+  if (typeof doc.createEvent !== 'function') return false // no tap events here
+  // helpers
+  var pointerEvent = function(type) {
+      var lo = type.toLowerCase(),
+        ms = 'MS' + type
+      return navigator.msPointerEnabled ? ms : window.PointerEvent ? lo : false
+    },
+    touchEvent = function(name) {
+      return 'on' + name in window ? name : false
+    },
+    defaults = {
+      useJquery: !win.IGNORE_JQUERY && typeof jQuery !== 'undefined',
+      swipeThreshold: win.SWIPE_THRESHOLD || 100,
+      tapThreshold: win.TAP_THRESHOLD || 150, // range of time where a tap event could be detected
+      dbltapThreshold: win.DBL_TAP_THRESHOLD || 200, // delay needed to detect a double tap
+      longtapThreshold: win.LONG_TAP_THRESHOLD || 1000, // delay needed to detect a long tap
+      tapPrecision: win.TAP_PRECISION / 2 || 60 / 2, // touch events boundaries ( 60px by default )
+      justTouchEvents: win.JUST_ON_TOUCH_DEVICES
+    },
+    // was initially triggered a "touchstart" event?
+    wasTouch = false,
+    touchevents = {
+      touchstart: touchEvent('touchstart') || pointerEvent('PointerDown'),
+      touchend: touchEvent('touchend') || pointerEvent('PointerUp'),
+      touchmove: touchEvent('touchmove') || pointerEvent('PointerMove')
+    },
+    isTheSameFingerId = function(e) {
+      return !e.pointerId || typeof pointerId === 'undefined' || e.pointerId === pointerId
+    },
+    setListener = function(elm, events, callback) {
+      var eventsArray = events.split(' '),
+        i = eventsArray.length
+
+      while (i--) {
+        elm.addEventListener(eventsArray[i], callback, false)
+      }
+    },
+    getPointerEvent = function(event) {
+      return event.targetTouches ? event.targetTouches[0] : event
+    },
+    getTimestamp = function () {
+      return new Date().getTime()
+    },
+    sendEvent = function(elm, eventName, originalEvent, data) {
+      var customEvent = doc.createEvent('Event')
+      customEvent.originalEvent = originalEvent
+      data = data || {}
+      data.x = currX
+      data.y = currY
+      data.distance = data.distance
+
+      // jquery
+      if (defaults.useJquery) {
+        customEvent = jQuery.Event(eventName, {originalEvent: originalEvent})
+        jQuery(elm).trigger(customEvent, data)
+      }
+
+      // addEventListener
+      if (customEvent.initEvent) {
+        for (var key in data) {
+          customEvent[key] = data[key]
+        }
+
+        customEvent.initEvent(eventName, true, true)
+        elm.dispatchEvent(customEvent)
+      }
+
+      // detect all the inline events
+      // also on the parent nodes
+      while (elm) {
+        // inline
+        if (elm['on' + eventName])
+          elm['on' + eventName](customEvent)
+        elm = elm.parentNode
+      }
+
+    },
+
+    onTouchStart = function(e) {
+      /**
+       * Skip all the mouse events
+       * events order:
+       * Chrome:
+       *   touchstart
+       *   touchmove
+       *   touchend
+       *   mousedown
+       *   mousemove
+       *   mouseup <- this must come always after a "touchstart"
+       *
+       * Safari
+       *   touchstart
+       *   mousedown
+       *   touchmove
+       *   mousemove
+       *   touchend
+       *   mouseup <- this must come always after a "touchstart"
+       */
+
+      if (!isTheSameFingerId(e)) return
+
+      pointerId = e.pointerId
+
+      // it looks like it was a touch event!
+      if (e.type !== 'mousedown')
+        wasTouch = true
+
+      // skip this event we don't need to track it now
+      if (e.type === 'mousedown' && wasTouch) return
+
+      var pointer = getPointerEvent(e)
+
+      // caching the current x
+      cachedX = currX = pointer.pageX
+      // caching the current y
+      cachedY = currY = pointer.pageY
+
+      longtapTimer = setTimeout(function() {
+        sendEvent(e.target, 'longtap', e)
+        target = e.target
+      }, defaults.longtapThreshold)
+
+      // we will use these variables on the touchend events
+      timestamp = getTimestamp()
+
+      tapNum++
+
+    },
+    onTouchEnd = function(e) {
+
+      if (!isTheSameFingerId(e)) return
+
+      pointerId = undefined
+
+      // skip the mouse events if previously a touch event was dispatched
+      // and reset the touch flag
+      if (e.type === 'mouseup' && wasTouch) {
+        wasTouch = false
+        return
+      }
+
+      var eventsArr = [],
+        now = getTimestamp(),
+        deltaY = cachedY - currY,
+        deltaX = cachedX - currX
+
+      // clear the previous timer if it was set
+      clearTimeout(dblTapTimer)
+      // kill the long tap timer
+      clearTimeout(longtapTimer)
+
+      if (deltaX <= -defaults.swipeThreshold)
+        eventsArr.push('swiperight')
+
+      if (deltaX >= defaults.swipeThreshold)
+        eventsArr.push('swipeleft')
+
+      if (deltaY <= -defaults.swipeThreshold)
+        eventsArr.push('swipedown')
+
+      if (deltaY >= defaults.swipeThreshold)
+        eventsArr.push('swipeup')
+
+      if (eventsArr.length) {
+        for (var i = 0; i < eventsArr.length; i++) {
+          var eventName = eventsArr[i]
+          sendEvent(e.target, eventName, e, {
+            distance: {
+              x: Math.abs(deltaX),
+              y: Math.abs(deltaY)
+            }
+          })
+        }
+        // reset the tap counter
+        tapNum = 0
+      } else {
+
+        if (
+          cachedX >= currX - defaults.tapPrecision &&
+          cachedX <= currX + defaults.tapPrecision &&
+          cachedY >= currY - defaults.tapPrecision &&
+          cachedY <= currY + defaults.tapPrecision
+        ) {
+          if (timestamp + defaults.tapThreshold - now >= 0)
+          {
+            // Here you get the Tap event
+            sendEvent(e.target, tapNum >= 2 && target === e.target ? 'dbltap' : 'tap', e)
+            target= e.target
+          }
+        }
+
+        // reset the tap counter
+        dblTapTimer = setTimeout(function() {
+          tapNum = 0
+        }, defaults.dbltapThreshold)
+
+      }
+    },
+    onTouchMove = function(e) {
+      if (!isTheSameFingerId(e)) return
+      // skip the mouse move events if the touch events were previously detected
+      if (e.type === 'mousemove' && wasTouch) return
+
+      var pointer = getPointerEvent(e)
+      currX = pointer.pageX
+      currY = pointer.pageY
+    },
+    tapNum = 0,
+    pointerId, currX, currY, cachedX, cachedY, timestamp, target, dblTapTimer, longtapTimer
+
+  //setting the events listeners
+  // we need to debounce the callbacks because some devices multiple events are triggered at same time
+  setListener(doc, touchevents.touchstart + (defaults.justTouchEvents ? '' : ' mousedown'), onTouchStart)
+  setListener(doc, touchevents.touchend + (defaults.justTouchEvents ? '' : ' mouseup'), onTouchEnd)
+  setListener(doc, touchevents.touchmove + (defaults.justTouchEvents ? '' : ' mousemove'), onTouchMove)
+
+  // Configure the tocca default options at any time
+  win.tocca = function(options) {
+    for (var opt in options) {
+      defaults[opt] = options[opt]
+    }
+
+    return defaults
+  }
+})(document, window)
+
+/*!
  * A small javascript library for ripples
  * /Written by Aaron Längert
  * @see {@link https://github.com/SirBaaron/ripple-js}
@@ -641,504 +1934,3 @@
 	();
 	root.ripple = ripple;
 })("undefined" !== typeof window ? window : this, document);
-
-/*!
- * modified verge 1.9.1+201402130803
- * @see {@link https://github.com/ryanve/verge}
- * MIT License 2013 Ryan Van Etten
- * removed module
- * converted to dot notation
- * added &&r.left<=viewportW()&&(0!==el.offsetHeight);
- * added &&r.left<=viewportW()&&(0!==el.offsetHeight);
- * added &&r.top<=viewportH()&&(0!==el.offsetHeight);
- * Substitute inViewport with: inY on vertical sites, inX on horizontal ones.
- * On pages without horizontal scroll, inX is always true.
- * On pages without vertical scroll, inY is always true.
- * If the viewport width is >= the document width, then inX is always true.
- * bug: inViewport returns true if element is hidden
- * @see {@link https://github.com/ryanve/verge/issues/19}
- * @see {@link https://github.com/ryanve/verge/blob/master/verge.js}
- * passes jshint
- */
-(function (root) {
-	"use strict";
-	var verge = (function () {
-		var xports = {},
-		win = typeof root !== "undefined" && root,
-		doc = typeof document !== "undefined" && document,
-		docElem = doc && doc.documentElement,
-		matchMedia = win.matchMedia || win.msMatchMedia,
-		mq = matchMedia ? function (q) {
-			return !!matchMedia.call(win, q).matches;
-		}
-		 : function () {
-			return false;
-		},
-		viewportW = xports.viewportW = function () {
-			var a = docElem.clientWidth,
-			b = win.innerWidth;
-			return a < b ? b : a;
-		},
-		viewportH = xports.viewportH = function () {
-			var a = docElem.clientHeight,
-			b = win.innerHeight;
-			return a < b ? b : a;
-		};
-		xports.mq = mq;
-		xports.matchMedia = matchMedia ? function () {
-			return matchMedia.apply(win, arguments);
-		}
-		 : function () {
-			return {};
-		};
-		function viewport() {
-			return {
-				"width": viewportW(),
-				"height": viewportH()
-			};
-		}
-		xports.viewport = viewport;
-		xports.scrollX = function () {
-			return win.pageXOffset || docElem.scrollLeft;
-		};
-		xports.scrollY = function () {
-			return win.pageYOffset || docElem.scrollTop;
-		};
-		function calibrate(coords, cushion) {
-			var o = {};
-			cushion = +cushion || 0;
-			o.width = (o.right = coords.right + cushion) - (o.left = coords.left - cushion);
-			o.height = (o.bottom = coords.bottom + cushion) - (o.top = coords.top - cushion);
-			return o;
-		}
-		function rectangle(el, cushion) {
-			el = el && !el.nodeType ? el[0] : el;
-			if (!el || 1 !== el.nodeType) {
-				return false;
-			}
-			return calibrate(el.getBoundingClientRect(), cushion);
-		}
-		xports.rectangle = rectangle;
-		function aspect(o) {
-			o = null === o ? viewport() : 1 === o.nodeType ? rectangle(o) : o;
-			var h = o.height,
-			w = o.width;
-			h = typeof h === "function" ? h.call(o) : h;
-			w = typeof w === "function" ? w.call(o) : w;
-			return w / h;
-		}
-		xports.aspect = aspect;
-		xports.inX = function (el, cushion) {
-			var r = rectangle(el, cushion);
-			return !!r && r.right >= 0 && r.left <= viewportW() && (0 !== el.offsetHeight);
-		};
-		xports.inY = function (el, cushion) {
-			var r = rectangle(el, cushion);
-			return !!r && r.bottom >= 0 && r.top <= viewportH() && (0 !== el.offsetHeight);
-		};
-		xports.inViewport = function (el, cushion) {
-			var r = rectangle(el, cushion);
-			return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW() && (0 !== el.offsetHeight);
-		};
-		return xports;
-	})();
-	root.verge = verge;
-})("undefined" !== typeof window ? window : this);
-
-/*global jQuery */
-/*!
- * Super lightweight script (~1kb) to detect via Javascript events like
- * 'tap' 'dbltap' "swipeup" "swipedown" "swipeleft" "swiperight"
- * on any kind of device.
- * Version: 2.0.1
- * Author: Gianluca Guarini
- * Contact: gianluca.guarini@gmail.com
- * Website: http://www.gianlucaguarini.com/
- * Twitter: @gianlucaguarini
- * Copyright (c) Gianluca Guarini
- * @see {@link https://github.com/GianlucaGuarini/Tocca.js/blob/master/Tocca.js}
- * passes jshint
- */
-(function(doc, win) {
-	"use strict";
-	if (typeof doc.createEvent !== 'function') {
-		return false;
-	}
-	var tapNum = 0,
-		pointerId,
-		currX,
-		currY,
-		cachedX,
-		cachedY,
-		timestamp,
-		target,
-		dblTapTimer,
-		longtapTimer;
-	var pointerEventSupport = function(type) {
-			var lo = type.toLowerCase(),
-				ms = 'MS' + type;
-			return navigator.msPointerEnabled ? ms : window.PointerEvent ? lo : '';
-		},
-		defaults = {
-			useJquery: !win.IGNORE_JQUERY && typeof jQuery !== 'undefined',
-			swipeThreshold: win.SWIPE_THRESHOLD || 100,
-			tapThreshold: win.TAP_THRESHOLD || 150,
-			dbltapThreshold: win.DBL_TAP_THRESHOLD || 200,
-			longtapThreshold: win.LONG_TAP_THRESHOLD || 1000,
-			tapPrecision: win.TAP_PRECISION / 2 || 60 / 2,
-			justTouchEvents: win.JUST_ON_TOUCH_DEVICES
-		},
-		wasTouch = false,
-		touchevents = {
-			touchstart: pointerEventSupport('PointerDown') || 'touchstart',
-			touchend: pointerEventSupport('PointerUp') + ' touchend',
-			touchmove: pointerEventSupport('PointerMove') + ' touchmove'
-		},
-		isTheSameFingerId = function(e) {
-			return !e.pointerId || typeof pointerId === 'undefined' || e.pointerId === pointerId;
-		},
-		setListener = function(elm, events, callback) {
-			var eventsArray = events.split(' '),
-				i = eventsArray.length;
-			while (i--) {
-				elm.addEventListener(eventsArray[i], callback, false);
-			}
-		},
-		getPointerEvent = function(event) {
-			return event.targetTouches ? event.targetTouches[0] : event;
-		},
-		getTimestamp = function() {
-			return new Date().getTime();
-		},
-		sendEvent = function(elm, eventName, originalEvent, data) {
-			var customEvent = doc.createEvent('Event');
-			customEvent.originalEvent = originalEvent;
-			data = data || {};
-			data.x = currX;
-			data.y = currY;
-			data.distance = data.distance;
-			if (defaults.useJquery) {
-				customEvent = jQuery.Event(eventName, {
-					originalEvent: originalEvent
-				});
-				jQuery(elm).trigger(customEvent, data);
-			}
-			if (customEvent.initEvent) {
-				for (var key in data) {
-					if (data.hasOwnProperty(key)) {
-						customEvent[key] = data[key];
-					}
-				}
-				customEvent.initEvent(eventName, true, true);
-				elm.dispatchEvent(customEvent);
-			}
-			while (elm) {
-				if (elm['on' + eventName]) {
-					elm['on' + eventName](customEvent);
-				}
-				elm = elm.parentNode;
-			}
-		},
-		onTouchStart = function(e) {
-			if (!isTheSameFingerId(e)) {
-				return;
-			}
-			var isMousedown = e.type === 'mousedown';
-			wasTouch = !isMousedown;
-			pointerId = e.pointerId;
-			if (e.type === 'mousedown' && wasTouch) {
-				return;
-			}
-			var pointer = getPointerEvent(e);
-			cachedX = currX = pointer.pageX;
-			cachedY = currY = pointer.pageY;
-			longtapTimer = setTimeout(function() {
-				sendEvent(e.target, 'longtap', e);
-				target = e.target;
-			}, defaults.longtapThreshold);
-			timestamp = getTimestamp();
-			tapNum++;
-		},
-		onTouchEnd = function(e) {
-			if (!isTheSameFingerId(e)) {
-				return;
-			}
-			pointerId = undefined;
-			if (e.type === 'mouseup' && wasTouch) {
-				wasTouch = false;
-				return;
-			}
-			var eventsArr = [],
-				now = getTimestamp(),
-				deltaY = cachedY - currY,
-				deltaX = cachedX - currX;
-			clearTimeout(dblTapTimer);
-			clearTimeout(longtapTimer);
-			if (deltaX <= -defaults.swipeThreshold) {
-				eventsArr.push('swiperight');
-			}
-			if (deltaX >= defaults.swipeThreshold) {
-				eventsArr.push('swipeleft');
-			}
-			if (deltaY <= -defaults.swipeThreshold) {
-				eventsArr.push('swipedown');
-			}
-			if (deltaY >= defaults.swipeThreshold) {
-				eventsArr.push('swipeup');
-			}
-			if (eventsArr.length) {
-				for (var i = 0; i < eventsArr.length; i++) {
-					var eventName = eventsArr[i];
-					sendEvent(e.target, eventName, e, {
-						distance: {
-							x: Math.abs(deltaX),
-							y: Math.abs(deltaY)
-						}
-					});
-				}
-				tapNum = 0;
-			} else {
-				if (cachedX >= currX - defaults.tapPrecision && cachedX <= currX + defaults.tapPrecision && cachedY >= currY - defaults.tapPrecision && cachedY <= currY + defaults.tapPrecision) {
-					if (timestamp + defaults.tapThreshold - now >= 0) {
-						sendEvent(e.target, tapNum >= 2 && target === e.target ? 'dbltap' : 'tap', e);
-						target = e.target;
-					}
-				}
-				dblTapTimer = setTimeout(function() {
-					tapNum = 0;
-				}, defaults.dbltapThreshold);
-			}
-		},
-		onTouchMove = function(e) {
-			if (!isTheSameFingerId(e)) {
-				return;
-			}
-			if (e.type === 'mousemove' && wasTouch) {
-				return;
-			}
-			var pointer = getPointerEvent(e);
-			currX = pointer.pageX;
-			currY = pointer.pageY;
-		};
-	setListener(doc, touchevents.touchstart + (defaults.justTouchEvents ? '' : ' mousedown'), onTouchStart);
-	setListener(doc, touchevents.touchend + (defaults.justTouchEvents ? '' : ' mouseup'), onTouchEnd);
-	setListener(doc, touchevents.touchmove + (defaults.justTouchEvents ? '' : ' mousemove'), onTouchMove);
-	win.tocca = function(options) {
-		for (var opt in options) {
-			if (options.hasOwnProperty(opt)) {
-				defaults[opt] = options[opt];
-			}
-		}
-		return defaults;
-	};
-})(document, "undefined" !== typeof window ? window : this);
-
-/*!
- * modified Generates event when user makes new movement (like a swipe on a touchscreen).
- * @version 1.1.4
- * @link https://github.com/Promo/wheel-indicator
- * @license MIT
- * @see {@link https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection}
- * forced passive event listener if supported
- * passes jshint
- */
-/* global module, window, document */
-var WheelIndicator = (function (root, document) {
-	var eventWheel = "onwheel" in document ? "wheel" : "mousewheel",
-	DEFAULTS = {
-		callback: function () {},
-		elem: document,
-		preventMouse: true
-	};
-	function Module(options) {
-		this._options = extend(DEFAULTS, options);
-		this._deltaArray = [0, 0, 0];
-		this._isAcceleration = false;
-		this._isStopped = true;
-		this._direction = "";
-		this._timer = "";
-		this._isWorking = true;
-		var self = this;
-		this._wheelHandler = function (event) {
-			if (self._isWorking) {
-				processDelta.call(self, event);
-				if (self._options.preventMouse) {
-					preventDefault(event);
-				}
-			}
-		};
-		addEvent(this._options.elem, eventWheel, this._wheelHandler);
-	}
-	Module.prototype = {
-		constructor: Module,
-		turnOn: function () {
-			this._isWorking = true;
-			return this;
-		},
-		turnOff: function () {
-			this._isWorking = false;
-			return this;
-		},
-		setOptions: function (options) {
-			this._options = extend(this._options, options);
-			return this;
-		},
-		getOption: function (option) {
-			var neededOption = this._options[option];
-			if (neededOption !== undefined) {
-				return neededOption;
-			}
-			throw new Error("Unknown option");
-		},
-		destroy: function () {
-			removeEvent(this._options.elem, eventWheel, this._wheelHandler);
-			return this;
-		}
-	};
-	function triggerEvent(event) {
-		event.direction = this._direction;
-		this._options.callback.call(this, event);
-	}
-	var getDeltaY = function (event) {
-		if (event.wheelDelta && !event.deltaY) {
-			getDeltaY = function (event) {
-				return event.wheelDelta * -1;
-			};
-		} else {
-			getDeltaY = function (event) {
-				return event.deltaY;
-			};
-		}
-		return getDeltaY(event);
-	};
-	function preventDefault(event) {
-		event = event || root.event;
-		if (event.preventDefault) {
-			event.preventDefault();
-		} else {
-			event.returnValue = false;
-		}
-	}
-	function processDelta(event) {
-		var
-		self = this,
-		delta = getDeltaY(event);
-		if (delta === 0)
-			return;
-		var direction = delta > 0 ? "down" : "up",
-		arrayLength = self._deltaArray.length,
-		changedDirection = false,
-		repeatDirection = 0,
-		sustainableDirection,
-		i;
-		clearTimeout(self._timer);
-		self._timer = setTimeout(function () {
-				self._deltaArray = [0, 0, 0];
-				self._isStopped = true;
-				self._direction = direction;
-			}, 150);
-		for (i = 0; i < arrayLength; i++) {
-			if (self._deltaArray[i] !== 0) {
-				if (self._deltaArray[i] > 0) {
-					++repeatDirection;
-				} else {
-					--repeatDirection;
-				}
-			}
-		}
-		if (Math.abs(repeatDirection) === arrayLength) {
-			sustainableDirection = repeatDirection > 0 ? "down" : "up";
-			if (sustainableDirection !== self._direction) {
-				changedDirection = true;
-				self._direction = direction;
-			}
-		}
-		if (!self._isStopped) {
-			if (changedDirection) {
-				self._isAcceleration = true;
-				triggerEvent.call(this, event);
-			} else {
-				if (Math.abs(repeatDirection) === arrayLength) {
-					analyzeArray.call(this, event);
-				}
-			}
-		}
-		if (self._isStopped) {
-			self._isStopped = false;
-			self._isAcceleration = true;
-			self._direction = direction;
-			triggerEvent.call(this, event);
-		}
-		self._deltaArray.shift();
-		self._deltaArray.push(delta);
-	}
-	function analyzeArray(event) {
-		var
-		deltaArray0Abs = Math.abs(this._deltaArray[0]),
-		deltaArray1Abs = Math.abs(this._deltaArray[1]),
-		deltaArray2Abs = Math.abs(this._deltaArray[2]),
-		deltaAbs = Math.abs(getDeltaY(event));
-		if ((deltaAbs > deltaArray2Abs) && (deltaArray2Abs > deltaArray1Abs) && (deltaArray1Abs > deltaArray0Abs)) {
-			if (!this._isAcceleration) {
-				triggerEvent.call(this, event);
-				this._isAcceleration = true;
-			}
-		}
-		if ((deltaAbs < deltaArray2Abs) && (deltaArray2Abs <= deltaArray1Abs)) {
-			this._isAcceleration = false;
-		}
-	}
-	var supportsPassive = (function () {
-		var support = false;
-		try {
-			var opts = Object.defineProperty && Object.defineProperty({}, "passive", {
-					get: function () {
-						support = true;
-					}
-				});
-			root.addEventListener("test", function () {}, opts);
-		} catch (err) {}
-		return support;
-	}
-		());
-	function addEvent(elem, type, handler) {
-		if (elem.addEventListener) {
-			elem.addEventListener(type, handler, supportsPassive ? {
-				passive: true
-			}
-				 : false);
-		} else if (elem.attachEvent) {
-			elem.attachEvent("on" + type, handler);
-		}
-	}
-	function removeEvent(elem, type, handler) {
-		if (elem.removeEventListener) {
-			elem.removeEventListener(type, handler, supportsPassive ? {
-				passive: true
-			}
-				 : false);
-		} else if (elem.detachEvent) {
-			elem.detachEvent("on" + type, handler);
-		}
-	}
-	function extend(defaults, options) {
-		var extended = {},
-		prop;
-		for (prop in defaults) {
-			if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
-				extended[prop] = defaults[prop];
-			}
-		}
-		for (prop in options) {
-			if (Object.prototype.hasOwnProperty.call(options, prop)) {
-				extended[prop] = options[prop];
-			}
-		}
-		return extended;
-	}
-	return Module;
-}
-	("undefined" !== typeof window ? window : this, document));
-if (typeof exports === "object") {
-	module.exports = WheelIndicator;
-}
