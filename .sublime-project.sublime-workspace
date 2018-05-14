@@ -11,7 +11,7 @@
 			"file": "libs/serguei-muicss/package.json",
 			"settings":
 			{
-				"buffer_size": 1151,
+				"buffer_size": 1084,
 				"line_ending": "Unix"
 			}
 		},
@@ -44,7 +44,7 @@
 			"file": "libs/serguei-muicss/src/bundle.js",
 			"settings":
 			{
-				"buffer_size": 62161,
+				"buffer_size": 62158,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -53,7 +53,7 @@
 			"file": "libs/serguei-muicss/js/bundle.min.js",
 			"settings":
 			{
-				"buffer_size": 62161,
+				"buffer_size": 62158,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -71,7 +71,7 @@
 			"file": "libs/serguei-muicss/scss/_main.scss",
 			"settings":
 			{
-				"buffer_size": 16313,
+				"buffer_size": 16342,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -80,23 +80,23 @@
 			"file": "libs/serguei-muicss/css/bundle.css",
 			"settings":
 			{
-				"buffer_size": 18232,
-				"line_ending": "Windows"
+				"buffer_size": 18226,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "libs/serguei-muicss/css/bundle.min.css",
 			"settings":
 			{
-				"buffer_size": 18232,
-				"line_ending": "Windows"
+				"buffer_size": 18226,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "libs/serguei-muicss/scss/_material-color.scss",
 			"settings":
 			{
-				"buffer_size": 22538,
+				"buffer_size": 21750,
 				"line_ending": "Unix"
 			}
 		},
@@ -104,7 +104,7 @@
 			"file": "libs/serguei-muicss/scss/_custom-color.scss",
 			"settings":
 			{
-				"buffer_size": 1041,
+				"buffer_size": 1007,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -113,7 +113,7 @@
 			"file": "libs/serguei-muicss/css/vendors.css",
 			"settings":
 			{
-				"buffer_size": 57460,
+				"buffer_size": 57254,
 				"line_ending": "Unix"
 			}
 		},
@@ -121,7 +121,7 @@
 			"file": "libs/serguei-muicss/css/vendors.min.css",
 			"settings":
 			{
-				"buffer_size": 56707,
+				"buffer_size": 56501,
 				"line_ending": "Unix"
 			}
 		},
@@ -129,7 +129,7 @@
 			"file": "includes/home.html",
 			"settings":
 			{
-				"buffer_size": 5895,
+				"buffer_size": 5736,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -466,7 +466,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -622,7 +622,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1151,
+						"buffer_size": 1084,
 						"regions":
 						{
 						},
@@ -1243,7 +1243,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 62161,
+						"buffer_size": 62158,
 						"regions":
 						{
 						},
@@ -1428,7 +1428,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 62161,
+						"buffer_size": 62158,
 						"regions":
 						{
 						},
@@ -1828,7 +1828,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16313,
+						"buffer_size": 16342,
 						"regions":
 						{
 						},
@@ -2009,7 +2009,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18232,
+						"buffer_size": 18226,
 						"regions":
 						{
 						},
@@ -2115,7 +2115,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18232,
+						"buffer_size": 18226,
 						"regions":
 						{
 						},
@@ -2294,15 +2294,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22538,
+						"buffer_size": 21750,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20551,
-								20534
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2408,61 +2408,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_curly_content"
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
 							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
@@ -2483,15 +2483,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1041,
+						"buffer_size": 1007,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								257,
-								257
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2672,7 +2672,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 57460,
+						"buffer_size": 57254,
 						"regions":
 						{
 						},
@@ -2778,7 +2778,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 56707,
+						"buffer_size": 56501,
 						"regions":
 						{
 						},
@@ -2883,7 +2883,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5895,
+						"buffer_size": 5736,
 						"regions":
 						{
 						},
