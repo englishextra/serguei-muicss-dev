@@ -1,0 +1,38 @@
+{
+	"ads": [{
+		"href": "https://vk.com/sergeydavydow",
+		"title": "ВКонтакте"
+	},
+	{
+		"href": "https://yandex.ru/maps/org/repetitor_sergey_shimanskiy/1085972151",
+		"title": "Яндекс.Карты"
+	},
+	{
+		"href": "https://irr.ru/jobs-education/education/tutors/repetitor-angliyskogo-v-tushino-advert692204315.html",
+		"title": "Из рук в руки"
+	},
+	{
+		"href": "https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_angliyskogo_v_tushino_1145312645",
+		"title": "Avito"
+	},
+	{
+		"href": "https://youla.ru/moskva/uslugi/obuchenie/riepietitor-anghliiskogho-v-tushino-5a357212c3bdd244f049119d",
+		"title": "Юла"
+	}],
+	"contacts": [{
+		"href": "tel:%2B79854416702",
+		"title": "Телефон"
+	},
+	{
+		"href": "tg://resolve?domain=english_tushino",
+		"title": "Telegram"
+	},
+	{
+		"href": "whatsapp://send?phone=79854416702",
+		"title": "WhatsApp"
+	},
+	{
+		"href": "viber://chat?number=%2B79854416702",
+		"title": "Viber"
+	}]
+}

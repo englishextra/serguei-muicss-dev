@@ -1,6 +1,6 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imgLightbox, imagePromise, loadCSS, loadJsCss, Timers, QRCode, require,
-ripple, unescape, verge, WheelIndicator*/
+imgLightbox, imagePromise, JsonHashRouter, loadCSS, loadJsCss, Mustache,
+Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -31,7 +31,174 @@ ripple, unescape, verge, WheelIndicator*/
 		}
 	}
 	prop = method = dummy = properties = methods = null;
-}("undefined" !== typeof window ? window : this));
+})("undefined" !== typeof window ? window : this);
+/*!
+ * json based hash routing
+ * with loading external html into element
+ */
+/*global ActiveXObject, console */
+(function (root, document) {
+	"use strict";
+	var JsonHashRouter = (function () {
+		return (function (jsonUrl, renderId, settings) {
+			var options = settings || {};
+			options.jsonHomePropName = options.jsonHomePropName || "home";
+			options.jsonNotfoundPropName = options.jsonNotfoundPropName || "notfound";
+			options.jsonHashesPropName = options.jsonHashesPropName || "hashes";
+			options.jsonHrefPropName = options.jsonHrefPropName || "href";
+			options.jsonUrlPropName = options.jsonUrlPropName || "url";
+			options.jsonTitlePropName = options.jsonTitlePropName || "title";
+			var docElem = document.documentElement || "";
+			var docBody = document.body || "";
+			var appendChild = "appendChild";
+			var cloneNode = "cloneNode";
+			var createContextualFragment = "createContextualFragment";
+			var createDocumentFragment = "createDocumentFragment";
+			var createRange = "createRange";
+			var getElementById = "getElementById";
+			var innerHTML = "innerHTML";
+			var parentNode = "parentNode";
+			var replaceChild = "replaceChild";
+			var _addEventListener = "addEventListener";
+			var _length = "length";
+			var insertExternalHTML = function (id, url, callback) {
+				var container = document[getElementById](id.replace(/^#/, "")) || "";
+				var arrange = function () {
+					var x = root.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+					x.overrideMimeType("text/html;charset=utf-8");
+					x.open("GET", url, !0);
+					x.withCredentials = !1;
+					x.onreadystatechange = function () {
+						var cb = function () {
+							return callback && "function" === typeof callback && callback();
+						};
+						if (x.status === "404" || x.status === "0") {
+							console.log("Error XMLHttpRequest-ing file", x.status);
+						} else if (x.readyState === 4 && x.status === 200 && x.responseText) {
+							var frag = x.responseText;
+							try {
+								var clonedContainer = container[cloneNode](false);
+								if (document[createRange]) {
+									var rg = document[createRange]();
+									rg.selectNode(docBody);
+									var df = rg[createContextualFragment](frag);
+									clonedContainer[appendChild](df);
+									return container[parentNode] ? container[parentNode][replaceChild](clonedContainer, container) : container[innerHTML] = frag,
+									cb();
+								} else {
+									clonedContainer[innerHTML] = frag;
+									return container[parentNode] ? container[parentNode][replaceChild](document[createDocumentFragment][appendChild](clonedContainer), container) : container[innerHTML] = frag,
+									cb();
+								}
+							} catch (e) {
+								console.log(e);
+							}
+							return;
+						}
+					};
+					x.send(null);
+				};
+				if (container) {
+					arrange();
+				}
+			};
+			var loadUnparsedJSON = function (url, callback) {
+				var cb = function (string) {
+					return callback && "function" === typeof callback && callback(string);
+				};
+				var x = root.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+				x.overrideMimeType("application/json;charset=utf-8");
+				x.open("GET", url, !0);
+				x.withCredentials = !1;
+				x.onreadystatechange = function () {
+					if (x.status === "404" || x.status === "0") {
+						console.log("Error XMLHttpRequest-ing file", x.status);
+					} else if (x.readyState === 4 && x.status === 200 && x.responseText) {
+						cb(x.responseText);
+					}
+				};
+				x.send(null);
+			};
+			var isValidId = function (a, full) {
+				return full ? /^\#[A-Za-z][-A-Za-z0-9_:.]*$/.test(a) ? true : false : /^[A-Za-z][-A-Za-z0-9_:.]*$/.test(a) ? true : false;
+			};
+			var findPos = function (a) {
+				a = a.getBoundingClientRect();
+				return {
+					top: Math.round(a.top + (root.pageYOffset || docElem.scrollTop || docBody.scrollTop) - (docElem.clientTop || docBody.clientTop || 0)),
+					left: Math.round(a.left + (root.pageXOffset || docElem.scrollLeft || docBody.scrollLeft) - (docElem.clientLeft || docBody.clientLeft || 0))
+				};
+			};
+			var processJsonResponse = function (jsonResponse) {
+				var jsonObj;
+				try {
+					jsonObj = JSON.parse(jsonResponse);
+					if (!jsonObj[options.jsonHashesPropName]) {
+						throw new Error("incomplete JSON data: no " + options.jsonHashesPropName);
+					} else if (!jsonObj[options.jsonHomePropName]) {
+						throw new Error("incomplete JSON data: no " + options.jsonHomePropName);
+					} else {
+						if (!jsonObj[options.jsonNotfoundPropName]) {
+							throw new Error("incomplete JSON data: no " + options.jsonNotfoundPropName);
+						}
+					}
+				} catch (err) {
+					console.log("cannot init processJsonResponse", err);
+					return;
+				}
+				if ("function" === typeof options.onJsonParsed) {
+					options.onJsonParsed(jsonResponse);
+				}
+				var triggerOnContentInserted = function (titleString) {
+					if ("function" === typeof options.onContentInserted) {
+						options.onContentInserted(titleString);
+					}
+				};
+				var handleRoutesWindow = function () {
+					if ("function" === typeof options.onBeforeContentInserted) {
+						options.onBeforeContentInserted();
+					}
+					var locationHash = root.location.hash || "";
+					if (locationHash) {
+						var isFound = false;
+						for (var i = 0, l = jsonObj[options.jsonHashesPropName][_length]; i < l; i += 1) {
+							if (locationHash === jsonObj[options.jsonHashesPropName][i][options.jsonHrefPropName]) {
+								isFound = true;
+								insertExternalHTML(renderId, jsonObj[options.jsonHashesPropName][i][options.jsonUrlPropName], triggerOnContentInserted.bind(null, jsonObj[options.jsonHashesPropName][i][options.jsonTitlePropName]));
+								break;
+							}
+						}
+						if (false === isFound) {
+							var targetObj = locationHash ? (isValidId(locationHash, true) ? document[getElementById](locationHash.replace(/^#/, "")) || "" : "") : "";
+							if (targetObj) {
+								root.scrollTo(findPos(targetObj).left, findPos(targetObj).top);
+							} else {
+								var notfoundUrl = jsonObj[options.jsonNotfoundPropName][options.jsonUrlPropName];
+								var notfoundTitle = jsonObj[options.jsonNotfoundPropName][options.jsonTitlePropName];
+								if (notfoundUrl && notfoundTitle) {
+									insertExternalHTML(renderId, notfoundUrl, triggerOnContentInserted.bind(null, notfoundTitle));
+								}
+							}
+						}
+					} else {
+						var homeUrl = jsonObj[options.jsonHomePropName][options.jsonUrlPropName];
+						var homeTitle = jsonObj[options.jsonHomePropName][options.jsonTitlePropName];
+						if (homeUrl && homeTitle) {
+							insertExternalHTML(renderId, homeUrl, triggerOnContentInserted.bind(null, homeTitle));
+						}
+					}
+				};
+				handleRoutesWindow();
+				root[_addEventListener]("hashchange", handleRoutesWindow);
+			};
+			var render = document[getElementById](renderId) || "";
+			if (render) {
+				loadUnparsedJSON(jsonUrl, processJsonResponse);
+			}
+		});
+	})();
+	root.JsonHashRouter = JsonHashRouter;
+})("undefined" !== typeof window ? window : this, document);
 /*!
  * return image is loaded promise
  * @see {@link https://jsfiddle.net/englishextra/56pavv7d/}
@@ -320,10 +487,8 @@ ripple, unescape, verge, WheelIndicator*/
 		var getAttribute = "getAttribute";
 		var getElementById = "getElementById";
 		var getElementsByTagName = "getElementsByTagName";
-		var href = "href";
 		var innerHTML = "innerHTML";
 		var parentNode = "parentNode";
-		var replaceChild = "replaceChild";
 		var setAttribute = "setAttribute";
 		var setAttributeNS = "setAttributeNS";
 		var style = "style";
@@ -461,43 +626,6 @@ ripple, unescape, verge, WheelIndicator*/
 
 		if (document[title]) {
 			document[title] = document[title] + userBrowsingDetails;
-		}
-
-		/*var observeMutations = function (scope) {
-			var context = scope && scope.nodeName ? scope : "";
-			var mo;
-			var getMutations = function (e) {
-				var triggerOnMutation = function (m) {
-					console.log("mutations observer: " + m.type);
-					console.log(m.type, "target: " + m.target.tagName + ("." + m.target[className] || "#" + m.target.id || ""));
-					console.log(m.type, "added: " + m.addedNodes[_length] + " nodes");
-					console.log(m.type, "removed: " + m.removedNodes[_length] + " nodes");
-					if ("childList" === m.type || "subtree" === m.type) {
-						 mo.disconnect();
-					}
-				};
-				for (var i = 0, l = e[_length]; i < l; i += 1) {
-					triggerOnMutation(e[i]);
-				}
-			};
-			if (context) {
-				mo = new MutationObserver(getMutations);
-				mo.observe(context, {
-					childList: !0,
-					subtree: !0,
-					attributes: !1,
-					characterData: !1
-				});
-			}
-		};*/
-
-		var appContentId = "app-content";
-		var appContent = document[getElementById](appContentId) || "";
-		var appContentParent;
-
-		if (appContent) {
-			appContentParent = appContent[parentNode] || "";
-			/* observeMutations(appContentParent); */
 		}
 
 		var debounce = function (func, wait) {
@@ -642,49 +770,6 @@ ripple, unescape, verge, WheelIndicator*/
 			}
 		};
 
-		var insertExternalHTML = function (id, url, callback, onerror) {
-			var container = document[getElementById](id.replace(/^#/, "")) || "";
-			var arrange = function () {
-				var x = root.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-				x.overrideMimeType("text/html;charset=utf-8");
-				x.open("GET", url, !0);
-				x.withCredentials = !1;
-				x.onreadystatechange = function () {
-					var cb = function () {
-						return callback && "function" === typeof callback && callback();
-					};
-					if (x.status === "404" || x.status === 0) {
-						console.log("Error XMLHttpRequest-ing file", x.status);
-						return onerror && "function" === typeof onerror && onerror();
-					} else if (x.readyState === 4 && x.status === 200 && x.responseText) {
-						var frag = x.responseText;
-						try {
-							var clonedContainer = container[cloneNode](false);
-							if (document[createRange]) {
-								var rg = document[createRange]();
-								rg.selectNode(docBody);
-								var df = rg[createContextualFragment](frag);
-								clonedContainer[appendChild](df);
-								return container[parentNode] ? container[parentNode][replaceChild](clonedContainer, container) : container[innerHTML] = frag,
-								cb();
-							} else {
-								clonedContainer[innerHTML] = frag;
-								return container[parentNode] ? container[parentNode][replaceChild](document[createDocumentFragment][appendChild](clonedContainer), container) : container[innerHTML] = frag,
-								cb();
-							}
-						} catch (e) {
-							console.log(e);
-						}
-						return;
-					}
-				};
-				x.send(null);
-			};
-			if (container) {
-				arrange();
-			}
-		};
-
 		var loadUnparsedJSON = function (url, callback, onerror) {
 			var cb = function (string) {
 				return callback && "function" === typeof callback && callback(string);
@@ -694,7 +779,7 @@ ripple, unescape, verge, WheelIndicator*/
 			x.open("GET", url, !0);
 			x.withCredentials = !1;
 			x.onreadystatechange = function () {
-				if (x.status === "404" || x.status === 0) {
+				if (x.status === "404" || x.status === "0") {
 					console.log("Error XMLHttpRequest-ing file", x.status);
 					return onerror && "function" === typeof onerror && onerror();
 				} else if (x.readyState === 4 && x.status === 200 && x.responseText) {
@@ -702,6 +787,18 @@ ripple, unescape, verge, WheelIndicator*/
 				}
 			};
 			x.send(null);
+		};
+
+		var safelyParseJSON = function (response) {
+			var isJson = function (obj) {
+				var objType = typeof obj;
+				return ['boolean', 'number', "string", 'symbol', "function"].indexOf(objType) === -1;
+			};
+			if (!isJson(response)) {
+				return JSON.parse(response);
+			} else {
+				return response;
+			}
 		};
 
 		/*jshint bitwise: false */
@@ -756,18 +853,6 @@ ripple, unescape, verge, WheelIndicator*/
 		};
 		/*jshint bitwise: true */
 
-		var isValidId = function (a, full) {
-			return full ? /^\#[A-Za-z][-A-Za-z0-9_:.]*$/.test(a) ? true : false : /^[A-Za-z][-A-Za-z0-9_:.]*$/.test(a) ? true : false;
-		};
-
-		var findPos = function (a) {
-			a = a.getBoundingClientRect();
-			return {
-				top: Math.round(a.top + (root.pageYOffset || docElem.scrollTop || docBody.scrollTop) - (docElem.clientTop || docBody.clientTop || 0)),
-				left: Math.round(a.left + (root.pageXOffset || docElem.scrollLeft || docBody.scrollLeft) - (docElem.clientLeft || docBody.clientLeft || 0))
-			};
-		};
-
 		var isNodejs = "undefined" !== typeof process && "undefined" !== typeof require || "";
 		var isElectron = "undefined" !== typeof root && root.process && "renderer" === root.process.type || "";
 		var isNwjs = (function () {
@@ -809,6 +894,68 @@ ripple, unescape, verge, WheelIndicator*/
 					triggerForHTTP();
 				} else {
 					triggerForLocal();
+				}
+			}
+		};
+
+		var renderTemplate = function (parsedJson, templateId, targetId) {
+			var template = document[getElementById](templateId) || "";
+			var target = document[getElementById](targetId) || "";
+			var jsonObj = safelyParseJSON(parsedJson);
+			if (jsonObj && template && target) {
+				var targetHtml = template[innerHTML] || "";
+				if (root.t) {
+					var renderTargetTemplate = new t(targetHtml);
+					return renderTargetTemplate.render(jsonObj);
+				} else {
+					if (root.Mustache) {
+						Mustache.parse(targetHtml);
+						return Mustache.render(targetHtml, jsonObj);
+					}
+				}
+			}
+			return "cannot renderTemplate";
+		};
+
+		var insertTextAsFragment = function (text, container, callback) {
+			var body = document.body || "";
+			var cb = function () {
+				return callback && "function" === typeof callback && callback();
+			};
+			try {
+				var clonedContainer = container[cloneNode](false);
+				if (document[createRange]) {
+					var rg = document[createRange]();
+					rg.selectNode(body);
+					var df = rg[createContextualFragment](text);
+					clonedContainer[appendChild](df);
+					return container[parentNode] ? container[parentNode].replaceChild(clonedContainer, container) : container[innerHTML] = text,
+					cb();
+				} else {
+					clonedContainer[innerHTML] = text;
+					return container[parentNode] ? container[parentNode].replaceChild(document[createDocumentFragment][appendChild](clonedContainer), container) : container[innerHTML] = text,
+					cb();
+				}
+			} catch (e) {
+				console.log(e);
+				return;
+			}
+		};
+
+		var insertFromTemplate = function (parsedJson, templateId, targetId, callback, useInner) {
+			var _useInner = useInner || "";
+			var template = document[getElementById](templateId) || "";
+			var target = document[getElementById](targetId) || "";
+			var cb = function () {
+				return callback && "function" === typeof callback && callback();
+			};
+			if (parsedJson && template && target) {
+				var targetRendered = renderTemplate(parsedJson, templateId, targetId);
+				if (_useInner) {
+					target[innerHTML] = targetRendered;
+					cb();
+				} else {
+					insertTextAsFragment(targetRendered, target, cb);
 				}
 			}
 		};
@@ -956,7 +1103,7 @@ ripple, unescape, verge, WheelIndicator*/
 		};
 		manageDataSrcIframeAll();
 
-		var manageIframeLightboxLinks = function (scope) {
+		var manageIframeLightboxLinkAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			var linkClass = "iframe-lightbox-link";
 			var link = ctx ? ctx[getElementsByClassName](linkClass) || "" : document[getElementsByClassName](linkClass) || "";
@@ -983,9 +1130,9 @@ ripple, unescape, verge, WheelIndicator*/
 				/* forEach(link, arrange, false); */
 			}
 		};
-		manageIframeLightboxLinks();
+		manageIframeLightboxLinkAll();
 
-		var manageImgLightboxLinks = function (scope) {
+		var manageImgLightboxLinkAll = function (scope) {
 			var ctx = scope && scope.nodeName ? scope : "";
 			if (root.imgLightbox) {
 				imgLightbox(ctx, {
@@ -1001,6 +1148,10 @@ ripple, unescape, verge, WheelIndicator*/
 				});
 			}
 		};
+
+		var appContentId = "app-content";
+		var appContent = document[getElementById](appContentId) || "";
+		var appContentParent = appContent ? appContent[parentNode] ? appContent[parentNode] : "" : "";
 
 		var manageLocationQrCodeImage = function () {
 			var btn = document[getElementsByClassName]("mui-appbar__ui-button--qrcode")[0] || "";
@@ -1078,7 +1229,7 @@ ripple, unescape, verge, WheelIndicator*/
 
 		var hideCurrentDropdownMenu = function (e) {
 			if (e) {
-				if (/* e[style].display !== "none" ||  */e[classList].contains(isActiveClass)) {
+				if (/* e[style].display !== "none" || */e[classList].contains(isActiveClass)) {
 					/* e[style].display = "none"; */
 					e[classList].remove(isActiveClass);
 				}
@@ -1097,7 +1248,7 @@ ripple, unescape, verge, WheelIndicator*/
 				if (!dropdownMenu[classList].contains("mui-dropdown__menu--right")) {
 					dropdownMenu[style].left = left + "px";
 				}
-				if (/* dropdownMenu[style].display === "none" ||  */!dropdownMenu[classList].contains(isActiveClass)) {
+				if (/* dropdownMenu[style].display === "none" || */!dropdownMenu[classList].contains(isActiveClass)) {
 					/* dropdownMenu[style].display = "block"; */
 					dropdownMenu[classList].add(isActiveClass);
 				} else {
@@ -1142,7 +1293,7 @@ ripple, unescape, verge, WheelIndicator*/
 			var dropdownMenuAll = document[getElementsByClassName]("mui-dropdown__menu") || "";
 			if (dropdownMenuAll) {
 				for (var i = 0, l = dropdownMenuAll[_length]; i < l; i += 1) {
-					if (/* dropdownMenuAll[i][style].display !== "none" ||  */dropdownMenuAll[i][classList].contains(isActiveClass)) {
+					if (/* dropdownMenuAll[i][style].display !== "none" || */dropdownMenuAll[i][classList].contains(isActiveClass)) {
 						/* dropdownMenuAll[i][style].display = "none"; */
 						dropdownMenuAll[i][classList].remove(isActiveClass);
 					}
@@ -1176,134 +1327,12 @@ ripple, unescape, verge, WheelIndicator*/
 				ripple.registerRipples();
 			}
 		};
-		root.requestAnimationFrame(addRippleEffect);
-
-		var initRouting = function () {
-			var routesJsonUrl = "./libs/serguei-muicss/json/routes.json";
-			var processRoutesJsonResponse = function (routesJsonResponse) {
-				var routesJsonObj;
-				try {
-					routesJsonObj = JSON.parse(routesJsonResponse);
-					if (!routesJsonObj.hashes) {
-						throw new Error("incomplete JSON data: no hashes");
-					} else if (!routesJsonObj.home) {
-						throw new Error("incomplete JSON data: no home");
-					} else {
-						if (!routesJsonObj.notfound) {
-							throw new Error("incomplete JSON data: no notfound");
-						}
-					}
-				} catch (err) {
-					console.log("cannot init processRoutesJsonResponse", err);
-					return;
-				}
-				var triggerOnContentInserted = function (titleString) {
-					document[title] = (titleString ? titleString + " - " : "") + (initialDocumentTitle ? initialDocumentTitle + (userBrowsingDetails ? userBrowsingDetails : "") : "");
-					/*!
-					 * cache parent node beforehand
-					 * put when templates rendered
-					 */
-					if (appContentParent) {
-						manageExternalLinkAll(appContentParent);
-						manageImgLightboxLinks(appContentParent);
-						manageDropdownButtonAll(appContentParent);
-						manageIframeLightboxLinks(appContentParent);
-						root.requestAnimationFrame(addRippleEffect);
-						var timers2 = new Timers();
-						timers2.timeout(function () {
-							timers2.clear();
-							timers2 = null;
-							handleDataSrcIframeAll(appContentParent);
-						}, 500);
-						var timers = new Timers();
-						timers.timeout(function () {
-							timers.clear();
-							timers = null;
-							handleDataSrcImageAll(appContentParent);
-						}, 500);
-						manageHljsCodeAll(appContentParent);
-					}
-					/* hideProgressBar(); */
-					LoadingSpinner.hide();
-					scroll2Top(0, 20000);
-				};
-				var handleRoutesWindow = function () {
-					var locationHash = root.location.hash || "";
-					if (locationHash) {
-						var isNotfound = false;
-						for (var i = 0, l = routesJsonObj.hashes[_length]; i < l; i += 1) {
-							if (locationHash === routesJsonObj.hashes[i][href]) {
-								isNotfound = true;
-								/* progressBar.increase(40); */
-								LoadingSpinner.show();
-								insertExternalHTML(appContentId, routesJsonObj.hashes[i].url, triggerOnContentInserted.bind(null, routesJsonObj.hashes[i][title]));
-								break;
-							}
-						}
-						if (false === isNotfound) {
-							var targetObj = locationHash ? (isValidId(locationHash, true) ? document[getElementById](locationHash.replace(/^#/,"")) || "" : "") : "";
-							if (targetObj) {
-								scroll2Top(findPos(targetObj).top, 10000);
-							} else {
-								var notfoundUrl = routesJsonObj.notfound.url;
-								var notfoundTitle = routesJsonObj.notfound[title];
-								if (notfoundUrl /* && notfoundTitle */) {
-									LoadingSpinner.show();
-									/* progressBar.increase(40); */
-									insertExternalHTML(appContentId, notfoundUrl, triggerOnContentInserted.bind(null, notfoundTitle));
-								}
-							}
-						}
-					} else {
-						var homeUrl = routesJsonObj.home.url;
-						var homeTitle = routesJsonObj.home[title];
-						if (homeUrl /* && homeTitle */) {
-							LoadingSpinner.show();
-							/* progressBar.increase(40); */
-							insertExternalHTML(appContentId, homeUrl, triggerOnContentInserted.bind(null, homeTitle));
-						}
-					}
-				};
-				handleRoutesWindow();
-				root[_addEventListener]("hashchange", handleRoutesWindow);
-			};
-			if (appContent) {
-				loadUnparsedJSON(routesJsonUrl, processRoutesJsonResponse);
-			}
-		};
-		initRouting();
+		addRippleEffect();
 
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
 		var activeClass = "active";
 		var hideSidedrawerClass = "hide-sidedrawer";
-
-		var handleMenuButton = function () {
-			if (sidedrawer) {
-				if (!docBody[classList].contains(hideSidedrawerClass)) {
-					docBody[classList].add(hideSidedrawerClass);
-				} else {
-					docBody[classList].remove(hideSidedrawerClass);
-				}
-				if (!sidedrawer[classList].contains(activeClass)) {
-					sidedrawer[classList].add(activeClass);
-				} else {
-					sidedrawer[classList].remove(activeClass);
-				}
-			}
-		};
-		var manageSidedrawer = function () {
-			var menuButtonAll = document[getElementsByClassName]("sidedrawer-toggle") || "";
-			if (menuButtonAll) {
-				for (var i = 0, l = menuButtonAll[_length]; i < l; i += 1) {
-					if (!menuButtonAll[i][classList].contains(isBindedClass)) {
-						menuButtonAll[i][_addEventListener]("click", handleMenuButton);
-						menuButtonAll[i][classList].add(isBindedClass);
-					}
-				}
-			}
-		};
-		manageSidedrawer();
 
 		var handleSidedrawerCategory = function (evt) {
 			evt.stopPropagation();
@@ -1333,7 +1362,7 @@ ripple, unescape, verge, WheelIndicator*/
 				}
 			}
 		};
-		manageSidedrawerCategoryAll();
+		/* manageSidedrawerCategoryAll(); */
 
 		var handleSidedrawerLinkAll = function () {
 			docBody[classList].add(hideSidedrawerClass);
@@ -1356,7 +1385,34 @@ ripple, unescape, verge, WheelIndicator*/
 				appContentParent[_addEventListener]("click", handleSidedrawerLinkAll);
 			}
 		};
-		hideSidedrawerOnNavigating();
+		/* hideSidedrawerOnNavigating(); */
+
+		var handleMenuButton = function () {
+			if (sidedrawer) {
+				if (!docBody[classList].contains(hideSidedrawerClass)) {
+					docBody[classList].add(hideSidedrawerClass);
+				} else {
+					docBody[classList].remove(hideSidedrawerClass);
+				}
+				if (!sidedrawer[classList].contains(activeClass)) {
+					sidedrawer[classList].add(activeClass);
+				} else {
+					sidedrawer[classList].remove(activeClass);
+				}
+			}
+		};
+		var manageSidedrawer = function () {
+			var menuButtonAll = document[getElementsByClassName]("sidedrawer-toggle") || "";
+			if (menuButtonAll) {
+				for (var i = 0, l = menuButtonAll[_length]; i < l; i += 1) {
+					if (!menuButtonAll[i][classList].contains(isBindedClass)) {
+						menuButtonAll[i][_addEventListener]("click", handleMenuButton);
+						menuButtonAll[i][classList].add(isBindedClass);
+					}
+				}
+			}
+		};
+		manageSidedrawer();
 
 		var appBar = document[getElementsByTagName]("header")[0] || "";
 		var appBarHeight = appBar.offsetHeight || 0;
@@ -1474,6 +1530,129 @@ ripple, unescape, verge, WheelIndicator*/
 			}
 		};
 		initUiTotop();
+
+		loadUnparsedJSON("./libs/serguei-muicss/json/menus.json", function (jsonResponse) {
+			var dropdownContactsTemplateId = "template_dropdown_contacts";
+			if (root.t) {
+				dropdownContactsTemplateId = "t_template_dropdown_contacts";
+			} else {
+				if (root.Mustache) {
+					dropdownContactsTemplateId = "mustache_template_dropdown_contacts";
+				}
+			}
+			var dropdownContactsTemplate = document[getElementById](dropdownContactsTemplateId) || "";
+			var dropdownContactsRenderId = "render_dropdown_contacts";
+			var dropdownContactsRender = document[getElementById](dropdownContactsRenderId) || "";
+			if (dropdownContactsTemplate && dropdownContactsRender) {
+				insertFromTemplate(jsonResponse, dropdownContactsTemplateId, dropdownContactsRenderId, function () {
+					manageDropdownButtonAll();
+				}, true);
+			}
+			var dropdownAdsTemplateId = "template_dropdown_ads";
+			if (root.t) {
+				dropdownAdsTemplateId = "t_template_dropdown_ads";
+			} else {
+				if (root.Mustache) {
+					dropdownAdsTemplateId = "mustache_template_dropdown_ads";
+				}
+			}
+			var dropdownAdsTemplate = document[getElementById](dropdownAdsTemplateId) || "";
+			var dropdownAdsRenderId = "render_dropdown_ads";
+			var dropdownAdsRender = document[getElementById](dropdownAdsRenderId) || "";
+			if (dropdownAdsTemplate && dropdownAdsRender) {
+				insertFromTemplate(jsonResponse, dropdownAdsTemplateId, dropdownAdsRenderId, function () {
+					manageDropdownButtonAll();
+				}, true);
+			}
+		});
+
+		/* var observeMutations = function (scope) {
+			var context = scope && scope.nodeName ? scope : "";
+			var mo;
+			var getMutations = function (e) {
+				var triggerOnMutation = function (m) {
+					console.log("mutations observer: " + m.type);
+					console.log(m.type, "target: " + m.target.tagName + ("." + m.target[className] || "#" + m.target.id || ""));
+					console.log(m.type, "added: " + m.addedNodes[_length] + " nodes");
+					console.log(m.type, "removed: " + m.removedNodes[_length] + " nodes");
+					if ("childList" === m.type || "subtree" === m.type) {
+						 mo.disconnect();
+					}
+				};
+				for (var i = 0, l = e[_length]; i < l; i += 1) {
+					triggerOnMutation(e[i]);
+				}
+			};
+			if (context) {
+				mo = new MutationObserver(getMutations);
+				mo.observe(context, {
+					childList: !0,
+					subtree: !0,
+					attributes: !1,
+					characterData: !1
+				});
+			}
+		};
+		if (appContentParent) {
+			observeMutations(appContentParent);
+		} */
+
+		var jhrouter;
+		jhrouter = new JsonHashRouter("./libs/serguei-muicss/json/routes.json", appContentId, {
+				jsonHomePropName: "home",
+				jsonNotfoundPropName: "notfound",
+				jsonHashesPropName: "hashes",
+				jsonHrefPropName: "href",
+				jsonUrlPropName: "url",
+				jsonTitlePropName: "title",
+				onJsonParsed: function (jsonResponse) {
+					var sidedrawerCategoriesTemplateId = "template_sitedrawer_categories";
+					if (root.t) {
+						sidedrawerCategoriesTemplateId = "t_template_sitedrawer_categories";
+					} else {
+						if (root.Mustache) {
+							sidedrawerCategoriesTemplateId = "mustache_template_sitedrawer_categories";
+						}
+					}
+					var sidedrawerCategoriesTemplate = document[getElementById](sidedrawerCategoriesTemplateId) || "";
+					var sidedrawerCategoriesRenderId = "render_sitedrawer_categories";
+					var sidedrawerCategoriesRender = document[getElementById](sidedrawerCategoriesRenderId) || "";
+					if (sidedrawerCategoriesTemplate && sidedrawerCategoriesRender) {
+						insertFromTemplate(jsonResponse, sidedrawerCategoriesTemplateId, sidedrawerCategoriesRenderId, function () {
+							manageSidedrawerCategoryAll();
+							hideSidedrawerOnNavigating();
+						}, true);
+					}
+				},
+				onContentInserted: function (titleString) {
+					document[title] = (titleString ? titleString + " - " : "") + (initialDocumentTitle ? initialDocumentTitle + (userBrowsingDetails ? userBrowsingDetails : "") : "");
+					if (appContentParent) {
+						manageExternalLinkAll(appContentParent);
+						manageImgLightboxLinkAll(appContentParent);
+						manageIframeLightboxLinkAll(appContentParent);
+						manageDropdownButtonAll(appContentParent);
+						addRippleEffect();
+						var timers2 = new Timers();
+						timers2.timeout(function () {
+							timers2.clear();
+							timers2 = null;
+							handleDataSrcIframeAll(appContentParent);
+						}, 500);
+						var timers = new Timers();
+						timers.timeout(function () {
+							timers.clear();
+							timers = null;
+							handleDataSrcImageAll(appContentParent);
+						}, 500);
+						manageHljsCodeAll(appContentParent);
+					}
+					LoadingSpinner.hide();
+					scroll2Top(0, 20000);
+				},
+				onBeforeContentInserted: function () {
+					LoadingSpinner.show();
+				}
+			});
 	};
 
 	/* var scripts = [
@@ -1546,6 +1725,8 @@ ripple, unescape, verge, WheelIndicator*/
 		"./bower_components/wheel-indicator/lib/wheel-indicator.js",
 		"./bower_components/verge/verge.js",
 		"./bower_components/Tocca.js/Tocca.js",
+		"../../cdn/t.js/0.1.0/js/t.fixed.js",
+		"./node_modules/mustache/mustache.js",
 		"../../cdn/highlight.js/9.12.0/js/highlight.pack.fixed.js",
 		"../../cdn/verge/1.9.1/js/verge.fixed.js",
 		"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
@@ -1580,7 +1761,7 @@ ripple, unescape, verge, WheelIndicator*/
 			/*!
 			 * check only for fonts that are used in current page
 			 */
-			if (doesFontExist("Roboto") && doesFontExist("Roboto Mono")) {
+			if (doesFontExist("Roboto") /* && doesFontExist("Roboto Mono") */) {
 				onFontsLoaded();
 			}
 		};

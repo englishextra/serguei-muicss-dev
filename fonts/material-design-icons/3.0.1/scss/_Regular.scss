@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "Material Icons";
-  font-style: normal;
-  font-weight: 400;
-  @include fontdef-woff($FontPath, $FontName, $FontVersion, "Regular");
+ font-family: "Material Icons";
+ font-style: normal;
+ font-weight: 400;
+ @include fontdef-woff($FontPath, $FontName, $FontVersion, "Regular");
 }
 
 .material-icons {

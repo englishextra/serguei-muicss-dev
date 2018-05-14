@@ -25,7 +25,7 @@ body {
 	line-height: 1.333rem; */
 	width: 100%;
 	color: $clr-grey-900;
-	background-color: $clr-grey-100;
+	background-color: $clr-blue-grey-50 !Important;/* mui.css has white body */
 	text-size-adjust: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -43,9 +43,9 @@ body {
 	 * Sticky Footer
 	 * The position relative on body is required to make it work.
 	 */
-    /* min-height: 100%;
-    position: relative;
-    padding-bottom: 3.500rem; */
+  /* min-height: 100%;
+  position: relative;
+  padding-bottom: 3.500rem; */
 }
 
 /*!
@@ -155,6 +155,10 @@ button {
 	background-size: 7.438rem 3.500rem;
 }
 
+.no-svg .site-logo .site-logo-icon {
+	display: none;
+}
+
 .site-logo .site-logo-icon {
 	display: block;
 	/* 102x48 */
@@ -209,12 +213,8 @@ button {
 	}
 }
 
-/* .page {
-	background-color: $clr-grey-100;
-} */
-
 .app-content h1 {
-	font-weight: 700;
+	font-weight: 400;
 	color: $clr-grey-700;
 }
 
@@ -832,8 +832,8 @@ a.mui-btn:active {
 	 * The position relative on body is required to make it work.
 	 */
 	/* height: 3.500rem; */
-    /* position: absolute;
-    left: 0;
+  /* position: absolute;
+  left: 0;
 	right: 0;
 	bottom: 0; */
 }
