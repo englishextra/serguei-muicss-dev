@@ -770,7 +770,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 			}
 		};
 
-		var loadUnparsedJSON = function (url, callback, onerror) {
+		/* var loadUnparsedJSON = function (url, callback, onerror) {
 			var cb = function (string) {
 				return callback && "function" === typeof callback && callback(string);
 			};
@@ -787,7 +787,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 				}
 			};
 			x.send(null);
-		};
+		}; */
 
 		var safelyParseJSON = function (response) {
 			var isJson = function (obj) {
@@ -1531,7 +1531,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		};
 		initUiTotop();
 
-		loadUnparsedJSON("./libs/serguei-muicss/json/menus.json", function (jsonResponse) {
+		/* loadUnparsedJSON("./libs/serguei-muicss/json/menus.json", function (jsonResponse) {
 			var dropdownContactsTemplateId = "template_dropdown_contacts";
 			if (root.t) {
 				dropdownContactsTemplateId = "t_template_dropdown_contacts";
@@ -1564,7 +1564,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 					manageDropdownButtonAll();
 				}, true);
 			}
-		});
+		}); */
 
 		/* var observeMutations = function (scope) {
 			var context = scope && scope.nodeName ? scope : "";
@@ -1598,7 +1598,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		} */
 
 		var jhrouter;
-		jhrouter = new JsonHashRouter("./libs/serguei-muicss/json/routes.json", appContentId, {
+		jhrouter = new JsonHashRouter("./libs/serguei-muicss/json/navigation.min.json", appContentId, {
 				jsonHomePropName: "home",
 				jsonNotfoundPropName: "notfound",
 				jsonHashesPropName: "hashes",
@@ -1621,6 +1621,38 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 						insertFromTemplate(jsonResponse, sidedrawerCategoriesTemplateId, sidedrawerCategoriesRenderId, function () {
 							manageSidedrawerCategoryAll();
 							hideSidedrawerOnNavigating();
+						}, true);
+					}
+					var dropdownContactsTemplateId = "template_dropdown_contacts";
+					if (root.t) {
+						dropdownContactsTemplateId = "t_template_dropdown_contacts";
+					} else {
+						if (root.Mustache) {
+							dropdownContactsTemplateId = "mustache_template_dropdown_contacts";
+						}
+					}
+					var dropdownContactsTemplate = document[getElementById](dropdownContactsTemplateId) || "";
+					var dropdownContactsRenderId = "render_dropdown_contacts";
+					var dropdownContactsRender = document[getElementById](dropdownContactsRenderId) || "";
+					if (dropdownContactsTemplate && dropdownContactsRender) {
+						insertFromTemplate(jsonResponse, dropdownContactsTemplateId, dropdownContactsRenderId, function () {
+							manageDropdownButtonAll();
+						}, true);
+					}
+					var dropdownAdsTemplateId = "template_dropdown_ads";
+					if (root.t) {
+						dropdownAdsTemplateId = "t_template_dropdown_ads";
+					} else {
+						if (root.Mustache) {
+							dropdownAdsTemplateId = "mustache_template_dropdown_ads";
+						}
+					}
+					var dropdownAdsTemplate = document[getElementById](dropdownAdsTemplateId) || "";
+					var dropdownAdsRenderId = "render_dropdown_ads";
+					var dropdownAdsRender = document[getElementById](dropdownAdsRenderId) || "";
+					if (dropdownAdsTemplate && dropdownAdsRender) {
+						insertFromTemplate(jsonResponse, dropdownAdsTemplateId, dropdownAdsRenderId, function () {
+							manageDropdownButtonAll();
 						}, true);
 					}
 				},
