@@ -1514,7 +1514,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 			};
 			anchor[classList].add(btnClass, "mui-btn");
 			anchor[classList].add(btnClass, "mui-btn--fab");
-			anchor[classList].add(btnClass, "mui-btn--primary");
+			/* anchor[classList].add(btnClass, "mui-btn--primary"); */
 			anchor[classList].add(btnClass, "ripple");
 			/* anchor[setAttribute]("ripple-color", "rgba(0, 0, 0, 0.15)"); */
 			anchor[setAttribute]("aria-label", "Навигация");
