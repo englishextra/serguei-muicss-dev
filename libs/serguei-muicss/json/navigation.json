@@ -61,10 +61,13 @@
 		}, {
 			"href": "viber://chat?number=%2B79854416702",
 			"title": "Вайбер"
+		}, {
+			"href": "mailto:englishextra2%40yahoo.com",
+			"title": "Имейл"
 		}
 	],
 	"other": [{
-			"href": "mailto:englishextra%40yandex.ru",
+			"href": "mailto:englishextra2%40yahoo.com",
 			"title": "Имейл"
 		}
 	]

@@ -328,6 +328,10 @@
 					<title>email</title>
 					<path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"></path>
 				</symbol>
+				<symbol id="ui-icon-menu-down" viewBox="0 0 24 24">
+					<title>menu-down</title>
+					<path fill="currentColor" d="M7,10L12,15L17,10H7Z"></path>
+				</symbol>
 			</defs>
 		</svg>
 		<nav id="sidedrawer" class="mui--no-user-select">
@@ -350,13 +354,13 @@
 				<li><a href="#/english_through_movies">Фильмы без&#160;перевода</a></li>
 				<li><a href="#/tests_languagelink_online_test">Уровневый тест</a></li>
 				<li><a href="#/tests_gia_ege_get_ready_for_a_run">Демо ОГЭ&#160;/ ЕГЭ</a></li>
-				<!-- <li>
-						<strong>Уровневые тесты</strong>
-						<ul>
-							<li><a href="#/home" target="_blank" rel="noopener">Home</a></li>
-							<li><a href="#/about" target="_blank" rel="noopener">About</a></li>
-						</ul>
-					</li> -->
+				<li>
+					<strong>Уровневые тесты</strong>
+					<ul>
+						<li><a href="#/home" target="_blank" rel="noopener">Home</a></li>
+						<li><a href="#/about" target="_blank" rel="noopener">About</a></li>
+					</ul>
+				</li>
 			</template>
 			<template id="t_template_sitedrawer_categories">
 				{{@hashes}}
@@ -387,7 +391,7 @@
 				</a>
 				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--phone" data-mui-toggle="dropdown" aria-label="Навигация" title="Связь">
 					<svg class="ui-icon">
-						<use xlink:href="#ui-icon-voice"></use>
+						<use xlink:href="#ui-icon-menu-down"></use>
 					</svg>
 				</a>
 				<ul class="mui-dropdown__menu" id="render_dropdown_contacts"></ul>
@@ -420,7 +424,7 @@
 					</a>
 				</template>
 				<div class="holder-location-qr-code" aria-hidden="true"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="qr-code-img" alt="" /></div>
-				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--more" data-mui-toggle="dropdown" aria-label="Навигация" title="Еще">
+				<a href="javascript:void(0);" class="mui-appbar__ui-button mui-appbar__ui-button--more" data-mui-toggle="dropdown" aria-label="Навигация" title="Соцсети">
 					<svg class="ui-icon">
 						<use xlink:href="#ui-icon-more"></use>
 					</svg>
