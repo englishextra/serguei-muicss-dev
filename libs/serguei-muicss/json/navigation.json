@@ -45,11 +45,11 @@
 			"href": "https://vk.com/sergeydavydow",
 			"title": "«ВКонтакте»"
 		}, {
-			"href": "https://www.instagram.com/shimanskybiz/",
-			"title": "Инстаграм"
-		}, {
 			"href": "tg://resolve?domain=english_tushino",
 			"title": "Телеграм"
+		}, {
+			"href": "https://www.instagram.com/shimanskybiz/",
+			"title": "Инстаграм"
 		}
 	],
 	"contacts": [{
@@ -62,11 +62,6 @@
 			"href": "viber://chat?number=%2B79854416702",
 			"title": "Вайбер"
 		}, {
-			"href": "mailto:englishextra2%40yahoo.com",
-			"title": "Имейл"
-		}
-	],
-	"other": [{
 			"href": "mailto:englishextra2%40yahoo.com",
 			"title": "Имейл"
 		}
