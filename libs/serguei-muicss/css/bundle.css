@@ -258,29 +258,6 @@ button {
 	text-decoration: none;
 }
 
-.app-content .video-wrapper {
-	float: none;
-	clear: both;
-	width: 100%;
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-}
-
-.app-content .video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-/* .app-content .soundcloud-wrapper iframe {
-	display: block;
-	width: 100%;
-	height: 166px;
-} */
-
 .app-content .data-src-img,
 .app-content .data-src-iframe {
 	background-color: #eeeeee;
@@ -308,6 +285,7 @@ button {
 .app-content pre code {
 	font-family: "Roboto Mono", "Consolas", "Monaco", "Droid Sans Mono", "Inconsolata", "Source Code Pro", monospace;
 	font-size: 0.813rem;
+	line-height: 1.188rem;
 	padding: 0.938rem 1.375rem;
 }
 
@@ -347,9 +325,9 @@ button {
 	transform: translate(-50%, -50%);
 }
 
-.mui-panel *[class*=mui-col-] .contacts-link .contacts-icon {
+/* .mui-panel *[class*=mui-col-] .contacts-link .contacts-icon {
 	margin-top: 0;
-}
+} */
 
 .app-content .contacts-link .contacts-icon > * {
 	fill: currentColor;
@@ -390,9 +368,9 @@ button {
 	transform: translate(-50%, -50%);
 }
 
-.mui-panel *[class*=mui-col-] .notfound-link .notfound-icon {
+/* .mui-panel *[class*=mui-col-] .notfound-link .notfound-icon {
 	margin-top: 0;
-}
+} */
 
 .app-content .notfound-link .notfound-icon > * {
 	fill: currentColor;
@@ -405,7 +383,6 @@ button {
 .mui-appbar {
 	color: #616161;
 	background-color: #FFFFFF;
-	border-bottom: 0.063rem solid #e0e0e0;
 }
 
 .mui-appbar__ui-button {
@@ -521,6 +498,7 @@ button {
 	visibility: hidden;
 	opacity: 0;
 	min-width: 10.000rem;
+	overflow: hidden;
 	/* border: 0.063rem solid $clr-grey-300; */
 	border-radius: 0.125rem;
 	-webkit-box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
@@ -544,6 +522,7 @@ button {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	border: none;
 	padding: 0.938rem 1.375rem;
 }
 
@@ -590,10 +569,6 @@ button {
 	padding: 0.938rem 0;
 }
 
-.mui-panel *:first-child {
-	margin-top: 0;
-}
-
 @media (orientation: landscape) and (max-height: 480px) {
 	.mui-panel {
 		padding: 0.938rem 0;
@@ -606,47 +581,71 @@ button {
 	}
 }
 
+.mui-panel *:first-child {
+	margin-top: 0;
+}
+
+.mui-container-fluid .mui-row:first-child *[class*=mui-col-]:first-child .mui-panel:first-child {
+	margin-top: 1.250rem;
+}
+
 /*!
  * fix top margin of first child
  * @see {@link https://github.com/muicss/mui/issues/278}
  */
 
-.mui-panel *[class*=mui-col-md-] *:first-child {
-	margin-top: 1.250rem;
+.mui-panel *[class*=mui-col-md-] h1:first-child,
+.mui-panel *[class*=mui-col-md-] h2:first-child,
+.mui-panel *[class*=mui-col-md-] p:first-child	{
+	margin-top: 0.938rem;
 }
 
-.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 	margin-top: 0;
 }
 
 @media (min-width: 544px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
-		margin-top: 1.250rem;
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
+		margin-top: 0.938rem;
 	}
 
-	.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+	.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 		margin-top: 0;
 	}
 }
 
 @media (min-width: 768px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
-		margin-top: 1.250rem;
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child {
+		margin-top: 0.938rem;
 	}
 
-	.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+	.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 		margin-top: 0;
 	}
 }
 
 @media (min-width: 992px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
 		margin-top: 0;
 	}
 }
 
 @media (min-width: 1200px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
 		margin-top: 0;
 	}
 }
@@ -843,6 +842,10 @@ a.mui-btn:active {
 	-webkit-transition: visibility 0s, opacity 0.2s ease;
 	transition: visibility 0s, opacity 0.2s ease;
 	overflow: hidden;
+	/*!
+	 * to overlay mui-dropdown__menu
+	 */
+	z-index: 2;
 }
 
 @media (orientation: landscape) and (max-height: 480px) {
@@ -905,6 +908,8 @@ a.mui-btn:active {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	-webkit-box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
 }
 
 #header.is-fixed {
@@ -976,7 +981,7 @@ a.mui-btn:active {
 	 */
 	/* height: 3.500rem; */
 	/* position: absolute;
- left: 0;
+	left: 0;
 	right: 0;
 	bottom: 0; */
 }
@@ -990,6 +995,11 @@ a.mui-btn:active {
 #footer a:hover,
 #footer a:active {
 	text-decoration: underline;
+}
+
+#footer .copyright {
+	font-size: 0.813rem;
+	line-height: 1.188rem;
 }
 
 /*!
@@ -1040,12 +1050,18 @@ a.mui-btn:active {
 	}
 }
 
+#sidedrawer-brand .site-logo {
+	position: absolute;
+}
+
 #sidedrawer ul {
 	list-style: none;
 }
 
 #sidedrawer > ul {
 	padding-left: 0;
+	/* background-color: green; */
+	margin: 0;
 }
 
 #sidedrawer > ul > li:first-child {
@@ -1099,6 +1115,21 @@ a.mui-btn:active {
 	color: inherit;
 }
 
+#sidedrawer .copyright {
+	font-size: 0.750rem;
+	line-height: 1.125rem;
+	padding: 0.938rem 1.375rem;
+	margin: 0;
+}
+
+#sidedrawer .copyright a {
+	text-decoration: none;
+}
+
+#sidedrawer .mui-divider {
+	background-color: currentColor;
+}
+
 @media (min-width: 768px) {
 	/* #header {
 		left: 15.000rem;
@@ -1122,8 +1153,8 @@ a.mui-btn:active {
 	}
 
 	body.hide-sidedrawer #sidedrawer {
-		-webkit-transform: translate(0px);
-		transform: translate(0px);
+		-webkit-transform: translate(0);
+		transform: translate(0);
 	}
 
 	body.hide-sidedrawer #content-wrapper {
@@ -1133,4 +1164,43 @@ a.mui-btn:active {
 	body.hide-sidedrawer #footer {
 		margin-left: 0;
 	}
+}
+
+/*!
+ * make appbar dark
+ */
+
+.mui-appbar {
+	color: #FFFFFF;
+	background-color: #2B2B2B;
+}
+
+.mui-appbar .mui-dropdown__menu > li > a {
+	color: #FFFFFF;
+	background-color: #2B2B2B;
+}
+
+.mui-appbar .mui-dropdown__menu > li > a:focus,
+.mui-appbar .mui-dropdown__menu > li > a:hover,
+.mui-appbar .mui-dropdown__menu > li > a:active {
+	color: #2B2B2B;
+	background-color: #81d4fa;
+}
+
+/*!
+ * make sidedrawer dark
+ */
+
+#sidedrawer {
+	color: #FFFFFF;
+	background-color: #2B2B2B;
+}
+
+#sidedrawer li a:focus,
+#sidedrawer li a:hover,
+#sidedrawer li a:active,
+#sidedrawer li > strong:focus,
+#sidedrawer li > strong:hover,
+#sidedrawer li > strong:active {
+	color: #2B2B2B;
 }

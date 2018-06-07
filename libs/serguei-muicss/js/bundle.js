@@ -1174,7 +1174,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 								newSrc = QRCode.generateSVG(locationHref, {
 									ecclevel: "M",
 									fillcolor: "#FFFFFF",
-									textcolor: "#191919",
+									textcolor: "#212121",
 									margin: 4,
 									modulesize: 8
 								});
@@ -1187,7 +1187,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 									ecclevel: "M",
 									format: "html",
 									fillcolor: "#FFFFFF",
-									textcolor: "#191919",
+									textcolor: "#212121",
 									margin: 4,
 									modulesize: 8
 								});

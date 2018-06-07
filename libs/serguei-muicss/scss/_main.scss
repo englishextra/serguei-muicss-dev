@@ -236,29 +236,6 @@ button {
 	text-decoration: none;
 }
 
-.app-content .video-wrapper {
-	float: none;
-	clear: both;
-	width: 100%;
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-}
-
-.app-content .video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-/* .app-content .soundcloud-wrapper iframe {
-	display: block;
-	width: 100%;
-	height: 166px;
-} */
-
 .app-content .data-src-img,
 .app-content .data-src-iframe {
 	background-color: $clr-grey-200;
@@ -286,6 +263,7 @@ button {
 .app-content pre code {
 	font-family: "Roboto Mono", $font-family-local-monospace;
 	font-size: 0.813rem;
+	line-height: 1.188rem;
 	padding: 0.938rem 1.375rem;
 }
 
@@ -324,9 +302,9 @@ button {
 	transform: translate(-50%, -50%);
 }
 
-.mui-panel *[class*=mui-col-] .contacts-link .contacts-icon {
+/* .mui-panel *[class*=mui-col-] .contacts-link .contacts-icon {
 	margin-top: 0;
-}
+} */
 
 .app-content .contacts-link .contacts-icon > * {
 	fill: currentColor;
@@ -366,9 +344,9 @@ button {
 	transform: translate(-50%, -50%);
 }
 
-.mui-panel *[class*=mui-col-] .notfound-link .notfound-icon {
+/* .mui-panel *[class*=mui-col-] .notfound-link .notfound-icon {
 	margin-top: 0;
-}
+} */
 
 .app-content .notfound-link .notfound-icon > * {
 	fill: currentColor;
@@ -381,7 +359,6 @@ button {
 .mui-appbar {
 	color: $clr-grey-700;
 	background-color: #FFFFFF;
-	border-bottom: 0.063rem solid $clr-grey-300;
 }
 
 .mui-appbar__ui-button {
@@ -496,6 +473,7 @@ button {
 	visibility: hidden;
 	opacity: 0;
 	min-width: 10.000rem;
+	overflow: hidden;
 	/* border: 0.063rem solid $clr-grey-300; */
 	border-radius: 0.125rem;
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
@@ -510,16 +488,17 @@ button {
 	opacity: 1;
 }
 
-.mui-dropdown__menu>li>a {
+.mui-dropdown__menu > li > a {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	border: none;
 	padding: 0.938rem 1.375rem;
 }
 
-.mui-dropdown__menu>li>a:focus,
-.mui-dropdown__menu>li>a:hover,
-.mui-dropdown__menu>li>a:active {
+.mui-dropdown__menu > li > a:focus,
+.mui-dropdown__menu > li > a:hover,
+.mui-dropdown__menu > li > a:active {
 	text-decoration: none;
 	background-color: $clr-light-blue-200;
 }
@@ -556,11 +535,10 @@ button {
 	border-radius: 0.125rem;
 	/* box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12); */
 	box-shadow: 0 0.063rem 0.063rem 0 rgba(0, 0, 0, 0.16), 0 0 0.063rem 0 rgba(0, 0, 0, 0.12);
+	/*!
+	 * remove left and right margin on mobile
+	 */
 	padding: 0.938rem 0;
-}
-
-.mui-panel *:first-child {
-	margin-top: 0;
 }
 
 @media (orientation: landscape) and (max-height: 480px) {
@@ -576,46 +554,78 @@ button {
 }
 
 /*!
+ * remove top margin of the first child of mui-panel
+ */
+
+.mui-panel *:first-child {
+	margin-top: 0;
+}
+
+/*!
+ * make gap above the first mui-panel and mui-appbar
+ */
+
+.mui-container-fluid .mui-row:first-child *[class*=mui-col-]:first-child .mui-panel:first-child {
+	margin-top: 1.250rem;
+}
+
+/*!
  * fix top margin of first child
  * @see {@link https://github.com/muicss/mui/issues/278}
  */
 
-.mui-panel *[class*=mui-col-md-] *:first-child {
-	margin-top: 1.250rem;
+.mui-panel *[class*=mui-col-md-] h1:first-child,
+.mui-panel *[class*=mui-col-md-] h2:first-child,
+.mui-panel *[class*=mui-col-md-] p:first-child	{
+	margin-top: 0.938rem;
 }
 
-.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 	margin-top: 0;
 }
 
-@media (min-width:544px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
-		margin-top: 1.250rem;
+@media (min-width: 544px) {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
+		margin-top: 0.938rem;
 	}
 
-	.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+	.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 		margin-top: 0;
 	}
 }
 
-@media (min-width:768px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
-		margin-top: 1.250rem;
+@media (min-width: 768px) {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child {
+		margin-top: 0.938rem;
 	}
 
-	.mui-panel *[class*=mui-col-md-]:first-child *:first-child {
+	.mui-panel *[class*=mui-col-md-]:first-child h1:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child h2:first-child,
+	.mui-panel *[class*=mui-col-md-]:first-child p:first-child {
 		margin-top: 0;
 	}
 }
 
-@media (min-width:992px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
+@media (min-width: 992px) {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
 		margin-top: 0;
 	}
 }
 
-@media (min-width:1200px) {
-	.mui-panel *[class*=mui-col-md-] *:first-child {
+@media (min-width: 1200px) {
+	.mui-panel *[class*=mui-col-md-] h1:first-child,
+	.mui-panel *[class*=mui-col-md-] h2:first-child,
+	.mui-panel *[class*=mui-col-md-] p:first-child	{
 		margin-top: 0;
 	}
 }
@@ -753,7 +763,6 @@ a.mui-btn:active {
 	color: #FFFFFF;
 	/* background-color: $clr-grey-600; */
 	background-color: rgba($clr-grey-600, 0.5);
-	-webkit-box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
 	margin: 0;
 }
@@ -805,6 +814,10 @@ a.mui-btn:active {
 	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
 	transition: visibility 0s, opacity 0.2s ease;
 	overflow: hidden;
+	/*!
+	 * to overlay mui-dropdown__menu
+	 */
+	z-index: 2;
 }
 
 @media (orientation: landscape) and (max-height: 480px) {
@@ -862,6 +875,7 @@ a.mui-btn:active {
 	z-index: 1;
 	transition: top 0.4s ease-out;
 	user-select: none;
+	box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
 }
 
 #header.is-fixed {
@@ -929,8 +943,8 @@ a.mui-btn:active {
 	 * The position relative on body is required to make it work.
 	 */
 	/* height: 3.500rem; */
- /* position: absolute;
- left: 0;
+	/* position: absolute;
+	left: 0;
 	right: 0;
 	bottom: 0; */
 }
@@ -944,6 +958,11 @@ a.mui-btn:active {
 #footer a:hover,
 #footer a:active {
 	text-decoration: underline;
+}
+
+#footer .copyright {
+	font-size: 0.813rem;
+	line-height: 1.188rem;
 }
 
 /*!
@@ -990,20 +1009,25 @@ a.mui-btn:active {
 	}
 }
 
+#sidedrawer-brand .site-logo {
+	position: absolute;
+}
+
 #sidedrawer ul {
 	list-style: none;
 }
 
-#sidedrawer>ul {
+#sidedrawer > ul {
 	padding-left: 0;
+	margin: 0;
 }
 
-#sidedrawer>ul>li:first-child {
+#sidedrawer > ul > li:first-child {
 	padding-top: 0;
 }
 
 #sidedrawer li a,
-#sidedrawer li>strong {
+#sidedrawer li > strong {
 	display: block;
 	overflow: hidden;
 	white-space: nowrap;
@@ -1016,24 +1040,24 @@ a.mui-btn:active {
 #sidedrawer li a:focus,
 #sidedrawer li a:hover,
 #sidedrawer li a:active,
-#sidedrawer li>strong:focus,
-#sidedrawer li>strong:hover,
-#sidedrawer li>strong:active {
+#sidedrawer li > strong:focus,
+#sidedrawer li > strong:hover,
+#sidedrawer li > strong:active {
 	text-decoration: none;
 	background-color: $clr-light-blue-200;
 }
 
-#sidedrawer li strong+ul>li a {
+#sidedrawer li strong + ul > li a {
 	padding-left: 0;
 }
 
-#sidedrawer li strong+ul>li a {
+#sidedrawer li strong + ul > li a {
 	background-color: transparent;
 }
 
-#sidedrawer li strong+ul>li a:focus,
-#sidedrawer li strong+ul>li a:hover,
-#sidedrawer li strong+ul>li a:active {
+#sidedrawer li strong + ul > li a:focus,
+#sidedrawer li strong + ul > li a:hover,
+#sidedrawer li strong + ul > li a:active {
 	text-decoration: none;
 	background-color: transparent;
 }
@@ -1046,6 +1070,21 @@ a.mui-btn:active {
 	position: relative;
 	float: left;
 	color: inherit;
+}
+
+#sidedrawer .copyright {
+	font-size: 0.750rem;
+	line-height: 1.125rem;
+	padding: 0.938rem 1.375rem;
+	margin: 0;
+}
+
+#sidedrawer .copyright a {
+	text-decoration: none;
+}
+
+#sidedrawer .mui-divider {
+	background-color: currentColor;
 }
 
 @media (min-width:768px) {
@@ -1068,7 +1107,7 @@ a.mui-btn:active {
 	}
 
 	body.hide-sidedrawer #sidedrawer {
-		transform: translate(0px);
+		transform: translate(0);
 	}
 
 	body.hide-sidedrawer #content-wrapper {
@@ -1079,3 +1118,43 @@ a.mui-btn:active {
 		margin-left: 0;
 	}
 }
+
+/*!
+ * make appbar dark
+ */
+
+.mui-appbar {
+	color: #FFFFFF;
+	background-color: $ButtonBackgroundDark;
+}
+
+.mui-appbar .mui-dropdown__menu > li > a {
+	color: #FFFFFF;
+	background-color: $ButtonBackgroundDark;
+}
+
+.mui-appbar .mui-dropdown__menu > li > a:focus,
+.mui-appbar .mui-dropdown__menu > li > a:hover,
+.mui-appbar .mui-dropdown__menu > li > a:active {
+	color: $ButtonBackgroundDark;
+	background-color: $clr-light-blue-200;
+}
+
+/*!
+ * make sidedrawer dark
+ */
+
+#sidedrawer {
+	color: #FFFFFF;
+	background-color: $ButtonBackgroundDark;
+}
+
+#sidedrawer li a:focus,
+#sidedrawer li a:hover,
+#sidedrawer li a:active,
+#sidedrawer li > strong:focus,
+#sidedrawer li > strong:hover,
+#sidedrawer li > strong:active {
+	color: $ButtonBackgroundDark;
+}
+
