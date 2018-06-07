@@ -631,6 +631,30 @@ button {
 }
 
 /*!
+ * custom mui-panel
+ */
+
+.mui-panel--skeleton {
+	padding: 0;
+	margin-bottom: 1.250rem;
+	margin-right: -0.938rem;
+	margin-left: -0.938rem;
+}
+
+.mui-panel--skeleton:before, .mui-panel--skeleton:after {
+	content: " ";
+	display: table;
+}
+
+.mui-panel--skeleton:after {
+	clear: both;
+}
+
+.mui-panel--skeleton h2:first-child {
+	margin-top: 0;
+}
+
+/*!
  * mui-table
  */
 

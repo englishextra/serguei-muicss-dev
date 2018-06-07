@@ -1,6 +1,7 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imgLightbox, imagePromise, JsonHashRouter, loadCSS, loadJsCss, Mustache,
-Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
+imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS, loadJsCss,
+Mustache, Promise, Timers, QRCode, require, ripple, t, twttr, unescape, verge,
+WheelIndicator*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -487,6 +488,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		var getAttribute = "getAttribute";
 		var getElementById = "getElementById";
 		var getElementsByTagName = "getElementsByTagName";
+		var href = "href";
 		var innerHTML = "innerHTML";
 		var parentNode = "parentNode";
 		var setAttribute = "setAttribute";
@@ -1329,6 +1331,25 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		};
 		addRippleEffect();
 
+		var initInstagramEmbeds = function () {
+			if (root.instgrm) {
+				var instagramMedia = document[getElementsByClassName]("instagram-media")[0] || "";
+				if (instagramMedia && instagramMedia[dataset].instgrmPermalink) {
+					instgrm.Embeds.process();
+				}
+			}
+		};
+
+		var initTwitterEmbeds = function () {
+			if (root.twttr) {
+				var twitterTweet = document[getElementsByClassName]("twitter-tweet")[0] || "";
+				var twitterTweetLink = twitterTweet ? twitterTweet[getElementsByTagName]("a")[0] || "" : "";
+				if (twitterTweetLink && twitterTweetLink[href]) {
+					twttr.widgets.load();
+				}
+			}
+		};
+
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
 		var activeClass = "active";
@@ -1664,6 +1685,8 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 						manageIframeLightboxLinkAll(appContentParent);
 						manageDropdownButtonAll(appContentParent);
 						addRippleEffect();
+						initInstagramEmbeds();
+						initTwitterEmbeds();
 						var timers2 = new Timers();
 						timers2.timeout(function () {
 							timers2.clear();
@@ -1765,7 +1788,11 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
 	]; */
 
-	scripts.push("./libs/serguei-muicss/js/vendors.min.js");
+	scripts.push(
+		"./libs/serguei-muicss/js/vendors.min.js",
+		"https://www.instagram.com/embed.js",
+		"https://platform.twitter.com/widgets.js"
+		);
 
 	/*!
 	 * load scripts after webfonts loaded using doesFontExist
