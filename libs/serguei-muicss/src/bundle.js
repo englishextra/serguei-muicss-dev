@@ -1,4 +1,4 @@
-/*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
+/*global ActiveXObject, console, DISQUS, doesFontExist, hljs, IframeLightbox,
 imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS, loadJsCss,
 Minigrid, Mustache, Promise, Timers, QRCode, require, ripple, t, twttr,
 unescape, verge, WheelIndicator*/
@@ -629,6 +629,20 @@ unescape, verge, WheelIndicator*/
 		if (document[title]) {
 			document[title] = document[title] + userBrowsingDetails;
 		}
+
+		var scriptIsLoaded = function (scriptSrc) {
+			var scriptAll,
+			i,
+			l;
+			for (scriptAll = document[getElementsByTagName]("script") || "", i = 0, l = scriptAll[_length]; i < l; i += 1) {
+				if (scriptAll[i][getAttribute]("src") === scriptSrc) {
+					scriptAll = i = l = null;
+					return true;
+				}
+			}
+			scriptAll = i = l = null;
+			return false;
+		};
 
 		var debounce = function (func, wait) {
 			var timeout;
@@ -1342,6 +1356,58 @@ unescape, verge, WheelIndicator*/
 			}, 500);
 		};
 
+		var handleDisqusEmbedInMinigrid = function () {
+			if (mgrid) {
+				var disqusThread = document[getElementById]("disqus_thread") || "";
+				if (disqusThread) {
+					disqusThread[_addEventListener]("DOMSubtreeModified", updateMinigrid, {passive: true});
+				}
+			}
+		};
+		var manageDisqusEmbed = function () {
+			var disqusThread = document[getElementById]("disqus_thread") || "";
+			var locationHref = root.location.href || "";
+			var disqusThreadShortname = disqusThread ? (disqusThread[dataset].shortname || "") : "";
+			var hideDisqusThread = function () {
+				removeChildren(disqusThread);
+				var replacementText = document[createElement]("p");
+				replacementText[appendChild](document[createTextNode]("Комментарии доступны только в веб версии этой страницы."));
+				appendFragment(replacementText, disqusThread);
+				disqusThread.removeAttribute("id");
+
+			};
+			var initScript = function () {
+				if (root.DISQUS) {
+					try {
+						DISQUS.reset({
+							reload: true,
+							config: function () {
+								this.page.identifier = disqusThreadShortname;
+								this.page.url = locationHref;
+							}
+						});
+						disqusThread[classList].add(isActiveClass);
+					} catch (err) {
+						/* console.log("cannot reset DISQUS", err); */
+					}
+				}
+
+			};
+			if (disqusThread && disqusThreadShortname && locationHref) {
+				if ("undefined" !== typeof getHTTP && getHTTP()) {
+					var jsUrl = forcedHTTP + "://" + disqusThreadShortname + ".disqus.com/embed.js";
+					if (!scriptIsLoaded(jsUrl)) {
+						var load;
+						load = new loadJsCss([jsUrl], initScript);
+					} else {
+						initScript();
+					}
+				} else {
+					hideDisqusThread();
+				}
+			}
+		};
+
 		var handleInstagramEmbedInMinigrid = function () {
 			if (mgrid) {
 				var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
@@ -1419,6 +1485,7 @@ unescape, verge, WheelIndicator*/
 				cardGrid[style].opacity = 1;
 				handleInstagramEmbedInMinigrid();
 				handleTwitterEmbedInMinigrid();
+				handleDisqusEmbedInMinigrid();
 			};
 			var initMinigrid = function () {
 				if (mgrid) {
@@ -1777,6 +1844,7 @@ unescape, verge, WheelIndicator*/
 						manageRippleEffect();
 						manageInstagramEmbeds();
 						manageTwitterEmbeds();
+						manageDisqusEmbed();
 						var timers3 = new Timers();
 						timers3.timeout(function () {
 							timers3.clear();
@@ -1886,8 +1954,7 @@ unescape, verge, WheelIndicator*/
 	scripts.push(
 		"./libs/serguei-muicss/js/vendors.min.js",
 		/* "https://platform.twitter.com/widgets.js", */
-		"https://www.instagram.com/embed.js",
-		"https://englishextragitlabio.disqus.com/embed.js"
+		"https://www.instagram.com/embed.js"
 		);
 
 	/*!
