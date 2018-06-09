@@ -853,6 +853,16 @@ a.mui-btn:active,
 }
 
 /*!
+ * disqus
+ */
+
+.card-wrap.card-wrap--skeleton #disqus_thread.is-active iframe {
+	background-color: #FFFFFF;
+	padding-right: 0.938rem;
+	padding-left: 0.938rem;
+}
+
+/*!
  * @see {@link https://github.com/sksmatt/UItoTop-jQuery-Plugin/}
  */
 
@@ -1274,20 +1284,6 @@ a.mui-btn:active,
 	body.hide-sidedrawer #footer {
 		margin-left: 0;
 	}
-}
-
-/*!
- * disqus
- */
-
-#disqus_thread {
-	background-color: #FFFFFF;
-}
-
-#disqus_thread.is-active iframe {
-	margin-top: 0;
-	padding-right: 0.938rem;
-	padding-left: 0.938rem;
 }
 
 /*!
