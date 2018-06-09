@@ -1,6 +1,7 @@
 /*global ActiveXObject, console, doesFontExist, hljs, IframeLightbox,
-imgLightbox, imagePromise, JsonHashRouter, loadCSS, loadJsCss, Mustache,
-Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
+imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS, loadJsCss,
+Minigrid, Mustache, Promise, Timers, QRCode, require, ripple, t, twttr,
+unescape, verge, WheelIndicator*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -492,6 +493,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 		var setAttribute = "setAttribute";
 		var setAttributeNS = "setAttributeNS";
 		var style = "style";
+		var styleSheets = "styleSheets";
 		var title = "title";
 		var _removeEventListener = "removeEventListener";
 
@@ -1317,12 +1319,104 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 			}
 		};
 
-		var addRippleEffect = function () {
+		var manageRippleEffect = function () {
 			if (root.ripple) {
 				ripple.registerRipples();
 			}
 		};
-		addRippleEffect();
+		manageRippleEffect();
+
+		var mgrid;
+
+		var updateMinigrid = function () {
+			mgrid.mount();
+		};
+
+		var handleInstagramEmbedInMinigrid = function () {
+			if (mgrid) {
+				var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
+				if (instagramMedia) {
+					var i, l;
+					for (i = 0, l = instagramMedia[_length]; i < l; i += 1) {
+						instagramMedia[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, { passive: true });
+					}
+				}
+			}
+		};
+		var manageInstagramEmbeds = function () {
+			if (root.instgrm) {
+				var instagramMedia = document[getElementsByClassName]("instagram-media")[0] || "";
+				if (instagramMedia) {
+					instgrm.Embeds.process();
+				}
+			}
+		};
+
+		var handleTwitterEmbedInMinigrid = function () {
+			if (mgrid) {
+				var twitterTweet = document[getElementsByClassName]("twitter-tweet") || "";
+				if (twitterTweet) {
+					var i, l;
+					for (i = 0, l = twitterTweet[_length]; i < l; i += 1) {
+						twitterTweet[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, { passive: true });
+					}
+				}
+			}
+		};
+		var manageTwitterEmbeds = function () {
+			if (root.twttr) {
+				var twitterTweet = document[getElementsByClassName]("twitter-tweet")[0] || "";
+				if (twitterTweet) {
+					twttr.widgets.load();
+				}
+			}
+		};
+
+		var toDashedAll = function (str) {
+			return str.replace(/([A-Z])/g, function ($1) {
+				return "-" + $1.toLowerCase();
+			});
+		};
+		var cardGridClass = "card-grid";
+		var cardWrapClass = "card-wrap";
+		/*!
+   * takes too much CPU
+   */
+		var docElemStyle = docElem[style];
+		var transitionProperty = typeof docElemStyle.transition === "string" ? "transition" : "WebkitTransition";
+		var transformProperty = typeof docElemStyle.transform === "string" ? "transform" : "WebkitTransform";
+		var styleSheet = document[styleSheets][0] || "";
+		if (styleSheet) {
+			var cssRule;
+			cssRule = toDashedAll([".", cardWrapClass, "{", transitionProperty, ": ", transformProperty, " 0.4s ease-out;", "}"].join(""));
+			/* styleSheet.insertRule(cssRule, 0); */
+		}
+		var manageMinigrid = function () {
+			var cardGrid = document[getElementsByClassName](cardGridClass)[0] || "";
+			var onMinigridCreated = function () {
+				cardGrid[style].visibility = "visible";
+				cardGrid[style].opacity = 1;
+				handleInstagramEmbedInMinigrid();
+				handleTwitterEmbedInMinigrid();
+			};
+			var initMinigrid = function () {
+				if (mgrid) {
+					mgrid = null;
+					root[_removeEventListener]("resize", updateMinigrid);
+				}
+				mgrid = new Minigrid({
+					container: cardGridClass,
+					item: cardWrapClass,
+					gutter: 20,
+					done: onMinigridCreated
+				});
+				mgrid.mount();
+				root[_addEventListener]("resize", updateMinigrid, { passive: true });
+			};
+			if (cardGrid) {
+				initMinigrid();
+			}
+		};
 
 		var sidedrawer = document[getElementById]("sidedrawer") || "";
 
@@ -1655,7 +1749,16 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 					manageImgLightboxLinkAll(appContentParent);
 					manageIframeLightboxLinkAll(appContentParent);
 					manageDropdownButtonAll(appContentParent);
-					addRippleEffect();
+					manageHljsCodeAll(appContentParent);
+					manageRippleEffect();
+					manageInstagramEmbeds();
+					manageTwitterEmbeds();
+					var timers3 = new Timers();
+					timers3.timeout(function () {
+						timers3.clear();
+						timers3 = null;
+						manageMinigrid();
+					}, 500);
 					var timers2 = new Timers();
 					timers2.timeout(function () {
 						timers2.clear();
@@ -1668,7 +1771,6 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
 						timers = null;
 						handleDataSrcImageAll(appContentParent);
 					}, 500);
-					manageHljsCodeAll(appContentParent);
 				}
 				LoadingSpinner.hide();
 				scroll2Top(0, 20000);
@@ -1736,7 +1838,7 @@ Promise, Timers, QRCode, require, ripple, t, unescape, verge, WheelIndicator*/
  	"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
  ]; */
 
-	scripts.push("./libs/serguei-muicss/js/vendors.min.js");
+	scripts.push("./libs/serguei-muicss/js/vendors.min.js", "https://platform.twitter.com/widgets.js", "https://www.instagram.com/embed.js");
 
 	/*!
   * load scripts after webfonts loaded using doesFontExist

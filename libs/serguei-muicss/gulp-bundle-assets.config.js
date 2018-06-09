@@ -13,6 +13,7 @@ module.exports = {
 				"./bower_components/wheel-indicator/lib/wheel-indicator.js",
 				"./bower_components/verge/verge.js",
 				"./bower_components/Tocca.js/Tocca.js",
+				"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
 				//"../../cdn/t.js/0.1.0/js/t.fixed.js",
 				"./node_modules/mustache/mustache.js",
 				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js"
@@ -42,6 +43,7 @@ module.exports = {
 				"./bower_components/wheel-indicator/lib/wheel-indicator.js",
 				"./bower_components/verge/verge.js",
 				"./bower_components/Tocca.js/Tocca.js",
+				"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
 				//"../../cdn/t.js/0.1.0/js/t.fixed.js",
 				"./node_modules/mustache/mustache.js",
 				"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js"
