@@ -1,7 +1,7 @@
-/*global ActiveXObject, console, DISQUS, doesFontExist, hljs, IframeLightbox,
-imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS, loadJsCss,
-Minigrid, Mustache, Promise, Timers, QRCode, require, ripple, t, twttr,
-unescape, verge, WheelIndicator*/
+/*global ActiveXObject, console, DISQUS, doesFontExist, FlickrEmbedr, hljs,
+IframeLightbox, imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS,
+loadJsCss, Minigrid, Mustache, Promise, Timers, QRCode, require, ripple, t,
+twttr, unescape, verge, WheelIndicator*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -1421,10 +1421,19 @@ unescape, verge, WheelIndicator*/
 			}
 		};
 		var manageInstagramEmbeds = function () {
-			if (root.instgrm) {
-				var instagramMedia = document[getElementsByClassName]("instagram-media")[0] || "";
-				if (instagramMedia) {
+			var instagramMedia = document[getElementsByClassName]("instagram-media")[0] || "";
+			var initScript = function () {
+				if (root.instgrm) {
 					instgrm.Embeds.process();
+				}
+			};
+			if (instagramMedia) {
+				var jsUrl = forcedHTTP + "://" + "www.instagram.com/embed.js";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
 				}
 			}
 		};
@@ -1442,12 +1451,70 @@ unescape, verge, WheelIndicator*/
 			}
 		};
 		var manageTwitterEmbeds = function () {
-			if (root.twttr) {
-				var twitterTweet = document[getElementsByClassName]("twitter-tweet")[0] || "";
-				if (twitterTweet) {
+			var twitterTweet = document[getElementsByClassName]("twitter-tweet")[0] || "";
+			var initScript = function () {
+				if (root.twttr) {
 					twttr.widgets.load();
 				}
+			};
+			if (twitterTweet) {
+				var jsUrl = forcedHTTP + "://" + "platform.twitter.com/widgets.js";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
+				}
 			}
+		};
+
+		var handleFlickrEmbedInMinigrid = function () {
+			/* if (mgrid) {
+				var links = document[getElementsByTagName]("a") || "";
+				var flickrEmbed = [];
+				var j,
+				m;
+				for (j = 0, m = links[_length]; j < m; j += 1) {
+					if (links[j][dataset].flickrEmbed) {
+						flickrEmbed.push(links[j]);
+					}
+				}
+				if (flickrEmbed) {
+					var i,
+					l;
+					for (i = 0, l = flickrEmbed[_length]; i < l; i += 1) {
+						flickrEmbed[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, {
+							passive: true
+						});
+					}
+				}
+			} */
+		};
+		var manageFlickrEmbeds = function () {
+			/* var links = document[getElementsByTagName]("a") || "";
+			var flickrEmbed = [];
+			var j,
+			m;
+			for (j = 0, m = links[_length]; j < m; j += 1) {
+				if (links[j][dataset].flickrEmbed) {
+					flickrEmbed.push(links[j]);
+				}
+			} */
+			var initScript;
+			initScript = function () {
+				if (root.FlickrEmbedr) {
+					FlickrEmbedr.process("block");
+				}
+			};
+			/* if (flickrEmbed) {
+				var jsUrl = forcedHTTP + "://" + "embedr.flickr.com/assets/client-code.js";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
+				}
+			} */
 		};
 
 		var toDashedAll = function (str) {
@@ -1486,6 +1553,7 @@ unescape, verge, WheelIndicator*/
 				handleInstagramEmbedInMinigrid();
 				handleTwitterEmbedInMinigrid();
 				handleDisqusEmbedInMinigrid();
+				handleFlickrEmbedInMinigrid();
 			};
 			var initMinigrid = function () {
 				if (mgrid) {
@@ -1845,6 +1913,7 @@ unescape, verge, WheelIndicator*/
 						manageInstagramEmbeds();
 						manageTwitterEmbeds();
 						manageDisqusEmbed();
+						manageFlickrEmbeds();
 						var timers3 = new Timers();
 						timers3.timeout(function () {
 							timers3.clear();
@@ -1951,11 +2020,7 @@ unescape, verge, WheelIndicator*/
 		"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js"
 	]; */
 
-	scripts.push(
-		"./libs/serguei-muicss/js/vendors.min.js",
-		/* "https://platform.twitter.com/widgets.js", */
-		"https://www.instagram.com/embed.js"
-		);
+	scripts.push("./libs/serguei-muicss/js/vendors.min.js");
 
 	/*!
 	 * load scripts after webfonts loaded using doesFontExist

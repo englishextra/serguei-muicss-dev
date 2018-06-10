@@ -627,6 +627,7 @@ a.mui-btn:active,
 
 .app-content .link-color-inherit a {
 	color: inherit;
+	text-decoration: underline;
 }
 
 /*!
