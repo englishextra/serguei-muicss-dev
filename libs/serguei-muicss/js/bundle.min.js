@@ -1,4 +1,4 @@
-/*global ActiveXObject, console, DISQUS, doesFontExist, FlickrEmbedr, hljs,
+/*global ActiveXObject, console, DISQUS, doesFontExist, hljs,
 IframeLightbox, imgLightbox, imagePromise, instgrm, JsonHashRouter, loadCSS,
 loadJsCss, Minigrid, Mustache, Promise, Timers, QRCode, require, ripple, t,
 twttr, unescape, verge, WheelIndicator*/
@@ -479,6 +479,7 @@ twttr, unescape, verge, WheelIndicator*/
 
 		var appendChild = "appendChild";
 		var body = "body";
+		var className = "className";
 		var cloneNode = "cloneNode";
 		var createContextualFragment = "createContextualFragment";
 		var createDocumentFragment = "createDocumentFragment";
@@ -1345,22 +1346,87 @@ twttr, unescape, verge, WheelIndicator*/
 		};
 		manageRippleEffect();
 
+		var observeMutations = function (scope, callback, settings) {
+			var context = scope && scope.nodeName ? scope : "";
+			var options = settings || {};
+			options.disconnect = options.disconnect || false;
+			options.timeout = options.timeout || 0;
+			options.childList = options.childList || true;
+			options.subtree = options.subtree || true;
+			options.attributes = options.attributes || false;
+			options.characterData = options.characterData || false;
+			options.log = options.log || false;
+			var mo;
+			var getMutations = function (e) {
+				var triggerOnMutation = function (m) {
+					if (options.log) {
+						console.log("mutations observer: " + m.type);
+						console.log(m.type, "target: " + m.target.tagName + ("." + m.target[className] || "#" + m.target.id || ""));
+						console.log(m.type, "added: " + m.addedNodes[_length] + " nodes");
+						console.log(m.type, "removed: " + m.removedNodes[_length] + " nodes");
+					}
+					if ("childList" === m.type ||
+						"subtree" === m.type ||
+						"attributes" === m.type ||
+						"characterData" === m.type) {
+						if (options.disconnect) {
+							 mo.disconnect();
+						}
+						if (callback && "function" === typeof callback) {
+							if (options.timeout && "number" === typeof options.timeout) {
+								var timers = new Timers();
+								timers.timeout(function () {
+									timers.clear();
+									timers = null;
+									if (mgrid) {
+										callback();
+									}
+								}, options.timeout);
+							} else {
+								callback();
+							}
+						}
+					}
+				};
+				for (var i = 0, l = e[_length]; i < l; i += 1) {
+					triggerOnMutation(e[i]);
+				}
+			};
+			if (context) {
+				mo = new MutationObserver(getMutations);
+				mo.observe(context, {
+					childList: options.childList,
+					subtree: options.subtree,
+					attributes: options.attributes,
+					characterData: options.characterData
+				});
+			}
+		};
+
+		var isBindedMinigridCardClass = "is-binded-minigrid-card";
+
 		var mgrid;
 
-		var updateMinigrid = function () {
+		var updateMinigrid = function (parent) {
 			var timers = new Timers();
 			timers.timeout(function () {
 				timers.clear();
 				timers = null;
-				mgrid.mount();
+				if (mgrid) {
+					mgrid.mount();
+					if (parent && parent.nodeName) {
+						parent[classList].add(isActiveClass);
+					}
+				}
 			}, 500);
 		};
 
 		var handleDisqusEmbedInMinigrid = function () {
-			if (mgrid) {
-				var disqusThread = document[getElementById]("disqus_thread") || "";
-				if (disqusThread) {
-					disqusThread[_addEventListener]("DOMSubtreeModified", updateMinigrid, {passive: true});
+			var disqusThread = document[getElementById]("disqus_thread") || "";
+			if (disqusThread) {
+				if (!disqusThread[parentNode][classList].contains(isBindedMinigridCardClass)) {
+					observeMutations(disqusThread[parentNode], updateMinigrid.bind(null, disqusThread[parentNode]));
+					disqusThread[parentNode][classList].add(isBindedMinigridCardClass);
 				}
 			}
 		};
@@ -1395,6 +1461,7 @@ twttr, unescape, verge, WheelIndicator*/
 			};
 			if (disqusThread && disqusThreadShortname && locationHref) {
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
+					handleDisqusEmbedInMinigrid();
 					var jsUrl = forcedHTTP + "://" + disqusThreadShortname + ".disqus.com/embed.js";
 					if (!scriptIsLoaded(jsUrl)) {
 						var load;
@@ -1409,13 +1476,14 @@ twttr, unescape, verge, WheelIndicator*/
 		};
 
 		var handleInstagramEmbedInMinigrid = function () {
-			if (mgrid) {
-				var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
-				if (instagramMedia) {
-					var i,
-					l;
-					for (i = 0, l = instagramMedia[_length]; i < l; i += 1) {
-						instagramMedia[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, {passive: true});
+			var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
+			if (instagramMedia) {
+				var i,
+				l;
+				for (i = 0, l = instagramMedia[_length]; i < l; i += 1) {
+					if (!instagramMedia[i][parentNode][classList].contains(isBindedMinigridCardClass)) {
+						observeMutations(instagramMedia[i][parentNode], updateMinigrid.bind(null, instagramMedia[i][parentNode]));
+						instagramMedia[i][parentNode][classList].add(isBindedMinigridCardClass);
 					}
 				}
 			}
@@ -1428,6 +1496,7 @@ twttr, unescape, verge, WheelIndicator*/
 				}
 			};
 			if (instagramMedia) {
+				handleInstagramEmbedInMinigrid();
 				var jsUrl = forcedHTTP + "://" + "www.instagram.com/embed.js";
 				if (!scriptIsLoaded(jsUrl)) {
 					var load;
@@ -1439,13 +1508,14 @@ twttr, unescape, verge, WheelIndicator*/
 		};
 
 		var handleTwitterEmbedInMinigrid = function () {
-			if (mgrid) {
-				var twitterTweet = document[getElementsByClassName]("twitter-tweet") || "";
-				if (twitterTweet) {
-					var i,
-					l;
-					for (i = 0, l = twitterTweet[_length]; i < l; i += 1) {
-						twitterTweet[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, {passive: true});
+			var twitterTweet = document[getElementsByClassName]("twitter-tweet") || "";
+			if (twitterTweet) {
+				var i,
+				l;
+				for (i = 0, l = twitterTweet[_length]; i < l; i += 1) {
+					if (!twitterTweet[i][parentNode][classList].contains(isBindedMinigridCardClass)) {
+						observeMutations(twitterTweet[i][parentNode], updateMinigrid.bind(null, twitterTweet[i][parentNode]));
+						twitterTweet[i][parentNode][classList].add(isBindedMinigridCardClass);
 					}
 				}
 			}
@@ -1458,6 +1528,7 @@ twttr, unescape, verge, WheelIndicator*/
 				}
 			};
 			if (twitterTweet) {
+				handleTwitterEmbedInMinigrid();
 				var jsUrl = forcedHTTP + "://" + "platform.twitter.com/widgets.js";
 				if (!scriptIsLoaded(jsUrl)) {
 					var load;
@@ -1466,55 +1537,6 @@ twttr, unescape, verge, WheelIndicator*/
 					initScript();
 				}
 			}
-		};
-
-		var handleFlickrEmbedInMinigrid = function () {
-			/* if (mgrid) {
-				var links = document[getElementsByTagName]("a") || "";
-				var flickrEmbed = [];
-				var j,
-				m;
-				for (j = 0, m = links[_length]; j < m; j += 1) {
-					if (links[j][dataset].flickrEmbed) {
-						flickrEmbed.push(links[j]);
-					}
-				}
-				if (flickrEmbed) {
-					var i,
-					l;
-					for (i = 0, l = flickrEmbed[_length]; i < l; i += 1) {
-						flickrEmbed[i][_addEventListener]("DOMSubtreeModified", updateMinigrid, {
-							passive: true
-						});
-					}
-				}
-			} */
-		};
-		var manageFlickrEmbeds = function () {
-			/* var links = document[getElementsByTagName]("a") || "";
-			var flickrEmbed = [];
-			var j,
-			m;
-			for (j = 0, m = links[_length]; j < m; j += 1) {
-				if (links[j][dataset].flickrEmbed) {
-					flickrEmbed.push(links[j]);
-				}
-			} */
-			var initScript;
-			initScript = function () {
-				if (root.FlickrEmbedr) {
-					FlickrEmbedr.process("block");
-				}
-			};
-			/* if (flickrEmbed) {
-				var jsUrl = forcedHTTP + "://" + "embedr.flickr.com/assets/client-code.js";
-				if (!scriptIsLoaded(jsUrl)) {
-					var load;
-					load = new loadJsCss([jsUrl], initScript);
-				} else {
-					initScript();
-				}
-			} */
 		};
 
 		var toDashedAll = function (str) {
@@ -1550,10 +1572,6 @@ twttr, unescape, verge, WheelIndicator*/
 			var onMinigridCreated = function () {
 				cardGrid[style].visibility = "visible";
 				cardGrid[style].opacity = 1;
-				handleInstagramEmbedInMinigrid();
-				handleTwitterEmbedInMinigrid();
-				handleDisqusEmbedInMinigrid();
-				handleFlickrEmbedInMinigrid();
 			};
 			var initMinigrid = function () {
 				if (mgrid) {
@@ -1811,37 +1829,6 @@ twttr, unescape, verge, WheelIndicator*/
 			}
 		}); */
 
-		/* var observeMutations = function (scope) {
-			var context = scope && scope.nodeName ? scope : "";
-			var mo;
-			var getMutations = function (e) {
-				var triggerOnMutation = function (m) {
-					console.log("mutations observer: " + m.type);
-					console.log(m.type, "target: " + m.target.tagName + ("." + m.target[className] || "#" + m.target.id || ""));
-					console.log(m.type, "added: " + m.addedNodes[_length] + " nodes");
-					console.log(m.type, "removed: " + m.removedNodes[_length] + " nodes");
-					if ("childList" === m.type || "subtree" === m.type) {
-						 mo.disconnect();
-					}
-				};
-				for (var i = 0, l = e[_length]; i < l; i += 1) {
-					triggerOnMutation(e[i]);
-				}
-			};
-			if (context) {
-				mo = new MutationObserver(getMutations);
-				mo.observe(context, {
-					childList: !0,
-					subtree: !0,
-					attributes: !1,
-					characterData: !1
-				});
-			}
-		};
-		if (appContentParent) {
-			observeMutations(appContentParent);
-		} */
-
 		var jhrouter;
 		jhrouter = new JsonHashRouter("./libs/serguei-muicss/json/navigation.min.json", appContentId, {
 				jsonHomePropName: "home",
@@ -1913,7 +1900,7 @@ twttr, unescape, verge, WheelIndicator*/
 						manageInstagramEmbeds();
 						manageTwitterEmbeds();
 						manageDisqusEmbed();
-						manageFlickrEmbeds();
+						/* manageFlickrEmbeds(); */
 						var timers3 = new Timers();
 						timers3.timeout(function () {
 							timers3.clear();
