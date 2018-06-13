@@ -32,15 +32,6 @@
 			}
 		},
 		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 45837,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "libs/serguei-muicss/src/bundle.js",
 			"settings":
 			{
@@ -80,7 +71,7 @@
 			"file": "libs/serguei-muicss/scss/_main.scss",
 			"settings":
 			{
-				"buffer_size": 23657,
+				"buffer_size": 23937,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -89,7 +80,7 @@
 			"file": "libs/serguei-muicss/css/bundle.css",
 			"settings":
 			{
-				"buffer_size": 25981,
+				"buffer_size": 26261,
 				"line_ending": "Unix"
 			}
 		},
@@ -97,7 +88,7 @@
 			"file": "libs/serguei-muicss/css/bundle.min.css",
 			"settings":
 			{
-				"buffer_size": 26073,
+				"buffer_size": 26261,
 				"line_ending": "Unix"
 			}
 		},
@@ -135,79 +126,11 @@
 			}
 		},
 		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Репетитор английского в&#160;Тушино</h1>\n\t\t\t<p class=\"mui--text-subhead\">&#171;С нуля&#187;, подтянуть, улучшить, подготовка к&#160;ЕГЭ. Школьникам, студентам и&#160;взрослым в&#160;частном порядке в&#160;Тушино.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Специализация</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-severnoye-tushino-park-03-06-2018-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-severnoye-tushino-park-03-06-2018-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p>Работал переводчиком в&#160;различных некоммерческих организациях (Врачи без границ, United Way, ВКБ ООН и&#160;др.).</p>\n\t\t\t<p>В&#160;настоящий момент преподаю английский школьникам, студентам и&#160;взрослым в&#160;частном порядке в&#160;Тушино.</p>\n\t\t\t<p>Также, как вы, наверное, догадались, увлекаюсь веб-разработкой, делаю сайты-визитки.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Приоритеты</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-ege-listening-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-ege-listening-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p>Основной упор делается на&#160;грамматику и&#160;произношение. Если&#160;не&#160;удается безупречное произношение&#160;&#8212; невелика беда, поскольку это удел профи, но&#160;вот безграмотная речь&#160;&#8212; досада.</p>\n\t\t\t<p>Решающим фактором является высокая мотивация и&#160;готовность вновь &#171;влезть в&#160;шкуру ученика&#187;. Т.е. домашнее заданее придется выполнять, а&#160;слова&#160;&#8212; учить.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Подготовка к&#160;ЕГЭ</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-ege-in-the-classroom-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-ege-in-the-classroom-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p>Студентам, сдающим государственный экзамен, лучше начать подготовку к&#160;<a href=\"#/tests_gia_ege_get_ready_for_a_run\">тестам</a> минимум за&#160;год.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Практика</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-zvezda-cinema-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-zvezda-cinema-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p>Факультативное посещение <a href=\"#/english_through_movies\">кино на&#160;английском</a>&#160;&#8212; хороший метод развивать навыки аудирования.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Условия</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-dk-salyut-17-05-2018-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-dk-salyut-17-05-2018-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p>Занятия проводятся на&#160;дому <a href=\"#/contacts\">у&#160;преподавателя</a> рядом с &#171;ДК Салют&#187; по&#160;одному часу, минимум два раза в&#160;неделю. Три&#160;раза&#160;&#8212; это максимум.</p>\n\t\t\t<template>\n\t\t\t\t<p>Стоимость обучения при посещении не&#160;менее <a href=\"#/schedule\">двух раз в&#160;неделю</a>&#160;&#8212; 800&#160;руб.&#160;/ 60&#160;мин. взрослым, 700&#160;руб.&#160;/ 60&#160;мин.&#160;детям. Предложение не&#160;является публичной офертой.</p>\n\t\t\t</template>\n\t\t\t<p><a href=\"#/tests_languagelink_online_test\">Пройдите тест</a>, чтобы понять, какой&#160;же уровень у&#160;Вас на&#160;текущий момент, и&#160;спланировать сроки обучения. Запишите те вопросы, которые вызвали у&#160;Вас сомнения.</p>\n\t\t\t<p>Ввиду дороговизны <a href=\"#/books\">бумажных пособий</a> не&#160;торопитесь тратиться и&#160;справьтесь у&#160;преподавателя о&#160;наличии подходящих материалов в&#160;электронном&#160;виде.</p>\n\t\t</div>\n\t\t<template>\n\t\t\t<div class=\"card-wrap card-wrap--aside\">\n\t\t\t\t<h2 class=\"mui--text-title\">Стоимость</h2>\n\t\t\t\t<template>\n\t\t\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-tutor-of-english-in-tushino-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-tutor-of-english-in-tushino-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t\t</template>\n\t\t\t\t<p>Цены действительны на&#160;период 2018&#8212;2019&#160;гг.</p>\n\t\t\t\t<p>Предложение не&#160;является публичной офертой.</p>\n\t\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t\t<caption></caption>\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th data-label=\"\">Возраст</th>\n\t\t\t\t\t\t\t\t<th data-label=\"\">Длительность</th>\n\t\t\t\t\t\t\t\t<th data-label=\"\">У&#160;преподавателя</th>\n\t\t\t\t\t\t\t\t<th data-label=\"\">У&#160;ученика</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td data-label=\"Возраст\">1&#8212;8 кл.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"Длительность\">60 мин.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У преподавателя\">700&#160;руб.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У ученика\">900&#160;руб.</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td data-label=\"Возраст\">9&#8212;11 кл.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"Длительность\">60 мин.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У преподавателя\">800&#160;руб.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У ученика\">1000&#160;руб.</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td data-label=\"Возраст\">Взрослые</td>\n\t\t\t\t\t\t\t\t<td data-label=\"Длительность\">60 мин.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У преподавателя\">800&#160;руб.</td>\n\t\t\t\t\t\t\t\t<td data-label=\"У ученика\">1000&#160;руб.</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</template>\n\t\t<template>\n\t\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t\t<a data-flickr-embed=\"true\" data-header=\"true\" data-footer=\"true\" href=\"https://www.flickr.com/photos/englishextra/25263661091/in/album-72157649716964239/\" title=\"tests_ege_russian\"><img src=\"https://farm2.staticflickr.com/1667/25263661091_27b97bc180_b.jpg\" alt=\"tests_ege_russian\"></a>\n\t\t\t</div>\n\t\t</template>\n\t\t<div class=\"card-wrap\">\n\t\t\t<div id=\"disqus_thread\" data-shortname=\"englishextragitlabio\"></div>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/home.html",
-			"file_size": 13924,
-			"file_write_time": 131732075709805459,
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 11757,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Пособия</h1>\n\t\t\t<p class=\"mui--text-subhead\">Не стоит спешить приобретать неоправданно дорогущие пособия в&#160;книжных. Все&#160;уже давно доступно в&#160;электронном виде.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Raymond Murphy</h2>\n\t\t\t<template>\n\t\t\t\t<br /><span class=\"mui--text-caption\">Essential Grammar in Use</span><br /><span class=\"mui--text-caption\">Cambridge University Press</span>\n\t\t\t</template>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-books/books-essential-grammar-in-use-512x680.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20680%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-books/books-essential-grammar-in-use-512x680.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p><a href=\"https://www.ozon.ru/context/detail/id/33773141/\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Купить</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Ю.&#160;Голицынский</h2>\n\t\t\t<template>\n\t\t\t\t<br /><span class=\"mui--text-caption\">Грамматика</span><br /><span class=\"mui--text-caption\">Каро</span>\n\t\t\t</template>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-books/books-golitsynsky-exercises-512x680.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20680%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-books/books-golitsynsky-exercises-512x680.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p><a href=\"https://www.ozon.ru/context/detail/id/138022245/\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Купить</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Macmillan</h2>\n\t\t\t<template>\n\t\t\t\t<br /><span class=\"mui--text-caption\">Grammar &amp; Vocabulary</span><br /><span class=\"mui--text-caption\">Macmillam</span>\n\t\t\t</template>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-books/books-macmillan-exam-skills-for-russia-grammar-and-vocabulary-512x680.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20680%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-books/books-macmillan-exam-skills-for-russia-grammar-and-vocabulary-512x680.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p><a href=\"https://www.ozon.ru/context/detail/id/24447047/\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Купить</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Collins Cobuild</h2>\n\t\t\t<template>\n\t\t\t\t<br /><span class=\"mui--text-caption\">English Grammar</span><br /><span class=\"mui--text-caption\">Collins</span>\n\t\t\t</template>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-books/books-collins-cobuild-english-grammar-512x680.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20680%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-books/books-collins-cobuild-english-grammar-512x680.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t\t<p><a href=\"https://www.ozon.ru/context/detail/id/7009071/\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Купить</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BhodftsFZei/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BjytBkEgVsC/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BiWUwi-gShj/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/books.html",
-			"file_size": 9350,
-			"file_write_time": 131732075710025604,
-			"settings":
-			{
-				"buffer_size": 8626,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Контакты</h1>\n\t\t\t<p class=\"mui--text-subhead\">Напишите мне в <a href=\"https://www.instagram.com/shimanskybiz/\" target=\"_blank\">Инстаграме</a>, <a href=\"https://vk.com/sergeydavydow\" target=\"_blank\">&#171;ВКонтакте&#187;</a>, <a href=\"whatsapp://send?phone=79854416702\">Вотсапе</a>, <a href=\"viber://chat?number=%2B79854416702\">Вайбере</a>, <a href=\"tg://resolve?domain=english_tushino\">Телеграме</a>, <a href=\"https://youla.io/moskva/uslugi/obuchenie/riepietitor-anghliiskogho-v-tushino-5a357212c3bdd244f049119d\" target=\"_blank\" rel=\"noopener\">Юле</a>, <a href=\"https://www.avito.ru/moskva/predlozheniya_uslug/repetitor_angliyskogo_v_tushino_1145312645\" target=\"_blank\" rel=\"noopener\">Авито</a>, <a href=\"https://irr.ru/jobs-education/education/tutors/repetitor-angliyskogo-v-tushino-advert692204315.html\" target=\"_blank\" rel=\"noopener\">&#171;Из рук в&#160;руки&#187;</a>!</p>\n\t\t</div>\n\t\t<template>\n\t\t\t<div class=\"card-wrap\">\n\t\t\t\t<h2 class=\"mui--text-title\">Телефон</h2>\n\t\t\t\t<a href=\"tel:%2B79854416702\" class=\"mui-btn ripple large-btn-link\" aria-label=\"Контакты\" title=\"Телефон\">\n\t\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t\t<use xlink:href=\"#ui-icon-phone\"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<div class=\"card-wrap\">\n\t\t\t\t<h2 class=\"mui--text-title\">Вотсап</h2>\n\t\t\t\t<a href=\"whatsapp://send?phone=79854416702\" class=\"mui-btn ripple large-btn-link\" aria-label=\"Контакты\" title=\"Вотсап\">\n\t\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t\t<use xlink:href=\"#ui-icon-whatsapp\"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<div class=\"card-wrap\">\n\t\t\t\t<h2 class=\"mui--text-title\">Вайбер</h2>\n\t\t\t\t<a href=\"viber://chat?number=%2B79854416702\" class=\"mui-btn ripple large-btn-link\" aria-label=\"Контакты\" title=\"Вайбер\">\n\t\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t\t<use xlink:href=\"#ui-icon-viber\"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<div class=\"card-wrap\">\n\t\t\t\t<h2 class=\"mui--text-title\">Телеграм</h2>\n\t\t\t\t<a href=\"tg://resolve?domain=english_tushino\" class=\"mui-btn ripple large-btn-link\" aria-label=\"Контакты\" title=\"Телеграм\">\n\t\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t\t<use xlink:href=\"#ui-icon-telegram\"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<div class=\"card-wrap\">\n\t\t\t\t<h2 class=\"mui--text-title\">Имейл</h2>\n\t\t\t\t<a href=\"mailto:englishextra2%40yahoo.com\" class=\"mui-btn ripple large-btn-link\" aria-label=\"Контакты\" title=\"Имейл\">\n\t\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t\t<use xlink:href=\"#ui-icon-email\"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</template>\n\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"tel:%2B79854416702\" aria-label=\"Контакты\" title=\"Телефон\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20640%20360%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-contacts/sprite-contacts-banner-phone-640x360.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"whatsapp://send?phone=79854416702\" aria-label=\"Контакты\" title=\"Вотсап\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20640%20360%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-contacts/sprite-contacts-banner-whatsapp-640x360.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"viber://chat?number=%2B79854416702\" aria-label=\"Контакты\" title=\"Вайбер\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20640%20360%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-contacts/sprite-contacts-banner-viber-640x360.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"tg://resolve?domain=english_tushino\" aria-label=\"Контакты\" title=\"Телеграм\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20640%20360%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-contacts/sprite-contacts-banner-telegram-640x360.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton is-active\">\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"mailto:englishextra2%40yahoo.com\" aria-label=\"Контакты\" title=\"Имейл\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20640%20360%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-contacts/sprite-contacts-banner-email-640x360.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<div id=\"disqus_thread\" data-shortname=\"englishextragitlabio\"></div>\n\t\t</div>\n\t\t<div class=\"card-wrap plain-links\">\n\t\t\t<h2 class=\"mui--text-title\">Карта</h2>\n\t\t\t<div class=\"ymap-iframe-wrapper\"><iframe src=\"about:blank\" data-src=\"./includes/mapbasics.html\" class=\"data-src-iframe\" width=\"500\" height=\"282\" title=\"Видео\" style=\"width:100%;height:100%;min-height:282px;border:none\"></iframe></div>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://yandex.ru/maps/org/repetitor_sergey_shimanskiy/1085972151\" target=\"_blank\">Репетитор английского на&#160;Яндекс.Картах</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Дом</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-home-25-06-2016-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-home-25-06-2016-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Рядом</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-dk-salyut-17-05-2018-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-dk-salyut-17-05-2018-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Подальше</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/serguei-pictures/serguei-khimkinsky-boulevard-29-05-2018-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/serguei-pictures/serguei-khimkinsky-boulevard-29-05-2018-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><!-- <a href=\"https://www.flickr.com/photos/englishextra/\">By englishextra</a>&#160;&#160;&#8226;&#160; <a href=\"https://www.flickr.com/photos/englishextra/albums/72157649716964239\">Все иллюстрации</a> --></figcaption></figure>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BjwMPNhjM4T/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BjkqB4yjgpk/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void (0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/contacts.html",
-			"file_size": 12365,
-			"file_write_time": 131732075710115650,
-			"settings":
-			{
-				"buffer_size": 11448,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Фильмы без&#160;перевода</h1>\n\t\t\t<p class=\"mui--text-subhead\">Факультативное посещение кино на&#160;английском&#160;&#8212; хороший метод развивать навыки аудирования.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Кинотеатр &#171;Звезда&#187;</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-zvezda-cinema-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-zvezda-cinema-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><a href=\"http://mos-kino.ru/\">By mos-kino.ru</a>&#160;&#160;&#8226;&#160; <a href=\"http://mos-kino.ru/\">Все иллюстрации</a></figcaption></figure>\n\t\t\t<p>В репертуаре новинки зарубежного и&#160;российского кинопроката, артхаус, анимационные фильмы, короткометражное кино. Проходят показы на&#160;языке оригинала с&#160;субтитрами, работают киноклубы. Стоимость билетов: 100&#8212;300&#160;рублей. Ул.&#160;Земляной вал, 18&#8212;22, стр.&#160;2, м. Курская. Телефон: 8&#160;(495)&#160;916-28-05. Часы&#160;работы: 9:00&#8212;21:30.</p>\n\t\t\t<p><a href=\"http://mos-kino.ru/cinema_1.html\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Сайт кинотеатра</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Кинотеатр &#171;Факел&#187;</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-fakel-cinema-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-fakel-cinema-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><a href=\"http://mos-kino.ru/\">By mos-kino.ru</a>&#160;&#160;&#8226;&#160; <a href=\"http://mos-kino.ru/\">Все иллюстрации</a></figcaption></figure>\n\t\t\t<p>В репертуаре новинки зарубежного и&#160;российского кинопроката, артхаус, анимационные фильмы и&#160;авторская анимация, короткометражное кино. Проходят показы на&#160;языке оригинала с&#160;субтитрами. Стоимость билетов: 100&#8212;250&#160;рублей. Шоссе Энтузиастов, 15/16, м. Авиамоторная. Телефон: 8&#160;(495)&#160;362-12-19. Часы&#160;работы: 10:00&#8212;22:00.</p>\n\t\t\t<p><a href=\"http://mos-kino.ru/cinema_7.html\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Сайт кинотеатра</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Кинотеатр &#171;Юность&#187;</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-yunost-cinema-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-yunost-cinema-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><a href=\"http://mos-kino.ru/\">By mos-kino.ru</a>&#160;&#160;&#8226;&#160; <a href=\"http://mos-kino.ru/\">Все иллюстрации</a></figcaption></figure>\n\t\t\t<p>В репертуаре&#160;&#8212; новинки кинопроката, зарубежные фестивальные картины на&#160;языке оригинала с&#160;субтитрами, российское авторское кино, анимационные фильмы и&#160;ретроспективы. Стоимость билета: 90&#160;&#8212; 300&#160;рублей. Ул.&#160;Маршала Рыбалко, &#188;, м. Октябрьское поле. Телефон: 8&#160;(499)&#160;194-24-30. Часы работы: 09:00&#8212;22:00.</p>\n\t\t\t<p><a href=\"http://mos-kino.ru/cinema_24.html\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Сайт кинотеатра</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Кинотеатр &#171;Пионер&#187;</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-pioneer-cinema-1440x810.jpg\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english-through-movies/movies-pioneer-cinema-1440x810.jpg\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a><figcaption class=\"mui--text-caption\"><a href=\"http://mos-kino.ru/\">By mos-kino.ru</a>&#160;&#160;&#8226;&#160; <a href=\"http://mos-kino.ru/\">Все иллюстрации</a></figcaption></figure>\n\t\t\t<p>В&#160;репертуаре кинотеатра&#160;&#8212; главные кинохиты от&#160;артхауса до&#160;актуального арт-мейнстрима и&#160;авторских блокбастеров, фильмы на&#160;языке оригинала с&#160;субтитрами. Стоимость билетов: 300&#160;/ 450&#160;/ 700&#160;рублей. Кутузовский проспект, 21, стр.&#160;1, м. Кутузовская. Телефон: 8&#160;(499)&#160;240-52-40 (бронирование). Часы работы: 10:00&#8212;00:40.</p>\n\t\t\t<p><a href=\"http://pioner-cinema.ru/\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Сайт кинотеатра</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Киноэпизоды на&#160;Vimeo</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-vimeo-1440x810.png\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-vimeo-1440x810.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t\t<p>Киноэпизоды художественных фильмов, специально подобранных для тренировки по&#160;аудированию. Имейте в&#160;виду, что реальная речь необязательно исключительно правильная и&#160;грамотная.</p>\n\t\t\t<p><a href=\"https://vimeo.com/album/3325167\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Смотреть на&#160;Vimeo</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Киноэпизоды на&#160;Youtube</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-youtube-1440x810.png\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-youtube-1440x810.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t\t<p>Киноэпизоды художественных фильмов, специально подобранных для тренировки по&#160;аудированию. Имейте в&#160;виду, что реальная речь необязательно исключительно правильная и&#160;грамотная.</p>\n\t\t\t<p><a href=\"https://www.youtube.com/playlist?list=PLAI3yGNF4j7cAodGWAb5BtHUtEM1l5nA-\" class=\"mui-btn mui-btn--small mui-btn--raised ripple\" target=\"_blank\" rel=\"noopener\">Смотреть на&#160;Youtube</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BhQyogYHvRS/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/BjR-iFRHL7X/\" data-instgrm-version=\"8\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:100%;\"></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/english_through_movies.html",
-			"file_size": 12893,
-			"file_write_time": 131732075710245745,
-			"settings":
-			{
-				"buffer_size": 10879,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid--no-js\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Страница не&#160;найдена</h1>\n\t\t\t<p class=\"mui--text-subhead\">Страницы, которую вы&#160;запросили, нет в&#160;базе данных. Ничего страшного.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Кликни или тапни меня</h2>\n\t\t\t<a href=\"#/home\" class=\"mui-btn large-btn-link ripple\" aria-label=\"Навигация\" title=\"Начало\">\n\t\t\t\t<svg class=\"large-btn-icon\">\n\t\t\t\t\t<use xlink:href=\"#light-bulb-10\"></use>\n\t\t\t\t</svg>\n\t\t\t</a>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/notfound.html",
-			"file_size": 3511,
-			"file_write_time": 131732075710597922,
-			"settings":
-			{
-				"buffer_size": 2935,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Демо ОГЭ&#160;/ ЕГЭ</h1>\n\t\t\t<p class=\"mui--text-subhead\">Материалы, новости, рекомендации только из&#160;первых рук, только из&#160;официальных источников.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">ГИА, ЕГЭ, ОГЭ: в&#160;чем разница?</h2>\n\t\t\t<figure class=\"data-src-img-figure\"><a href=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-ege-oge-1440x810.png\" class=\"img-lightbox-link\" target=\"_blank\" rel=\"lightbox\"><img src=\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20810%27%2F%3E\" rel=\"lightbox\" data-src=\"./libs/serguei-muicss/img/sprite-english4free-banner/english4free-banner-ege-oge-1440x810.png\" class=\"data-src-img\" alt=\"Illustration / Иллюстрация\" /></a></figure>\n\t\t\t<h3 class=\"mui--text-subhead\">Что такое ГИА?</h3>\n\t\t\t<p>Государственная итоговая аттестация&#160;&#8212; это общее название для ОГЭ и&#160;ЕГЭ. Иногда можно встретить такие надписи, как ГИА-9 (по&#160;факту это наш родной ОГЭ) или ГИА-11 (ЕГЭ).</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Что такое ОГЭ?</h3>\n\t\t\t<p>Основной государственный экзамен. Этот&#160;экзамен сдают абсолютно все школьники страны без исключения (в&#160;отличие от&#160;ЕГЭ). В&#160;девятом классе каждый россиянин должен сдать четыре предмета в&#160;формате ОГЭ: русский, математику и&#160;два на&#160;выбор.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Что такое ЕГЭ?</h3>\n\t\t\t<p>Единый государственный экзамен, который сдают в 11&#160;классе для поступления в&#160;высшие учебные заведения страны. Этот&#160;экзамен охватывает 5&#8212;11&#160;классы школьной программы, поэтому многие темы в&#160;ОГЭ и&#160;ЕГЭ совпадают. Все&#160;одиннадцатиклассники в&#160;обязательном порядке сдают русский язык в&#160;формате ЕГЭ и&#160;математику (но те, кто не&#160;поступает с&#160;математикой в&#160;вуз, могут выбрать базовый уровень сложности). Сдать эти два предмета нужно хотя&#160;бы на&#160;минимальные баллы, если хочешь получить аттестат. Остальные предметы выбирает сам ученик.</p>\n\t\t\t<p>Для допуска к&#160;ЕГЭ необходимо написать Итоговое сочинение по&#160;литературе и&#160;получить &#171;зачёт&#187;.</p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"http://maximumtest.ru/post/gia-ege-oge-v-chem-raznica.html\">&#169;&#160;2018 ООО&#160;&#171;Юмакс&#187;</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--aside\">\n\t\t\t<h2 class=\"mui--text-title\">Сроки ГИА 2018</h2>\n\t\t\t<p>Минобрнауки сообщило, что досрочный этап ЕГЭ в 2018&#160;году пройдет с 21&#160;марта по 11&#160;апреля, основной&#160;&#8212; с 28&#160;мая по 2&#160;июля и&#160;дополнительный (сентябрьский)&#160;&#8212; с 4&#160;по 15&#160;сентября. Досрочный и&#160;основной этапы ЕГЭ в 2018&#160;году начнутся с&#160;экзаменов по&#160;географии и&#160;информатике и&#160;ИКТ.</p>\n\t\t\t<p>ОГЭ для выпускников 9-х классов в 2018&#160;году также пройдет в&#160;три этапа: досрочный&#160;&#8212; с 20&#160;апреля по 8&#160;мая, основной&#160;&#8212; с 25&#160;мая по 29&#160;июня и&#160;дополнительный (сентябрьский)&#160;&#8212; с 4&#160;по 22&#160;сентября.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Основной этап</h3>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Дата</th>\n\t\t\t\t\t\t\t<th data-label=\"\">ЕГЭ</th>\n\t\t\t\t\t\t\t<th data-label=\"\">ГВЭ-11</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">9&#160;июня&#160; (сб)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">иностранные языки (устно)</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">&#160;</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">13&#160;июня&#160; (ср)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">иностранные языки (устно)</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">&#160;</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">18&#160;июня&#160; (пн)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">биология, иностранные языки (письменно)</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">биология, иностранные языки</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">27&#160;июня&#160; (ср)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">резерв: химия, история, биология, иностранные языки (письменно)</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">резерв: химия, история, биология, иностранные языки</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">29&#160;июня&#160; (пт)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">резерв: иностранные языки (устно)</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">&#160;</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Дата\">2&#160;июля&#160; (пн)</td>\n\t\t\t\t\t\t\t<td data-label=\"ЕГЭ\">резерв: по&#160;всем учебным предметам</td>\n\t\t\t\t\t\t\t<td data-label=\"ГВЭ-11\">резерв: по&#160;всем учебным предметам</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://pedsovet.org/beta/article/opredeleny-sroki-gia-2018\">&#169;&#160;2017&#160;ObrazCenter</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Видеоконсультации</h2>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ-2018. Иностранный язык</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/vQAKR1xql8Y?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ 2015&#160;Рекомендации по&#160;иностранным языкам</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/eMmh70Y9c7o?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=jwagMsyC1Ik\">&#169;&#160;2017&#160;Рособрнадзор</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">О ЕГЭ предметно Иностранные языки</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/9re6cQYFmJ8?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=_Bo5MD2NlgQ\">&#169;&#160;2017&#160;Рособрнадзор</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ 2016. Иностранные языки. Видеоконсультации по&#160;иностранным языкам</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/9i9a-M9Fzp8?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=pL-emjlLwx8\">&#169;&#160;2017&#160;Рособрнадзор</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ 2016. Иностранные языки. Характеристика устных заданий</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/VO2ybQqbb7U?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=p-tQ8lLLv0U\">&#169;&#160;2017&#160;Рособрнадзор</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Видеоинструкция по&#160;устной сдаче ЕГЭ по&#160;иностранным языкам</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/fnnJD6_gULg?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=i2D3WDZqRII\">&#169;&#160;2017&#160;Рособрнадзор</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Проведение ЕГЭ по&#160;иностранным языкам в 2015&#160;г.&#160;Раздел &#171;Говорение&#187;</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/sKXCZgzmGLg?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.youtube.com/watch?v=5zjpIZfD88s\">&#169;&#160;2015&#160;Департамент образования города Москвы</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ по&#160;английскому языку. &#171;Правила игры&#187;. Письмо. Задание 33&#160;/ 39. 11&#160;класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/tY55x7h7cBs?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/ege-po-angliyskomu-yazyku-pravila-igry-pismo-zadanie-s1\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">ЕГЭ по&#160;английскому языку. &#171;Правила игры&#187;. Письмо. Задание 40. 11&#160;класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/ZN9lVAEOjpw?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/ege-po-angliyskomu-yazyku-pravila-igry-pismo-zadanie-s2\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Подготовка к&#160;ЕГЭ. 1. Аудирование. Видеоурок. Английский язык. 11&#160;Класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/5_KIvn3lCrg?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/podgotovka-k-ege-1-audirovanie\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Подготовка к&#160;ЕГЭ. 2. Чтение. Видеоурок. Английский язык. 11&#160;Класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/XS3O3NDSS8E?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/podgotovka-k-ege-2-chtenie\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Подготовка к&#160;ЕГЭ. 3. Лексика. Видеоурок. Английский язык. 11&#160;Класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/X7NW7Nk_HSs?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/podgotovka-k-ege-3-leksika\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Подготовка к&#160;ЕГЭ. 4. Грамматика. Видеоурок. Английский язык. 11&#160;Класс</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"//www.youtube.com/embed/_sBK6Xm7Pb4?autoplay=0\" data-padding-bottom=\"56.25%\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Показать видео</a></p>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://interneturok.ru/english/10-11-klassy/podgotovka-k-ege/podgotovka-k-ege-4-grammatika\">&#169;&#160;2010&#8212;2018&#160;000 &#171;Интерда&#187;</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Демоверсия АЯ ОГЭ 2018&#160;г.</h2>\n\t\t\t<p>Загрузить <a href=\"http://fipi.ru/oge-i-gve-9/demoversii-specifikacii-kodifikatory\">с&#160;сайта ФИПИ</a> или <a href=\"https://yadi.sk/d/4SkI2pKO3TBtRf\">с&#160;Яндекс.Диска</a>.</p>\n\t\t\t<p><a href=\"https://pedsovet.org/beta/article/proekt-dokumenta-opisyvausego-izmenenia-v-ege-2018-opublikovan\">&#171;Никаких изменений не&#160;предполагается в&#160;материалах к&#160;ЕГЭ по&#160;биологии, географии, истории, математике и&#160;иностранным языкам.&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Демонстрационный вариант 2018&#160;г.&#160;Английский язык. 9&#160;класс. Устная часть. Task&#160;2</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"https://audiomack.com/embed/song/englishextra/en-9-demo-2018\" data-padding-bottom=\"252px\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Слушать аудио</a></p>\n\t\t\t<h4>Tapescript for Task 2</h4>\n\t\t\t<p><strong>Electronic assistant:</strong> Hello! It&#8217;s the electronic assistant of the Dolphin Sports Club. We&#160;kindly ask you to take part in our survey. We&#160;need to find out how people feel about doing sports in our region. Please answer six questions. The&#160;survey is anonymous&#160;&#8212; you don&#8217;t have to give your name. So, let&#8217;s get started.</p>\n\t\t\t<p><strong>Electronic assistant:</strong> How old are&#160;you?</p>\n\t\t\t<p><strong>Student:</strong> ___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> How many times a week do you do sports?</p>\n\t\t\t<p>Student:___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> What sport is the most popular with teenagers in your region?</p>\n\t\t\t<p><strong>Student:</strong> ___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> What sports facilities are available in the place where you&#160;live?</p>\n\t\t\t<p><strong>Student:</strong> ___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> Why do you think it is important to keep&#160;fit?</p>\n\t\t\t<p><strong>Student:</strong> ___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> What would you advise a person who wants to keep&#160;fit?</p>\n\t\t\t<p><strong>Student:</strong> ___</p>\n\t\t\t<p><strong>Electronic assistant:</strong> This is the end of the survey. Thank you very much for your cooperation.</p>\n\t\t\t<h4>Критерии оценивания выполнения заданий устной части</h4>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption>Задание 2&#160; (участие в&#160;условном диалоге-расспросе)&#160;&#8212; максимум 6&#160;баллов. Оценивается отдельно каждый из&#160;шести ответов.</caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ на&#160;вопросы 1&#8212;6</th>\n\t\t\t\t\t\t\t<th data-label=\"\">1 балл</th>\n\t\t\t\t\t\t\t<th data-label=\"\">0 баллов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\"> </td>\n\t\t\t\t\t\t\t<td data-label=\"\">Дан полный ответ на&#160;поставленный вопрос; допущенные отдельные фонетические, лексические и&#160;грамматические погрешности не&#160;затрудняют понимания</td>\n\t\t\t\t\t\t\t<td data-label=\"\">Ответ на&#160;вопрос не&#160;дан, ИЛИ ответ не&#160;соответствует заданному вопросу, ИЛИ ответ дан в&#160;виде слова или словосочетания, И/ИЛИ допущены фонетические и&#160;лексические и&#160;грамматические ошибки, препятствующие пониманию ответа</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"http://ege.edu.ru/\" target=\"_blank\" rel=\"noopener\">&#169;&#160;2018 Федеральная служба по&#160;надзору в&#160;сфере образования и&#160;науки Российской Федерации</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Демоверсия АЯ ЕГЭ 2018&#160;г.</h2>\n\t\t\t<p>Загрузить <a href=\"http://fipi.ru/ege-i-gve-11/demoversii-specifikacii-kodifikatory\">с&#160;сайта ФИПИ</a> или <a href=\"https://yadi.sk/d/OtMcGPss3TBtHH\">с&#160;Яндекс.Диска</a>.</p>\n\t\t\t<p><a href=\"https://pedsovet.org/beta/article/proekt-dokumenta-opisyvausego-izmenenia-v-ege-2018-opublikovan\">&#171;Никаких изменений не&#160;предполагается в&#160;материалах к&#160;ЕГЭ по&#160;биологии, географии, истории, математике и&#160;иностранным языкам.&#187;</a></p>\n\t\t\t<h3 class=\"mui--text-subhead\">Демонстрационный вариант ЕГЭ 2018&#160;г.&#160;Английский язык, 11&#160;класс. Раздел 1. Аудирование. Задания 1-9</h3>\n\t\t\t<p><a href=\"javascript:void(0);\" data-src=\"https://audiomack.com/embed/song/englishextra/en-11-demo-2018\" data-padding-bottom=\"252px\" class=\"mui-btn mui-btn--small mui-btn--raised ripple iframe-lightbox-link\">Слушать аудио</a></p>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">\n\t\t\t\t\t\t\t\t<p>Вы услышите 6&#160;высказываний. Установите соответствие между высказываниями каждого говорящего A&#8212;F и&#160;утверждениями, данными в&#160;списке 1&#8212;7. Используйте каждое утверждение, обозначенное соответствующей цифрой, только один раз. В&#160;задании есть одно лишнее утверждение. Вы&#160;услышите запись дважды. Занесите свои ответы в&#160;таблицу.</p>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h4>1</h4>\n\t\t\t<ol>\n\t\t\t\t<li>Exotic location makes Christmas memorable.</li>\n\t\t\t\t<li>Christmas day is nothing special.</li>\n\t\t\t\t<li>Adults could still enjoy some magic getting presents.</li>\n\t\t\t\t<li>Gifts from young children bring joy.</li>\n\t\t\t\t<li>The bigger family, the bigger fun.</li>\n\t\t\t\t<li>Christmas away from family can be enjoyable.</li>\n\t\t\t\t<li>Christmas is mainly about gift giving.</li>\n\t\t\t</ol>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Говорящий</td>\n\t\t\t\t\t\t\t<td data-label=\"\">A</td>\n\t\t\t\t\t\t\t<td data-label=\"\">B</td>\n\t\t\t\t\t\t\t<td data-label=\"\">C</td>\n\t\t\t\t\t\t\t<td data-label=\"\">D</td>\n\t\t\t\t\t\t\t<td data-label=\"\">E</td>\n\t\t\t\t\t\t\t<td data-label=\"\">F</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Утверждение</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Вы услышите диалог. Определите, какие из&#160;приведённых утверждений А&#8212;G соответствуют содержанию текста (1&#160;&#8212; True), какие не&#160;соответствуют (2&#160;&#8212; False) и о&#160;чём в&#160;тексте не&#160;сказано, то есть на&#160;основании текста нельзя дать ни&#160;положительного, ни&#160;отрицательного ответа (3&#160;&#8212; Not stated). Занесите номер выбранного Вами варианта ответа в&#160;таблицу. Вы&#160;услышите запись дважды.</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h4>2</h4>\n\t\t\t<ol type=\"A\">\n\t\t\t\t<li>Emily&#8217;s history class requires a lot of effort.</li>\n\t\t\t\t<li>Grandparents of Sam&#8217;s friend are his grandparents&#8217; neighbours.</li>\n\t\t\t\t<li>Sam didn&#8217;t see his parents for two months.</li>\n\t\t\t\t<li>Emily wouldn&#8217;t want to spend her summer like Sam.</li>\n\t\t\t\t<li>In June Emily was away from home.</li>\n\t\t\t\t<li>Emily&#8217;s family plan to visit Greece again.</li>\n\t\t\t\t<li>Emily won&#8217;t be able to show Sam her photos.</li>\n\t\t\t</ol>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t\t<th data-label=\"\">&#160;</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Говорящий</td>\n\t\t\t\t\t\t\t<td data-label=\"\">A</td>\n\t\t\t\t\t\t\t<td data-label=\"\">B</td>\n\t\t\t\t\t\t\t<td data-label=\"\">C</td>\n\t\t\t\t\t\t\t<td data-label=\"\">D</td>\n\t\t\t\t\t\t\t<td data-label=\"\">E</td>\n\t\t\t\t\t\t\t<td data-label=\"\">F</td>\n\t\t\t\t\t\t\t<td data-label=\"\">G</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Соответствие диалогу</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t\t<td data-label=\"\">&#160;</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">Вы услышите интервью. В&#160;заданиях 3&#8212;9 запишите в&#160;поле ответа цифру 1, 2&#160;или 3, соответствующую выбранному Вами варианту ответа. Вы&#160;услышите запись дважды.</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h4>3</h4>\n\t\t\t<p>Kim&#8217;s success as an actress makes her feel&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>extremely happy.</li>\n\t\t\t\t<li>slightly uncomfortable.</li>\n\t\t\t\t<li>very disappointed.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>4</h4>\n\t\t\t<p>Kim thinks that acting is&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>just a job.</li>\n\t\t\t\t<li>a way of life.</li>\n\t\t\t\t<li>her life priority.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>5</h4>\n\t\t\t<p>One thing Kim and her heroine have in common is their&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>life-partner&#8217;s occupation.</li>\n\t\t\t\t<li>working time-tables.</li>\n\t\t\t\t<li>love for kids.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>6</h4>\n\t\t\t<p>Kim thinks that the most difficult thing for her and her husband is to&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>raise their children.</li>\n\t\t\t\t<li>remain in the spotlight.</li>\n\t\t\t\t<li>find more time to be together.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>7</h4>\n\t\t\t<p>According to Kim, her heroine and she are different in their&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>public life.</li>\n\t\t\t\t<li>personalities.</li>\n\t\t\t\t<li>backgrounds.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>8</h4>\n\t\t\t<p>Hosting a TV show for Kim is&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>a way to learn a new skill.</li>\n\t\t\t\t<li>a long-time ambition.</li>\n\t\t\t\t<li>a means to relax from her sitcom work.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<h4>9</h4>\n\t\t\t<p>Kim hopes to introduce people who&#8230;</p>\n\t\t\t<ol>\n\t\t\t\t<li>write about poverty.</li>\n\t\t\t\t<li>work with volunteers.</li>\n\t\t\t\t<li>deal with world problems.</li>\n\t\t\t</ol>\n\t\t\t<p>Ответ:</p>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">По окончании выполнения заданий 1&#8212;9 не&#160;забудьте перенести свои ответы в&#160;БЛАНК ОТВЕТОВ &#8470; 1! Запишите ответ справа от&#160;номера соответствующего задания, начиная с&#160;первой клеточки. При&#160;переносе ответов в&#160;заданиях 1&#160;и 2&#160;цифры записываются без пробелов, запятых и&#160;других дополнительных символов. Каждую цифру пишите в&#160;отдельной клеточке в&#160;соответствии с&#160;приведёнными в&#160;бланке образцами.</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h4>Ответы</h4>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">&#8470; задания</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">1</td>\n\t\t\t\t\t\t\t<td data-label=\"\">235461</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">2</td>\n\t\t\t\t\t\t\t<td data-label=\"\">1132232</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">3</td>\n\t\t\t\t\t\t\t<td data-label=\"\">2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">4</td>\n\t\t\t\t\t\t\t<td data-label=\"\">1</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">5</td>\n\t\t\t\t\t\t\t<td data-label=\"\">1</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">6</td>\n\t\t\t\t\t\t\t<td data-label=\"\">3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">7</td>\n\t\t\t\t\t\t\t<td data-label=\"\">2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">8</td>\n\t\t\t\t\t\t\t<td data-label=\"\">2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"\">9</td>\n\t\t\t\t\t\t\t<td data-label=\"\">3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"http://ege.edu.ru/\" target=\"_blank\" rel=\"noopener\">&#169;&#160;2018 Федеральная служба по&#160;надзору в&#160;сфере образования и&#160;науки Российской Федерации</a></p>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"twitter-tweet\" data-lang=\"en\"><p lang=\"ru\" dir=\"ltr\"><a href=\"https://twitter.com/osokoru/status/1005894698077179904?ref_src=twsrc%5Etfw\"></a></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--skeleton\">\n\t\t\t<blockquote class=\"twitter-tweet\" data-lang=\"en\"><p lang=\"ru\" dir=\"ltr\"><a href=\"https://twitter.com/obrnadzor/status/1005365721856167936?ref_src=twsrc%5Etfw\"></a></blockquote>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/tests_gia_ege_get_ready_for_a_run.html",
-			"file_size": 32166,
-			"file_write_time": 131732075710449922,
-			"settings":
-			{
-				"buffer_size": 26974,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div id=\"content-wrapper\">\n\t<div id=\"appbar-placeholder\" class=\"mui--appbar-height\"></div>\n\t<div class=\"card-grid\">\n\t\t<div class=\"card-wrap card-wrap--heading\">\n\t\t\t<h1 class=\"mui--text-display1\">Уровневый тест</h1>\n\t\t\t<p class=\"mui--text-subhead\">&#171;Тест по&#160;английскому языку online&#187; с&#160;ответами по&#160;материалам languagelink.ru.</p>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Beginner</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Варианты ответов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">1. I&#8230; a student</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) is 2) am 3) are 4) be</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">2. &#8230; two sisters</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) There is 2) He is 3) He got 4) He&#8217;s got</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">3. He&#8230; like me</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) no 2) doesn&#8217;t 3) not 4) don&#8217;t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">4. I&#8217;m English. Where are&#8230; from?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) you 2) are you 3) are 4) you are</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">5. &#8230; she go to school every day?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) Do 2) Does 3) Is 4) Are</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">6. &#8230; some books on the table</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) There aren&#8217;t 2) There is 3) There are 4) There isn&#8217;t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">7. There isn&#8217;t&#8230; cheese in the fridge</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) some 2) a 3) any 4) the</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">8. &#8230; you speak English?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) Are 2) Can 3) Were 4) Have</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">9. &#8217;What are you doing now?&#8217; &#8217;I&#8230; English&#8217;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) is 2) study 3) studying 4) am studying</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">10. Do&#160;you like&#8230; in London?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) lives 2) living 3) lived 4) live</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h2 class=\"mui--text-title\">Ответы</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">1. I&#8230; a student</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) am</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">2. &#8230; two sisters</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) He&#8217;s got</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">3. He&#8230; like me</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) doesn&#8217;t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">4. I&#8217;m English. Where are&#8230; from?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) you</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">5. &#8230; she go to school every day?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) Does</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">6. &#8230; some books on the table</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) There are</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">7. There isn&#8217;t&#8230; cheese in the fridge</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) any</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">8. &#8230; you speak English?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) Can</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">9. &#8217;What are you doing now?&#8217; &#8217;I&#8230; English&#8217;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) am studying</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">10. Do&#160;you like&#8230; in London?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) living</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Elementary</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Варианты ответов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">11. I&#8230; to the cinema yesterday</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) go 2) gone 3) went 4) was</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">12. Where&#8230; yesterday?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) did you go 2) went you 3) you go 4) you went</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">13. James&#8230; to play football tomorrow</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) can 2) will 3) is going 4) shall</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">14. John&#160;is good at tennis but Richard is&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) good 2) badly 3) better 4) well</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">15. Mary&#8230; that film</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) seen already 2) already seen 3) has already seen 4) have already seen</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">16. I&#8217;ve been inLondon&#8230; last Christmas</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) ago 2) or 3) until 4) since</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">17. I&#8230; for two hours</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) am working 2) work 3) have been working 4) working</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">18. I&#8230; go to the cinema but I&#160;don&#8217;t any more</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) used to 2) did use 3) used 4) use</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">19. Peter doesn&#8217;t like beer and&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) neither I&#160;do 2) so do I&#160;3) neither do I&#160;4) so Ido</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">20. I&#160;went to the doctor&#8217;s yesterday and I&#8230; for half an hour</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) must wait 2) had to wait 3) had wait 4) should wait</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">21. I&#8230; television last night when my friend rang</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) have been watching 2) watched 3) have watched 4) was watching</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">22. There was a robbery at the bank last night and all the money&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) is stolen 2) has stolen 3) was stolen 4) was being stolen</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">23. I&#8230; to Africa on business</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) am being sent 2) am sent 3) am send 4) be send</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">24. Unless&#8230; hard he&#8217;ll fail the exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) he&#8217;ll work 2) he works 3) he worked 4) he&#8217;d work</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">25. If&#160;I were you&#8230; to a doctor</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) I&#160;went 2) I&#8217;ll go 3) I&#160;go 4) I&#8217;d go</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h2 class=\"mui--text-title\">Ответы</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">11. I&#8230; to the cinema yesterday</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) went</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">12. Where&#8230; yesterday?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) did you go</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">13. James&#8230; to play football tomorrow</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) is going</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">14. John&#160;is good at tennis but Richard is&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) better</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">15. Mary&#8230; that film</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) has already seen</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">16. I&#8217;ve been in London&#8230; last Christmas</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) since</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">17. I&#8230; for two hours</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) have been working</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">18. I&#8230; go to the cinema but I&#160;don&#8217;t any more</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) used to</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">19. Peter doesn&#8217;t like beer and&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) neither do I</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">20. I&#160;went to the doctor&#8217;s yesterday and I&#8230; for half an hour</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) had to wait</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">21. I&#8230; television last night when my friend rang</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) was watching</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">22. There was a robbery at the bank last night and all the money&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) was stolen</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">23. I&#8230; to Africa on business</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) am being sent</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">24. Unless&#8230; hard he&#8217;ll fail the exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) he works</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">25. If&#160;I were you&#8230; to a doctor</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) I&#8217;d go</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Pre-Intermediate</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Варианты ответов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">26. She&#160;liked the film&#8230;?</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) isn&#8217;t it 2) didn&#8217;t she 3) won&#8217;t she 4) doesn&#8217;t she</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">27. I&#160;worked hard&#8230; my exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) to pass 2) for pass 3) for passing 4) to passing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">28. When&#160;I arrived at the station the train&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) had already left 2) already left 3) was already left 4) would already leave</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">29. After&#8230; his homework he went to bed</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) finish 2) to finish 3) finished 4) finishing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">30. I&#8230; go to Spain next year</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) would like 2) like 3) like to 4) would like to</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">31. When&#160;he&#8230; finished the exam, he&#8217;ll be able to talk to you</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) will 2) will have 3) is 4) has</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">32. If&#160;he&#8230; the car immediately the accident wouldn&#8217;t have happened</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) stopped 2) had stopped 3) would stop 4) would have stopped</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">33. If&#160;I had asked the way I&#8230; got lost</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) wouldn&#8217;t have 2) hadn&#8217;t 3) not have 4) won&#8217;t have</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">34. You&#8230; your homework before you came to the lesson!</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) should do 2) should have done 3) should be done 4) should be doing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">35. By&#160;next year he&#8230; his exams</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) had passed 2) will pass 3) will have passed 4) has passed</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h2 class=\"mui--text-title\">Ответы</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">26. She&#160;liked the film&#8230;?</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) didn&#8217;t she</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">27. I&#160;worked hard&#8230; my exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) to pass</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">28. When&#160;I arrived at the station the train&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) had already left</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">29. After&#8230; his homework he went to bed</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) finishing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">30. I&#8230; go to Spain next year</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) would like to</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">31. When&#160;he&#8230; finished the exam, he&#8217;ll be able to talk to you</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) has</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">32. If&#160;he&#8230; the car immediately the accident wouldn&#8217;t have happened</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) had stopped</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">33. If&#160;I had asked the way I&#8230; got lost</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) wouldn&#8217;t have</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">34. You&#8230; your homework before you came to the lesson!</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) should have done</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">35. By&#160;next year he&#8230; his exams</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) will have passed</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Intermediate</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Варианты ответов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">36. I&#8217;ve rung the bell but there&#8217;s no answer. He&#8230; in bed</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) must be 2) will be 3) can be 4) needs to be</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">37. I&#8217;m thinking&#8230; away next Sunday</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) for going 2) to go 3) of going 4) I&#160;go</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">38. Would you mind&#8230; me five dollars</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) to lend 2) lending 3) lent 4) going to lend</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">39. He&#160;didn&#8217;t look when crossing the road. He&#8230; in a hurry</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) must have been 2) had to be 3) might to be 4) should have been</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">40. &#8230; two tickets for the cinema</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) I&#8217;m given 2) They&#8217;re given 3) I&#8217;ve been given 4) I&#8217;ve given</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">41. I&#8217;ve been sitting in the classroom&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) for myself 2) in my own 3) by myself 4) only myself</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">42. I&#8217;m looking forward&#8230; you again</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) to see 2) seeing 3) to seeing 4) of seeing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">43. He&#8230; eaten something before going to school</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) should 2) must 3) had to 4) ought to have</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h2 class=\"mui--text-title\">Ответы</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">36. I&#8217;ve rung the bell but there&#8217;s no answer. He&#8230; in bed</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) must be</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">37. I&#8217;m thinking&#8230; away next Sunday</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) of going</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">38. Would you mind&#8230; me five dollars</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) lending</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">39. He&#160;didn&#8217;t look when crossing the road. He&#8230; in a hurry</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">1) must have been</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">40. &#8230; two tickets for the cinema</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) I&#8217;ve been given</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">41. I&#8217;ve been sitting in the classroom&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) by myself</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">42. I&#8217;m looking forward&#8230; you again</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) to seeing</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">43. He&#8230; eaten something before going to school</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) ought to have</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h2 class=\"mui--text-title\">Upper-Intermediate</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Варианты ответов</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">44. If&#160;all the hotels are full you&#8230; phone this number</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) would better 2) had rather 3) had better 4) would rather</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">45. It&#8217;s high time you&#8230; some work!</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) would do 2) have done 3) do 4) did</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">46. I&#160;wish I&#8230; that</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) didn&#8217;t 2) not say 3) hadn&#8217;t said 4) don&#8217;t say</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">47. Take&#160;that umbrella in case it&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) has rained 2) rains 3) will rain 3) rain</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">48. Inspite of&#8230; late she caught the bus</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) she was 2) her 3) she&#8217;s 4) being</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">49. Providing that&#8230; hard she will pass the exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) she&#8217;ll study 2) she&#8217;ll be studying 3) she studies 4) she&#8217;s studying</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">50. He&#160;suffers&#8230; hay fever every summer</td>\n\t\t\t\t\t\t\t<td data-label=\"Вариант ответа\">1) in 2) from 3) of 4) on</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<h2 class=\"mui--text-title\">Ответы</h2>\n\t\t\t<div class=\"mui-table-wrapper\">\n\t\t\t\t<table class=\"mui-table mui-table--bordered\">\n\t\t\t\t\t<caption></caption>\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th data-label=\"\">Задание</th>\n\t\t\t\t\t\t\t<th data-label=\"\">Ответ</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">44. If&#160;all the hotels are full you&#8230; phone this number</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) had better</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">45. It&#8217;s high time you&#8230; some work!</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) did</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">46. I&#160;wish I&#8230; that</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) hadn&#8217;t said</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">47. Take&#160;that umbrella in case it&#8230;</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) rains</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">48. Inspite of&#8230; late she caught the bus</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">4) being</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">49. Providing that&#8230; hard she will pass the exam</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">3) she studies</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td data-label=\"Задание\">50. He&#160;suffers&#8230; hay fever every summer</td>\n\t\t\t\t\t\t\t<td data-label=\"Ответ\">2) from</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-wrap\">\n\t\t\t<h3 class=\"mui--text-subhead\">Источник</h3>\n\t\t\t<p class=\"mui--text-caption\"><a href=\"https://www.languagelink.ru/test/english/\" target=\"_blank\" rel=\"noopener\">&#169;&#160;Language Link, 1997&#8212;2018</a></p>\n\t\t\t<p class=\"mui--text-caption\">&#171;Для того, чтобы подобрать программу, максимально отвечающую Вашим целям, специалисты академического отдела Language Link разработали тест по&#160;английскому языку. Он&#160;рассчитан на&#160;определение уровня с&#160;точки зрения лексики и&#160;грамматики. Поскольку уровень складывается из&#160;оценки всех языковых компетенций, в&#160;продолжения онлайн-теста нужно будет пройти устное тестирование с&#160;преподавателем-носителем в&#160;ближайшем учебном центре. По&#160;результатам письменного и&#160;устного тестирования эксперты Language Link назначают подходящий&#160;курс.&#187;</p>\n\t\t</div>\n\t\t<div class=\"card-wrap card-wrap--notice\">\n\t\t\t<h3 class=\"mui--text-subhead\">Правовые положения</h3>\n\t\t\t<p class=\"mui--text-caption\">Все рекламные предложения не&#160;являются публичной офертой или приглашением к&#160;вступлению в&#160;правоотношения.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">Об&#160;аффилированности</h3>\n\t\t\t<p class=\"mui--text-caption\">Автор и&#160;владелец данного интернет&#8210;ресурса не&#160;имеет отношения к&#160;представленным товарам или услугам, бизнесам, на ресурсы которых размещены ссылки; не&#160;получает комиссии или гонорары за&#160;рекомендации, никак не&#160;связан с&#160;продавцами упомянутых наименований.</p>\n\t\t\t<h3 class=\"mui--text-subhead\">О&#160;копировании</h3>\n\t\t\t<table>\n\t\t\t\t<caption></caption>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\" aria-label=\"Лицензия\">\n\t\t\t\t\t\t\t\t<svg class=\"site-logo-icon\" style=\"width:5.500rem;height:1.938rem;\">\n\t\t\t\t\t\t\t\t\t<use xlink:href=\"#custom-by-nd-88x31\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>&#160;</td>\n\t\t\t\t\t\t<td style=\"font-weight:400;font-size:0.750rem;line-height:1.000rem;\">\n\t\t\t\t\t\t\tЭто произведение доступно по&#160;<a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">лицензии Creative Commons С&#160;указанием авторства-Без&#160;производных&#160;4.0 Всемирная</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>\n<template><footer id=\"footer\">\n\t<div class=\"mui-container-fluid\">\n\t\t<div class=\"mui-row\">\n\t\t\t<div class=\"mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 mui-col-sm-offset-0\">\n\t\t\t\t<div class=\"mui-col-xs-12 mui-col-md-12 mui-col-lg-12 mui-col-xl-12\">\n\t\t\t\t\t\t\t\t<p class=\"copyright\">\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" onclick=\"var a='mailto',b=':',c='englishextra2',k='%40',q='yahoo',s='.',v='com';this.href=a+b+c+k+q+s+v;\" target=\"_blank\">&#169;&#160;2006&#8212;2018&#160;englishextra</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.ru\" rel=\"license\" target=\"_blank\">Копирование</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/terms.html\">Соглашение</a>\n\t\t\t\t\t\t\t\t\t&#160;&#160; <a href=\"/policy.html\">Конфиденциальность</a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer></template>\n",
-			"file": "includes/tests_languagelink_online_test.html",
-			"file_size": 27767,
-			"file_write_time": 131732075710517869,
-			"settings":
-			{
-				"buffer_size": 25009,
+				"buffer_size": 45725,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -215,25 +138,7 @@
 			"file": "404.html",
 			"settings":
 			{
-				"buffer_size": 28611,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "policy.html",
-			"settings":
-			{
-				"buffer_size": 4022,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "terms.html",
-			"settings":
-			{
-				"buffer_size": 6373,
+				"buffer_size": 28872,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -443,6 +348,15 @@
 	},
 	"file_history":
 	[
+		"/D/server/serguei-muicss-dev/terms.html",
+		"/D/server/serguei-muicss-dev/policy.html",
+		"/D/server/serguei-muicss-dev/includes/tests_languagelink_online_test.html",
+		"/D/server/serguei-muicss-dev/includes/tests_gia_ege_get_ready_for_a_run.html",
+		"/D/server/serguei-muicss-dev/includes/notfound.html",
+		"/D/server/serguei-muicss-dev/includes/english_through_movies.html",
+		"/D/server/serguei-muicss-dev/includes/contacts.html",
+		"/D/server/serguei-muicss-dev/includes/books.html",
+		"/D/server/serguei-muicss-dev/includes/home.html",
 		"/D/server/html/libs/paper/scss/_font-face.scss",
 		"/D/server/serguei-muicss-dev/includes/mapbasics.html",
 		"/D/server/serguei-muicss-dev/libs/serguei-muicss/json/navigation.min.json",
@@ -451,16 +365,11 @@
 		"/D/server/serguei-muicss-dev/cdn/polyfills/js/polyfills.fixed.js",
 		"/D/server/sources/englishextra-ui/reusable/src/reusable.js",
 		"/D/server/html/app/libs/pwa-englishextra/src/bundle.js",
-		"/D/server/serguei-muicss-dev/includes/notfound.html",
 		"/D/server/serguei-muicss-dev/cdn/img-lightbox/0.1.0/js/img-lightbox.fixed.js",
 		"/C/Users/serguei/Desktop/img-lightbox/img-lightbox.fixed.js",
 		"/C/Users/serguei/Desktop/img-lightbox/img-lightbox.fixed.min.js",
 		"/C/Users/serguei/Desktop/img-lightbox/img-lightbox.css",
 		"/C/Users/serguei/Desktop/img-lightbox/img-lightbox.min.css",
-		"/D/server/serguei-muicss-dev/includes/home.html",
-		"/D/server/serguei-muicss-dev/includes/contacts.html",
-		"/D/server/serguei-muicss-dev/includes/tests_languagelink_online_test.html",
-		"/D/server/serguei-muicss-dev/includes/tests_gia_ege_get_ready_for_a_run.html",
 		"/D/server/serguei-muicss-dev/cdn/img-lightbox/0.1.0/js/img-lightbox.js",
 		"/D/server/sources/iframe-lightbox/iframe-lightbox.js",
 		"/D/server/sources/iframe-lightbox/iframe-lightbox.min.js",
@@ -566,11 +475,7 @@
 		"/D/server/html/libs/serguei-webslides/scss/_englishextra-ui-colors.scss",
 		"/C/Users/serguei/Desktop/viber-vector-logo-286CC92DA0-seeklogo.com/viber-seeklogo.com.eps",
 		"/D/server/html/libs/admin/scss/_englishextra-ui-colors.scss",
-		"/D/server/sources/cdn/shower/1.0.1/js/shower.fixed.js",
-		"/D/server/sources/cdn/shower/1.0.1/js/shower.fixed.min.js",
-		"/D/server/html/libs/search/js/vendors.js",
-		"/D/server/html/libs/search/js/vendors.min.js",
-		"/D/server/html/libs/comments/js/vendors.js"
+		"/D/server/sources/cdn/shower/1.0.1/js/shower.fixed.js"
 	],
 	"find":
 	{
@@ -729,7 +634,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 14,
 			"sheets":
 			[
 				{
@@ -927,7 +832,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1112,7 +1017,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1224,145 +1129,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 45837,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.17.region_keys":
-							[
-							],
-							"SL.33.region_keys":
-							[
-								"SL.jshint.Highlights.|40da2a7c47ed83fc4c76de023cdb14b58f4676ee92e06f4aaf6dc0daa0d44dc8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.jshint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.jshint.Highlights.|4b9b3c7ce52ada23017baf8d87b39d317a604ad2831efb64d1723b41214762b6|region.yellowish markup.warning.sublime_linter|32",
-								"SL.jshint.Highlights.|2dfefff6c5fe6e31a9667f532b3603c68fdf1c2de8b62a380502b5a6e529de5b|region.yellowish markup.warning.sublime_linter|32",
-								"SL.jshint.Highlights.|3e18ff5cee8bddf7f49de71181dfde19fc99b9c91bce100d9a9456eda9f22b5f|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions"
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										14,
-										15
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/angle_bracket.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"is_init_dirty_state": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "libs/serguei-muicss/src/bundle.js",
 					"semi_transient": false,
 					"settings":
@@ -1548,11 +1319,11 @@
 						"translation.y": 31186.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "libs/serguei-muicss/js/bundle.min.js",
 					"semi_transient": false,
 					"settings":
@@ -1616,26 +1387,36 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1651,21 +1432,11 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1704,36 +1475,36 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1744,11 +1515,11 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -1773,7 +1544,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "libs/serguei-muicss/json/navigation.json",
 					"semi_transient": false,
 					"settings":
@@ -1967,11 +1738,11 @@
 						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "libs/serguei-muicss/json/navigation.min.json",
 					"semi_transient": false,
 					"settings":
@@ -2179,16 +1950,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "libs/serguei-muicss/scss/_main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23657,
+						"buffer_size": 23937,
 						"regions":
 						{
 						},
@@ -2366,16 +2137,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "libs/serguei-muicss/css/bundle.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 25981,
+						"buffer_size": 26261,
 						"regions":
 						{
 						},
@@ -2478,16 +2249,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "libs/serguei-muicss/css/bundle.min.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 26073,
+						"buffer_size": 26261,
 						"regions":
 						{
 						},
@@ -2663,11 +2434,11 @@
 						"translation.y": 16.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"file": "libs/serguei-muicss/scss/_material-color.scss",
 					"semi_transient": false,
 					"settings":
@@ -2858,11 +2629,11 @@
 						"translation.y": 11153.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"file": "libs/serguei-muicss/scss/_custom-color.scss",
 					"semi_transient": false,
 					"settings":
@@ -3053,11 +2824,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"file": "libs/serguei-muicss/css/vendors.css",
 					"semi_transient": false,
 					"settings":
@@ -3100,46 +2871,51 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -3149,12 +2925,7 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_tag_content"
 							],
 							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
@@ -3165,11 +2936,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 13,
 					"file": "libs/serguei-muicss/css/vendors.min.css",
 					"semi_transient": false,
 					"settings":
@@ -3194,7 +2965,80 @@
 							[
 							],
 							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone": 28,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
 							"bracket_highlighter.locations":
 							{
 								"close":
@@ -3212,46 +3056,51 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -3261,12 +3110,7 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_tag_content"
 							],
 							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
@@ -3276,16 +3120,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "includes/home.html",
+					"buffer": 14,
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11757,
+						"buffer_size": 45725,
 						"regions":
 						{
 						},
@@ -3298,483 +3142,17 @@
 						],
 						"settings":
 						{
-							"SL.29.region_keys":
-							[
-							],
-							"SL.30.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "includes/books.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8626,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.30.region_keys":
-							[
-							],
-							"SL.31.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										9
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "includes/contacts.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.31.region_keys":
-							[
-							],
-							"SL.32.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "includes/english_through_movies.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10879,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.32.region_keys":
+							"SL.17.region_keys":
 							[
 							],
 							"SL.33.region_keys":
 							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "includes/notfound.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2935,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.33.region_keys":
-							[
-							],
-							"SL.34.region_keys":
-							[
+								"SL.jshint.Highlights.|40da2a7c47ed83fc4c76de023cdb14b58f4676ee92e06f4aaf6dc0daa0d44dc8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.jshint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.jshint.Highlights.|4b9b3c7ce52ada23017baf8d87b39d317a604ad2831efb64d1723b41214762b6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.jshint.Highlights.|2dfefff6c5fe6e31a9667f532b3603c68fdf1c2de8b62a380502b5a6e529de5b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.jshint.Highlights.|3e18ff5cee8bddf7f49de71181dfde19fc99b9c91bce100d9a9456eda9f22b5f|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions"
 							],
 							"auto_complete": false,
 							"bracket_highlighter.busy": false,
@@ -3785,15 +3163,15 @@
 								{
 									"1":
 									[
-										971,
-										974
+										14,
+										15
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/tag.png",
+										"Packages/BracketHighlighter/icons/angle_bracket.png",
 										"region.orangish"
 									]
 								},
@@ -3801,8 +3179,8 @@
 								{
 									"1":
 									[
-										1,
-										4
+										0,
+										1
 									]
 								},
 								"unmatched":
@@ -3811,154 +3189,36 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "includes/tests_gia_ege_get_ready_for_a_run.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 26974,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.34.region_keys":
-							[
-							],
-							"SL.35.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -3969,11 +3229,11 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -3985,7 +3245,7 @@
 								"bh_tag_close",
 								"bh_tag_content"
 							],
-							"is_init_dirty_state": true,
+							"is_init_dirty_state": false,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
@@ -3994,212 +3254,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
-					"file": "includes/tests_languagelink_online_test.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 25009,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.35.region_keys":
-							[
-							],
-							"SL.36.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_init_dirty_state": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
+					"buffer": 15,
 					"file": "404.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 28611,
+						"buffer_size": 28872,
 						"regions":
 						{
 						},
@@ -4409,405 +3473,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "policy.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4022,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2846,
-								2846
-							]
-						],
-						"settings":
-						{
-							"SL.37.region_keys":
-							[
-							],
-							"SL.38.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": 38,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"is_init_dirty_state": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 611.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "terms.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.38.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										14,
-										15
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/angle_bracket.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										14,
-										15
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/angle_bracket.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"is_init_dirty_state": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
