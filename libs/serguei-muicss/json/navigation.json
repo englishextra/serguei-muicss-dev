@@ -45,9 +45,6 @@
 			"href": "https://vk.com/sergeydavydow",
 			"title": "«ВКонтакте»"
 		}, {
-			"href": "tg://resolve?domain=english_tushino",
-			"title": "Телеграм"
-		}, {
 			"href": "https://www.instagram.com/shimanskybiz/",
 			"title": "Инстаграм"
 		}
@@ -61,6 +58,9 @@
 		}, {
 			"href": "viber://chat?number=%2B79854416702",
 			"title": "Вайбер"
+		}, {
+			"href": "tg://resolve?domain=english_tushino",
+			"title": "Телеграм"
 		}, {
 			"href": "mailto:englishextra2%40yahoo.com",
 			"title": "Имейл"
