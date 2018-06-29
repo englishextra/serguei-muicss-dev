@@ -1,2 +1,2 @@
 # serguei-muicss-dev
-Developing personal PWA with https://github.com/muicss/mui. Lightweight CSS framework https://www.muicss.com. No JS framework.
+Developing Tutor of English in Tushino Portfolio PWA with https://github.com/muicss/mui. Lightweight CSS framework https://www.muicss.com. No JS framework. Demo site: https://englishextra.gitlab.io/
