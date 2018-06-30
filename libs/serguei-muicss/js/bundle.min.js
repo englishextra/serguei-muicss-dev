@@ -1480,7 +1480,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			};
 			if (instagramMedia) {
 				handleInstagramEmbedInMinigrid();
-				var jsUrl = forcedHTTP + "://" + "www.instagram.com/embed.js";
+				var jsUrl = forcedHTTP + "://www.instagram.com/embed.js";
 				if (!scriptIsLoaded(jsUrl)) {
 					var load;
 					load = new loadJsCss([jsUrl], initScript);
@@ -1527,7 +1527,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			};
 			if (twitterTweet) {
 				handleTwitterEmbedInMinigrid();
-				var jsUrl = forcedHTTP + "://" + "platform.twitter.com/widgets.js";
+				var jsUrl = forcedHTTP + "://platform.twitter.com/widgets.js";
 				if (!scriptIsLoaded(jsUrl)) {
 					var load;
 					load = new loadJsCss([jsUrl], initScript);
@@ -1589,7 +1589,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			};
 			if (vkPost) {
 				handleVkEmbedInMinigrid();
-				var jsUrl = forcedHTTP + "://" + "vk.com/js/api/openapi.js?154";
+				var jsUrl = forcedHTTP + "://vk.com/js/api/openapi.js?154";
 				if (!scriptIsLoaded(jsUrl)) {
 					var load;
 					load = new loadJsCss([jsUrl], initScript);
@@ -2216,16 +2216,10 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				onContentInserted: function (jsonObj, titleString) {
 					document[title] = (titleString ? titleString + " - " : "") + (initialDocumentTitle ? initialDocumentTitle + (userBrowsingDetails ? userBrowsingDetails : "") : "");
 					if (appContentParent) {
-						var timers = new Timers();
+						/* var timers = new Timers();
 						timers.timeout(function () {
 							timers.clear();
-							timers = null;
-							/* manageMinigrid(function () {
-								manageInstagramEmbeds();
-								manageTwitterEmbeds();
-								manageVkEmbeds();
-								manageDisqusEmbed();
-							}); */
+							timers = null; */
 							manageMinigrid().then(function () {
 								manageDisqusEmbed();
 							}).then(function () {
@@ -2269,7 +2263,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 									btnNextPage.href = nextHash;
 								}
 							}
-						}, 500);
+						/* }, 500); */
 					}
 					LoadingSpinner.hide();
 					scroll2Top(0, 20000);
