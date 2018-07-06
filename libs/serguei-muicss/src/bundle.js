@@ -1024,7 +1024,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 					clearTimeout(timer);
 					timer = null;
 					handleDataSrcImageAll();
-				}, 500);
+				}, 100);
 		};
 		manageDataSrcImageAll();
 
@@ -1078,7 +1078,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 					clearTimeout(timer);
 					timer = null;
 					handleDataSrcIframeAll();
-				}, 500);
+				}, 100);
 		};
 		manageDataSrcIframeAll();
 
@@ -1333,14 +1333,14 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			};
 			var timeout = delay || 100;
 			var logThis;
-			logThis = function (timeout) {
+			logThis = function () {
 				console.log("updateMinigrid");
 			};
 			if (mgrid) {
 				var timer = setTimeout(function () {
 						clearTimeout(timer);
 						timer = null;
-						logThis(timeout);
+						logThis();
 						mgrid.mount();
 						cb();
 					}, timeout);
@@ -1394,23 +1394,7 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				}, slot);
 		};
 
-		var handleDisqusEmbedInMinigrid = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
-			/* var disqusThread = document[getElementById]("disqus_thread") || "";
-			if (disqusThread[parentNode]) {
-				if (!disqusThread[parentNode][classList].contains(isBindedMinigridCardClass)) {
-					disqusThread[parentNode][classList].add(isBindedMinigridCardClass);
-					observeMutations(disqusThread[parentNode], updateMinigrid);
-				}
-			} */
-			cb();
-		};
-		var manageDisqusEmbed = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
+		var manageDisqusEmbed = function () {
 			var disqusThread = document[getElementById]("disqus_thread") || "";
 			var locationHref = root.location.href || "";
 			var disqusThreadShortname = disqusThread ? (disqusThread[dataset].shortname || "") : "";
@@ -1420,7 +1404,6 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				replacementText[appendChild](document[createTextNode]("Комментарии доступны только в веб версии этой страницы."));
 				appendFragment(replacementText, disqusThread);
 				disqusThread.removeAttribute("id");
-
 			};
 			var initScript = function () {
 				var setDisqusCSSClass = function () {
@@ -1447,50 +1430,27 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			};
 			if (disqusThread && disqusThreadShortname && locationHref) {
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
-					handleDisqusEmbedInMinigrid(function () {
-						var jsUrl = forcedHTTP + "://" + disqusThreadShortname + ".disqus.com/embed.js";
-						if (!scriptIsLoaded(jsUrl)) {
-							var load;
-							load = new loadJsCss([jsUrl], initScript);
-						} else {
-							initScript();
-						}
-					});
+					var jsUrl = forcedHTTP + "://" + disqusThreadShortname + ".disqus.com/embed.js";
+					if (!scriptIsLoaded(jsUrl)) {
+						var load;
+						load = new loadJsCss([jsUrl], initScript);
+					} else {
+						initScript();
+					}
 				} else {
 					hideDisqusThread();
 				}
 			}
-			cb();
 		};
 
-		var handleInstagramEmbedInMinigrid = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
-			/* var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
-			if (instagramMedia) {
-				var i,
-				l;
-				for (i = 0, l = instagramMedia[_length]; i < l; i += 1) {
-					if (instagramMedia[i][parentNode] && !instagramMedia[i][parentNode][classList].contains(isBindedMinigridCardClass)) {
-						instagramMedia[i][parentNode][classList].add(isBindedMinigridCardClass);
-						observeMutations(instagramMedia[i][parentNode], updateMinigrid);
-					}
-				}
-			} */
-			cb();
-		};
-		var manageInstagramEmbeds = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
+		var manageInstagramEmbeds = function () {
 			var instagramMedia = document[getElementsByClassName]("instagram-media")[0] || "";
 			var initScript = function () {
 				if (root.instgrm) {
 					try {
-						instgrm.Embeds.process();
 						var instagramMedia = document[getElementsByClassName]("instagram-media") || "";
 						if (instagramMedia) {
+							instgrm.Embeds.process();
 							var i,
 							l;
 							for (i = 0, l = instagramMedia[_length]; i < l; i += 1) {
@@ -1507,47 +1467,24 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				}
 			};
 			if (instagramMedia) {
-				handleInstagramEmbedInMinigrid(function () {
-					var jsUrl = forcedHTTP + "://www.instagram.com/embed.js";
-					if (!scriptIsLoaded(jsUrl)) {
-						var load;
-						load = new loadJsCss([jsUrl], initScript);
-					} else {
-						initScript();
-					}
-				});
+				var jsUrl = forcedHTTP + "://www.instagram.com/embed.js";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
+				}
 			}
-			cb();
 		};
 
-		var handleTwitterEmbedInMinigrid = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
-			/* var twitterTweet = document[getElementsByClassName]("twitter-tweet") || "";
-			if (twitterTweet) {
-				var i,
-				l;
-				for (i = 0, l = twitterTweet[_length]; i < l; i += 1) {
-					if (twitterTweet[i][parentNode] && !twitterTweet[i][parentNode][classList].contains(isBindedMinigridCardClass)) {
-						twitterTweet[i][parentNode][classList].add(isBindedMinigridCardClass);
-						observeMutations(twitterTweet[i][parentNode], updateMinigrid);
-					}
-				}
-			} */
-			cb();
-		};
-		var manageTwitterEmbeds = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
+		var manageTwitterEmbeds = function () {
 			var twitterTweet = document[getElementsByClassName]("twitter-tweet")[0] || "";
 			var initScript = function () {
 				if (root.twttr) {
 					try {
-						twttr.widgets.load();
 						var twitterTweet = document[getElementsByClassName]("twitter-tweet") || "";
 						if (twitterTweet) {
+							twttr.widgets.load();
 							var i,
 							l;
 							for (i = 0, l = twitterTweet[_length]; i < l; i += 1) {
@@ -1564,40 +1501,17 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				}
 			};
 			if (twitterTweet) {
-				handleTwitterEmbedInMinigrid(function () {
-					var jsUrl = forcedHTTP + "://platform.twitter.com/widgets.js";
-					if (!scriptIsLoaded(jsUrl)) {
-						var load;
-						load = new loadJsCss([jsUrl], initScript);
-					} else {
-						initScript();
-					}
-				});
+				var jsUrl = forcedHTTP + "://platform.twitter.com/widgets.js";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
+				}
 			}
-			cb();
 		};
 
-		var handleVkEmbedInMinigrid = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
-			/* var vkPost = document[getElementsByClassName]("vk-post") || "";
-			if (vkPost) {
-				var i,
-				l;
-				for (i = 0, l = vkPost[_length]; i < l; i += 1) {
-					if (vkPost[i][parentNode] && !vkPost[i][parentNode][classList].contains(isBindedMinigridCardClass)) {
-						vkPost[i][parentNode][classList].add(isBindedMinigridCardClass);
-						observeMutations(vkPost[i][parentNode], updateMinigrid);
-					}
-				}
-			} */
-			cb();
-		};
-		var manageVkEmbeds = function (callback) {
-			var cb = function () {
-				return callback && "function" === typeof callback && callback();
-			};
+		var manageVkEmbeds = function () {
 			var vkPost = document[getElementsByClassName]("vk-post")[0] || "";
 			var initScript = function () {
 				var initVkPost = function (element_id, owner_id, post_id, hash) {
@@ -1626,17 +1540,14 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				}
 			};
 			if (vkPost) {
-				handleVkEmbedInMinigrid(function () {
-					var jsUrl = forcedHTTP + "://vk.com/js/api/openapi.js?154";
-					if (!scriptIsLoaded(jsUrl)) {
-						var load;
-						load = new loadJsCss([jsUrl], initScript);
-					} else {
-						initScript();
-					}
-				});
+				var jsUrl = forcedHTTP + "://vk.com/js/api/openapi.js?154";
+				if (!scriptIsLoaded(jsUrl)) {
+					var load;
+					load = new loadJsCss([jsUrl], initScript);
+				} else {
+					initScript();
+				}
 			}
-			cb();
 		};
 
 		var cardWrapClass = "card-wrap";
@@ -2177,6 +2088,32 @@ unescape, verge, VK, WheelIndicator, Ya*/
 			}
 		}); */
 
+		var managePrevNextLinks = function (jsonObj) {
+			var btnPrevPage = document[getElementsByClassName]("btn-prev-page")[0] || "";
+			var btnNextPage = document[getElementsByClassName]("btn-next-page")[0] || "";
+			if (btnPrevPage && btnNextPage) {
+				var locationHash = root.location.hash || "";
+				var prevHash;
+				var nextHash;
+				if (locationHash) {
+					for (var i = 0, l = jsonObj.hashes[_length]; i < l; i += 1) {
+						if (locationHash === jsonObj.hashes[i].href) {
+							prevHash = i > 0 ? jsonObj.hashes[i - 1].href : jsonObj.hashes[jsonObj.hashes[_length] - 1].href;
+							nextHash = jsonObj.hashes[_length] > i + 1 ? jsonObj.hashes[i + 1].href : jsonObj.hashes[0].href;
+							break;
+						}
+					}
+				} else {
+					prevHash = jsonObj.hashes[jsonObj.hashes[_length] - 1].href;
+					nextHash = jsonObj.hashes[1].href;
+				}
+				if (prevHash && nextHash) {
+					btnPrevPage.href = prevHash;
+					btnNextPage.href = nextHash;
+				}
+			}
+		};
+
 		var jhrouter;
 		jhrouter = new JsonHashRouter("./libs/serguei-muicss/json/navigation.min.json", appContentId, {
 				jsonHomePropName: "home",
@@ -2239,10 +2176,21 @@ unescape, verge, VK, WheelIndicator, Ya*/
 				onContentInserted: function (jsonObj, titleString) {
 					document[title] = (titleString ? titleString + " - " : "") + (initialDocumentTitle ? initialDocumentTitle + (userBrowsingDetails ? userBrowsingDetails : "") : "");
 					if (appContentParent) {
+						managePrevNextLinks(jsonObj);
+						manageExternalLinkAll(appContentParent);
+						manageImgLightboxLinkAll(appContentParent);
+						manageIframeLightboxLinkAll(appContentParent);
+						manageDropdownButtonAll(appContentParent);
+						manageHljsCodeAll(appContentParent);
+						manageRippleEffect();
+						highlightSidedrawerItem();
 						var timer = setTimeout(function () {
 							clearTimeout(timer);
 							timer = null;
 							manageMinigrid().then(function () {
+								handleDataSrcIframeAll(appContentParent);
+								handleDataSrcImageAll(appContentParent);
+							}).then(function () {
 								manageDisqusEmbed();
 							}).then(function () {
 								manageInstagramEmbeds();
@@ -2253,38 +2201,6 @@ unescape, verge, VK, WheelIndicator, Ya*/
 							}).catch (function (err) {
 								console.log("fail: manageMinigrid", err);
 							});
-							handleDataSrcIframeAll(appContentParent);
-							handleDataSrcImageAll(appContentParent);
-							manageExternalLinkAll(appContentParent);
-							manageImgLightboxLinkAll(appContentParent);
-							manageIframeLightboxLinkAll(appContentParent);
-							manageDropdownButtonAll(appContentParent);
-							manageHljsCodeAll(appContentParent);
-							manageRippleEffect();
-							highlightSidedrawerItem();
-							var btnPrevPage = document[getElementsByClassName]("btn-prev-page")[0] || "";
-							var btnNextPage = document[getElementsByClassName]("btn-next-page")[0] || "";
-							if (btnPrevPage && btnNextPage) {
-								var locationHash = root.location.hash || "";
-								var prevHash;
-								var nextHash;
-								if (locationHash) {
-									for (var i = 0, l = jsonObj.hashes[_length]; i < l; i += 1) {
-										if (locationHash === jsonObj.hashes[i].href) {
-											prevHash = i > 0 ? jsonObj.hashes[i - 1].href : jsonObj.hashes[jsonObj.hashes[_length] - 1].href;
-											nextHash = jsonObj.hashes[_length] > i + 1 ? jsonObj.hashes[i + 1].href : jsonObj.hashes[0].href;
-											break;
-										}
-									}
-								} else {
-									prevHash = jsonObj.hashes[jsonObj.hashes[_length] - 1].href;
-									nextHash = jsonObj.hashes[1].href;
-								}
-								if (prevHash && nextHash) {
-									btnPrevPage.href = prevHash;
-									btnNextPage.href = nextHash;
-								}
-							}
 						}, 100);
 					}
 					LoadingSpinner.hide();
