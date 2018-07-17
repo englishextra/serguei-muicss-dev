@@ -67,6 +67,15 @@
 			}
 		},
 		{
+			"file": "/D/server/noushevr.github.io/libs/noushevr-homepage/img/ripple-200x200.svg",
+			"settings":
+			{
+				"buffer_size": 1202,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/D/server/mytushino-muicss-dev/libs/mytushino-muicss/scss/_material-color.scss",
 			"settings":
 			{
@@ -675,7 +684,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -858,7 +867,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -1043,7 +1052,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -1170,7 +1179,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -1358,7 +1367,7 @@
 						"translation.y": 35639.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1552,7 +1561,7 @@
 						"translation.y": 20004.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1574,6 +1583,9 @@
 						],
 						"settings":
 						{
+							"SL.19.region_keys":
+							[
+							],
 							"SL.32.region_keys":
 							[
 								"SL.jshint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
@@ -1685,7 +1697,7 @@
 						"translation.y": 2859.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1707,6 +1719,9 @@
 						],
 						"settings":
 						{
+							"SL.20.region_keys":
+							[
+							],
 							"SL.38.region_keys":
 							[
 								"SL.jshint.Highlights.|c83c0b482ff356f2b12a4d4191cd6aea124a91f71820357c6730ca663729564f|region.yellowish markup.warning.sublime_linter|32",
@@ -1884,6 +1899,7 @@
 							],
 							"editorconfig": true,
 							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
@@ -1894,11 +1910,192 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
+					"file": "/D/server/noushevr.github.io/libs/noushevr-homepage/img/ripple-200x200.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1181,
+								1181
+							]
+						],
+						"settings":
+						{
+							"SL.34.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 34,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/zzz A File Icon zzz/aliases/XML (SVG).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "/D/server/mytushino-muicss-dev/libs/mytushino-muicss/scss/_material-color.scss",
 					"semi_transient": false,
 					"settings":
@@ -1919,6 +2116,9 @@
 							"SL.19.region_keys":
 							[
 							],
+							"SL.21.region_keys":
+							[
+							],
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
 							"is_init_dirty_state": false,
@@ -1929,11 +2129,11 @@
 						"translation.y": 697.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "libs/serguei-muicss/json/navigation.json",
 					"semi_transient": false,
 					"settings":
@@ -1955,6 +2155,9 @@
 							[
 							],
 							"SL.20.region_keys":
+							[
+							],
+							"SL.22.region_keys":
 							[
 							],
 							"auto_complete": true,
@@ -2130,11 +2333,11 @@
 						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "libs/serguei-muicss/json/navigation.min.json",
 					"semi_transient": false,
 					"settings":
@@ -2156,6 +2359,9 @@
 							[
 							],
 							"SL.21.region_keys":
+							[
+							],
+							"SL.23.region_keys":
 							[
 							],
 							"auto_complete": true,
@@ -2330,11 +2536,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "libs/serguei-muicss/scss/_main.scss",
 					"semi_transient": false,
 					"settings":
@@ -2362,6 +2568,9 @@
 							[
 							],
 							"SL.22.region_keys":
+							[
+							],
+							"SL.24.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -2520,11 +2729,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "libs/serguei-muicss/css/bundle.css",
 					"semi_transient": false,
 					"settings":
@@ -2546,6 +2755,9 @@
 							[
 							],
 							"SL.23.region_keys":
+							[
+							],
+							"SL.25.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -2647,11 +2859,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "libs/serguei-muicss/css/bundle.min.css",
 					"semi_transient": false,
 					"settings":
@@ -2673,6 +2885,9 @@
 							[
 							],
 							"SL.24.region_keys":
+							[
+							],
+							"SL.26.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -2832,11 +3047,11 @@
 						"translation.y": 16.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "libs/serguei-muicss/scss/_material-color.scss",
 					"semi_transient": false,
 					"settings":
@@ -2867,6 +3082,9 @@
 							[
 							],
 							"SL.25.region_keys":
+							[
+							],
+							"SL.27.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -3027,11 +3245,11 @@
 						"translation.y": 10747.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "libs/serguei-muicss/scss/_custom-color.scss",
 					"semi_transient": false,
 					"settings":
@@ -3065,6 +3283,9 @@
 							[
 							],
 							"SL.27.region_keys":
+							[
+							],
+							"SL.28.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -3225,11 +3446,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "libs/serguei-muicss/css/vendors.css",
 					"semi_transient": false,
 					"settings":
@@ -3254,6 +3475,9 @@
 							[
 							],
 							"SL.28.region_keys":
+							[
+							],
+							"SL.29.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -3355,11 +3579,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "libs/serguei-muicss/css/vendors.min.css",
 					"semi_transient": false,
 					"settings":
@@ -3384,6 +3608,9 @@
 							[
 							],
 							"SL.29.region_keys":
+							[
+							],
+							"SL.30.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -3542,11 +3769,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "index.html",
 					"semi_transient": false,
 					"settings":
@@ -3571,6 +3798,9 @@
 							[
 							],
 							"SL.29.region_keys":
+							[
+							],
+							"SL.31.region_keys":
 							[
 							],
 							"SL.33.region_keys":
@@ -3697,11 +3927,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "404.html",
 					"semi_transient": false,
 					"settings":
@@ -3723,6 +3953,9 @@
 							[
 							],
 							"SL.30.region_keys":
+							[
+							],
+							"SL.32.region_keys":
 							[
 							],
 							"SL.36.region_keys":
@@ -3907,11 +4140,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "/D/server/sources/englishextra-ui/reusable/src/reusable.js",
 					"semi_transient": false,
 					"settings":
@@ -3933,6 +4166,9 @@
 							[
 							],
 							"SL.31.region_keys":
+							[
+							],
+							"SL.33.region_keys":
 							[
 							],
 							"SL.53.region_keys":
@@ -4097,7 +4333,7 @@
 						"translation.y": 7934.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
