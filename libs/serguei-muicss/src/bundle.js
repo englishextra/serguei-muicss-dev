@@ -1042,28 +1042,22 @@ unescape, VK, WheelIndicator, Ya*/
 					images[i][classList].add(isBindedDataSrcImgClass);
 					images[i].src = images[i][dataset].src || "";
 					images[i][classList].add(isActiveClass);
-					images[i][classList].add(isBindedClass);
 					cb();
 				}
 			}
 		};
+		var handleDataSrcImageAllWindow = function () {
+			var throttleHandleDataSrcImageAll = throttle(handleDataSrcImageAll, 100);
+			throttleHandleDataSrcImageAll();
+		};
 		var manageDataSrcImageAll = function () {
-			var _scroll = function (a, b) {
-				return root[_addEventListener]("scroll", function () {
-					clearTimeout(b);
-					b = setTimeout(a, 200);
-				}, {passive: true}),
-				a;
-			};
-			var _resize = function (a, b) {
-				return root[_addEventListener]("resize", function () {
-					clearTimeout(b);
-					b = setTimeout(a, 200);
-				}, {passive: true}),
-				a;
-			};
-			_scroll(handleDataSrcImageAll);
-			_resize(handleDataSrcImageAll);
+			root[_addEventListener]("scroll", handleDataSrcImageAllWindow, {passive: true});
+			root[_addEventListener]("resize", handleDataSrcImageAllWindow, {passive: true});
+			var timer = setTimeout(function () {
+					clearTimeout(timer);
+					timer = null;
+					handleDataSrcImageAll();
+				}, 100);
 		};
 		manageDataSrcImageAll();
 
@@ -1136,7 +1130,6 @@ unescape, VK, WheelIndicator, Ya*/
 					iframes[i][classList].add(isBindedDataSrcIframeClass);
 					iframes[i].src = iframes[i][dataset].src || "";
 					iframes[i][classList].add(isActiveClass);
-					iframes[i][classList].add(isBindedClass);
 					iframes[i][setAttribute]("frameborder", "no");
 					iframes[i][setAttribute]("style", "border:none;");
 					iframes[i][setAttribute]("webkitallowfullscreen", "true");
@@ -1147,23 +1140,18 @@ unescape, VK, WheelIndicator, Ya*/
 				}
 			}
 		};
+		var handleDataSrcIframeAllWindow = function () {
+			var throttlehandleDataSrcIframeAll = throttle(handleDataSrcIframeAll, 100);
+			throttlehandleDataSrcIframeAll();
+		};
 		var manageDataSrcIframeAll = function () {
-			var _scroll = function (a, b) {
-				return root[_addEventListener]("scroll", function () {
-					clearTimeout(b);
-					b = setTimeout(a, 200);
-				}, {passive: true}),
-				a;
-			};
-			var _resize = function (a, b) {
-				return root[_addEventListener]("resize", function () {
-					clearTimeout(b);
-					b = setTimeout(a, 200);
-				}, {passive: true}),
-				a;
-			};
-			_scroll(handleDataSrcIframeAll);
-			_resize(handleDataSrcIframeAll);
+			root[_addEventListener]("scroll", handleDataSrcIframeAllWindow, {passive: true});
+			root[_addEventListener]("resize", handleDataSrcIframeAllWindow, {passive: true});
+			var timer = setTimeout(function () {
+					clearTimeout(timer);
+					timer = null;
+					handleDataSrcIframeAll();
+				}, 100);
 		};
 		manageDataSrcIframeAll();
 
