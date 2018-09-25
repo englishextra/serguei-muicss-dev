@@ -6,6 +6,5 @@
 *.zip
 .src
 bower_components/
-libs/serguei-muicss/img/sprite-english-through-movies
 maps/
 node_modules/
