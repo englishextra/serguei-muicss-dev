@@ -255,6 +255,7 @@ QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 		var insertBefore = "insertBefore";
 		var _length = "length";
 		var parentNode = "parentNode";
+		var setAttribute = "setAttribute";
 		_this.files = files;
 		_this.js = [];
 		_this.head = document[getElementsByTagName]("head")[0] || "";
@@ -266,7 +267,14 @@ QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 			link.rel = "stylesheet";
 			link.type = "text/css";
 			link.href = file;
-			_this.head[appendChild](link);
+			/* _this.head[appendChild](link); */
+			link.media = "only x";
+			link.onload = function () {
+				this.onload = null;
+				this.media = "all";
+			};
+			link[setAttribute]("property", "stylesheet");
+			(_this.body || _this.head)[appendChild](link);
 		};
 		_this.loadScript = function(i) {
 			var script = document[createElement]("script");
@@ -284,13 +292,14 @@ QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 				loadNextScript();
 			};
 			_this.head[appendChild](script);
-			if (_this.ref[parentNode]) {
+			/* if (_this.ref[parentNode]) {
 				_this.ref[parentNode][insertBefore](script, _this.ref);
 			} else {
 				(_this.body || _this.head)[appendChild](script);
-			}
+			} */
+			(_this.body || _this.head)[appendChild](script);
 		};
-				var i,
+		var i,
 		l;
 		for (i = 0, l = _this.files[_length]; i < l; i += 1) {
 			if ((/\.js$|\.js\?/).test(_this.files[i])) {
@@ -2348,12 +2357,29 @@ QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 		onFontsLoaded();
 	};
 
-	var load;
-	load = new loadJsCss([
-		/* forcedHTTP + "://fonts.googleapis.com/css?family=Roboto+Mono%7CRoboto:300,400,500,700&subset=cyrillic,latin-ext", */
-		"./libs/serguei-muicss/css/vendors.min.css"],
-		onFontsLoadedCallback
-	);
+	var loadDeferred = function () {
+		var timer;
+		var logic = function () {
+			clearTimeout(timer);
+			timer = null;
+			var load;
+			load = new loadJsCss([
+						/* forcedHTTP + "://fonts.googleapis.com/css?family=Roboto+Mono%7CRoboto:300,400,500,700&subset=cyrillic,latin-ext", */
+						"./libs/serguei-muicss/css/vendors.min.css"],
+					onFontsLoadedCallback);
+		};
+		var req;
+		var raf = function () {
+			cancelAnimationFrame(req);
+			timer = setTimeout(logic, 0);
+		};
+		if (root.requestAnimationFrame) {
+			req = requestAnimationFrame(raf);
+		} else {
+			root[_addEventListener]("load", logic);
+		}
+	};
+	loadDeferred();
 
 	/*!
 	 * load scripts after webfonts loaded using webfontloader
