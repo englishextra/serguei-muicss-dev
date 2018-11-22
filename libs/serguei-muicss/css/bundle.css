@@ -41,14 +41,6 @@ body {
 	/* user-select: none; */
 	margin: 0;
 	padding: 0;
-	/*!
-	 * @see {@link https://css-tricks.com/couple-takes-sticky-footer/}
-	 * Sticky Footer
-	 * The position relative on body is required to make it work.
-	 */
-	/* min-height: 100%;
- position: relative;
- padding-bottom: 3.500rem; */
 }
 
 /*!
