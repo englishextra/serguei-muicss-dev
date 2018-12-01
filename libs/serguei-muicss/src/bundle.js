@@ -2301,7 +2301,7 @@ QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 				"./bower_components/qrjs2/qrjs2.js",
 				"./bower_components/Tocca.js/Tocca.js",
 				"./bower_components/wheel-indicator/lib/wheel-indicator.js",
-				"./node_modules/any-resize-event/dist/any-resize-event.js",
+				"../../cdn/resize/1.0.0/js/any-resize-event.fixed.js",
 				"./node_modules/macy/dist/macy.js",
 				"./node_modules/mustache/mustache.js",
 				"./node_modules/wolfy87-eventemitter/EventEmitter.js",
