@@ -131,6 +131,8 @@ var stripDebug = require("gulp-strip-debug");
 
 var eslint = require("gulp-eslint");
 
+var csslint = require("gulp-csslint");
+
 var options = {
 	muicss: {
 		scss: "../../cdn/mui/0.9.39/scss/*.scss",
@@ -312,6 +314,13 @@ gulp.task("compile-libbundle-css", function () {
 	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.libbundle.css));
+});
+
+gulp.task("lint-libbundle-css", function () {
+	return gulp.src(options.libbundle.css)
+	.pipe(csslint())
+	.pipe(csslint.formatter())
+	.pipe(csslint.failFormatter());
 });
 
 gulp.task("compile-libbundle-js", function () {
@@ -643,6 +652,7 @@ gulp.task("compile-pwabuilder-serviceworkers-js", function () {
  */
 gulp.task("browser-sync", gulp.series(gulp.parallel(
 			"lint-libbundle-js",
+			"lint-libbundle-css",
 			"lint-vendors-js"), function watchChanges() {
 
 		browserSync.init({
