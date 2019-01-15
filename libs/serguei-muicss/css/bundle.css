@@ -368,7 +368,6 @@ button {
 .mui-panel {
 	border: none;
 	border-radius: 0.125rem;
-	/* box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.16), 0 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.12); */
 	-webkit-box-shadow: 0 0.063rem 0.063rem 0 rgba(0, 0, 0, 0.16),
 		0 0 0.063rem 0 rgba(0, 0, 0, 0.12);
 	box-shadow: 0 0.063rem 0.063rem 0 rgba(0, 0, 0, 0.16),
@@ -577,7 +576,7 @@ button {
 .mui-btn.mui-btn--primary:focus,
 .mui-btn.mui-btn--primary:hover,
 .mui-btn.mui-btn--primary:active {
-	background-color: #29b6f6;
+	background-color: #29B6F6;
 }
 
 .mui-btn.mui-btn--danger:focus,
