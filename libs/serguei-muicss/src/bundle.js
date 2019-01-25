@@ -877,10 +877,9 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				}
 			}
 		};
-		var handleDataSrcImageAllWindow = function () {
-			var throttleHandleDataSrcImageAll = throttle(handleDataSrcImageAll, 100);
-			throttleHandleDataSrcImageAll();
-		};
+
+		var handleDataSrcImageAllWindow = throttle(handleDataSrcImageAll, 100);
+
 		var manageDataSrcImageAll = function () {
 			root[_addEventListener]("scroll", handleDataSrcImageAllWindow, {passive: true});
 			root[_addEventListener]("resize", handleDataSrcImageAllWindow, {passive: true});
@@ -919,10 +918,9 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				}
 			}
 		};
-		var handleDataSrcIframeAllWindow = function () {
-			var throttlehandleDataSrcIframeAll = throttle(handleDataSrcIframeAll, 100);
-			throttlehandleDataSrcIframeAll();
-		};
+
+		var handleDataSrcIframeAllWindow = throttle(handleDataSrcIframeAll, 100);
+
 		var manageDataSrcIframeAll = function () {
 			root[_addEventListener]("scroll", handleDataSrcIframeAllWindow, {passive: true});
 			root[_addEventListener]("resize", handleDataSrcIframeAllWindow, {passive: true});
@@ -933,6 +931,68 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				}, 100);
 		};
 		manageDataSrcIframeAll();
+
+		var imgLightboxLinkClass = "img-lightbox-link";
+
+		/*!
+		 * @see {@link https://github.com/englishextra/img-lightbox}
+		 */
+		var manageImgLightbox = function (imgLightboxLinkClass) {
+			var initScript = function () {
+				var link = document[getElementsByClassName](imgLightboxLinkClass) || "";
+				if (link) {
+					imgLightbox(imgLightboxLinkClass, {
+						onLoaded: function () {
+							LoadingSpinner.hide();
+						},
+						onClosed: function () {
+							LoadingSpinner.hide();
+						},
+						onCreated: function () {
+							LoadingSpinner.show();
+						},
+						touch: false
+					});
+				}
+			};
+			initScript();
+		};
+		manageImgLightbox(imgLightboxLinkClass);
+
+		var iframeLightboxLinkClass = "iframe-lightbox-link";
+
+		/*!
+		 * @see {@link https://github.com/englishextra/iframe-lightbox}
+		 */
+		var manageIframeLightbox = function (iframeLightboxLinkClass) {
+			var initScript = function () {
+				var link = document[getElementsByClassName](iframeLightboxLinkClass) || "";
+				var arrange = function (e) {
+					e.lightbox = new IframeLightbox(e, {
+							onLoaded: function () {
+								LoadingSpinner.hide();
+							},
+							onClosed: function () {
+								LoadingSpinner.hide();
+							},
+							onOpened: function () {
+								LoadingSpinner.show();
+							},
+							touch: false
+						});
+				};
+				if (link) {
+					var i,
+					l;
+					for (i = 0, l = link[_length]; i < l; i += 1) {
+						arrange(link[i]);
+					}
+					i = l = null;
+				}
+			};
+			initScript();
+		};
+		manageIframeLightbox(iframeLightboxLinkClass);
 
 		var manageDataQrcodeImageAll = function (callback) {
 			var cb = function () {
@@ -984,51 +1044,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 					generateImg(img[i]);
 				}
 				i = l = null;
-			}
-		};
-
-		var manageIframeLightboxLinkAll = function (linkClass) {
-			var link = document[getElementsByClassName](linkClass) || "";
-			var arrange = function (e) {
-				if (root.IframeLightbox) {
-					e.lightbox = new IframeLightbox(e, {
-							onLoaded: function () {
-								LoadingSpinner.hide();
-							},
-							onClosed: function () {
-								LoadingSpinner.hide();
-							},
-							onOpened: function () {
-								LoadingSpinner.show();
-							},
-							touch: false
-						});
-				}
-			};
-			if (link) {
-				var i,
-				l;
-				for (i = 0, l = link[_length]; i < l; i += 1) {
-					arrange(link[i]);
-				}
-				i = l = null;
-			}
-		};
-
-		var manageImgLightboxLinkAll = function (linkClass) {
-			if (root.imgLightbox) {
-				imgLightbox(linkClass, {
-					onCreated: function () {
-						LoadingSpinner.show();
-					},
-					onLoaded: function () {
-						LoadingSpinner.hide();
-					},
-					onError: function () {
-						LoadingSpinner.hide();
-					},
-					touch: false
-				});
 			}
 		};
 
@@ -1302,7 +1317,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				scroll2Top(0, 20000);
 			};
 			var handleUiTotopWindow = function (_this) {
-				var logicHandleUiTotopWindow = function () {
+				var logic = function () {
 					var btn = document[getElementsByClassName](btnClass)[0] || "";
 					var scrollPosition = _this.pageYOffset || docElem.scrollTop || docBody.scrollTop || "";
 					var windowHeight = _this.innerHeight || docElem.clientHeight || docBody.clientHeight || "";
@@ -1314,8 +1329,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 						}
 					}
 				};
-				var throttleLogicHandleUiTotopWindow = throttle(logicHandleUiTotopWindow, 100);
-				throttleLogicHandleUiTotopWindow();
+				throttle(logic, 100).call(root);
 			};
 			anchor[classList].add(btnClass, "mui-btn");
 			anchor[classList].add(btnClass, "mui-btn--fab");
@@ -1994,8 +2008,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 					appBar[classList].remove(isHiddenClass);
 				}
 			};
-			var throttleLogic = throttle(logic, 100);
-			throttleLogic();
+			throttle(logic, 100).call(root);
 		};
 		var revealAppBar = function () {
 			var logic = function () {
@@ -2006,8 +2019,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 					appBar[classList].remove(isFixedClass);
 				}
 			};
-			var throttleLogic = throttle(logic, 100);
-			throttleLogic();
+			throttle(logic, 100).call(root);
 		};
 		var resetAppBar = function () {
 			var logic = function () {
@@ -2016,8 +2028,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 					appBar[classList].remove(isFixedClass);
 				}
 			};
-			var throttleLogic = throttle(logic, 100);
-			throttleLogic();
+			throttle(logic, 100).call(root);
 		};
 		if (appBar) {
 			root[_addEventListener]("scroll", resetAppBar, {passive: true});
@@ -2143,8 +2154,8 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 						highlightSidedrawerItem();
 						managePrevNextLinks(jsonObj);
 						manageExternalLinkAll();
-						manageImgLightboxLinkAll("img-lightbox-link");
-						manageIframeLightboxLinkAll("iframe-lightbox-link");
+						manageImgLightbox(imgLightboxLinkClass);
+						manageIframeLightbox(iframeLightboxLinkClass);
 						manageDropdownButtonAll();
 						manageHljsCodeAll();
 						manageRippleEffect();

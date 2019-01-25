@@ -7,8 +7,6 @@
 (function(root, document) {
 	"use strict";
 
-	var getElementsByClassName = "getElementsByClassName";
-	var getElementById = "getElementById";
 	var _length = "length";
 
 	function extend(a, b) {
