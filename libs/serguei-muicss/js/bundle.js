@@ -18,7 +18,7 @@ function _typeof(obj) {
 
 /*global $readMoreJS, ActiveXObject, console, DISQUS, doesFontExist,
 EventEmitter, hljs, IframeLightbox, imgLightbox, instgrm, JsonHashRouter,
-loadJsCss, Macy, Minigrid, Mustache, Promise, QRCode, require, ripple, t,
+loadJsCss, Macy, Minigrid, Mustache, progressBar, Promise, QRCode, require, ripple, t,
 twttr, unescape, VK, WheelIndicator, Ya*/
 
 /*property console, join, split */
@@ -1092,11 +1092,18 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 			("undefined" !== typeof process &&
 				"undefined" !== typeof require) ||
 			"";
-		var isElectron =
-			("undefined" !== typeof root &&
-				root.process &&
-				"renderer" === root.process.type) ||
-			"";
+		var isElectron = (function () {
+			if (typeof root !== "undefined" && typeof root.process === "object" && root.process.type === "renderer") {
+				return true;
+			}
+			if (typeof root !== "undefined" && typeof root.process !== "undefined" && typeof root.process.versions === "object" && !!root.process.versions.electron) {
+				return true;
+			}
+			if (typeof navigator === "object" && typeof navigator.userAgent === "string" && navigator.userAgent.indexOf("Electron") >= 0) {
+				return true;
+			}
+			return false;
+		})();
 
 		var isNwjs = (function() {
 			if ("undefined" !== typeof isNodejs && isNodejs) {
@@ -3264,16 +3271,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 			}
 		);
 	};
-	/* var scripts = [
-  			"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
-  			"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
-  			"../../cdn/mui/0.9.39/css/mui.css",
-  			"../../cdn/iframe-lightbox/0.2.8/css/iframe-lightbox.fixed.css",
-  			"../../cdn/img-lightbox/0.2.3/css/img-lightbox.fixed.css"
-  ]; */
-
 	var scripts = [
-		/* "./libs/serguei-muicss/css/vendors.min.css", */
 		"./libs/serguei-muicss/css/bundle.min.css"
 	];
 
@@ -3295,72 +3293,35 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 		return support;
 	})();
 
-	var needsPolyfills = (function() {
-		return (
-			!String.prototype.startsWith ||
-			!supportsPassive ||
-			!root.requestAnimationFrame ||
-			!root.matchMedia ||
-			("undefined" === typeof root.Element && !("dataset" in docElem)) ||
-			!("classList" in document[createElement]("_")) ||
-			(document[createElementNS] &&
-				!(
-					"classList" in
-					document[createElementNS]("http://www.w3.org/2000/svg", "g")
-				)) ||
-			/* !document.importNode || */
-
-			/* !("content" in document[createElement]("template")) || */
-			(root.attachEvent && !root[_addEventListener]) ||
-			!("onhashchange" in root) ||
-			!Array.prototype.indexOf ||
-			!root.Promise ||
-			!root.fetch ||
-			!document[querySelectorAll] ||
-			!document[querySelector] ||
-			!Function.prototype.bind ||
-			(Object[defineProperty] &&
-				Object[getOwnPropertyDescriptor] &&
-				Object[getOwnPropertyDescriptor](
-					Element.prototype,
-					"textContent"
-				) &&
-				!Object[getOwnPropertyDescriptor](
-					Element.prototype,
-					"textContent"
-				).get) ||
-			!(
-				"undefined" !== typeof root.localStorage &&
-				"undefined" !== typeof root.sessionStorage
-			) ||
-			!root.WeakMap ||
-			!root.MutationObserver
-		);
+	var needsPolyfills = (function () {
+		return !String.prototype.startsWith ||
+		!supportsPassive ||
+		!root.requestAnimationFrame ||
+		!root.matchMedia ||
+		("undefined" === typeof root.Element && !("dataset" in docElem)) ||
+		!("classList" in document[createElement]("_")) ||
+		document[createElementNS] && !("classList" in document[createElementNS]("http://www.w3.org/2000/svg", "g")) ||
+		(root.attachEvent && !root[_addEventListener]) ||
+		!("onhashchange" in root) ||
+		!Array.prototype.indexOf ||
+		!root.Promise ||
+		!root.fetch ||
+		!document[querySelectorAll] ||
+		!document[querySelector] ||
+		!Function.prototype.bind ||
+		(Object[defineProperty] &&
+			Object[getOwnPropertyDescriptor] &&
+			Object[getOwnPropertyDescriptor](Element.prototype, "textContent") &&
+			!Object[getOwnPropertyDescriptor](Element.prototype, "textContent").get) ||
+		!("undefined" !== typeof root.localStorage && "undefined" !== typeof root.sessionStorage) ||
+		!root.WeakMap ||
+		!root.MutationObserver;
 	})();
 
 	if (needsPolyfills) {
 		scripts.push("./cdn/polyfills/js/polyfills.fixed.min.js");
 	}
-	/* var scripts = [
-  			"./bower_components/iframe-lightbox/iframe-lightbox.js",
-  			"../../cdn/img-lightbox/0.2.3/js/img-lightbox.fixed.js",
-  			"../../cdn/qrjs2/0.1.7/js/qrjs2.fixed.js",
-  			"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
-  			"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
-  			"../../cdn/resize/1.0.0/js/any-resize-event.fixed.js",
-  			"./node_modules/macy/dist/macy.js",
-  			"../../cdn/mustache/2.3.0/js/mustache.fixed.js",
-  			"../../cdn/EventEmitter/5.2.5/js/EventEmitter.fixed.js",,
-  			"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
-  			"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
-  			"../../cdn/ReadMore.js/1.0.0/js/readMoreJS.fixed.js"
-  ]; */
-
 	scripts.push("./libs/serguei-muicss/js/vendors.min.js");
-	/*!
-	 * load scripts after webfonts loaded using doesFontExist
-	 */
-
 	var supportsCanvas;
 
 	supportsCanvas = (function() {
@@ -3384,9 +3345,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 		var checkFontIsLoaded;
 
 		checkFontIsLoaded = function checkFontIsLoaded() {
-			/*!
-			 * check only for fonts that are used in current page
-			 */
 			if (
 				doesFontExist("Roboto")
 				/* && doesFontExist("Roboto Mono") */
@@ -3394,12 +3352,13 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				onFontsLoaded();
 			}
 		};
+
 		/* if (supportsCanvas) {
-    	slot = setInterval(checkFontIsLoaded, 100);
-    } else {
-    	slot = null;
-    	onFontsLoaded();
-    } */
+			slot = setInterval(checkFontIsLoaded, 100);
+		} else {
+			slot = null;
+			onFontsLoaded();
+		} */
 
 		onFontsLoaded();
 	};
@@ -3435,10 +3394,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 	};
 
 	loadDeferred();
-	/*!
-	 * load scripts after webfonts loaded using webfontloader
-	 */
-
 	/* root.WebFontConfig = {
   	google: {
   		families: [
