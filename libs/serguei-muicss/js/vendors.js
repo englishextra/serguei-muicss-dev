@@ -780,12 +780,14 @@
 			_this.close();
 		});
 
-		this.btnClose[_addEventListener]("click", function () {
+		this.btnClose[_addEventListener]("click", function() {
 			_this.close();
 		});
+
 		if (!docElem[classList].contains(iframeLightboxWindowIsBindedClass)) {
 			docElem[classList].add(iframeLightboxWindowIsBindedClass);
-			root[_addEventListener]("keyup", function (ev) {
+
+			root[_addEventListener]("keyup", function(ev) {
 				if (27 === (ev.which || ev.keyCode)) {
 					_this.close();
 				}
@@ -980,6 +982,18 @@
 		caller(data);
 	};
 
+	var setStyleDisplayBlock = function setStyleDisplayBlock(a) {
+		if (a) {
+			a[style].display = "block";
+		}
+	};
+
+	var setStyleDisplayNone = function setStyleDisplayNone(a) {
+		if (a) {
+			a[style].display = "none";
+		}
+	};
+
 	var hideImgLightbox = function hideImgLightbox(callback) {
 		var container =
 			document[getElementsByClassName](containerClass)[0] || "";
@@ -1046,7 +1060,7 @@
 
 		if (!container) {
 			container = document[createElement]("div");
-			container[classList].add(containerClass);
+			addClass(container, containerClass);
 			var html = [];
 			html.push('<img src="' + dummySrc + '" alt="" />');
 			html.push(
@@ -1069,9 +1083,11 @@
 			container[_addEventListener]("click", handleImgLightboxContainer);
 
 			btnClose[_addEventListener]("click", handleImgLightboxContainer);
-			if (!docElem[classList].contains(imgLightboxWindowIsBindedClass)) {
-				docElem[classList].add(imgLightboxWindowIsBindedClass);
-				root[_addEventListener]("keyup", function (ev) {
+
+			if (!hasClass(docElem, imgLightboxWindowIsBindedClass)) {
+				addClass(docElem, imgLightboxWindowIsBindedClass);
+
+				root[_addEventListener]("keyup", function(ev) {
 					if (27 === (ev.which || ev.keyCode)) {
 						hideImgLightbox(onClosed);
 					}
