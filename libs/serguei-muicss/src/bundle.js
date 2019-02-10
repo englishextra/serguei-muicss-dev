@@ -2,9 +2,9 @@
 /*jslint node: true */
 /*global $readMoreJS, ActiveXObject, console, DISQUS, doesFontExist,
 EventEmitter, hljs, IframeLightbox, imgLightbox, instgrm, JsonHashRouter,
-loadJsCss, addClass, hasClass, removeClass, toggleClass, Macy, Minigrid,
-Mustache, progressBar, Promise, QRCode, require, ripple, t, twttr, unescape,
-VK, WheelIndicator, Ya*/
+loadJsCss, addListener, removeListener, getByClass, addClass, hasClass,
+removeClass, toggleClass, Macy, Minigrid, Mustache, progressBar, Promise,
+QRCode, require, ripple, t, twttr, unescape, VK, WheelIndicator, Ya*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -37,6 +37,54 @@ VK, WheelIndicator, Ya*/
 	prop = method = dummy = properties = methods = null;
 })("undefined" !== typeof window ? window : this);
 /*!
+ * Super-simple wrapper around addEventListener and attachEvent (old IE).
+ * Does not handle differences in the Event-objects.
+ * @see {@link https://github.com/finn-no/eventlistener}
+ */
+(function (root) {
+	"use strict";
+	var wrap = function (standard, fallback) {
+		return function (el, type, listener, useCapture) {
+			if (el[standard]) {
+				el[standard](type, listener, useCapture);
+			} else {
+				if (el[fallback]) {
+					el[fallback]("on" + type, listener);
+				}
+			}
+		};
+	};
+	root.addListener = wrap("addEventListener", "attachEvent");
+	root.removeListener = wrap("removeEventListener", "detachEvent");
+})("undefined" !== typeof window ? window : this);
+/*!
+ * get elements by class name wrapper
+ */
+(function (root, document) {
+	"use strict";
+	var getByClass = function (parent, name) {
+		if (!Element.getElementsByClassName) {
+			var children = (parent || document.body).getElementsByTagName("*"),
+			elements = [],
+			classRE = new RegExp("\\b" + name + "\\b"),
+			child;
+			var i,
+			l;
+			for (i = 0, l = children.length; i < l; i += 1) {
+				child = children[i];
+				if (classRE.test(child.className)) {
+					elements.push(child);
+				}
+			}
+			i = l = null;
+			return elements;
+		} else {
+			return parent ? parent.getElementsByClassName(name) : "";
+		}
+	};
+	root.getByClass = getByClass;
+})("undefined" !== typeof window ? window : this, document);
+/*!
  * class list wrapper
  */
 (function (root, document) {
@@ -45,34 +93,34 @@ VK, WheelIndicator, Ya*/
 	var hasClass;
 	var addClass;
 	var removeClass;
-	if ('classList' in document.documentElement) {
-		hasClass = function (el, className) {
-			return el[classList].contains(className);
+	if (classList in document.documentElement) {
+		hasClass = function (el, name) {
+			return el[classList].contains(name);
 		};
-		addClass = function (el, className) {
-			el[classList].add(className);
+		addClass = function (el, name) {
+			el[classList].add(name);
 		};
-		removeClass = function (el, className) {
-			el[classList].remove(className);
+		removeClass = function (el, name) {
+			el[classList].remove(name);
 		};
 	} else {
-		hasClass = function (el, className) {
-			return new RegExp('\\b' + className + '\\b').test(el.className);
+		hasClass = function (el, name) {
+			return new RegExp("\\b" + name + "\\b").test(el.className);
 		};
-		addClass = function (el, className) {
-			if (!hasClass(el, className)) {
-				el.className += ' ' + className;
+		addClass = function (el, name) {
+			if (!hasClass(el, name)) {
+				el.className += " " + name;
 			}
 		};
-		removeClass = function (el, className) {
-			el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
+		removeClass = function (el, name) {
+			el.className = el.className.replace(new RegExp("\\b" + name + "\\b", "g"), "");
 		};
 	}
-	var toggleClass = function (el, className) {
-		if (hasClass(el, className)) {
-			removeClass(el, className);
+	var toggleClass = function (el, name) {
+		if (hasClass(el, name)) {
+			removeClass(el, name);
 		} else {
-			addClass(el, className);
+			addClass(el, name);
 		}
 	};
 	root.hasClass = hasClass;
@@ -107,7 +155,6 @@ VK, WheelIndicator, Ya*/
 			var innerHTML = "innerHTML";
 			var parentNode = "parentNode";
 			var replaceChild = "replaceChild";
-			var _addEventListener = "addEventListener";
 			var _length = "length";
 			var routerIsBindedClass = "router--is-binded";
 			var insertExternalHTML = function (id, url, callback) {
@@ -243,7 +290,7 @@ VK, WheelIndicator, Ya*/
 				handleRoutesWindow();
 				if (!hasClass(docElem, routerIsBindedClass)) {
 					addClass(docElem, routerIsBindedClass);
-					root[_addEventListener]("hashchange", handleRoutesWindow);
+					addListener(root, "hashchange", handleRoutesWindow);
 				}
 			};
 			var render = document[getElementById](renderId) || "";
@@ -265,11 +312,10 @@ VK, WheelIndicator, Ya*/
 (function(root, document) {
 	"use strict";
 	var doesFontExist = function(fontName) {
-		var createElement = "createElement";
 		var getContext = "getContext";
 		var measureText = "measureText";
 		var width = "width";
-		var canvas = document[createElement]("canvas");
+		var canvas = document.createElement("canvas");
 		var context = canvas[getContext]("2d");
 		var text = "abcdefghijklmnopqrstuvwxyz0123456789";
 		context.font = "72px monospace";
@@ -296,7 +342,6 @@ VK, WheelIndicator, Ya*/
 		var _this = this;
 		var appendChild = "appendChild";
 		var body = "body";
-		var createElement = "createElement";
 		var getElementsByTagName = "getElementsByTagName";
 		var setAttribute = "setAttribute";
 		var _length = "length";
@@ -308,7 +353,7 @@ VK, WheelIndicator, Ya*/
 		_this.callback = callback || function () {};
 		_this.type = type ? type.toLowerCase() : "";
 		_this.loadStyle = function (file) {
-			var link = document[createElement]("link");
+			var link = document.createElement("link");
 			link.rel = "stylesheet";
 			link.type = "text/css";
 			link.href = file;
@@ -322,7 +367,7 @@ VK, WheelIndicator, Ya*/
 			(_this.body || _this.head)[appendChild](link);
 		};
 		_this.loadScript = function (i) {
-			var script = document[createElement]("script");
+			var script = document.createElement("script");
 			script.type = "text/javascript";
 			script.async = true;
 			script.src = _this.js[i];
@@ -373,22 +418,13 @@ VK, WheelIndicator, Ya*/
 	var docImplem = document.implementation || "";
 	var docBody = document.body || "";
 
-	var classList = "classList";
-	var createElement = "createElement";
-	var createElementNS = "createElementNS";
-	var defineProperty = "defineProperty";
-	var getElementsByClassName = "getElementsByClassName";
-	var getOwnPropertyDescriptor = "getOwnPropertyDescriptor";
-	var querySelector = "querySelector";
-	var querySelectorAll = "querySelectorAll";
-	var _addEventListener = "addEventListener";
 	var _length = "length";
 
 	addClass(docBody, "hide-sidedrawer");
 
 	var toStringFn = {}.toString;
-	var supportsSvgSmilAnimation = !!document[createElementNS] &&
-		(/SVGAnimate/).test(toStringFn.call(document[createElementNS]("http://www.w3.org/2000/svg", "animate"))) || "";
+	var supportsSvgSmilAnimation = !!document.createElementNS &&
+		(/SVGAnimate/).test(toStringFn.call(document.createElementNS("http://www.w3.org/2000/svg", "animate"))) || "";
 
 	if (supportsSvgSmilAnimation && docElem) {
 		addClass(docElem, "svganimate");
@@ -396,7 +432,7 @@ VK, WheelIndicator, Ya*/
 
 	var hasTouch = "ontouchstart" in docElem || "";
 
-	var hasWheel = "onwheel" in document[createElement]("div") || void 0 !== document.onmousewheel || "";
+	var hasWheel = "onwheel" in document.createElement("div") || void 0 !== document.onmousewheel || "";
 
 	var getHTTP = function (force) {
 		var any = force || "";
@@ -408,7 +444,7 @@ VK, WheelIndicator, Ya*/
 
 	var supportsCanvas;
 	supportsCanvas = (function () {
-		var elem = document[createElement]("canvas");
+		var elem = document.createElement("canvas");
 		return !!(elem.getContext && elem.getContext("2d"));
 	})();
 
@@ -427,11 +463,11 @@ VK, WheelIndicator, Ya*/
 		var getElementsByTagName = "getElementsByTagName";
 		var innerHTML = "innerHTML";
 		var parentNode = "parentNode";
+		var querySelectorAll = "querySelectorAll";
 		var setAttribute = "setAttribute";
 		var setAttributeNS = "setAttributeNS";
 		var style = "style";
 		var title = "title";
-		var _removeEventListener = "removeEventListener";
 
 		var isActiveClass = "is-active";
 		var isBindedClass = "is-binded";
@@ -439,7 +475,7 @@ VK, WheelIndicator, Ya*/
 		var isFixedClass = "is-fixed";
 		var isHiddenClass = "is-hidden";
 
-		if (docElem && docElem[classList]) {
+		if (docElem && docElem.classList) {
 			removeClass(docElem, "no-js");
 			addClass(docElem, "js");
 		}
@@ -519,7 +555,7 @@ VK, WheelIndicator, Ya*/
 				orientation: orientation || "",
 				size: size || ""
 			};
-		})(docElem[classList] || "");
+		})(docElem.classList || "");
 
 		var earlyDeviceType = (function (mobile, desktop, opera) {
 			var selector = (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i).test(opera) ||
@@ -681,7 +717,7 @@ VK, WheelIndicator, Ya*/
 		var LoadingSpinner = (function () {
 			var spinner = document[getElementById]("loading-spinner") || "";
 			if (!spinner) {
-				spinner = document[createElement]("div");
+				spinner = document.createElement("div");
 				spinner[setAttribute]("class", "half-circle-spinner");
 				spinner[setAttribute]("id", "loading-spinner");
 				spinner[setAttribute]("aria-hidden", "true");
@@ -766,12 +802,12 @@ VK, WheelIndicator, Ya*/
 					return o || "";
 				};
 				var _isCrossDomain = function () {
-					var c = document[createElement]("a");
+					var c = document.createElement("a");
 					c.href = url;
 					var v = c.protocol + "//" + c.hostname + (c.port ? ":" + c.port : "");
 					return v !== _origin();
 				};
-				var _link = document[createElement]("a");
+				var _link = document.createElement("a");
 				_link.href = url;
 				return {
 					href: _link.href,
@@ -880,7 +916,7 @@ VK, WheelIndicator, Ya*/
 							e.target = "_blank";
 							e.rel = "noopener";
 						} else {
-							e[_addEventListener]("click", handle.bind(null, url));
+							addListener(e, "click", handle.bind(null, url));
 						}
 						addClass(e, externalLinkIsBindedClass);
 					}
@@ -963,7 +999,7 @@ VK, WheelIndicator, Ya*/
 			var cb = function () {
 				return callback && "function" === typeof callback && callback();
 			};
-			var images = document[getElementsByClassName]("data-src-img") || "";
+			var images = getByClass(document, "data-src-img") || "";
 			var i = images[_length];
 			var dataSrcImgIsBindedClass = "data-src-img--is-binded";
 			while (i--) {
@@ -985,8 +1021,8 @@ VK, WheelIndicator, Ya*/
 		var handleDataSrcImgAllWindow = throttle(handleDataSrcImgAll, 100);
 
 		var manageDataSrcImgAll = function () {
-			root[_addEventListener]("scroll", handleDataSrcImgAllWindow, {passive: true});
-			root[_addEventListener]("resize", handleDataSrcImgAllWindow, {passive: true});
+			addListener(root, "scroll", handleDataSrcImgAllWindow, {passive: true});
+			addListener(root, "resize", handleDataSrcImgAllWindow, {passive: true});
 			var timer = setTimeout(function () {
 					clearTimeout(timer);
 					timer = null;
@@ -999,7 +1035,7 @@ VK, WheelIndicator, Ya*/
 			var cb = function () {
 				return callback && "function" === typeof callback && callback();
 			};
-			var iframes = document[getElementsByClassName]("data-src-iframe") || "";
+			var iframes = getByClass(document, "data-src-iframe") || "";
 			var i = iframes[_length];
 			var dataSrcIframeIsBindedClass = "data-src-iframe--is-binded";
 			while (i--) {
@@ -1026,8 +1062,8 @@ VK, WheelIndicator, Ya*/
 		var handleDataSrcIframeAllWindow = throttle(handleDataSrcIframeAll, 100);
 
 		var manageDataSrcIframeAll = function () {
-			root[_addEventListener]("scroll", handleDataSrcIframeAllWindow, {passive: true});
-			root[_addEventListener]("resize", handleDataSrcIframeAllWindow, {passive: true});
+			addListener(root, "scroll", handleDataSrcIframeAllWindow, {passive: true});
+			addListener(root, "resize", handleDataSrcIframeAllWindow, {passive: true});
 			var timer = setTimeout(function () {
 					clearTimeout(timer);
 					timer = null;
@@ -1042,7 +1078,7 @@ VK, WheelIndicator, Ya*/
 		 * @see {@link https://github.com/englishextra/img-lightbox}
 		 */
 		var manageImgLightbox = function (imgLightboxLinkClass) {
-			var link = document[getElementsByClassName](imgLightboxLinkClass) || "";
+			var link = getByClass(document, imgLightboxLinkClass) || "";
 			var initScript = function () {
 				imgLightbox(imgLightboxLinkClass, {
 					onLoaded: function () {
@@ -1069,7 +1105,7 @@ VK, WheelIndicator, Ya*/
 		 * @see {@link https://github.com/englishextra/iframe-lightbox}
 		 */
 		var manageIframeLightbox = function (iframeLightboxLinkClass) {
-			var link = document[getElementsByClassName](iframeLightboxLinkClass) || "";
+			var link = getByClass(document, iframeLightboxLinkClass) || "";
 			var initScript = function () {
 				var arrange = function (e) {
 					e.lightbox = new IframeLightbox(e, {
@@ -1103,7 +1139,7 @@ VK, WheelIndicator, Ya*/
 				return callback && "function" === typeof callback && callback();
 			};
 			var dataQrcodeImgClass = "data-qrcode-img";
-			var img = document[getElementsByClassName](dataQrcodeImgClass) || "";
+			var img = getByClass(document, dataQrcodeImgClass) || "";
 			var generateImg = function (e) {
 				var qrcode = e[dataset].qrcode || "";
 				qrcode = decodeURIComponent(qrcode);
@@ -1194,12 +1230,12 @@ VK, WheelIndicator, Ya*/
 				}
 			}
 			opt = null;
-			var rmLink = document[getElementsByClassName]("rm-link") || "";
+			var rmLink = getByClass(document, "rm-link") || "";
 			var arrange = function (e) {
 				var rmLinkIsBindedClass = "rm-link--is-binded";
 				if (!hasClass(e, rmLinkIsBindedClass)) {
 					addClass(e, rmLinkIsBindedClass);
-					e[_addEventListener]("click", cb);
+					addListener(e, "click", cb);
 				}
 			};
 			var initScript = function () {
@@ -1217,7 +1253,7 @@ VK, WheelIndicator, Ya*/
 		};
 
 		var manageExpandingLayerAll = function () {
-			var btn = document[getElementsByClassName]("btn-expand-hidden-layer") || "";
+			var btn = getByClass(document, "btn-expand-hidden-layer") || "";
 			var arrange = function (e) {
 				var handle = function () {
 					var _this = this;
@@ -1230,7 +1266,7 @@ VK, WheelIndicator, Ya*/
 					return;
 				};
 				if (!hasClass(e, isBindedClass)) {
-					e[_addEventListener]("click", handle);
+					addListener(e, "click", handle);
 					addClass(e, isBindedClass);
 				}
 			};
@@ -1259,7 +1295,7 @@ VK, WheelIndicator, Ya*/
 
 		var manageOtherCollapsableAll = function (_self) {
 			var _this = _self || this;
-			var btn = document[getElementsByClassName](isCollapsableClass) || "";
+			var btn = getByClass(document, isCollapsableClass) || "";
 			var arrange = function (e) {
 				if (_this !== e) {
 					removeClass(e, isActiveClass);
@@ -1279,15 +1315,15 @@ VK, WheelIndicator, Ya*/
 		};
 		var manageCollapsableAll = function () {
 			if (appContentParent) {
-				appContentParent[_addEventListener]("click", manageOtherCollapsableAll);
+				addListener(appContentParent, "click", manageOtherCollapsableAll);
 			}
 		};
 		manageCollapsableAll();
-		root[_addEventListener]("hashchange", manageOtherCollapsableAll);
+		addListener(root, "hashchange", manageOtherCollapsableAll);
 
 		var manageLocationQrcode = function () {
-			var btn = document[getElementsByClassName]("btn-toggle-holder-qrcode")[0] || "";
-			var holder = document[getElementsByClassName]("holder-location-qrcode")[0] || "";
+			var btn = getByClass(document, "btn-toggle-holder-qrcode")[0] || "";
+			var holder = getByClass(document, "holder-location-qrcode")[0] || "";
 			var locHref = root.location.href || "";
 			var hideHolder = function () {
 				removeClass(holder, isActiveClass);
@@ -1299,7 +1335,7 @@ VK, WheelIndicator, Ya*/
 				var logic = function () {
 					toggleClass(holder, isActiveClass);
 					var locHref = root.location.href || "";
-					var newImg = document[createElement]("img");
+					var newImg = document.createElement("img");
 					var newTitle = document[title] ? ("Ссылка на страницу «" + document[title].replace(/\[[^\]]*?\]/g, "").trim() + "»") : "";
 					var newSrc = forcedHTTP + "://chart.googleapis.com/chart?cht=qr&chld=M%7C4&choe=UTF-8&chs=512x512&chl=" + encodeURIComponent(locHref);
 					newImg.alt = newTitle;
@@ -1343,19 +1379,19 @@ VK, WheelIndicator, Ya*/
 			if (btn && holder && locHref) {
 				addClass(holder, isCollapsableClass);
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
-					btn[_addEventListener]("click", handleBtn);
+					addListener(btn, "click", handleBtn);
 					if (appContentParent) {
-						appContentParent[_addEventListener]("click", hideHolder);
+						addListener(appContentParent, "click", hideHolder);
 					}
-					root[_addEventListener]("hashchange", hideHolder);
+					addListener(root, "hashchange", hideHolder);
 				}
 			}
 		};
 		manageLocationQrcode();
 
 		var manageMobileappsButtons = function () {
-			var btn = document[getElementsByClassName]("btn-toggle-holder-mobileapps-buttons")[0] || "";
-			var holder = document[getElementsByClassName]("holder-mobileapps-buttons")[0] || "";
+			var btn = getByClass(document, "btn-toggle-holder-mobileapps-buttons")[0] || "";
+			var holder = getByClass(document, "holder-mobileapps-buttons")[0] || "";
 			var handle = function (ev) {
 				ev.stopPropagation();
 				ev.preventDefault();
@@ -1368,7 +1404,7 @@ VK, WheelIndicator, Ya*/
 			};
 			if (btn && holder) {
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
-					btn[_addEventListener]("click", handle);
+					addListener(btn, "click", handle);
 				}
 			}
 		};
@@ -1376,10 +1412,10 @@ VK, WheelIndicator, Ya*/
 
 		var yshare;
 		var manageShareButtons = function () {
-			var btn = document[getElementsByClassName]("btn-toggle-holder-share-buttons")[0] || "";
+			var btn = getByClass(document, "btn-toggle-holder-share-buttons")[0] || "";
 			var yaShare2Id = "ya-share2";
 			var yaShare2 = document[getElementById](yaShare2Id) || "";
-			var holder = document[getElementsByClassName]("holder-share-buttons")[0] || "";
+			var holder = getByClass(document, "holder-share-buttons")[0] || "";
 			var handle = function (ev) {
 				ev.stopPropagation();
 				ev.preventDefault();
@@ -1420,7 +1456,7 @@ VK, WheelIndicator, Ya*/
 			};
 			if (btn && holder && yaShare2) {
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
-					btn[_addEventListener]("click", handle);
+					addListener(btn, "click", handle);
 				}
 			}
 		};
@@ -1428,8 +1464,8 @@ VK, WheelIndicator, Ya*/
 
 		var vlike;
 		var manageVKLikeButton = function () {
-			var btn = document[getElementsByClassName]("btn-toggle-holder-vk-like")[0] || "";
-			var holder = document[getElementsByClassName]("holder-vk-like")[0] || "";
+			var btn = getByClass(document, "btn-toggle-holder-vk-like")[0] || "";
+			var holder = getByClass(document, "holder-vk-like")[0] || "";
 			var vkLikeId = "vk-like";
 			var vkLike = document[getElementById](vkLikeId) || "";
 			var handle = function (ev) {
@@ -1469,7 +1505,7 @@ VK, WheelIndicator, Ya*/
 			};
 			if (btn && holder && vkLike) {
 				if ("undefined" !== typeof getHTTP && getHTTP()) {
-					btn[_addEventListener]("click", handle);
+					addListener(btn, "click", handle);
 				}
 			}
 		};
@@ -1477,17 +1513,17 @@ VK, WheelIndicator, Ya*/
 
 		var manageBtnTotop = function () {
 			var btnClass = "btn-totop";
-			var btn = document[getElementsByClassName](btnClass)[0] || "";
+			var btn = getByClass(document, btnClass)[0] || "";
 			var insertUpSvg = function (targetObj) {
-				var svg = document[createElementNS]("http://www.w3.org/2000/svg", "svg");
-				var use = document[createElementNS]("http://www.w3.org/2000/svg", "use");
+				var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+				var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
 				svg[setAttribute]("class", "ui-icon");
 				use[setAttributeNS]("http://www.w3.org/1999/xlink", "xlink:href", "#ui-icon-outline-arrow_upward");
 				svg[appendChild](use);
 				targetObj[appendChild](svg);
 			};
 			if (!btn) {
-				btn = document[createElement]("a");
+				btn = document.createElement("a");
 				addClass(btn, btnClass, "mui-btn");
 				addClass(btn, btnClass, "mui-btn--fab");
 				addClass(btn, btnClass, "ripple");
@@ -1519,8 +1555,8 @@ VK, WheelIndicator, Ya*/
 				throttle(logic, 100).call(root);
 			};
 			if (docBody) {
-				btn[_addEventListener]("click", handle);
-				root[_addEventListener]("scroll", handleWindow, {passive: true});
+				addListener(btn, "click", handle);
+				addListener(root, "scroll", handleWindow, {passive: true});
 			}
 		};
 		manageBtnTotop();
@@ -1568,7 +1604,7 @@ VK, WheelIndicator, Ya*/
 						var i,
 						l;
 						for (i = 0, l = link[_length]; i < l; i += 1) {
-							link[i][_addEventListener]("click", hide.bind(null, menu));
+							addListener(link[i], "click", hide.bind(null, menu));
 						}
 						i = l = null;
 					}
@@ -1581,7 +1617,7 @@ VK, WheelIndicator, Ya*/
 					if (!hasClass(btn[i], isBindedClass) &&
 						btn[i].nextElementSibling.nodeName.toLowerCase() === "ul" &&
 						btn[i].nextElementSibling.nodeType === 1) {
-						btn[i][_addEventListener]("click", handle);
+						addListener(btn[i], "click", handle);
 						addClass(btn[i], isBindedClass);
 						removeClass(btn[i], isActiveClass);
 						addClass(btn[i].nextElementSibling, isCollapsableClass);
@@ -1594,7 +1630,7 @@ VK, WheelIndicator, Ya*/
 
 		var hideOnNavigating = function () {
 			var hide = function () {
-				var menu = document[getElementsByClassName]("mui-dropdown__menu") || "";
+				var menu = getByClass(document, "mui-dropdown__menu") || "";
 				if (menu) {
 					var i,
 					l;
@@ -1607,9 +1643,9 @@ VK, WheelIndicator, Ya*/
 				}
 			};
 			if (appContentParent) {
-				appContentParent[_addEventListener]("click", hide);
+				addListener(appContentParent, "click", hide);
 			}
-			root[_addEventListener]("resize", hide);
+			addListener(root, "resize", hide);
 		};
 		hideOnNavigating();
 
@@ -1691,7 +1727,7 @@ VK, WheelIndicator, Ya*/
 			var shortname = disqusThread ? (disqusThread[dataset].shortname || "") : "";
 			var hide = function () {
 				removeChildren(disqusThread);
-				var replacementText = document[createElement]("p");
+				var replacementText = document.createElement("p");
 				replacementText[appendChild](document[createTextNode]("Комментарии доступны только в веб версии этой страницы."));
 				appendFragment(replacementText, disqusThread);
 				disqusThread.removeAttribute("id");
@@ -1711,7 +1747,7 @@ VK, WheelIndicator, Ya*/
 					if (!hasClass(disqusThread[parentNode], minigridItemIsBindedClass)) {
 						addClass(disqusThread[parentNode], minigridItemIsBindedClass);
 						onHeightChange(disqusThread[parentNode], 1000, null, setDisqusCSSClass);
-						disqusThread[parentNode][_addEventListener]("onresize", updateMinigridThrottled, {passive: true});
+						addListener(disqusThread[parentNode], "onresize", updateMinigridThrottled, {passive: true});
 					}
 				} catch (err) {
 					throw new Error("cannot DISQUS.reset " + err);
@@ -1734,10 +1770,10 @@ VK, WheelIndicator, Ya*/
 
 		var manageInstagramEmbedAll = function () {
 			var instagramMediaClass = "instagram-media";
-			var instagramMedia = document[getElementsByClassName](instagramMediaClass)[0] || "";
+			var instagramMedia = getByClass(document, instagramMediaClass)[0] || "";
 			var initScript = function () {
 				try {
-					var instagramMedia = document[getElementsByClassName](instagramMediaClass) || "";
+					var instagramMedia = getByClass(document, instagramMediaClass) || "";
 					if (instagramMedia) {
 						instgrm.Embeds.process();
 						var i,
@@ -1746,7 +1782,7 @@ VK, WheelIndicator, Ya*/
 							if (!hasClass(instagramMedia[i][parentNode], minigridItemIsBindedClass)) {
 								addClass(instagramMedia[i][parentNode], minigridItemIsBindedClass);
 								onHeightChange(instagramMedia[i][parentNode], 1000, null, setIsActiveClass.bind(null, instagramMedia[i][parentNode]));
-								instagramMedia[i][parentNode][_addEventListener]("onresize", updateMinigridThrottled, {passive: true});
+								addListener(instagramMedia[i][parentNode], "onresize", updateMinigridThrottled, {passive: true});
 							}
 						}
 						i = l = null;
@@ -1768,10 +1804,10 @@ VK, WheelIndicator, Ya*/
 
 		var manageTwitterEmbedAll = function () {
 			var twitterTweetClass = "twitter-tweet";
-			var twitterTweet = document[getElementsByClassName](twitterTweetClass)[0] || "";
+			var twitterTweet = getByClass(document, twitterTweetClass)[0] || "";
 			var initScript = function () {
 				try {
-					var twitterTweet = document[getElementsByClassName](twitterTweetClass) || "";
+					var twitterTweet = getByClass(document, twitterTweetClass) || "";
 					if (twitterTweet) {
 						twttr.widgets.load();
 						var i,
@@ -1780,7 +1816,7 @@ VK, WheelIndicator, Ya*/
 							if (!hasClass(twitterTweet[i][parentNode], minigridItemIsBindedClass)) {
 								addClass(twitterTweet[i][parentNode], minigridItemIsBindedClass);
 								onHeightChange(twitterTweet[i][parentNode], 1000, null, setIsActiveClass.bind(null, twitterTweet[i][parentNode]));
-								twitterTweet[i][parentNode][_addEventListener]("onresize", updateMinigridThrottled, {passive: true});
+								addListener(twitterTweet[i][parentNode], "onresize", updateMinigridThrottled, {passive: true});
 							}
 						}
 						i = l = null;
@@ -1802,7 +1838,7 @@ VK, WheelIndicator, Ya*/
 
 		var manageVkEmbedAll = function () {
 			var vkPostClass = "vk-post";
-			var vkPost = document[getElementsByClassName](vkPostClass)[0] || "";
+			var vkPost = getByClass(document, vkPostClass)[0] || "";
 			var initScript = function () {
 				var initVkPost = function (element_id, owner_id, post_id, hash) {
 					if (!VK.Widgets.Post(element_id, owner_id, post_id, hash)) {
@@ -1810,7 +1846,7 @@ VK, WheelIndicator, Ya*/
 					}
 				};
 				try {
-					var vkPost = document[getElementsByClassName](vkPostClass) || "";
+					var vkPost = getByClass(document, vkPostClass) || "";
 					if (vkPost) {
 						var i,
 						l;
@@ -1818,7 +1854,7 @@ VK, WheelIndicator, Ya*/
 							if (!hasClass(vkPost[i][parentNode], minigridItemIsBindedClass)) {
 								addClass(vkPost[i][parentNode], minigridItemIsBindedClass);
 								onHeightChange(vkPost[i][parentNode], 1000, null, setIsActiveClass.bind(null, vkPost[i][parentNode]));
-								vkPost[i][parentNode][_addEventListener]("onresize", updateMinigridThrottled, {passive: true});
+								addListener(vkPost[i][parentNode], "onresize", updateMinigridThrottled, {passive: true});
 								initVkPost(vkPost[i].id, vkPost[i][dataset].vkOwnerid, vkPost[i][dataset].vkPostid, vkPost[i][dataset].vkHash);
 							}
 						}
@@ -1853,12 +1889,12 @@ VK, WheelIndicator, Ya*/
 		var minigridItemClass = "minigrid__item";
 
 		var initMinigrid = function () {
-			var minigrid = document[getElementsByClassName](minigridClass)[0] || "";
+			var minigrid = getByClass(document, minigridClass)[0] || "";
 			if (minigrid) {
 				try {
 					if (root.minigridInstance) {
 						root.minigridInstance = null;
-						root[_removeEventListener]("resize", updateMinigrid);
+						removeListener(root, "resize", updateMinigrid);
 					}
 					root.minigridInstance = new Minigrid({
 							container: "." + minigridClass,
@@ -1867,7 +1903,7 @@ VK, WheelIndicator, Ya*/
 						});
 					root.minigridInstance.mount();
 					addClass(minigrid, isActiveClass);
-					root[_addEventListener]("resize", updateMinigrid, {passive: true});
+					addListener(root, "resize", updateMinigrid, {passive: true});
 					appEvents.emitEvent("MinigridInited");
 				} catch (err) {
 					throw new Error("cannot init Minigrid " + err);
@@ -1879,9 +1915,9 @@ VK, WheelIndicator, Ya*/
 
 		var manageMinigrid = function (minigridClass) {
 			return new Promise(function (resolve, reject) {
-				var minigrid = document[getElementsByClassName](minigridClass)[0] || "";
+				var minigrid = getByClass(document, minigridClass)[0] || "";
 				var initScript = function () {
-					var item = minigrid[getElementsByClassName](minigridItemClass) || "";
+					var item = getByClass(minigrid, minigridItemClass) || "";
 					var itemLength = item[_length] || 0;
 					if (item && !hasClass(minigrid, isActiveClass)) {
 						scroll2Top(1, 20000);
@@ -1924,7 +1960,7 @@ VK, WheelIndicator, Ya*/
 		var macyClass = "macy";
 
 		var initMacy = function () {
-			var macy = document[getElementsByClassName](macyClass)[0] || "";
+			var macy = getByClass(document, macyClass)[0] || "";
 			if (macy) {
 				try {
 					if (root.macyInstance) {
@@ -1957,7 +1993,7 @@ VK, WheelIndicator, Ya*/
 
 		var manageMacy = function (macyClass) {
 			return new Promise(function (resolve, reject) {
-				var macy = document[getElementsByClassName](macyClass)[0] || "";
+				var macy = getByClass(document, macyClass)[0] || "";
 				var initScript = function () {
 					var item = macy ? (macy.children || macy[querySelectorAll]("." + macyClass + " > *") || "") : "";
 					var itemLength = item[_length] || 0;
@@ -1974,12 +2010,12 @@ VK, WheelIndicator, Ya*/
 					var onLoad;
 					var onError;
 					var addListeners = function (e) {
-						e[_addEventListener]("load", onLoad, false);
-						e[_addEventListener]("error", onError, false);
+						addListener(e, "load", onLoad, false);
+						addListener(e, "error", onError, false);
 					};
 					var removeListeners = function (e) {
-						e[_removeEventListener]("load", onLoad, false);
-						e[_removeEventListener]("error", onError, false);
+						removeListener(e, "load", onLoad, false);
+						removeListener(e, "error", onError, false);
 					};
 					onLoad = function () {
 						removeListeners(this);
@@ -2033,7 +2069,7 @@ VK, WheelIndicator, Ya*/
 						category[i].nextElementSibling.nodeType === 1
 						) {
 							setStyleDisplayNone(category[i].nextElementSibling);
-							category[i][_addEventListener]("click", handle);
+							addListener(category[i], "click", handle);
 							addClass(category[i], isBindedClass);
 					}
 				}
@@ -2050,7 +2086,7 @@ VK, WheelIndicator, Ya*/
 					l;
 					for (i = 0, l = link[_length]; i < l; i += 1) {
 						if (!hasClass(link[i], isBindedClass)) {
-							link[i][_addEventListener]("click", hideSidedrawer);
+							addListener(link[i], "click", hideSidedrawer);
 							addClass(link[i], isBindedClass);
 						}
 					}
@@ -2058,12 +2094,12 @@ VK, WheelIndicator, Ya*/
 				}
 			}
 			if (appContentParent) {
-				appContentParent[_addEventListener]("click", hideSidedrawer);
+				addListener(appContentParent, "click", hideSidedrawer);
 			}
 		};
 
 		var manageSidedrawer = function () {
-			var btn = document[getElementsByClassName]("sidedrawer-toggle") || "";
+			var btn = getByClass(document, "sidedrawer-toggle") || "";
 			var handle = function () {
 				if (sidedrawer) {
 					if (!hasClass(docBody, hideSidedrawerClass)) {
@@ -2084,7 +2120,7 @@ VK, WheelIndicator, Ya*/
 				l;
 				for (i = 0, l = btn[_length]; i < l; i += 1) {
 					if (!hasClass(btn[i], isBindedClass)) {
-						btn[i][_addEventListener]("click", handle);
+						addListener(btn[i], "click", handle);
 						addClass(btn[i], isBindedClass);
 					}
 				}
@@ -2116,7 +2152,7 @@ VK, WheelIndicator, Ya*/
 				addItemHandlerAll();
 			}
 		};
-		root[_addEventListener]("hashchange", highlightSidedrawerItem);
+		addListener(root, "hashchange", highlightSidedrawerItem);
 
 		var appBar = document[getElementsByTagName]("header")[0] || "";
 		var appBarHeight = appBar.offsetHeight || 0;
@@ -2153,11 +2189,11 @@ VK, WheelIndicator, Ya*/
 			throttle(logic, 100).call(root);
 		};
 		if (appBar) {
-			root[_addEventListener]("scroll", resetAppBar, {passive: true});
+			addListener(root, "scroll", resetAppBar, {passive: true});
 			if (hasTouch) {
 				if (root.tocca) {
-					document[_addEventListener]("swipeup", hideAppBar, {passive: true});
-					document[_addEventListener]("swipedown", revealAppBar, {passive: true});
+					addListener(document, "swipeup", hideAppBar, {passive: true});
+					addListener(document, "swipedown", revealAppBar, {passive: true});
 				}
 			} else {
 				if (hasWheel) {
@@ -2181,8 +2217,8 @@ VK, WheelIndicator, Ya*/
 		}
 
 		var managePrevNext = function (jsonObj) {
-			var btnPrevPage = document[getElementsByClassName]("btn-prev-page")[0] || "";
-			var btnNextPage = document[getElementsByClassName]("btn-next-page")[0] || "";
+			var btnPrevPage = getByClass(document, "btn-prev-page")[0] || "";
+			var btnNextPage = getByClass(document, "btn-next-page")[0] || "";
 			if (btnPrevPage && btnNextPage) {
 				var locationHash = root.location.hash || "";
 				var prevHash;
@@ -2334,12 +2370,12 @@ VK, WheelIndicator, Ya*/
 	var supportsPassive = (function() {
 		var support = false;
 		try {
-			var opts = Object[defineProperty] && Object[defineProperty]({}, "passive", {
+			var opts = Object.defineProperty && Object.defineProperty({}, "passive", {
 				get: function() {
 					support = true;
 				}
 			});
-			root[_addEventListener]("test", function() {}, opts);
+			root.addEventListener("test", function() {}, opts);
 		} catch (err) {}
 		return support;
 	})();
@@ -2350,20 +2386,20 @@ VK, WheelIndicator, Ya*/
 			!root.requestAnimationFrame ||
 			!root.matchMedia ||
 			("undefined" === typeof root.Element && !("dataset" in docElem)) ||
-			!("classList" in document[createElement]("_")) ||
-			document[createElementNS] && !("classList" in document[createElementNS]("http://www.w3.org/2000/svg", "g")) ||
-			(root.attachEvent && !root[_addEventListener]) ||
+			!("classList" in document.createElement("_")) ||
+			document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g")) ||
+			(root.attachEvent && !root.addEventListener) ||
 			!("onhashchange" in root) ||
 			!Array.prototype.indexOf ||
 			!root.Promise ||
 			!root.fetch ||
-			!document[querySelectorAll] ||
-			!document[querySelector] ||
+			!document.querySelectorAll ||
+			!document.querySelector ||
 			!Function.prototype.bind ||
-			(Object[defineProperty] &&
-				Object[getOwnPropertyDescriptor] &&
-				Object[getOwnPropertyDescriptor](Element.prototype, "textContent") &&
-				!Object[getOwnPropertyDescriptor](Element.prototype, "textContent").get) ||
+			(Object.defineProperty &&
+				Object.getOwnPropertyDescriptor &&
+				Object.getOwnPropertyDescriptor(Element.prototype, "textContent") &&
+				!Object.getOwnPropertyDescriptor(Element.prototype, "textContent").get) ||
 			!("undefined" !== typeof root.localStorage && "undefined" !== typeof root.sessionStorage) ||
 			!root.WeakMap ||
 			!root.MutationObserver;
@@ -2419,7 +2455,7 @@ VK, WheelIndicator, Ya*/
 		if (root.requestAnimationFrame) {
 			req = requestAnimationFrame(raf);
 		} else {
-			root[_addEventListener]("load", handle);
+			addListener(root, "load", handle);
 		}
 	};
 
