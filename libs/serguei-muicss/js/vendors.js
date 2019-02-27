@@ -1594,11 +1594,8 @@ function _typeof(obj) {
 			debounce(logic, this.rate).call();
 		};
 
-		if (
-			!this.trigger.classList.contains(iframeLightboxLinkIsBindedClass)
-		) {
+		if (!this.trigger.classList.contains(iframeLightboxLinkIsBindedClass)) {
 			this.trigger.classList.add(iframeLightboxLinkIsBindedClass);
-
 			this.trigger.addEventListener("click", handleIframeLightboxLink);
 
 			if (isTouch && (_this.touch || _this.dataTouch)) {
@@ -1636,18 +1633,15 @@ function _typeof(obj) {
 
 		this.el.appendChild(this.btnClose);
 		docBody.appendChild(this.el);
-
 		backdrop.addEventListener("click", function() {
 			_this.close();
 		});
-
 		this.btnClose.addEventListener("click", function() {
 			_this.close();
 		});
 
 		if (!docElem.classList.contains(iframeLightboxWindowIsBindedClass)) {
 			docElem.classList.add(iframeLightboxWindowIsBindedClass);
-
 			root.addEventListener("keyup", function(ev) {
 				if (27 === (ev.which || ev.keyCode)) {
 					_this.close();
@@ -1666,13 +1660,9 @@ function _typeof(obj) {
 		};
 
 		this.el.addEventListener("transitionend", clearBody, false);
-
 		this.el.addEventListener("webkitTransitionEnd", clearBody, false);
-
 		this.el.addEventListener("mozTransitionEnd", clearBody, false);
-
 		this.el.addEventListener("msTransitionEnd", clearBody, false);
-
 		this.callCallback(this.onCreated, this);
 	};
 
@@ -1833,15 +1823,15 @@ function _typeof(obj) {
 		caller(data);
 	};
 
-	var setStyleDisplayBlock = function setStyleDisplayBlock(a) {
-		if (a) {
-			a.style.display = "block";
+	var setDisplayBlock = function setDisplayBlock(e) {
+		if (e) {
+			e.style.display = "block";
 		}
 	};
 
-	var setStyleDisplayNone = function setStyleDisplayNone(a) {
-		if (a) {
-			a.style.display = "none";
+	var setDisplayNone = function setDisplayNone(e) {
+		if (e) {
+			e.style.display = "none";
 		}
 	};
 
@@ -1867,7 +1857,7 @@ function _typeof(obj) {
 				};
 
 				img.src = dummySrc;
-				setStyleDisplayNone(container);
+				setDisplayNone(container);
 				callCallback(callback, root);
 			};
 
@@ -1932,12 +1922,10 @@ function _typeof(obj) {
 			};
 
 			container.addEventListener("click", handleImgLightboxContainer);
-
 			btnClose.addEventListener("click", handleImgLightboxContainer);
 
 			if (!docElem.classList.contains(imgLightboxWindowIsBindedClass)) {
 				docElem.classList.add(imgLightboxWindowIsBindedClass);
-
 				root.addEventListener("keyup", function(ev) {
 					if (27 === (ev.which || ev.keyCode)) {
 						hideImgLightbox(onClosed);
@@ -1987,7 +1975,7 @@ function _typeof(obj) {
 					};
 
 					img.src = hrefString;
-					setStyleDisplayBlock(container);
+					setDisplayBlock(container);
 				};
 
 				debounce(logic, rate).call();
@@ -1995,7 +1983,6 @@ function _typeof(obj) {
 
 			if (!e.classList.contains(imgLightboxLinkIsBindedClass)) {
 				e.classList.add(imgLightboxLinkIsBindedClass);
-
 				e.addEventListener("click", handleImgLightboxLink);
 
 				if (isTouch && (touch || dataTouch)) {
