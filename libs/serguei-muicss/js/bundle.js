@@ -1,20 +1,21 @@
 /*jslint browser: true */
 /*jslint node: true */
 /*global $readMoreJS, ActiveXObject, addClass, addListener, appendFragment,
-console, dataSrcImgClass, dataSrcIframeClass, debounce, DISQUS, doesFontExist,
+console, dataSrcIframeClass, dataSrcImgClass, debounce, DISQUS, doesFontExist,
 earlySvgSupport, earlySvgasimgSupport, earlyHasTouch, earlyDeviceType,
 earlyDeviceFormfactor, EventEmitter, findPos, forcedHTTP, getByClass,
 getHumanDate, hasClass, hasTouch, hasWheel, hljs, IframeLightbox, imgLightbox,
 insertExternalHTML, insertFromTemplate, insertTextAsFragment, instgrm,
 isNodejs, isElectron, isNwjs, isValidId, JsonHashRouter, LazyLoad,
 loadDeferred, LoadingSpinner, loadJsCss, loadJsonResponse, Macy,
-manageImgLightbox, manageIframeLightbox, manageExternalLinkAll,
-manageDataQrcodeImgAll, manageDataSrcImgAll, manageDataSrcIframeAll, Minigrid,
-Mustache, needsPolyfills, openDeviceBrowser, parseLink, progressBar, Promise,
-QRCode, removeChildren, removeClass, removeListener, renderTemplate, require,
-ripple, safelyParseJSON, scroll2Top, setDisplayBlock, setDisplayNone,
-supportsCanvas, supportsPassive, supportsSvgSmilAnimation, t, throttle,
-toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
+manageImgLightbox, manageIframeLightbox, manageExpandingLayerAll,
+manageExternalLinkAll, manageDataQrcodeImgAll, manageDataSrcImgAll,
+manageDataSrcIframeAll, Minigrid, Mustache, needsPolyfills, openDeviceBrowser,
+parseLink, progressBar, Promise, QRCode, removeChildren, removeClass,
+removeListener, renderTemplate, require, ripple, safelyParseJSON, scroll2Top,
+setDisplayBlock, setDisplayNone, supportsCanvas, supportsPassive,
+supportsSvgSmilAnimation, t, throttle, toggleClass, twttr, unescape, VK,
+WheelIndicator, Ya*/
 /*property console, join, split */
 /*!
  * safe way to handle console.log
@@ -140,7 +141,7 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 	 * Does not handle differences in the Event-objects.
 	 * @see {@link https://github.com/finn-no/eventlistener}
 	 */
-	var wrapListener = function (standard, fallback) {
+	var setListener = function (standard, fallback) {
 		return function (el, type, listener, useCapture) {
 			if (el[standard]) {
 				el[standard](type, listener, useCapture);
@@ -151,8 +152,8 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 			}
 		};
 	};
-	root.addListener = wrapListener("addEventListener", "attachEvent");
-	root.removeListener = wrapListener("removeEventListener", "detachEvent");
+	root.addListener = setListener("addEventListener", "attachEvent");
+	root.removeListener = setListener("removeEventListener", "detachEvent");
 
 	/*!
 	 * get elements by class name wrapper
@@ -1017,6 +1018,42 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 	};
 
 	/*!
+	 * manageExpandingLayerAll
+	 */
+	root.manageExpandingLayerAll = function (callback) {
+		var cb = function () {
+			return callback && "function" === typeof callback && callback();
+		};
+		var btn = getByClass(document, "btn-expand-hidden-layer") || "";
+		var isActiveClass = "is-active";
+		var isBindedClass = "is-binded";
+		var arrange = function (e) {
+			var handle = function () {
+				var _this = this;
+				var layer = _this.parentNode ? _this.parentNode.nextElementSibling : "";
+				if (layer) {
+					toggleClass(_this, isActiveClass);
+					toggleClass(layer, isActiveClass);
+					cb();
+				}
+				return;
+			};
+			if (!hasClass(e, isBindedClass)) {
+				addListener(e, "click", handle);
+				addClass(e, isBindedClass);
+			}
+		};
+		if (btn) {
+			var i,
+			l;
+			for (i = 0, l = btn.length; i < l; i += 1) {
+				arrange(btn[i]);
+			}
+			i = l = null;
+		}
+	};
+
+	/*!
 	 * LoadingSpinner
 	 */
 	root.LoadingSpinner = (function () {
@@ -1381,34 +1418,6 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 			}
 		};
 
-		var manageExpandingLayerAll = function () {
-			var btn = getByClass(document, "btn-expand-hidden-layer") || "";
-			var arrange = function (e) {
-				var handle = function () {
-					var _this = this;
-					var s = _this.nextElementSibling || "";
-					if (s) {
-						toggleClass(_this, isActiveClass);
-						toggleClass(s, isActiveClass);
-						updateMinigrid();
-					}
-					return;
-				};
-				if (!hasClass(e, isBindedClass)) {
-					addListener(e, "click", handle);
-					addClass(e, isBindedClass);
-				}
-			};
-			if (btn) {
-				var i,
-				l;
-				for (i = 0, l = btn.length; i < l; i += 1) {
-					arrange(btn[i]);
-				}
-				i = l = null;
-			}
-		};
-
 		var appContentId = "app-content";
 
 		var appContent = document.getElementById(appContentId) || "";
@@ -1450,7 +1459,7 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 		addListener(root, "hashchange", manageCollapsableAll);
 
 		var manageLocationQrcode = function () {
-			var btn = getByClass(document, "btn-toggle-holder-qrcode")[0] || "";
+			var btn = getByClass(document, "btn-toggle-holder-location-qrcode")[0] || "";
 			var holder = getByClass(document, "holder-location-qrcode")[0] || "";
 			var locHref = root.location.href || "";
 			var hideHolder = function () {
@@ -2448,7 +2457,7 @@ toggleClass, twttr, unescape, VK, WheelIndicator, Ya*/
 						manageDropdownBtnAll();
 						manageHljs();
 						manageRipple();
-						manageExpandingLayerAll();
+						manageExpandingLayerAll(updateMinigrid);
 						manageMacy().then(function (result) {
 							console.log(result);
 						})
