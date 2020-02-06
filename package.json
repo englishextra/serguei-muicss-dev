@@ -16,7 +16,7 @@
 		"url": "https://gitlab.com/englishextra/englishextra.gitlab.io.git"
 	},
 	"dependencies": {
-		"npm": "^6.10.2"
+		"npm": "^6.13.7"
 	},
 	"devDependencies": {
 		"gulp": "^4.0.0",
