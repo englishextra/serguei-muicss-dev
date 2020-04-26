@@ -49,7 +49,10 @@
 			"title": "Контакты"
 		}
 	],
-	"more": [z{
+	"more": [{
+			"href": "#/contacts",
+			"title": "Контакты"
+		}, {
 			"href": "https://yandex.ru/uslugi/profile/SergueiShimansky-106735",
 			"title": "Яндекс.Услуги"
 		}, {
@@ -64,6 +67,9 @@
 		}
 	],
 	"contacts": [{
+			"href": "#/contacts",
+			"title": "Контакты"
+		}, {
 			"href": "https://yandex.ru/uslugi/worker-review/SergueiShimansky-106735",
 			"title": "Оставить отзыв"
 		}, {
