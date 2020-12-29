@@ -1,0 +1,42 @@
+{
+	"name": "englishextra.gitlab.io",
+	"version": "0.1.0",
+	"description": "an educational website https://englishextra.gitlab.io/",
+	"keywords": [
+		"spa",
+		"pwa",
+		"webapp"
+	],
+	"main": "main.js",
+	"window": {
+		"icon": "favicon-32x32.png"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://gitlab.com/englishextra/englishextra.gitlab.io.git"
+	},
+	"dependencies": {
+		"npm": "^6.14.8"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.0",
+		"gulp-cli": "^2.0.1",
+		"gulp-eslint": "^5.0.0"
+	},
+	"scripts": {
+		"test": "gulp lint-libbundle-js"
+	},
+	"email": "englishextra@mail.ru",
+	"url": "https://gitlab.com/englishextra/englishextra.gitlab.io/issues",
+	"maintainers": [{
+		"name": "Serguei Shimansky",
+		"email": "englishextra@mail.ru",
+		"url": "https://github.com/englishextra"
+	}],
+	"author": {
+		"name": "Serguei Shimansky",
+		"email": "englishextra@mail.ru",
+		"url": "https://github.com/englishextra"
+	},
+	"license": "(MIT)"
+}
