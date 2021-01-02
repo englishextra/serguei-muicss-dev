@@ -7,3 +7,6 @@ maps/
 node_modules/
 *.sublime-project
 *.sublime-workspace
+sw.min.js
+sw.min.js.map
+sw.js
