@@ -1,0 +1,13 @@
+*.ai
+*.psd
+*.zip
+.*.md
+bower_components/
+maps/
+node_modules/
+package-lock.json
+*.sublime-project
+*.sublime-workspace
+sw.min.js
+sw.min.js.map
+sw.js
